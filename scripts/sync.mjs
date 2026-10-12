@@ -28,7 +28,25 @@ const safe = (value) => String(value).toLowerCase().replace(/[^a-z0-9-]+/g, "-")
 const rows = [];
 for (const item of items) {
   let path;
-  if (item.kind === "skill") {
+  if (item.kind === "skill" && item.install?.source_url) {
+    // Third-party skill: link to the author's repo instead of copying it.
+    const name = safe(item.install.name || item.slug);
+    path = `skills/third-party/${name}.md`;
+    write(path, [
+      `# ${item.title}`,
+      "",
+      item.summary ?? "",
+      "",
+      `- Source: ${item.install.repository || item.install.source_url}`,
+      `- SKILL.md: ${item.install.source_url}`,
+      item.install.author ? `- Author: ${item.install.author}` : null,
+      item.install.license ? `- License: ${item.install.license}` : null,
+      `- Page: ${item.url}`,
+      "",
+      item.body.trim(),
+      "",
+    ].filter((line) => line !== null).join("\n"));
+  } else if (item.kind === "skill") {
     const name = safe(item.install?.name || item.slug);
     path = `skills/${name}/SKILL.md`;
     write(path, item.body.trim() + "\n");
