@@ -1,0 +1,1223 @@
+slug,title,summary,kind,community,tags,body,url
+scroll-to-top-on-every-navigation-e66fb364,Scroll-to-Top on Every Navigation,"This commands ensures that when a user lands on any page of an application, the user gets taken to the very top of that page, and not the position the user was on the previous page.",prompt,frontend,top of the page;page position;fixed page position,"On every route change, reset the viewport scroll position to (0, 0) before the destination page renders, so users always land at the very top of every page—no scroll state should ever carry over between pages anywhere in the application.",https://commandvault.ai/commands/scroll-to-top-on-every-navigation-e66fb364
+universal-dark-mode-toggle-80b6fd46,Universal Dark-Mode Toggle,Persist a user’s light/dark preference across sessions and devices.,prompt,frontend,dark mode;dark,"Add a theme toggle that stores the chosen mode in localStorage and user profile; on every page load, read that value and apply the corresponding CSS class before content flashes.",https://commandvault.ai/commands/universal-dark-mode-toggle-80b6fd46
+instant-email-verification-link-507dce29,Instant Email Verification Link,Verify new accounts seamlessly,prompt,backend,email;email verification,"Upon user registration, generate a signed, 24-hour email-verification URL and block login until that link is clicked—then flip email_verified to true.",https://commandvault.ai/commands/instant-email-verification-link-507dce29
+one-click-password-reset-182f1360,One-Click Password Reset,"Fast, secure password recovery",prompt,backend,password;password reset,"Expose a ‘Forgot Password’ flow that sends a single-use token expiring in 60 minutes; on token submission, let the user set a new password and invalidate every active session",https://commandvault.ai/commands/one-click-password-reset-182f1360
+autosave-form-drafts-13cb65f4,Autosave Form Drafts,Prevent data loss on long forms,prompt,frontend,autosave;forms;form autosave,"Every 5 seconds, diff unsaved form fields and store them in IndexedDB keyed by form ID; restore those fields automatically if the user returns before a successful submit",https://commandvault.ai/commands/autosave-form-drafts-13cb65f4
+debounced-live-search-a8ec2c2f,Debounced Live Search,Reduce server load while users type,prompt,frontend,server load,Wrap the global search input in a 300 ms debounce; ignore keystrokes during that window and fire one API request with the final query string,https://commandvault.ai/commands/debounced-live-search-a8ec2c2f
+skeleton-loading-placeholders-95a8cd27,Skeleton Loading Placeholders,Smooth perceived performance,prompt,frontend,skeleton blocks;loading;placeholders;loading placeholder,"Show lightweight skeleton blocks that match each component’s shape until the real data arrives, then swap instantly—never display a blank screen",https://commandvault.ai/commands/skeleton-loading-placeholders-95a8cd27
+graceful-404-fallback-e907f8bc,Graceful 404 Fallback,Keep users oriented on bad URLs,prompt,frontend,404;404 fallback,Route any unmatched path to a branded 404 page with a ‘Back to Dashboard’ button and a search bar; send the path to error analytics,https://commandvault.ai/commands/graceful-404-fallback-e907f8bc
+role-based-access-control-5cccc8f4,Role-Based Access Control,Limit sensitive features to the right people,prompt,backend,access control;login;password protected;roles,Attach a role field to every auth token and gate each protected route and API mutation against a whitelist of accepted roles before executing,https://commandvault.ai/commands/role-based-access-control-5cccc8f4
+local-business-directory-system-d4d6d361,Local Business Directory System,A full template including initial command and knowledge base to build a local business directory service that you can apply to your local community and start helping small businesses while making a profit.,prompt,backend,local business;directory;marketing;saas,"Build a local directory software to list and promote local businesses in a specific industry, enabling online advertising and lead generation. Include a front-end directory for users to browse listings and a back-end admin panel to manage content. Focus on these core functionalities, described only by what they do, without specifying technology or methods:
+Front-End Directory:
+1.  Show a searchable directory of businesses with name, description, contact info, address, and images.
+2.  Allow keyword search and filters for category or location.
+3.  Enable lead generation via a “Contact Business” form sending inquiries to businesses.
+4.  Support user accounts to save favorites and submit reviews.
+5.  Display ads (e.g., banners, sponsored listings) for businesses.
+Back-End Admin Panel:
+1.  Let admins add, edit, or remove listings with an approval process.
+2.  Manage user accounts and moderate reviews.
+3.  Track leads and manage ad campaigns (e.g., banners, premium listings).
+4.  Collect fees from businesses, deducting a percentage as profit.
+5.  Provide an analytics dashboard for listings, engagement, and revenue.
+Business Model:
+1.  Charge businesses for listings or premium features, with a profit percentage deducted.
+2.  Ensure scalability for many listings and users.
+3.  Comply with data privacy laws and secure the admin panel.
+Build an intuitive, reliable system, easy for non-technical users and admins, with fast performance and clear error handling.",https://commandvault.ai/commands/local-business-directory-system-d4d6d361
+build-an-accessible-react-component-592a69d5,Build an accessible React component,"Get a production-ready component with keyboard support, ARIA and tests.",prompt,frontend,react;accessibility;components,"Build a {{component}} component in React + TypeScript for {{use_case}}.
+
+Requirements:
+- Fully keyboard operable (Tab, Shift+Tab, Enter, Space, Escape, arrow keys where it makes sense).
+- Correct roles and ARIA attributes; no ARIA where native HTML already works.
+- Visible focus styles that pass WCAG 2.2 AA contrast.
+- Props are typed, documented with JSDoc, and have sensible defaults.
+- No external UI libraries. Styling with {{styling}}.
+
+Return: the component file, a short usage example, and a test file (Testing Library) covering keyboard use and screen-reader labels.",https://commandvault.ai/commands/build-an-accessible-react-component-592a69d5
+pre-launch-ui-polish-checklist-cdf82223,Pre-launch UI polish checklist,Walk a page through the details users notice before you ship.,checklist,frontend,qa;ui;launch,"Review the page at {{page_url_or_file}} against this checklist and report each item as PASS / FIX with a one-line note:
+
+1. Empty, loading and error states exist for every data-driven area.
+2. Text never overflows or truncates without a tooltip at 320px width.
+3. Tap targets are at least 44x44px on mobile.
+4. Buttons show a pressed / disabled / busy state.
+5. Forms keep user input after a failed submit.
+6. Images have width/height (no layout shift) and meaningful alt text.
+7. Dark mode (if supported) has no unreadable text.
+8. Page title and meta description are set.
+9. Keyboard focus order follows visual order.
+10. Nothing logs errors to the console.
+
+End with the three fixes that would most improve the page.",https://commandvault.ai/commands/pre-launch-ui-polish-checklist-cdf82223
+convert-a-design-screenshot-into-clean-html-css-6e824cb6,Convert a design screenshot into clean HTML/CSS,"Turn a mockup into semantic, responsive markup without a framework.",prompt,frontend,html;css;responsive,"I'm attaching a screenshot of {{screen_name}}. Recreate it as semantic HTML and modern CSS.
+
+Rules:
+- Mobile first; breakpoints at {{breakpoints}}.
+- Use CSS custom properties for colors, spacing and radius; put them in :root.
+- Flexbox/grid only, no absolute positioning for layout.
+- Use real elements (nav, main, section, button, label) — no div soup.
+- Where the screenshot is ambiguous, pick the simplest option and list your assumptions at the end.
+
+Output one HTML file with a <style> block.",https://commandvault.ai/commands/convert-a-design-screenshot-into-clean-html-css-6e824cb6
+find-and-fix-react-re-render-problems-89688638,Find and fix React re-render problems,Diagnose why a component tree is slow and get concrete fixes.,prompt,frontend,react;performance;debugging,"Here is a React component tree that feels slow when {{slow_interaction}}:
+
+{{code}}
+
+1. List every component that re-renders on that interaction and why (props identity, context, state placement).
+2. Rank the causes by likely cost.
+3. Propose the smallest fixes first (moving state down, splitting context, stable callbacks, memo) and show the changed code.
+4. Tell me how to confirm the fix with React DevTools Profiler.
+
+Do not add memoization everywhere — only where it measurably helps.",https://commandvault.ai/commands/find-and-fix-react-re-render-problems-89688638
+form-validation-schema-with-friendly-errors-922d9ec3,Form validation schema with friendly errors,Generate a Zod schema plus human error messages for any form.,template,frontend,forms;validation;zod,"Create a Zod schema for a {{form_name}} form with these fields:
+{{fields}}
+
+For each field:
+- Pick the right type and constraints (min/max, email, url, regex).
+- Write an error message a non-technical person understands (""Use at least 8 characters"", not ""String must contain at least 8 character(s)"").
+- Trim strings and coerce numbers where appropriate.
+
+Also export the inferred TypeScript type and a helper that turns Zod errors into { field: message } for the UI.",https://commandvault.ai/commands/form-validation-schema-with-friendly-errors-922d9ec3
+design-a-rest-api-for-a-feature-4bfdfef6,Design a REST API for a feature,"Endpoints, payloads, status codes and edge cases before you write code.",prompt,backend,api;rest;design,"Design a REST API for {{feature}} in a {{stack}} app.
+
+Give me:
+1. Resources and endpoints (method, path, purpose).
+2. Request and response JSON for each, with realistic example values.
+3. Status codes for success and every failure case.
+4. Auth and permission rules per endpoint.
+5. Pagination, filtering and sorting conventions.
+6. Idempotency and rate-limit notes for write endpoints.
+7. Open questions I need to answer before building.
+
+Keep it consistent: plural nouns, kebab-case paths, camelCase JSON.",https://commandvault.ai/commands/design-a-rest-api-for-a-feature-4bfdfef6
+model-a-postgres-schema-with-row-level-security-4c536980,Model a Postgres schema with row-level security,"Tables, indexes and RLS policies for a multi-user feature.",prompt,backend,postgres;supabase;rls;database,"I'm building {{feature}} on Postgres (Supabase). Users: {{user_roles}}.
+
+Produce a single SQL migration that:
+- Creates tables with uuid primary keys, timestamps, foreign keys and check constraints.
+- Adds indexes for every foreign key and every column I'll filter or sort by.
+- Enables RLS on every table and writes select/insert/update/delete policies per role, using (select auth.uid()).
+- Keeps privileged logic in security definer functions with search_path set to ''.
+
+After the SQL, explain each policy in one sentence and list queries I should run to prove a user cannot read another user's rows.",https://commandvault.ai/commands/model-a-postgres-schema-with-row-level-security-4c536980
+add-a-background-job-safely-ffa03721,Add a background job safely,Move slow work out of the request with retries and idempotency.,workflow,backend,jobs;queues;reliability,"The request handler below does slow work ({{slow_work}}) inline:
+
+{{code}}
+
+Refactor it to a background job using {{queue_tool}}:
+1. The handler validates input, enqueues a job with an idempotency key, and returns 202 immediately.
+2. The worker is safe to run twice for the same key.
+3. Retries use exponential backoff with a max attempt count; failures land in a dead-letter list.
+4. Log job id, attempt and duration; never log secrets or full payloads.
+5. Show how the UI can poll or subscribe for the result.
+
+Return the new handler, the worker and a short runbook for stuck jobs.",https://commandvault.ai/commands/add-a-background-job-safely-ffa03721
+write-integration-tests-for-an-endpoint-95976de5,Write integration tests for an endpoint,"Cover the happy path, auth and the edge cases that bite in production.",prompt,backend,testing;api;integration,"Write integration tests for this endpoint using {{test_framework}}:
+
+{{endpoint_code}}
+
+Cover at minimum:
+- Success with valid input (assert body and status).
+- Missing/invalid auth → 401/403.
+- Validation failures for each required field.
+- Not found and conflict cases.
+- Rate limit or duplicate submission behavior if present.
+
+Use factories for test data, clean up after each test, and don't mock the database unless I say so.",https://commandvault.ai/commands/write-integration-tests-for-an-endpoint-95976de5
+database-migration-safety-review-abd8f75a,Database migration safety review,"Catch locking, data loss and rollback problems before running a migration.",checklist,backend,migrations;postgres;deploys,"Review this migration before it runs on a production database with {{table_size}} rows:
+
+{{migration_sql}}
+
+Check and report:
+1. Statements that take long or exclusive locks (adding NOT NULL, changing types, non-concurrent indexes).
+2. Anything that drops or rewrites data — and whether it's reversible.
+3. Whether app code that is deployed today keeps working during and after the migration.
+4. A safer multi-step version if needed (expand → backfill → contract).
+5. The exact rollback steps.
+
+Finish with GO / NO-GO and why.",https://commandvault.ai/commands/database-migration-safety-review-abd8f75a
+project-context-pack-for-coding-agents-7fe49393,Project context pack for coding agents,A reusable AGENTS.md that stops your AI agent from guessing.,template,agents,agents;context;claude;cursor,"Write an AGENTS.md for my project so coding agents work the way my team does.
+
+Project: {{project_description}}
+Stack: {{stack}}
+
+Include sections:
+- What this app is and who uses it (3 lines).
+- How to run, test, lint and build (exact commands).
+- Folder map: where things live and where new code goes.
+- Conventions: naming, error handling, data fetching, styling.
+- Never do: list of dangerous or banned actions (e.g. editing generated files, touching prod data).
+- Definition of done for a change.
+
+Keep it under 120 lines. Prefer concrete rules over advice.",https://commandvault.ai/commands/project-context-pack-for-coding-agents-7fe49393
+plan-implement-verify-loop-07076966,Plan → implement → verify loop,"Make an AI agent plan first, work in small steps and prove each one.",workflow,agents,agents;workflow;planning,"Task: {{task}}
+
+Work in this loop and do not skip steps:
+1. PLAN — Read the relevant files first. Write a numbered plan (max 7 steps), each small enough to verify. List files you'll touch. Stop and wait for ""go"".
+2. IMPLEMENT — Do one step at a time. Match the surrounding code style.
+3. VERIFY — After each step run {{verify_command}} and show the result. If it fails, fix before moving on.
+4. REPORT — Summarize what changed, what you verified, and anything you skipped or are unsure about.
+
+If you discover the plan is wrong, say so and propose a new plan instead of improvising.",https://commandvault.ai/commands/plan-implement-verify-loop-07076966
+turn-a-vague-request-into-a-precise-prompt-68b67569,Turn a vague request into a precise prompt,"Rewrite any rough ask into a prompt with role, context, constraints and output format.",prompt,agents,prompt-engineering;meta,"Rewrite my rough request into a strong prompt for an AI model.
+
+My rough request: {{rough_request}}
+
+The rewritten prompt must include:
+- Context: who it's for and why.
+- The exact task, broken into steps if needed.
+- Constraints (length, tone, things to avoid).
+- Output format (headings, table, JSON schema...).
+- One short example of a good answer if it helps.
+
+Then list up to 3 questions whose answers would make the prompt better. Output the prompt in a code block.",https://commandvault.ai/commands/turn-a-vague-request-into-a-precise-prompt-68b67569
+code-review-as-a-senior-engineer-2c52c2a9,Code review as a senior engineer,A focused review that finds real bugs instead of nitpicks.,prompt,agents,code-review;agents;quality,"Review this diff as a senior engineer on a {{stack}} codebase:
+
+{{diff}}
+
+Report only things worth changing, grouped as:
+- Bugs (wrong behavior, crashes, races, security) — include a failing scenario for each.
+- Risky (missing tests, unclear error handling, performance traps).
+- Simplifications that remove code.
+
+Skip formatting and naming nitpicks unless they hide a bug. For each item give file:line, the problem in one sentence, and the fix. End with ""ship / ship after fixes / don't ship"".",https://commandvault.ai/commands/code-review-as-a-senior-engineer-2c52c2a9
+write-a-reusable-ai-skill-file-8b9711c7,Write a reusable AI skill file,Package a repeatable task into instructions an agent can load on demand.,template,agents,skills;agents;automation,"Create a SKILL.md for this repeatable task: {{task_description}}
+
+Format:
+---
+name: {{skill_name}}
+description: One sentence saying exactly when to use this skill.
+---
+
+Then:
+1. Inputs the agent needs and where to find them.
+2. Step-by-step procedure with exact commands or tool calls.
+3. Checks that prove the task is done correctly.
+4. Common mistakes and how to avoid them.
+5. Example of a finished result.
+
+Keep instructions imperative and specific. No filler.",https://commandvault.ai/commands/write-a-reusable-ai-skill-file-8b9711c7
+github-actions-ci-for-a-node-app-f6830a4e,GitHub Actions CI for a Node app,"Lint, typecheck, test and build on every pull request, with caching.",template,devops,ci;github-actions;node,"Write a GitHub Actions workflow for a {{framework}} app using {{package_manager}}.
+
+Requirements:
+- Runs on pull_request and push to main.
+- Node {{node_version}}, dependency caching keyed on the lockfile.
+- Jobs: lint, typecheck, test, build (fail fast; build only after the others pass).
+- Cancels in-progress runs for the same branch.
+- Uses least-privilege permissions (contents: read).
+- No secrets in logs.
+
+Return the YAML and a one-paragraph explanation of each job.",https://commandvault.ai/commands/github-actions-ci-for-a-node-app-f6830a4e
+write-a-minimal-production-dockerfile-39803cfc,Write a minimal production Dockerfile,"Small, cached, non-root images for any app.",prompt,devops,docker;containers;security,"Write a production Dockerfile for a {{language}} app whose start command is {{start_command}}.
+
+Requirements:
+- Multi-stage build; final image based on a slim or distroless base.
+- Dependency install layer cached separately from source.
+- Runs as a non-root user.
+- Only production dependencies in the final image.
+- HEALTHCHECK if the app exposes HTTP on {{port}}.
+- A matching .dockerignore.
+
+Explain the expected final image size and how to verify it.",https://commandvault.ai/commands/write-a-minimal-production-dockerfile-39803cfc
+incident-response-first-30-minutes-8f32b3ea,Incident response first 30 minutes,"A calm, ordered playbook for when production is down.",workflow,devops,incidents;on-call;reliability,"We have an incident: {{symptom}} started at {{start_time}}.
+
+Guide me through the first 30 minutes:
+1. Triage: questions to establish scope (who's affected, since when, what changed).
+2. Stabilize: safest mitigations in order (roll back last deploy, disable feature flag, scale up, fail over).
+3. Communicate: a status-page update and an internal update I can paste now.
+4. Investigate: which dashboards, logs and recent changes to check, in order.
+5. Record: what to write down for the postmortem while it's fresh.
+
+Ask me for the information you need step by step instead of guessing.",https://commandvault.ai/commands/incident-response-first-30-minutes-8f32b3ea
+blameless-postmortem-write-up-681657b8,Blameless postmortem write-up,Turn incident notes into a postmortem the team will actually read.,template,devops,postmortem;incidents;writing,"Write a blameless postmortem from these notes:
+
+{{incident_notes}}
+
+Sections:
+- Summary (3 sentences: what broke, impact, duration).
+- Timeline (UTC, key events only).
+- Root cause and contributing factors (systems and processes, not people).
+- What went well / what was hard.
+- Action items: owner, due date, and whether each prevents, detects, or mitigates.
+
+Plain language. No blame, no hedging.",https://commandvault.ai/commands/blameless-postmortem-write-up-681657b8
+set-up-structured-logging-and-alerts-c5ff1587,Set up structured logging and alerts,Logs you can search and alerts that only fire when it matters.,prompt,devops,logging;monitoring;alerts,"Set up structured logging and alerting for a {{stack}} service.
+
+1. A logger setup that outputs JSON with timestamp, level, request id, user id (hashed) and duration.
+2. Rules for what to log at each level, and what never to log (tokens, passwords, full card numbers, raw PII).
+3. Middleware that attaches a request id and logs one line per request.
+4. Five alerts worth having for this service, each with a threshold, window and why it matters.
+5. How to avoid alert fatigue: grouping, severity and who gets paged.
+
+Show code for the logger and middleware.",https://commandvault.ai/commands/set-up-structured-logging-and-alerts-c5ff1587
+threat-model-a-new-feature-e077b2c4,Threat model a new feature,STRIDE-style review that ends with concrete mitigations.,prompt,security,threat-modeling;security;design,"Threat model this feature before we build it:
+
+Feature: {{feature_description}}
+Data involved: {{data_types}}
+Users and roles: {{roles}}
+
+1. Draw the data flow in text (actors → components → data stores).
+2. For each step, list threats using STRIDE (spoofing, tampering, repudiation, info disclosure, DoS, elevation).
+3. Rate each threat Low/Medium/High by likelihood and impact.
+4. Give a concrete mitigation for every Medium and High.
+5. List the security tests we should add.",https://commandvault.ai/commands/threat-model-a-new-feature-e077b2c4
+web-app-security-review-30709308,Web app security review,Check an app against the issues attackers try first.,checklist,security,owasp;security;review,"Review {{app_or_code}} against this list. For each, answer PASS / FAIL / N/A with evidence:
+
+1. Every API route checks authentication AND authorization (not just ""logged in"").
+2. User input is validated server-side with an allowlist schema.
+3. Queries are parameterized; no string-built SQL.
+4. Output is escaped; no dangerouslySetInnerHTML with user data.
+5. Secrets are server-only and never shipped to the browser bundle.
+6. Cookies are HttpOnly, Secure, SameSite.
+7. Rate limits on login, signup, password reset and write endpoints.
+8. File uploads check type, size and are re-encoded or scanned.
+9. Error messages don't leak stack traces or internal ids.
+10. Dependencies have no known critical vulnerabilities.
+
+Finish with the top 3 risks ranked by impact.",https://commandvault.ai/commands/web-app-security-review-30709308
+find-leaked-secrets-and-rotate-them-ab675ad1,Find leaked secrets and rotate them,Locate exposed keys in a repo and plan a safe rotation.,prompt,security,secrets;incident;git,"I think a secret may have leaked in {{repo_or_location}}.
+
+Help me:
+1. Search strategy: commands to scan the working tree and full git history for keys, tokens and passwords (e.g. gitleaks, trufflehog, git log -p with patterns).
+2. Triage: how to tell real secrets from test values.
+3. Rotation plan for each provider involved ({{providers}}): create new key, deploy it, revoke old key — in an order that avoids downtime.
+4. Clean-up: whether rewriting git history is worth it (it doesn't un-leak a pushed secret).
+5. Prevention: pre-commit hook and CI scan config.
+
+Never print a full secret value in your answer.",https://commandvault.ai/commands/find-leaked-secrets-and-rotate-them-ab675ad1
+plain-english-privacy-policy-draft-fa6e798d,Plain-English privacy policy draft,A readable first draft to review with a lawyer.,template,security,privacy;legal;policy,"Draft a privacy policy in plain English for {{product_name}}, a {{product_description}}.
+
+We collect: {{data_collected}}
+We use these vendors: {{vendors}}
+Users are in: {{regions}}
+
+Sections: what we collect, why, legal basis (if EU/UK users), who we share with, how long we keep it, user rights and how to exercise them, cookies, children, security, contact, changes.
+
+Use short sentences and headings. Mark every place a lawyer must confirm with [REVIEW]. This is a draft, not legal advice.",https://commandvault.ai/commands/plain-english-privacy-policy-draft-fa6e798d
+harden-authentication-flows-e2a1ff85,Harden authentication flows,"Review sign-up, login and reset flows for common account takeover holes.",prompt,security,auth;security;accounts,"Review the authentication flows in {{app_or_code}} (sign-up, login, password reset, email change, session handling).
+
+Check for:
+- User enumeration via different error messages or timings.
+- Missing rate limits / lockouts.
+- Reset tokens that are guessable, long-lived or reusable.
+- Email change without re-authentication or confirmation to the old address.
+- Sessions not revoked after password change.
+- Missing MFA option for admins.
+
+For each issue: the risk, a realistic attack, and the fix with code.",https://commandvault.ai/commands/harden-authentication-flows-e2a1ff85
+write-a-sql-query-from-a-plain-question-5f579205,Write a SQL query from a plain question,"Describe your tables and ask in English; get correct, readable SQL.",prompt,data,sql;analytics;postgres,"Database: {{database}}
+Tables and columns:
+{{schema}}
+
+Question: {{question}}
+
+Write the SQL query. Rules:
+- Use CTEs with clear names instead of nested subqueries.
+- Explain any assumption about what a column means.
+- Handle NULLs and duplicates explicitly.
+- Add a comment above each CTE saying what it computes.
+
+Then show a 3-row example of the expected output and one way the result could be misleading.",https://commandvault.ai/commands/write-a-sql-query-from-a-plain-question-5f579205
+explore-a-new-dataset-6a1638a0,Explore a new dataset,A first-hour analysis plan for any CSV or table.,workflow,data,analysis;pandas;eda,"I have a dataset: {{dataset_description}} ({{rows}} rows). My goal: {{goal}}.
+
+Walk me through a first-pass exploration in Python (pandas):
+1. Load and show shape, dtypes and a sample.
+2. Missing values, duplicates and obviously wrong values per column.
+3. Distributions for key numeric columns and top values for categoricals.
+4. Three relationships most relevant to my goal, with a chart each.
+5. Data-quality issues to fix before deeper analysis.
+
+Give runnable code cells and tell me what to look for in each output.",https://commandvault.ai/commands/explore-a-new-dataset-6a1638a0
+kpi-dashboard-spec-83c7b4d5,KPI dashboard spec,Define metrics precisely before anyone builds a chart.,template,data,dashboards;metrics;kpi,"Write a dashboard spec for {{team}} who need to answer: {{decisions}}.
+
+For each metric (aim for 5–8):
+- Name and one-sentence definition.
+- Exact formula and data source.
+- Grain (daily/weekly), filters and segments.
+- Target or healthy range.
+- Chart type and why.
+
+Also include: metrics we deliberately left out and why, and a note on how often data refreshes.",https://commandvault.ai/commands/kpi-dashboard-spec-83c7b4d5
+spreadsheet-formula-helper-6c5eaab3,Spreadsheet formula helper,Get the exact Excel / Google Sheets formula with an explanation.,prompt,data,excel;google-sheets;formulas,"I'm using {{spreadsheet_app}}. My data: {{data_layout}}
+
+I want to: {{goal}}
+
+Give me:
+1. The formula, ready to paste, with cell references matching my layout.
+2. A plain explanation of each part.
+3. A version that handles blanks and errors gracefully.
+4. If there's a simpler approach (pivot table, filter view, QUERY), mention it.",https://commandvault.ai/commands/spreadsheet-formula-helper-6c5eaab3
+sanity-check-an-a-b-test-result-c249284a,Sanity-check an A/B test result,Decide whether an experiment result is real before you ship it.,prompt,data,ab-testing;statistics;experiments,"A/B test results:
+- Control: {{control_visitors}} visitors, {{control_conversions}} conversions
+- Variant: {{variant_visitors}} visitors, {{variant_conversions}} conversions
+- Ran for {{duration}}
+
+1. Compute conversion rates, absolute and relative lift, and a 95% confidence interval for the difference.
+2. Is it statistically significant? Was the sample large enough for the effect size?
+3. Check for common traps: peeking, novelty effect, uneven traffic split, weekday effects.
+4. Recommendation: ship, keep running (how long), or stop — with reasoning a non-statistician understands.",https://commandvault.ai/commands/sanity-check-an-a-b-test-result-c249284a
+landing-page-copy-that-converts-69950bfb,Landing page copy that converts,"Headline, sections and CTA written for one specific audience.",prompt,marketing,copywriting;landing-page;conversion,"Write landing page copy for {{product}}.
+
+Audience: {{audience}}
+Main pain: {{pain}}
+Proof we have: {{proof}}
+
+Deliver:
+- 5 headline options (outcome-focused, under 10 words) + subheadline for the best one.
+- Hero CTA button text (3 options).
+- Sections: problem, how it works (3 steps), benefits (not features), social proof, objections & answers, final CTA.
+
+Write like a person, not a brochure. No buzzwords (""revolutionary"", ""seamless"", ""unlock"").",https://commandvault.ai/commands/landing-page-copy-that-converts-69950bfb
+seo-blog-post-brief-dec823ff,SEO blog post brief,Everything a writer needs to rank for one keyword.,template,marketing,seo;content;blog,"Create an SEO content brief for the keyword ""{{keyword}}"" for {{site}}.
+
+Include:
+- Search intent and who is searching.
+- Suggested title (under 60 chars) and meta description (under 155 chars).
+- Outline with H2/H3s that fully answer the intent.
+- Questions to answer (People Also Ask style).
+- Internal links to add and external sources worth citing.
+- What would make this better than the current top results.
+- Target length and a clear CTA.",https://commandvault.ai/commands/seo-blog-post-brief-dec823ff
+product-launch-plan-b423e1f5,Product launch plan,"Two weeks of launch tasks across channels, day by day.",workflow,marketing,launch;go-to-market;planning,"Plan the launch of {{product_or_feature}} on {{launch_date}}.
+
+Audience: {{audience}}
+Channels we have: {{channels}}
+
+Give me a day-by-day plan from T-14 to T+7 with:
+- Tasks per channel (email, social, community, PR, in-app).
+- The key message and one asset needed per task.
+- Owner placeholder and how to measure each.
+- A launch-day checklist and a ""what if it flops"" plan.",https://commandvault.ai/commands/product-launch-plan-b423e1f5
+cold-email-that-gets-replies-b9351e2e,Cold email that gets replies,"Short, specific outreach with follow-ups.",prompt,marketing,email;outreach;sales,"Write a cold email to {{recipient_role}} at {{company_type}} about {{offer}}.
+
+Rules:
+- Under 120 words. One idea. One ask.
+- First line is about them, not us.
+- Specific proof (number or named customer) if available: {{proof}}.
+- Low-friction CTA (a question, not ""book a 30-minute call"").
+
+Also write two follow-ups (day 3 and day 8), each shorter than the last and adding something new. Give 3 subject lines under 6 words.",https://commandvault.ai/commands/cold-email-that-gets-replies-b9351e2e
+repurpose-one-piece-into-a-week-of-posts-a052b671,Repurpose one piece into a week of posts,"Turn an article, video or talk into social content for each platform.",prompt,marketing,social-media;content;repurposing,"Repurpose this content into a week of social posts:
+
+{{source_content}}
+
+Create:
+- 3 LinkedIn posts (hook line, short paragraphs, one takeaway each).
+- 5 X/Twitter posts, including one thread of 5–7 posts.
+- 2 short-video scripts (under 45 seconds) with on-screen text.
+- 1 newsletter blurb.
+
+Keep the voice {{voice}}. No hashtags spam — max 2 where useful.",https://commandvault.ai/commands/repurpose-one-piece-into-a-week-of-posts-a052b671
+edit-for-clarity-without-changing-my-voice-9bc9086d,Edit for clarity without changing my voice,"Tighter sentences, same personality.",prompt,writing,editing;clarity;style,"Edit the text below for clarity and flow. Keep my voice, opinions and vocabulary.
+
+{{text}}
+
+Rules:
+- Cut filler and repetition; shorten long sentences.
+- Fix grammar and typos.
+- Don't add new ideas or corporate phrasing.
+- Keep it roughly the same length or shorter.
+
+Return the edited text, then a bullet list of the 5 most important changes and why.",https://commandvault.ai/commands/edit-for-clarity-without-changing-my-voice-9bc9086d
+readme-that-people-actually-read-d16d647e,README that people actually read,A clear README for any project in the right order.,template,writing,documentation;readme;open-source,"Write a README for {{project_name}}: {{project_description}}.
+
+Order:
+1. One-line description and who it's for.
+2. Screenshot or demo placeholder.
+3. Quick start (copy-paste commands, under 5 steps).
+4. Configuration (table: name, required, default, description).
+5. Common tasks / usage examples.
+6. How it works (short, optional diagram).
+7. Contributing and license.
+
+Use short sections and code blocks. Assume the reader has 2 minutes.",https://commandvault.ai/commands/readme-that-people-actually-read-d16d647e
+explain-a-technical-topic-to-non-technical-readers-de7ca3e8,Explain a technical topic to non-technical readers,Clear explanations with analogies and no jargon.,prompt,writing,explainers;communication;audience,"Explain {{topic}} to {{audience}}.
+
+- Start with why they should care, in one sentence.
+- Use one everyday analogy and say where the analogy breaks down.
+- Define any term you can't avoid, the first time you use it.
+- Max {{length}} words.
+- End with the one thing they should remember.",https://commandvault.ai/commands/explain-a-technical-topic-to-non-technical-readers-de7ca3e8
+write-release-notes-users-care-about-deb42144,Write release notes users care about,Turn a changelog or commit list into readable release notes.,prompt,writing,release-notes;changelog;product,"Turn these changes into release notes for {{audience}}:
+
+{{changes}}
+
+- Group as New, Improved, Fixed.
+- Write each item as a user benefit, not an implementation detail.
+- Skip internal-only changes.
+- Lead with the most valuable change and give it one extra sentence.
+- Friendly, specific, no hype.",https://commandvault.ai/commands/write-release-notes-users-care-about-deb42144
+outline-a-long-form-article-11c9e7cf,Outline a long-form article,"Structure, argument and hooks before you write a word.",prompt,writing,outlining;blog;essays,"Help me outline an article about {{topic}} for {{audience}}. My main point: {{thesis}}.
+
+Give me:
+- 3 title options and 3 opening hooks.
+- A section-by-section outline with the claim each section makes and the evidence or example it needs.
+- The strongest counterargument and where to address it.
+- A closing that ties back to the opening.
+- Target length per section.",https://commandvault.ai/commands/outline-a-long-form-article-11c9e7cf
+meeting-notes-to-action-items-6460abec,Meeting notes to action items,Turn messy notes or a transcript into decisions and owners.,template,productivity,meetings;notes;action-items,"Here are notes / a transcript from a meeting about {{meeting_topic}}:
+
+{{notes}}
+
+Produce:
+1. Summary (max 5 bullets).
+2. Decisions made.
+3. Action items as a table: task, owner, due date (write ""TBD"" if not stated).
+4. Open questions and who should answer them.
+5. A short follow-up message I can send to attendees.",https://commandvault.ai/commands/meeting-notes-to-action-items-6460abec
+weekly-review-and-planning-dd2b9a68,Weekly review and planning,A 30-minute ritual to close the week and plan the next one.,workflow,productivity,planning;weekly-review;habits,"Run my weekly review. Ask me these one at a time and wait for each answer:
+
+1. What did you finish this week? What slipped, and why?
+2. What's on your calendar next week?
+3. What are your top 3 goals for this {{period}}?
+
+Then:
+- Pick the 3 most important outcomes for next week.
+- Time-block them into my calendar gaps (suggest specific slots).
+- List things to delegate, defer or drop.
+- Write a one-paragraph note to my future self for Friday.",https://commandvault.ai/commands/weekly-review-and-planning-dd2b9a68
+write-a-hard-email-diplomatically-1b06c9ad,Write a hard email diplomatically,"Say no, push back or deliver bad news without burning bridges.",prompt,productivity,email;communication;workplace,"I need to email {{recipient}} to {{goal}}.
+
+Context: {{context}}
+Tone: {{tone}}
+
+Write the email:
+- Clear first sentence that states the point.
+- Brief reason, no over-explaining or excessive apology.
+- Offer an alternative or next step if possible.
+- Under 150 words.
+
+Also give a softer and a firmer version.",https://commandvault.ai/commands/write-a-hard-email-diplomatically-1b06c9ad
+decision-matrix-for-a-tough-choice-af0713bb,Decision matrix for a tough choice,Compare options against weighted criteria and surface what really matters.,prompt,productivity,decisions;frameworks;thinking,"Help me decide: {{decision}}
+
+Options: {{options}}
+What I care about: {{criteria}}
+
+1. Ask me to weight each criterion 1–5 (or suggest weights and let me adjust).
+2. Score each option per criterion with a one-line reason.
+3. Show a weighted table and the totals.
+4. Point out what would have to be true for the losing option to be the right choice.
+5. Suggest one cheap experiment to reduce the biggest uncertainty.",https://commandvault.ai/commands/decision-matrix-for-a-tough-choice-af0713bb
+claude-md-template-for-a-django-project-a6598bdb,CLAUDE.md template for a Django project,"Give Claude Code your Django project's commands, app layout and rules in one file.",template,agents,claude-code;claude-md;django;python,"# CLAUDE.md
+
+## Project
+{{project_name}}: {{what_it_does}}. Stack: Python {{python_version}}, Django {{django_version}}, {{database}}.
+
+## Commands
+- Run locally: `python manage.py runserver`
+- Tests: `pytest -q (or python manage.py test)`
+- Lint/format: `ruff check . && ruff format --check .`
+
+## Where things live
+- `{{project_package}}/settings/`: base, dev, prod settings
+- `apps/<app>/`: models, views, serializers, urls, tests per app
+- `templates/` and `static/`: shared front end
+
+## Conventions
+- New models need a migration (`python manage.py makemigrations`) committed with the code.
+- Business logic lives in `services.py`, not views or models.
+- Use the ORM; raw SQL only with a comment explaining why.
+- Every view checks permissions explicitly.
+
+## Never
+- Commit secrets or `.env` files; refer to them by name only.
+- Run migrations or scripts against production.
+- Skip or delete a failing test to make the suite pass.
+
+## Done means
+Tests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",https://commandvault.ai/commands/claude-md-template-for-a-django-project-a6598bdb
+break-a-big-project-into-a-plan-a686a13c,Break a big project into a plan,"From a vague goal to milestones, tasks and a first step for today.",prompt,productivity,planning;projects;goals,"Goal: {{goal}}
+Deadline: {{deadline}}
+Time I have per week: {{hours_per_week}}
+
+1. Define what ""done"" looks like in measurable terms.
+2. Break it into 3–6 milestones with dates.
+3. Break the first milestone into tasks under 2 hours each.
+4. Flag risks and dependencies.
+5. Tell me the single task to do today.",https://commandvault.ai/commands/break-a-big-project-into-a-plan-a686a13c
+claude-md-template-for-a-ruby-on-rails-app-dadb0ceb,CLAUDE.md template for a Ruby on Rails app,"Project memory for Claude Code in a Rails codebase: commands, structure and Rails-specific rules.",template,agents,claude-code;claude-md;rails;ruby,"# CLAUDE.md
+
+## Project
+{{project_name}}: {{what_it_does}}. Stack: Ruby {{ruby_version}}, Rails {{rails_version}}, {{database}}, {{frontend}}.
+
+## Commands
+- Run locally: `bin/dev`
+- Tests: `bin/rails test (or bundle exec rspec)`
+- Lint/format: `bundle exec rubocop`
+
+## Where things live
+- `app/models`, `app/controllers`, `app/views`: standard Rails
+- `app/services`: multi-step business logic
+- `app/jobs`: background work ({{job_backend}})
+- `db/migrate`: one migration per change
+
+## Conventions
+- Fat models are fine; fat controllers are not. Move logic out of controllers.
+- Strong parameters on every create/update.
+- Avoid N+1 queries: use `includes` and check the log.
+- Prefer Rails conventions over custom patterns.
+
+## Never
+- Commit secrets or `.env` files; refer to them by name only.
+- Run migrations or scripts against production.
+- Skip or delete a failing test to make the suite pass.
+
+## Done means
+Tests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",https://commandvault.ai/commands/claude-md-template-for-a-ruby-on-rails-app-dadb0ceb
+claude-md-template-for-a-go-service-a256d8da,CLAUDE.md template for a Go service,"Tell Claude Code how your Go service is built, tested and structured.",template,agents,claude-code;claude-md;go;golang,"# CLAUDE.md
+
+## Project
+{{project_name}}: {{what_it_does}}. Stack: Go {{go_version}}, {{router}}, {{database}}.
+
+## Commands
+- Run locally: `go run ./cmd/{{service}}`
+- Tests: `go test ./...`
+- Lint/format: `golangci-lint run`
+
+## Where things live
+- `cmd/{{service}}/`: main package
+- `internal/`: private packages (handlers, services, storage)
+- `pkg/`: code safe for other repos to import
+- `migrations/`: SQL migrations
+
+## Conventions
+- Return errors, don't panic; wrap with `fmt.Errorf(""context: %w"", err)`.
+- Pass `context.Context` as the first argument to anything that does I/O.
+- Interfaces belong to the consumer, kept small.
+- Table-driven tests for anything with more than two cases.
+
+## Never
+- Commit secrets or `.env` files; refer to them by name only.
+- Run migrations or scripts against production.
+- Skip or delete a failing test to make the suite pass.
+
+## Done means
+Tests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",https://commandvault.ai/commands/claude-md-template-for-a-go-service-a256d8da
+claude-md-template-for-a-laravel-app-22d119b4,CLAUDE.md template for a Laravel app,"Project memory for Claude Code in Laravel: Artisan commands, structure and conventions.",template,agents,claude-code;claude-md;laravel;php,"# CLAUDE.md
+
+## Project
+{{project_name}}: {{what_it_does}}. Stack: PHP {{php_version}}, Laravel {{laravel_version}}, {{database}}, {{frontend}}.
+
+## Commands
+- Run locally: `php artisan serve (or composer run dev)`
+- Tests: `php artisan test`
+- Lint/format: `./vendor/bin/pint --test`
+
+## Where things live
+- `app/Http/Controllers`: thin controllers
+- `app/Actions` or `app/Services`: business logic
+- `app/Models`: Eloquent models
+- `database/migrations`: one per change
+
+## Conventions
+- Validate with Form Requests, not inside controllers.
+- Eager-load relations to avoid N+1 queries.
+- Queue anything slow (emails, exports) with jobs.
+- Use policies for authorization.
+
+## Never
+- Commit secrets or `.env` files; refer to them by name only.
+- Run migrations or scripts against production.
+- Skip or delete a failing test to make the suite pass.
+
+## Done means
+Tests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",https://commandvault.ai/commands/claude-md-template-for-a-laravel-app-22d119b4
+30-day-learning-plan-for-any-skill-e533dd8c,30-day learning plan for any skill,A realistic daily plan with projects and checkpoints.,workflow,learning,learning;study-plan;skills,"Create a 30-day plan to learn {{skill}}.
+
+My level: {{current_level}}
+Time per day: {{minutes_per_day}} minutes
+Goal by day 30: {{goal}}
+
+Include:
+- Weekly themes and a small project at the end of each week.
+- Daily tasks (what to read/watch/practice) with free resources.
+- A checkpoint quiz each week to test understanding.
+- What to skip for now so I don't get overwhelmed.",https://commandvault.ai/commands/30-day-learning-plan-for-any-skill-e533dd8c
+claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d,Claude Code hooks: format on save and block dangerous commands,A .claude/settings.json with hooks that auto-format edited files and stop risky shell commands.,template,agents,claude-code;hooks;automation;guardrails,"Add this to `.claude/settings.json` in your project:
+
+```json
+{
+  ""hooks"": {
+    ""PostToolUse"": [
+      {
+        ""matcher"": ""Edit|Write"",
+        ""hooks"": [
+          { ""type"": ""command"", ""command"": ""jq -r '.tool_input.file_path' | xargs {{formatter_command}}"" }
+        ]
+      }
+    ],
+    ""PreToolUse"": [
+      {
+        ""matcher"": ""Bash"",
+        ""hooks"": [
+          { ""type"": ""command"", ""command"": "".claude/hooks/block-dangerous.sh"" }
+        ]
+      }
+    ]
+  }
+}
+```
+
+And create `.claude/hooks/block-dangerous.sh` (make it executable):
+
+```bash
+#!/usr/bin/env bash
+cmd=$(jq -r '.tool_input.command')
+if echo ""$cmd"" | grep -Eq 'rm -rf /|git push --force|DROP TABLE|{{extra_blocked_pattern}}'; then
+  echo ""Blocked by project hook: $cmd"" >&2
+  exit 2   # exit code 2 blocks the tool call and shows the message to Claude
+fi
+```
+
+Replace `{{formatter_command}}` with e.g. `npx prettier --write` or `ruff format`. Test it by asking Claude to edit a file and check it was formatted.",https://commandvault.ai/commands/claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d
+claude-md-template-for-a-next-js-supabase-app-9261f33c,CLAUDE.md template for a Next.js + Supabase app,"A ready-to-edit CLAUDE.md that tells Claude Code how your Next.js app is built, tested and deployed.",template,agents,claude-code;claude-md;nextjs;supabase,"# CLAUDE.md
+
+## What this is
+{{app_name}} is a {{one_line_description}}. Users: {{who_uses_it}}.
+
+## Commands
+- Install: `{{package_manager}} install`
+- Dev server: `{{package_manager}} run dev` (http://localhost:3000)
+- Lint + types: `{{package_manager}} run lint && npx tsc --noEmit`
+- Tests: `{{test_command}}`
+- Build: `{{package_manager}} run build`
+
+## Stack
+- Next.js (App Router), React, TypeScript, {{styling}}
+- Supabase: Postgres with row-level security on every table, Auth, Storage
+- Hosting: {{hosting}}
+
+## Where things live
+- `src/app`: routes. Server components by default; add ""use client"" only when needed.
+- `src/app/api`: route handlers. Validate input with zod, check auth first.
+- `src/lib/server`: server-only data access (never import into client code).
+- `supabase/migrations`: one SQL file per change, named `YYYYMMDDHHMMSS_what.sql`.
+
+## Rules
+- Every new table: enable RLS and write policies in the same migration.
+- Never expose the service-role key to the browser or log it.
+- Prefer editing existing components over creating near-duplicates.
+- Match the surrounding code style; no new dependencies without asking.
+
+## Done means
+Lint, types and build pass; you ran the change in the browser and checked the console; you listed what you changed and anything you skipped.",https://commandvault.ai/commands/claude-md-template-for-a-next-js-supabase-app-9261f33c
+claude-code-slash-command-commit-584b2474,Claude Code slash command: /commit,"Save as .claude/commands/commit.md for clean, conventional commit messages from your staged changes.",template,agents,claude-code;slash-commands;git,"---
+description: Write a commit message for the staged changes and commit
+argument-hint: [optional context]
+allowed-tools: Bash(git diff:*), Bash(git status:*), Bash(git commit:*)
+---
+
+1. Run `git status` and `git diff --staged`. If nothing is staged, stop and tell me.
+2. Write a commit message:
+   - First line: {{commit_style}} format, imperative, under 72 characters (e.g. ""fix: handle empty cart on checkout"").
+   - Blank line, then 1–3 short bullets on why, not what.
+   - Extra context from me: $ARGUMENTS
+3. Show me the message, then commit with it.
+Never use --no-verify and never amend existing commits.",https://commandvault.ai/commands/claude-code-slash-command-commit-584b2474
+claude-code-slash-command-plan-3082aeed,Claude Code slash command: /plan,Save as .claude/commands/plan.md to make Claude investigate and plan before writing any code.,template,agents,claude-code;slash-commands;planning,"---
+description: Investigate and write a step-by-step plan before coding
+argument-hint: <what you want to build or fix>
+---
+
+Task: $ARGUMENTS
+
+Do not edit any files yet.
+1. Read the relevant code. List the files and functions involved.
+2. Explain how it works today in 3–5 sentences.
+3. Write a numbered plan (max 7 steps). Each step: what changes, in which file, and how you'll verify it.
+4. List risks, open questions and anything you'd need from me.
+Wait for my ""go"" before starting step 1. Project notes: {{project_notes}}",https://commandvault.ai/commands/claude-code-slash-command-plan-3082aeed
+claude-md-template-for-a-python-fastapi-service-6a36a740,CLAUDE.md template for a Python FastAPI service,"Project memory for Claude Code on a Python API: commands, layout, testing and the rules that keep it safe.",template,agents,claude-code;claude-md;python;fastapi,"# CLAUDE.md
+
+## Service
+{{service_name}}: {{what_it_does}}. Python {{python_version}}, FastAPI, {{database}}.
+
+## Commands
+- Setup: `{{setup_command}}`
+- Run: `uvicorn {{module}}:app --reload`
+- Tests: `pytest -q` (add `-k name` for one test)
+- Lint/format: `ruff check . && ruff format --check .`
+- Types: `mypy {{package}}`
+
+## Layout
+- `{{package}}/api`: routers, one file per resource
+- `{{package}}/services`: business logic (no FastAPI imports here)
+- `{{package}}/db`: models and queries
+- `tests/`: mirrors the package layout
+
+## Conventions
+- Pydantic models for every request and response; never return ORM objects directly.
+- Dependencies via `Depends()`; no globals for sessions or clients.
+- Raise `HTTPException` only in routers; services raise domain errors.
+- Write a test for every bug fix that fails before the fix.
+
+## Never
+- Commit secrets or `.env` files.
+- Run migrations against production.
+- Disable a failing test to make CI pass.",https://commandvault.ai/commands/claude-md-template-for-a-python-fastapi-service-6a36a740
+claude-code-slash-command-fix-issue-2de5b0f5,Claude Code slash command: /fix-issue,"Save as .claude/commands/fix-issue.md: give it a GitHub issue number and it reproduces, fixes and tests.",template,agents,claude-code;slash-commands;github;debugging,"---
+description: Reproduce, fix and test a GitHub issue
+argument-hint: <issue number>
+allowed-tools: Bash(gh issue view:*), Bash({{test_command}}:*)
+---
+
+1. Read the issue: `gh issue view $ARGUMENTS`.
+2. Reproduce it: write a failing test that shows the bug. Run it and confirm it fails.
+3. Find the root cause. Explain it in two sentences before changing code.
+4. Fix it with the smallest reasonable change.
+5. Run `{{test_command}}`; the new test and the full suite must pass.
+6. Summarize: cause, fix, test added, and anything you're unsure about. Don't push or open a PR unless I ask.",https://commandvault.ai/commands/claude-code-slash-command-fix-issue-2de5b0f5
+teach-me-with-the-feynman-technique-b8f97557,Teach me with the Feynman technique,Learn a concept by explaining it simply and finding the gaps.,prompt,learning,feynman;understanding;tutoring,"I want to understand {{concept}}.
+
+1. Explain it as if I'm 12, in under 150 words.
+2. Ask me to explain it back in my own words.
+3. Point out gaps or mistakes in my explanation — don't just praise it.
+4. Re-explain only the parts I got wrong, with a new example.
+5. Repeat until I can explain it correctly, then give me one harder question.",https://commandvault.ai/commands/teach-me-with-the-feynman-technique-b8f97557
+agents-md-for-a-monorepo-e4aa4b99,AGENTS.md for a monorepo,"One root AGENTS.md plus per-package overrides so Codex, Cursor, Jules and other agents work the same way everywhere.",template,agents,agents-md;monorepo;codex;coding-agents,"# AGENTS.md (root)
+
+This repo is a monorepo managed with {{monorepo_tool}}.
+
+## Packages
+| Path | What | Owner |
+|---|---|---|
+| `apps/{{web_app}}` | Customer-facing web app | {{web_owner}} |
+| `apps/{{api_app}}` | Public API | {{api_owner}} |
+| `packages/ui` | Shared components | design-systems |
+| `packages/config` | Lint/TS/test config | platform |
+
+## Working rules for agents
+1. Run commands from the package you're changing: `{{monorepo_tool}} run test --filter <package>`.
+2. Never change `packages/config` without saying so explicitly in your summary.
+3. Shared code goes in `packages/*`; never import one app from another.
+4. Keep PRs to one package unless the task says otherwise.
+
+## Package-specific rules
+Each package may have its own `AGENTS.md`. When it exists, it wins over this file for files inside that package.
+
+## Before you finish
+- `{{monorepo_tool}} run lint test typecheck --filter <changed packages>` passes.
+- Summarize: what changed, how you verified it, open questions.",https://commandvault.ai/commands/agents-md-for-a-monorepo-e4aa4b99
+set-up-claude-code-in-an-existing-repo-faaec9e5,Set up Claude Code in an existing repo,"A first-session prompt that has Claude Code explore your repo and create CLAUDE.md, commands and settings.",prompt,agents,claude-code;onboarding;setup,"This is our first session in this repo. Set yourself up properly before any feature work.
+
+1. Explore: read the README, package/build files, CI config and the main folders. Run the test command once to see the current state.
+2. Create `CLAUDE.md` with: project summary, exact commands, where things live, conventions, never-do list, definition of done. Only include what you verified.
+3. Suggest 3 slash commands in `.claude/commands/` that would save time in this repo (e.g. /test-file, /review) and write them.
+4. Suggest `.claude/settings.json` permissions: which commands are safe to always allow ({{safe_commands}}) and which should always ask.
+5. Report: what you created, what you couldn't verify, and the 3 biggest risks you noticed in the codebase.",https://commandvault.ai/commands/set-up-claude-code-in-an-existing-repo-faaec9e5
+cursor-rules-for-next-js-app-router-63d6701b,Cursor rules for Next.js App Router,"A .cursor/rules/nextjs.mdc file for server components, data fetching, routing and caching done right.",template,frontend,cursor-rules;cursor;nextjs;react,"---
+description: Next.js App Router conventions
+globs: [""app/**/*.tsx"",""app/**/*.ts"",""src/app/**""]
+alwaysApply: false
+---
+
+# Next.js App Router
+
+- Server Components by default. Add ""use client"" only for state, effects, browser APIs or event handlers, and keep client components small and at the leaves.
+- Fetch data in Server Components or route handlers, never with useEffect for initial data.
+- `params` and `searchParams` are async: `const { slug } = await params`.
+- Use `generateMetadata` for titles/descriptions on every page; set `alternates.canonical`.
+- Mutations: Server Actions or route handlers in `app/api`; validate input with {{validation_library}}.
+- Images via next/image with width/height; fonts via next/font.
+- Use `loading.tsx`, `error.tsx` and `not-found.tsx` instead of ad-hoc spinners and checks.
+- Never import server-only modules (database clients, secrets) into client components.
+
+## When you change code
+- Follow the patterns in the nearest existing file before inventing new ones.
+- Add or update a test for behavior changes; run `{{test_command}}`.
+- Keep diffs small; explain anything surprising in your reply.",https://commandvault.ai/commands/cursor-rules-for-next-js-app-router-63d6701b
+generate-an-agents-md-from-an-existing-codebase-0a21e41d,Generate an AGENTS.md from an existing codebase,Have your coding agent read the repo and write an accurate AGENTS.md instead of guessing.,prompt,agents,agents-md;onboarding;coding-agents;documentation,"Read this repository and write an AGENTS.md at the root that a new coding agent could follow on day one.
+
+Investigate before writing:
+1. package.json / pyproject / Makefile / CI files: the real install, dev, test, lint and build commands.
+2. The folder structure: where routes, business logic, data access and tests live.
+3. Existing conventions: naming, error handling, how data is fetched, how styles are written.
+4. Anything dangerous: migrations, generated files, secrets, production scripts.
+
+Write AGENTS.md with these sections: Overview (3 lines), Commands (exact, copy-pasteable), Where things live, Conventions, Never do, Definition of done.
+
+Rules:
+- Only state things you verified in the code; mark guesses with ""(check)"".
+- Keep it under {{max_lines}} lines.
+- Focus on {{focus_area}} if the repo is large.
+
+Then list the 3 things you were least sure about.",https://commandvault.ai/commands/generate-an-agents-md-from-an-existing-codebase-0a21e41d
+cursor-rules-for-vue-3-typescript-d7cba1fa,Cursor rules for Vue 3 + TypeScript,"A .cursor/rules/vue.mdc file for Composition API, typed props and Pinia stores.",template,frontend,cursor-rules;cursor;vue;typescript,"---
+description: Vue 3 + TypeScript conventions
+globs: [""src/**/*.vue"",""src/**/*.ts""]
+alwaysApply: false
+---
+
+# Vue 3
+
+- `<script setup lang=""ts"">` in every component; no Options API in new code.
+- Type props with `defineProps<{ ... }>()` and emits with `defineEmits<{ ... }>()`.
+- Shared state in Pinia stores under `src/stores`; components don't talk to the API directly.
+- Composables (`useSomething`) in `src/composables` for reusable logic.
+- Use `computed` for derived values, not watchers.
+- Keep templates simple: move logic over two conditions into computed properties.
+- Styling: {{styling_approach}}; scoped styles by default.
+
+## When you change code
+- Follow the patterns in the nearest existing file before inventing new ones.
+- Add or update a test for behavior changes; run `{{test_command}}`.
+- Keep diffs small; explain anything surprising in your reply.",https://commandvault.ai/commands/cursor-rules-for-vue-3-typescript-d7cba1fa
+update-claude-md-after-a-coding-session-a460fb4e,Update CLAUDE.md after a coding session,End-of-session prompt that turns what the agent learned into permanent project memory.,prompt,agents,claude-code;claude-md;memory;workflow,"Before we finish, update CLAUDE.md with what you learned in this session.
+
+1. Review what we did: commands that worked, errors we hit, decisions we made, files you had to search for.
+2. Add only durable facts that will help next time:
+   - Commands or flags that weren't documented
+   - Gotchas (""X looks like Y but actually..."")
+   - Decisions and the reason for them
+   - Where things live if it took you a while to find them
+3. Do not add: things already in the file, one-off debugging notes, or anything obvious from the code.
+4. Keep each addition to one or two lines, under the right heading. Remove anything we proved wrong today.
+
+Show me the diff of CLAUDE.md before saving. Session focus was: {{session_topic}}.",https://commandvault.ai/commands/update-claude-md-after-a-coding-session-a460fb4e
+practice-interview-with-feedback-b20154da,Practice interview with feedback,"Mock interview for any role, one question at a time.",prompt,learning,interviews;career;practice,"Run a mock interview for a {{role}} position at a {{company_type}}. Level: {{seniority}}.
+
+- Ask one question at a time; mix behavioral and role-specific questions.
+- Wait for my answer before continuing.
+- After each answer, score it 1–5 and give specific feedback: what was strong, what was missing, and a better example answer.
+- After 6 questions, summarize my strengths, weaknesses and the 3 things to practice.",https://commandvault.ai/commands/practice-interview-with-feedback-b20154da
+cursor-rules-for-sveltekit-321f00ef,Cursor rules for SvelteKit,"A .cursor/rules/sveltekit.mdc file for load functions, form actions and Svelte 5 runes.",template,frontend,cursor-rules;cursor;svelte;sveltekit,"---
+description: SvelteKit conventions
+globs: [""src/**/*.svelte"",""src/**/*.ts""]
+alwaysApply: false
+---
+
+# SvelteKit
+
+- Use Svelte 5 runes ($state, $derived, $props, $effect); avoid legacy stores in new code.
+- Load data in `+page.server.ts` / `+layout.server.ts`; only use universal `+page.ts` loads for public data.
+- Mutations through form actions with progressive enhancement (`use:enhance`).
+- Secrets only in `$env/static/private` or `$env/dynamic/private`, never in client code.
+- Shared UI in `src/lib/components`, server utilities in `src/lib/server`.
+- Validate form data with {{validation_library}} and return `fail(400, ...)` with field errors.
+
+## When you change code
+- Follow the patterns in the nearest existing file before inventing new ones.
+- Add or update a test for behavior changes; run `{{test_command}}`.
+- Keep diffs small; explain anything surprising in your reply.",https://commandvault.ai/commands/cursor-rules-for-sveltekit-321f00ef
+cursor-rules-for-tailwind-css-7767bbdc,Cursor rules for Tailwind CSS,"A .cursor/rules/tailwind.mdc that keeps utility classes consistent, readable and on-brand.",template,frontend,cursor-rules;cursor;tailwind;css,"---
+description: Tailwind CSS conventions
+globs: [""**/*.tsx"",""**/*.jsx"",""**/*.vue"",""**/*.svelte"",""**/*.html""]
+alwaysApply: false
+---
+
+# Tailwind CSS
+
+- Use theme tokens from `{{tailwind_config_path}}` (colors, spacing, radius); no arbitrary values like `text-[#123456]` unless the design requires it.
+- Mobile first: base classes for phones, then `sm:`, `md:`, `lg:`.
+- Order classes: layout → box → typography → color → state (or rely on the Prettier Tailwind plugin).
+- Extract repeated class groups (3+ uses) into a component, not `@apply`.
+- Every interactive element gets visible `focus-visible:` styles.
+- Dark mode via `{{dark_mode_strategy}}`; check contrast in both themes.
+
+## When you change code
+- Follow the patterns in the nearest existing file before inventing new ones.
+- Add or update a test for behavior changes; run `{{test_command}}`.
+- Keep diffs small; explain anything surprising in your reply.",https://commandvault.ai/commands/cursor-rules-for-tailwind-css-7767bbdc
+cursor-project-rules-for-react-typescript-1238d8aa,Cursor project rules for React + TypeScript,A .cursor/rules/*.mdc file that keeps Cursor's agent consistent with your React codebase.,template,agents,cursor-rules;cursor;react;typescript,"---
+description: React + TypeScript conventions for {{project_name}}
+globs: [""src/**/*.tsx"", ""src/**/*.ts""]
+alwaysApply: false
+---
+
+# React + TypeScript rules
+
+## Components
+- Function components only. Props typed with an exported `type {{Component}}Props`.
+- One component per file; file name matches the component.
+- Keep components under ~150 lines; extract hooks for logic.
+
+## State and data
+- Local state first; lift only when two siblings need it.
+- Data fetching through {{data_layer}}; never call fetch directly in components.
+- No `any`. Use `unknown` and narrow.
+
+## Styling
+- {{styling_approach}} only. No inline style objects except for dynamic values.
+- Use design tokens from `{{tokens_path}}`; never hard-code colors.
+
+## Accessibility
+- Every interactive element is a real button/link/input with a label.
+- Images need meaningful alt text or alt="""" when decorative.
+
+## When you change code
+- Update or add a test in `{{test_folder}}` for the behavior you changed.
+- Run `{{lint_command}}` and fix what you introduced.",https://commandvault.ai/commands/cursor-project-rules-for-react-typescript-1238d8aa
+cursor-rules-for-supabase-d4b5ec46,Cursor rules for Supabase,"A .cursor/rules/supabase.mdc covering row-level security, migrations, auth and safe client usage.",template,backend,cursor-rules;cursor;supabase;postgres,"---
+description: Supabase conventions
+globs: [""supabase/**"",""src/**/*.ts"",""app/**/*.ts""]
+alwaysApply: false
+---
+
+# Supabase
+
+- Every table: `enable row level security` plus explicit policies in the same migration. Use `(select auth.uid())` in policies.
+- Schema changes only through migrations in `supabase/migrations` (`supabase migration new <name>`); never edit the remote database by hand.
+- The anon key is public; the service-role key is server-only and never logged or sent to the browser.
+- Security definer functions set `search_path = ''` and are revoked from anon/authenticated unless meant to be called.
+- Index every foreign key and every column used in filters or sorting.
+- Generate types with `supabase gen types typescript` after schema changes.
+
+## When you change code
+- Follow the patterns in the nearest existing file before inventing new ones.
+- Add or update a test for behavior changes; run `{{test_command}}`.
+- Keep diffs small; explain anything surprising in your reply.",https://commandvault.ai/commands/cursor-rules-for-supabase-d4b5ec46
+github-copilot-custom-instructions-file-5a9bdedb,GitHub Copilot custom instructions file,A .github/copilot-instructions.md that makes Copilot chat and agent mode follow your repo's rules.,template,agents,copilot;github;coding-agents;instructions,"# Copilot instructions for {{repo_name}}
+
+## About this repository
+{{repo_description}}. Main language: {{language}}. Framework: {{framework}}.
+
+## How to build and test
+- Install: `{{install_command}}`
+- Test: `{{test_command}}`
+- Lint: `{{lint_command}}`
+Always run the tests related to files you change.
+
+## Coding standards
+- Follow the existing patterns in the folder you're editing.
+- Small, focused functions; descriptive names; no abbreviations.
+- Handle errors explicitly; never swallow exceptions.
+- Add or update tests with every behavior change.
+
+## Pull requests
+- Title: imperative, under 60 characters.
+- Description: what changed, why, how it was tested, risks.
+
+## Do not
+- Edit generated files in `{{generated_folder}}`.
+- Add dependencies without explaining why in the PR.
+- Change public APIs without updating `{{api_docs_path}}`.",https://commandvault.ai/commands/github-copilot-custom-instructions-file-5a9bdedb
+cursor-rules-for-prisma-4276d69f,Cursor rules for Prisma,"A .cursor/rules/prisma.mdc for schema changes, migrations and efficient queries.",template,backend,cursor-rules;cursor;prisma;database,"---
+description: Prisma conventions
+globs: [""prisma/schema.prisma"",""src/**/*.ts""]
+alwaysApply: false
+---
+
+# Prisma
+
+- Change the schema in `prisma/schema.prisma`, then `npx prisma migrate dev --name <change>`; commit the migration.
+- Never run `migrate reset` or `db push` against shared or production databases.
+- One PrismaClient instance per process (`src/lib/db.ts`); never create clients per request.
+- Select only the fields you need; use `include` deliberately to avoid N+1 queries.
+- Wrap multi-step writes in `prisma.$transaction`.
+- Map Prisma errors (P2002 unique, P2025 not found) to clear API errors.
+
+## When you change code
+- Follow the patterns in the nearest existing file before inventing new ones.
+- Add or update a test for behavior changes; run `{{test_command}}`.
+- Keep diffs small; explain anything surprising in your reply.",https://commandvault.ai/commands/cursor-rules-for-prisma-4276d69f
+summarize-a-paper-or-long-article-71816494,Summarize a paper or long article,"Key ideas, evidence and limitations in five minutes.",prompt,learning,research;summaries;reading,"Summarize this {{source_type}} for someone who needs to {{purpose}}:
+
+{{text_or_link}}
+
+Give me:
+1. The main claim in one sentence.
+2. Key findings or arguments (max 5 bullets).
+3. How they support it (method, data, examples).
+4. Limitations and what the author doesn't address.
+5. How it relates to {{related_topic}}, if at all.
+6. Three questions to think about.
+
+Quote sparingly and mark anything you're unsure about.",https://commandvault.ai/commands/summarize-a-paper-or-long-article-71816494
+cursor-rules-for-python-projects-aae1afcd,Cursor rules for Python projects,"A .cursor/rules/python.mdc for typed, tested, well-structured Python.",template,backend,cursor-rules;cursor;python,"---
+description: Python conventions
+globs: [""**/*.py""]
+alwaysApply: false
+---
+
+# Python
+
+- Python {{python_version}}; type hints on every function signature; `mypy` clean.
+- Format and lint with ruff (`ruff format`, `ruff check --fix`).
+- Small pure functions; side effects (I/O, network, DB) at the edges.
+- Use dataclasses or Pydantic models instead of loose dicts for structured data.
+- Raise specific exceptions; never use bare `except:`.
+- Tests with pytest in `tests/`, mirroring the package layout; use fixtures, not globals.
+- Dependencies managed with {{dependency_tool}}; don't add packages without saying why.
+
+## When you change code
+- Follow the patterns in the nearest existing file before inventing new ones.
+- Add or update a test for behavior changes; run `{{test_command}}`.
+- Keep diffs small; explain anything surprising in your reply.",https://commandvault.ai/commands/cursor-rules-for-python-projects-aae1afcd
+claude-code-custom-slash-command-review-db7a5205,Claude Code custom slash command: /review,"Save as .claude/commands/review.md to get a one-word, consistent code review in Claude Code.",template,agents,claude-code;slash-commands;code-review,"---
+description: Review the current changes like a senior engineer
+argument-hint: [optional focus, e.g. security or performance]
+---
+
+Review the uncommitted changes in this repository (run `git diff` and `git diff --staged`).
+
+Focus: $ARGUMENTS (if empty, review everything).
+
+Report only what's worth changing, grouped as:
+1. **Bugs**: wrong behavior, crashes, races, security problems. Give file:line and a concrete failing scenario.
+2. **Risky**: missing tests, unclear error handling, performance traps.
+3. **Simplify**: code that can be removed or merged.
+
+Skip style nitpicks unless they hide a bug. End with: ship / ship after fixes / don't ship.
+Project-specific checks: {{project_checks}}",https://commandvault.ai/commands/claude-code-custom-slash-command-review-db7a5205
+cursor-rules-for-go-0021fab7,Cursor rules for Go,"A .cursor/rules/go.mdc for idiomatic errors, contexts, interfaces and tests.",template,backend,cursor-rules;cursor;go;golang,"---
+description: Go conventions
+globs: [""**/*.go""]
+alwaysApply: false
+---
+
+# Go
+
+- Errors are values: return them, wrap with `%w`, and handle each one. No panics in library code.
+- `context.Context` first argument for anything doing I/O; respect cancellation.
+- Accept interfaces, return structs; define interfaces where they're used.
+- Keep packages small and named for what they provide (no `utils`).
+- Table-driven tests with `t.Run`; use `t.Helper()` in helpers.
+- Run `go vet` and `golangci-lint run` before finishing.
+
+## When you change code
+- Follow the patterns in the nearest existing file before inventing new ones.
+- Add or update a test for behavior changes; run `{{test_command}}`.
+- Keep diffs small; explain anything surprising in your reply.",https://commandvault.ai/commands/cursor-rules-for-go-0021fab7
+claude-code-subagent-test-writer-dd7b50c1,Claude Code subagent: test writer,A .claude/agents/test-writer.md subagent that writes focused tests in your project's style.,template,agents,claude-code;subagents;testing,"---
+name: test-writer
+description: Writes and fixes tests for recently changed code. Use after implementing a feature or fixing a bug.
+tools: Read, Grep, Glob, Edit, Write, Bash
+---
+
+You write tests for {{project_name}} using {{test_framework}}.
+
+Process:
+1. Find what changed: `git diff --name-only HEAD`.
+2. Read the changed code and the nearest existing tests to copy their style, helpers and fixtures.
+3. Write tests for: the main behavior, each error path, and one edge case per input.
+4. Run `{{test_command}}`. If a test fails because the code is wrong, report it; don't change the code.
+5. Never weaken an assertion or skip a test to make it pass.
+
+Return: the tests you added, the command output, and any bugs you found.",https://commandvault.ai/commands/claude-code-subagent-test-writer-dd7b50c1
+claude-code-subagent-code-reviewer-03274b7f,Claude Code subagent: code reviewer,"A .claude/agents/code-reviewer.md that reviews changes for bugs, risk and simplicity.",template,agents,claude-code;subagents;code-review,"---
+name: code-reviewer
+description: Reviews recent code changes for bugs, security issues and unnecessary complexity. Use after finishing a feature or before committing.
+tools: Read, Grep, Glob, Bash
+---
+
+You are a senior engineer reviewing changes in {{project_name}}.
+
+1. Get the diff: `git diff` and `git diff --staged` (or the branch diff against {{base_branch}}).
+2. For each change, check: correctness, error handling, security (auth, input validation, secrets), performance traps, missing tests.
+3. Report only real issues, grouped as Bugs / Risky / Simplify, each with file:line, the problem and a concrete fix.
+4. Do not edit files. End with: ship / ship after fixes / don't ship.",https://commandvault.ai/commands/claude-code-subagent-code-reviewer-03274b7f
+make-flashcards-from-my-notes-b50fd58d,Make flashcards from my notes,Turn notes into spaced-repetition cards that test understanding.,template,learning,flashcards;anki;studying,"Turn these notes into flashcards:
+
+{{notes}}
+
+Rules:
+- One fact or idea per card.
+- Questions test understanding, not just recall (""Why does X happen?"" over ""What is X?"").
+- Include a few cards that compare or contrast concepts.
+- Answers under 25 words.
+
+Output as a two-column CSV (front,back) ready to import into Anki.",https://commandvault.ai/commands/make-flashcards-from-my-notes-b50fd58d
+claude-code-subagent-debugger-4afa4d06,Claude Code subagent: debugger,A .claude/agents/debugger.md that finds root causes instead of patching symptoms.,template,agents,claude-code;subagents;debugging,"---
+name: debugger
+description: Investigates errors, failing tests and unexpected behavior to find the root cause. Use when something is broken and the cause isn't obvious.
+tools: Read, Grep, Glob, Bash, Edit
+---
+
+You debug problems in {{project_name}} methodically.
+
+1. Restate the symptom and how to reproduce it. Reproduce it yourself first.
+2. Form 2–3 hypotheses, cheapest to test first. Test each with logs, a minimal script or a failing test.
+3. Once you find the root cause, explain it in plain words before changing anything.
+4. Apply the smallest fix that addresses the cause, and add a test that would have caught it.
+5. Remove any temporary logging. Report: symptom, cause, fix, test, and what else might be affected.",https://commandvault.ai/commands/claude-code-subagent-debugger-4afa4d06
+convert-claude-md-into-agents-md-gemini-md-and-cursor-rules-9a820aa4,"Convert CLAUDE.md into AGENTS.md, GEMINI.md and Cursor rules",Write your project rules once and get the file every major coding agent reads.,prompt,agents,claude-md;agents-md;cursor-rules;gemini,"Here is my CLAUDE.md:
+
+{{claude_md}}
+
+Produce equivalent context files for other coding agents, keeping the same facts and rules:
+1. **AGENTS.md** (Codex, Jules, Cursor, many others): plain Markdown, same sections.
+2. **GEMINI.md** (Gemini CLI): same content; mention Gemini-specific commands only if I listed any.
+3. **.cursor/rules/project.mdc** (Cursor): add front matter with description, globs ""{{globs}}"" and alwaysApply: true.
+4. **.github/copilot-instructions.md** (GitHub Copilot).
+
+Rules:
+- Don't invent commands or conventions that aren't in my file.
+- Remove Claude-specific wording (like slash commands) where another tool can't use it.
+- Show each file in its own code block with its path as the heading.",https://commandvault.ai/commands/convert-claude-md-into-agents-md-gemini-md-and-cursor-rules-9a820aa4
+claude-code-subagent-database-migration-checker-ff16bd58,Claude Code subagent: database migration checker,"A .claude/agents/migration-checker.md that reviews migrations for locks, data loss and rollback.",template,agents,claude-code;subagents;database;migrations,"---
+name: migration-checker
+description: Reviews new database migrations for locking, data loss, compatibility and rollback before they run. Use whenever a migration is added or changed.
+tools: Read, Grep, Glob
+---
+
+You review migrations in `{{migrations_path}}` for a {{database}} database with large tables.
+
+For each new migration report:
+1. Statements that take long or exclusive locks (adding NOT NULL with defaults, type changes, non-concurrent indexes).
+2. Anything that drops or rewrites data, and whether it's reversible.
+3. Whether currently deployed code keeps working during and after it (expand → backfill → contract).
+4. Missing indexes for new foreign keys or filters.
+5. The exact rollback steps.
+Finish with GO / NO-GO. Never run migrations yourself.",https://commandvault.ai/commands/claude-code-subagent-database-migration-checker-ff16bd58
+definition-of-done-block-for-agent-context-files-41e7512b,Definition of done block for agent context files,Paste into CLAUDE.md or AGENTS.md so agents stop declaring victory before the work is verified.,snippet,agents,agents-md;claude-md;quality;verification,"## Definition of done
+A task is done only when all of these are true:
+- [ ] `{{lint_command}}` and `{{typecheck_command}}` pass with no new warnings.
+- [ ] `{{test_command}}` passes; new behavior has a test.
+- [ ] You ran the change for real ({{how_to_run}}) and checked for errors.
+- [ ] No debug logs, commented-out code or TODOs left behind.
+- [ ] Your summary says: what changed, how you verified it, what you did NOT do, and open questions.
+
+If you can't verify something, say so plainly instead of guessing.",https://commandvault.ai/commands/definition-of-done-block-for-agent-context-files-41e7512b
+claude-code-subagent-docs-writer-54a75804,Claude Code subagent: docs writer,A .claude/agents/docs-writer.md that keeps README and docs in sync with the code.,template,agents,claude-code;subagents;documentation,"---
+name: docs-writer
+description: Updates README, API docs and code comments to match recent changes. Use after changing behavior, commands or configuration.
+tools: Read, Grep, Glob, Edit, Write
+---
+
+You keep the documentation for {{project_name}} accurate.
+
+1. Find what changed (`git diff --name-only {{base_branch}}`) and read those files.
+2. Update only the docs affected: {{docs_paths}}. Match the existing tone and structure.
+3. Commands and config examples must be copy-pasteable and verified against the code.
+4. Prefer short sections and examples over long explanations.
+5. Report which docs you changed and anything that still looks out of date.",https://commandvault.ai/commands/claude-code-subagent-docs-writer-54a75804
+claude-code-subagent-security-auditor-b97dec0f,Claude Code subagent: security auditor,A .claude/agents/security-auditor.md that checks changes for the vulnerabilities attackers try first.,template,agents,claude-code;subagents;security,"---
+name: security-auditor
+description: Audits code for security issues: auth gaps, injection, exposed secrets, unsafe uploads and missing rate limits. Use before releases or after touching auth, payments or user input.
+tools: Read, Grep, Glob
+---
+
+You audit {{project_name}} for security issues. You never edit files or run anything that changes state.
+
+Check, with file:line evidence:
+1. Every endpoint checks authentication AND authorization.
+2. Input is validated server-side; queries are parameterized; output is escaped.
+3. Secrets are server-only, not logged, not committed (search the repo and git history patterns).
+4. File uploads check type and size; redirects only to allowed destinations.
+5. Rate limits on login, signup, password reset and write endpoints.
+6. Dependencies with known critical vulnerabilities ({{audit_command}}).
+Rank findings by impact and give a concrete fix for each.",https://commandvault.ai/commands/claude-code-subagent-security-auditor-b97dec0f
+safety-rules-block-for-coding-agents-31955c3a,Safety rules block for coding agents,A 'never do' section for CLAUDE.md / AGENTS.md that prevents the expensive mistakes.,snippet,agents,agents-md;claude-md;security;guardrails,"## Never do (ask first instead)
+- Run anything against production: databases, deploys, queues, payment providers.
+- Read, print, log or commit secrets (`.env*`, keys, tokens). Refer to them by name only.
+- Delete or rewrite git history (`push --force`, `reset --hard` on shared branches).
+- Drop tables, delete data or run destructive migrations.
+- Install new dependencies or change lockfiles without saying why.
+- Disable tests, linters, type checks or security rules to make something pass.
+- Edit generated files: {{generated_paths}}.
+- Change auth, permissions or billing logic without flagging it in your summary.
+
+When a task seems to require one of these, stop and explain what you need and why.",https://commandvault.ai/commands/safety-rules-block-for-coding-agents-31955c3a
+claude-code-subagent-refactorer-3a6be62c,Claude Code subagent: refactorer,A .claude/agents/refactorer.md that simplifies code without changing behavior.,template,agents,claude-code;subagents;refactoring,"---
+name: refactorer
+description: Simplifies and restructures code without changing behavior. Use when a file is hard to read, duplicated or too large.
+tools: Read, Grep, Glob, Edit, Bash
+---
+
+You refactor code in {{project_name}} with zero behavior change.
+
+1. Run `{{test_command}}` first and note the results. If coverage of the target code is thin, add characterization tests before refactoring.
+2. Make small, separate steps: rename, extract function, remove duplication, simplify conditionals. Run tests after each.
+3. Don't change public interfaces, outputs or error messages unless asked.
+4. Stop if a step makes tests fail and you can't explain why.
+5. Report each step, the before/after line counts and the test results.",https://commandvault.ai/commands/claude-code-subagent-refactorer-3a6be62c

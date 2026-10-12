@@ -1,0 +1,4299 @@
+{
+  "license": "CC-BY-4.0",
+  "attribution": "CommandVault (https://commandvault.ai)",
+  "count": 95,
+  "items": [
+    {
+      "slug": "scroll-to-top-on-every-navigation-e66fb364",
+      "title": "Scroll-to-Top on Every Navigation",
+      "summary": "This commands ensures that when a user lands on any page of an application, the user gets taken to the very top of that page, and not the position the user was on the previous page.",
+      "kind": "prompt",
+      "community": "frontend",
+      "tags": [
+        "top of the page",
+        "page position",
+        "fixed page position"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": "The outcome this command should help produce.",
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "On every route change, reset the viewport scroll position to (0, 0) before the destination page renders, so users always land at the very top of every page—no scroll state should ever carry over between pages anywhere in the application.",
+      "score": 0,
+      "uses": 17,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/scroll-to-top-on-every-navigation-e66fb364",
+      "raw_url": "https://commandvault.ai/commands/scroll-to-top-on-every-navigation-e66fb364/raw",
+      "created_at": "2025-07-01T19:56:16.163751+00:00",
+      "updated_at": "2026-10-12T15:14:33.370911+00:00"
+    },
+    {
+      "slug": "universal-dark-mode-toggle-80b6fd46",
+      "title": "Universal Dark-Mode Toggle",
+      "summary": "Persist a user’s light/dark preference across sessions and devices.",
+      "kind": "prompt",
+      "community": "frontend",
+      "tags": [
+        "dark mode",
+        "dark"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": "The outcome this command should help produce.",
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Add a theme toggle that stores the chosen mode in localStorage and user profile; on every page load, read that value and apply the corresponding CSS class before content flashes.",
+      "score": 0,
+      "uses": 4,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/universal-dark-mode-toggle-80b6fd46",
+      "raw_url": "https://commandvault.ai/commands/universal-dark-mode-toggle-80b6fd46/raw",
+      "created_at": "2025-07-01T22:20:23.161895+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "instant-email-verification-link-507dce29",
+      "title": "Instant Email Verification Link",
+      "summary": "Verify new accounts seamlessly",
+      "kind": "prompt",
+      "community": "backend",
+      "tags": [
+        "email",
+        "email verification"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": "The outcome this command should help produce.",
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Upon user registration, generate a signed, 24-hour email-verification URL and block login until that link is clicked—then flip email_verified to true.",
+      "score": 0,
+      "uses": 3,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/instant-email-verification-link-507dce29",
+      "raw_url": "https://commandvault.ai/commands/instant-email-verification-link-507dce29/raw",
+      "created_at": "2025-07-01T22:21:33.338204+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "one-click-password-reset-182f1360",
+      "title": "One-Click Password Reset",
+      "summary": "Fast, secure password recovery",
+      "kind": "prompt",
+      "community": "backend",
+      "tags": [
+        "password",
+        "password reset"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": "The outcome this command should help produce.",
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Expose a ‘Forgot Password’ flow that sends a single-use token expiring in 60 minutes; on token submission, let the user set a new password and invalidate every active session",
+      "score": 0,
+      "uses": 1,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/one-click-password-reset-182f1360",
+      "raw_url": "https://commandvault.ai/commands/one-click-password-reset-182f1360/raw",
+      "created_at": "2025-07-01T22:22:17.053804+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "autosave-form-drafts-13cb65f4",
+      "title": "Autosave Form Drafts",
+      "summary": "Prevent data loss on long forms",
+      "kind": "prompt",
+      "community": "frontend",
+      "tags": [
+        "autosave",
+        "forms",
+        "form autosave"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": "The outcome this command should help produce.",
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Every 5 seconds, diff unsaved form fields and store them in IndexedDB keyed by form ID; restore those fields automatically if the user returns before a successful submit",
+      "score": 0,
+      "uses": 2,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/autosave-form-drafts-13cb65f4",
+      "raw_url": "https://commandvault.ai/commands/autosave-form-drafts-13cb65f4/raw",
+      "created_at": "2025-07-01T22:30:32.218863+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "debounced-live-search-a8ec2c2f",
+      "title": "Debounced Live Search",
+      "summary": "Reduce server load while users type",
+      "kind": "prompt",
+      "community": "frontend",
+      "tags": [
+        "server load"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": "The outcome this command should help produce.",
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Wrap the global search input in a 300 ms debounce; ignore keystrokes during that window and fire one API request with the final query string",
+      "score": 0,
+      "uses": 2,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/debounced-live-search-a8ec2c2f",
+      "raw_url": "https://commandvault.ai/commands/debounced-live-search-a8ec2c2f/raw",
+      "created_at": "2025-07-01T22:31:15.606337+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "skeleton-loading-placeholders-95a8cd27",
+      "title": "Skeleton Loading Placeholders",
+      "summary": "Smooth perceived performance",
+      "kind": "prompt",
+      "community": "frontend",
+      "tags": [
+        "skeleton blocks",
+        "loading",
+        "placeholders",
+        "loading placeholder"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": "The outcome this command should help produce.",
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Show lightweight skeleton blocks that match each component’s shape until the real data arrives, then swap instantly—never display a blank screen",
+      "score": 0,
+      "uses": 1,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/skeleton-loading-placeholders-95a8cd27",
+      "raw_url": "https://commandvault.ai/commands/skeleton-loading-placeholders-95a8cd27/raw",
+      "created_at": "2025-07-01T22:32:26.897072+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "graceful-404-fallback-e907f8bc",
+      "title": "Graceful 404 Fallback",
+      "summary": "Keep users oriented on bad URLs",
+      "kind": "prompt",
+      "community": "frontend",
+      "tags": [
+        "404",
+        "404 fallback"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": "The outcome this command should help produce.",
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Route any unmatched path to a branded 404 page with a ‘Back to Dashboard’ button and a search bar; send the path to error analytics",
+      "score": 0,
+      "uses": 6,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/graceful-404-fallback-e907f8bc",
+      "raw_url": "https://commandvault.ai/commands/graceful-404-fallback-e907f8bc/raw",
+      "created_at": "2025-07-01T22:34:24.807268+00:00",
+      "updated_at": "2026-10-12T15:14:50.809122+00:00"
+    },
+    {
+      "slug": "role-based-access-control-5cccc8f4",
+      "title": "Role-Based Access Control",
+      "summary": "Limit sensitive features to the right people",
+      "kind": "prompt",
+      "community": "backend",
+      "tags": [
+        "access control",
+        "login",
+        "password protected",
+        "roles"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": "The outcome this command should help produce.",
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Attach a role field to every auth token and gate each protected route and API mutation against a whitelist of accepted roles before executing",
+      "score": 0,
+      "uses": 1,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/role-based-access-control-5cccc8f4",
+      "raw_url": "https://commandvault.ai/commands/role-based-access-control-5cccc8f4/raw",
+      "created_at": "2025-07-01T22:35:22.799608+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "local-business-directory-system-d4d6d361",
+      "title": "Local Business Directory System",
+      "summary": "A full template including initial command and knowledge base to build a local business directory service that you can apply to your local community and start helping small businesses while making a profit.",
+      "kind": "prompt",
+      "community": "backend",
+      "tags": [
+        "local business",
+        "directory",
+        "marketing",
+        "saas"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": "The outcome this command should help produce.",
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Build a local directory software to list and promote local businesses in a specific industry, enabling online advertising and lead generation. Include a front-end directory for users to browse listings and a back-end admin panel to manage content. Focus on these core functionalities, described only by what they do, without specifying technology or methods:\nFront-End Directory:\n1.  Show a searchable directory of businesses with name, description, contact info, address, and images.\n2.  Allow keyword search and filters for category or location.\n3.  Enable lead generation via a “Contact Business” form sending inquiries to businesses.\n4.  Support user accounts to save favorites and submit reviews.\n5.  Display ads (e.g., banners, sponsored listings) for businesses.\nBack-End Admin Panel:\n1.  Let admins add, edit, or remove listings with an approval process.\n2.  Manage user accounts and moderate reviews.\n3.  Track leads and manage ad campaigns (e.g., banners, premium listings).\n4.  Collect fees from businesses, deducting a percentage as profit.\n5.  Provide an analytics dashboard for listings, engagement, and revenue.\nBusiness Model:\n1.  Charge businesses for listings or premium features, with a profit percentage deducted.\n2.  Ensure scalability for many listings and users.\n3.  Comply with data privacy laws and secure the admin panel.\nBuild an intuitive, reliable system, easy for non-technical users and admins, with fast performance and clear error handling.",
+      "score": 0,
+      "uses": 2,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/local-business-directory-system-d4d6d361",
+      "raw_url": "https://commandvault.ai/commands/local-business-directory-system-d4d6d361/raw",
+      "created_at": "2025-07-15T18:23:07.80972+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "build-an-accessible-react-component-592a69d5",
+      "title": "Build an accessible React component",
+      "summary": "Get a production-ready component with keyboard support, ARIA and tests.",
+      "kind": "prompt",
+      "community": "frontend",
+      "tags": [
+        "react",
+        "accessibility",
+        "components"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "component",
+          "label": "Component",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "use_case",
+          "label": "Use case",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "styling",
+          "label": "Styling",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Build a {{component}} component in React + TypeScript for {{use_case}}.\n\nRequirements:\n- Fully keyboard operable (Tab, Shift+Tab, Enter, Space, Escape, arrow keys where it makes sense).\n- Correct roles and ARIA attributes; no ARIA where native HTML already works.\n- Visible focus styles that pass WCAG 2.2 AA contrast.\n- Props are typed, documented with JSDoc, and have sensible defaults.\n- No external UI libraries. Styling with {{styling}}.\n\nReturn: the component file, a short usage example, and a test file (Testing Library) covering keyboard use and screen-reader labels.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/build-an-accessible-react-component-592a69d5",
+      "raw_url": "https://commandvault.ai/commands/build-an-accessible-react-component-592a69d5/raw",
+      "created_at": "2026-09-23T21:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "pre-launch-ui-polish-checklist-cdf82223",
+      "title": "Pre-launch UI polish checklist",
+      "summary": "Walk a page through the details users notice before you ship.",
+      "kind": "checklist",
+      "community": "frontend",
+      "tags": [
+        "qa",
+        "ui",
+        "launch"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "page_url_or_file",
+          "label": "Page url or file",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Review the page at {{page_url_or_file}} against this checklist and report each item as PASS / FIX with a one-line note:\n\n1. Empty, loading and error states exist for every data-driven area.\n2. Text never overflows or truncates without a tooltip at 320px width.\n3. Tap targets are at least 44x44px on mobile.\n4. Buttons show a pressed / disabled / busy state.\n5. Forms keep user input after a failed submit.\n6. Images have width/height (no layout shift) and meaningful alt text.\n7. Dark mode (if supported) has no unreadable text.\n8. Page title and meta description are set.\n9. Keyboard focus order follows visual order.\n10. Nothing logs errors to the console.\n\nEnd with the three fixes that would most improve the page.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/pre-launch-ui-polish-checklist-cdf82223",
+      "raw_url": "https://commandvault.ai/commands/pre-launch-ui-polish-checklist-cdf82223/raw",
+      "created_at": "2026-09-24T04:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "convert-a-design-screenshot-into-clean-html-css-6e824cb6",
+      "title": "Convert a design screenshot into clean HTML/CSS",
+      "summary": "Turn a mockup into semantic, responsive markup without a framework.",
+      "kind": "prompt",
+      "community": "frontend",
+      "tags": [
+        "html",
+        "css",
+        "responsive"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "screen_name",
+          "label": "Screen name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "breakpoints",
+          "label": "Breakpoints",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "I'm attaching a screenshot of {{screen_name}}. Recreate it as semantic HTML and modern CSS.\n\nRules:\n- Mobile first; breakpoints at {{breakpoints}}.\n- Use CSS custom properties for colors, spacing and radius; put them in :root.\n- Flexbox/grid only, no absolute positioning for layout.\n- Use real elements (nav, main, section, button, label) — no div soup.\n- Where the screenshot is ambiguous, pick the simplest option and list your assumptions at the end.\n\nOutput one HTML file with a <style> block.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/convert-a-design-screenshot-into-clean-html-css-6e824cb6",
+      "raw_url": "https://commandvault.ai/commands/convert-a-design-screenshot-into-clean-html-css-6e824cb6/raw",
+      "created_at": "2026-09-24T10:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "find-and-fix-react-re-render-problems-89688638",
+      "title": "Find and fix React re-render problems",
+      "summary": "Diagnose why a component tree is slow and get concrete fixes.",
+      "kind": "prompt",
+      "community": "frontend",
+      "tags": [
+        "react",
+        "performance",
+        "debugging"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "slow_interaction",
+          "label": "Slow interaction",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "code",
+          "label": "Code",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Here is a React component tree that feels slow when {{slow_interaction}}:\n\n{{code}}\n\n1. List every component that re-renders on that interaction and why (props identity, context, state placement).\n2. Rank the causes by likely cost.\n3. Propose the smallest fixes first (moving state down, splitting context, stable callbacks, memo) and show the changed code.\n4. Tell me how to confirm the fix with React DevTools Profiler.\n\nDo not add memoization everywhere — only where it measurably helps.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/find-and-fix-react-re-render-problems-89688638",
+      "raw_url": "https://commandvault.ai/commands/find-and-fix-react-re-render-problems-89688638/raw",
+      "created_at": "2026-09-24T17:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "form-validation-schema-with-friendly-errors-922d9ec3",
+      "title": "Form validation schema with friendly errors",
+      "summary": "Generate a Zod schema plus human error messages for any form.",
+      "kind": "template",
+      "community": "frontend",
+      "tags": [
+        "forms",
+        "validation",
+        "zod"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "form_name",
+          "label": "Form name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "fields",
+          "label": "Fields",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Create a Zod schema for a {{form_name}} form with these fields:\n{{fields}}\n\nFor each field:\n- Pick the right type and constraints (min/max, email, url, regex).\n- Write an error message a non-technical person understands (\"Use at least 8 characters\", not \"String must contain at least 8 character(s)\").\n- Trim strings and coerce numbers where appropriate.\n\nAlso export the inferred TypeScript type and a helper that turns Zod errors into { field: message } for the UI.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/form-validation-schema-with-friendly-errors-922d9ec3",
+      "raw_url": "https://commandvault.ai/commands/form-validation-schema-with-friendly-errors-922d9ec3/raw",
+      "created_at": "2026-09-25T00:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "design-a-rest-api-for-a-feature-4bfdfef6",
+      "title": "Design a REST API for a feature",
+      "summary": "Endpoints, payloads, status codes and edge cases before you write code.",
+      "kind": "prompt",
+      "community": "backend",
+      "tags": [
+        "api",
+        "rest",
+        "design"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "feature",
+          "label": "Feature",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "stack",
+          "label": "Stack",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Design a REST API for {{feature}} in a {{stack}} app.\n\nGive me:\n1. Resources and endpoints (method, path, purpose).\n2. Request and response JSON for each, with realistic example values.\n3. Status codes for success and every failure case.\n4. Auth and permission rules per endpoint.\n5. Pagination, filtering and sorting conventions.\n6. Idempotency and rate-limit notes for write endpoints.\n7. Open questions I need to answer before building.\n\nKeep it consistent: plural nouns, kebab-case paths, camelCase JSON.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/design-a-rest-api-for-a-feature-4bfdfef6",
+      "raw_url": "https://commandvault.ai/commands/design-a-rest-api-for-a-feature-4bfdfef6/raw",
+      "created_at": "2026-09-25T07:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "model-a-postgres-schema-with-row-level-security-4c536980",
+      "title": "Model a Postgres schema with row-level security",
+      "summary": "Tables, indexes and RLS policies for a multi-user feature.",
+      "kind": "prompt",
+      "community": "backend",
+      "tags": [
+        "postgres",
+        "supabase",
+        "rls",
+        "database"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "feature",
+          "label": "Feature",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "user_roles",
+          "label": "User roles",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "I'm building {{feature}} on Postgres (Supabase). Users: {{user_roles}}.\n\nProduce a single SQL migration that:\n- Creates tables with uuid primary keys, timestamps, foreign keys and check constraints.\n- Adds indexes for every foreign key and every column I'll filter or sort by.\n- Enables RLS on every table and writes select/insert/update/delete policies per role, using (select auth.uid()).\n- Keeps privileged logic in security definer functions with search_path set to ''.\n\nAfter the SQL, explain each policy in one sentence and list queries I should run to prove a user cannot read another user's rows.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/model-a-postgres-schema-with-row-level-security-4c536980",
+      "raw_url": "https://commandvault.ai/commands/model-a-postgres-schema-with-row-level-security-4c536980/raw",
+      "created_at": "2026-09-25T13:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "add-a-background-job-safely-ffa03721",
+      "title": "Add a background job safely",
+      "summary": "Move slow work out of the request with retries and idempotency.",
+      "kind": "workflow",
+      "community": "backend",
+      "tags": [
+        "jobs",
+        "queues",
+        "reliability"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "slow_work",
+          "label": "Slow work",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "code",
+          "label": "Code",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "queue_tool",
+          "label": "Queue tool",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "The request handler below does slow work ({{slow_work}}) inline:\n\n{{code}}\n\nRefactor it to a background job using {{queue_tool}}:\n1. The handler validates input, enqueues a job with an idempotency key, and returns 202 immediately.\n2. The worker is safe to run twice for the same key.\n3. Retries use exponential backoff with a max attempt count; failures land in a dead-letter list.\n4. Log job id, attempt and duration; never log secrets or full payloads.\n5. Show how the UI can poll or subscribe for the result.\n\nReturn the new handler, the worker and a short runbook for stuck jobs.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/add-a-background-job-safely-ffa03721",
+      "raw_url": "https://commandvault.ai/commands/add-a-background-job-safely-ffa03721/raw",
+      "created_at": "2026-09-25T20:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "write-integration-tests-for-an-endpoint-95976de5",
+      "title": "Write integration tests for an endpoint",
+      "summary": "Cover the happy path, auth and the edge cases that bite in production.",
+      "kind": "prompt",
+      "community": "backend",
+      "tags": [
+        "testing",
+        "api",
+        "integration"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "test_framework",
+          "label": "Test framework",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "endpoint_code",
+          "label": "Endpoint code",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Write integration tests for this endpoint using {{test_framework}}:\n\n{{endpoint_code}}\n\nCover at minimum:\n- Success with valid input (assert body and status).\n- Missing/invalid auth → 401/403.\n- Validation failures for each required field.\n- Not found and conflict cases.\n- Rate limit or duplicate submission behavior if present.\n\nUse factories for test data, clean up after each test, and don't mock the database unless I say so.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/write-integration-tests-for-an-endpoint-95976de5",
+      "raw_url": "https://commandvault.ai/commands/write-integration-tests-for-an-endpoint-95976de5/raw",
+      "created_at": "2026-09-26T03:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "database-migration-safety-review-abd8f75a",
+      "title": "Database migration safety review",
+      "summary": "Catch locking, data loss and rollback problems before running a migration.",
+      "kind": "checklist",
+      "community": "backend",
+      "tags": [
+        "migrations",
+        "postgres",
+        "deploys"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "table_size",
+          "label": "Table size",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "migration_sql",
+          "label": "Migration sql",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Review this migration before it runs on a production database with {{table_size}} rows:\n\n{{migration_sql}}\n\nCheck and report:\n1. Statements that take long or exclusive locks (adding NOT NULL, changing types, non-concurrent indexes).\n2. Anything that drops or rewrites data — and whether it's reversible.\n3. Whether app code that is deployed today keeps working during and after the migration.\n4. A safer multi-step version if needed (expand → backfill → contract).\n5. The exact rollback steps.\n\nFinish with GO / NO-GO and why.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/database-migration-safety-review-abd8f75a",
+      "raw_url": "https://commandvault.ai/commands/database-migration-safety-review-abd8f75a/raw",
+      "created_at": "2026-09-26T09:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "project-context-pack-for-coding-agents-7fe49393",
+      "title": "Project context pack for coding agents",
+      "summary": "A reusable AGENTS.md that stops your AI agent from guessing.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "agents",
+        "context",
+        "claude",
+        "cursor"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "project_description",
+          "label": "Project description",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "stack",
+          "label": "Stack",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Write an AGENTS.md for my project so coding agents work the way my team does.\n\nProject: {{project_description}}\nStack: {{stack}}\n\nInclude sections:\n- What this app is and who uses it (3 lines).\n- How to run, test, lint and build (exact commands).\n- Folder map: where things live and where new code goes.\n- Conventions: naming, error handling, data fetching, styling.\n- Never do: list of dangerous or banned actions (e.g. editing generated files, touching prod data).\n- Definition of done for a change.\n\nKeep it under 120 lines. Prefer concrete rules over advice.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/project-context-pack-for-coding-agents-7fe49393",
+      "raw_url": "https://commandvault.ai/commands/project-context-pack-for-coding-agents-7fe49393/raw",
+      "created_at": "2026-09-26T16:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "plan-implement-verify-loop-07076966",
+      "title": "Plan → implement → verify loop",
+      "summary": "Make an AI agent plan first, work in small steps and prove each one.",
+      "kind": "workflow",
+      "community": "agents",
+      "tags": [
+        "agents",
+        "workflow",
+        "planning"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "task",
+          "label": "Task",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "verify_command",
+          "label": "Verify command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Task: {{task}}\n\nWork in this loop and do not skip steps:\n1. PLAN — Read the relevant files first. Write a numbered plan (max 7 steps), each small enough to verify. List files you'll touch. Stop and wait for \"go\".\n2. IMPLEMENT — Do one step at a time. Match the surrounding code style.\n3. VERIFY — After each step run {{verify_command}} and show the result. If it fails, fix before moving on.\n4. REPORT — Summarize what changed, what you verified, and anything you skipped or are unsure about.\n\nIf you discover the plan is wrong, say so and propose a new plan instead of improvising.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/plan-implement-verify-loop-07076966",
+      "raw_url": "https://commandvault.ai/commands/plan-implement-verify-loop-07076966/raw",
+      "created_at": "2026-09-26T23:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "turn-a-vague-request-into-a-precise-prompt-68b67569",
+      "title": "Turn a vague request into a precise prompt",
+      "summary": "Rewrite any rough ask into a prompt with role, context, constraints and output format.",
+      "kind": "prompt",
+      "community": "agents",
+      "tags": [
+        "prompt-engineering",
+        "meta"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "rough_request",
+          "label": "Rough request",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Rewrite my rough request into a strong prompt for an AI model.\n\nMy rough request: {{rough_request}}\n\nThe rewritten prompt must include:\n- Context: who it's for and why.\n- The exact task, broken into steps if needed.\n- Constraints (length, tone, things to avoid).\n- Output format (headings, table, JSON schema...).\n- One short example of a good answer if it helps.\n\nThen list up to 3 questions whose answers would make the prompt better. Output the prompt in a code block.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/turn-a-vague-request-into-a-precise-prompt-68b67569",
+      "raw_url": "https://commandvault.ai/commands/turn-a-vague-request-into-a-precise-prompt-68b67569/raw",
+      "created_at": "2026-09-27T06:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "code-review-as-a-senior-engineer-2c52c2a9",
+      "title": "Code review as a senior engineer",
+      "summary": "A focused review that finds real bugs instead of nitpicks.",
+      "kind": "prompt",
+      "community": "agents",
+      "tags": [
+        "code-review",
+        "agents",
+        "quality"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "stack",
+          "label": "Stack",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "diff",
+          "label": "Diff",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Review this diff as a senior engineer on a {{stack}} codebase:\n\n{{diff}}\n\nReport only things worth changing, grouped as:\n- Bugs (wrong behavior, crashes, races, security) — include a failing scenario for each.\n- Risky (missing tests, unclear error handling, performance traps).\n- Simplifications that remove code.\n\nSkip formatting and naming nitpicks unless they hide a bug. For each item give file:line, the problem in one sentence, and the fix. End with \"ship / ship after fixes / don't ship\".",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/code-review-as-a-senior-engineer-2c52c2a9",
+      "raw_url": "https://commandvault.ai/commands/code-review-as-a-senior-engineer-2c52c2a9/raw",
+      "created_at": "2026-09-27T12:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "write-a-reusable-ai-skill-file-8b9711c7",
+      "title": "Write a reusable AI skill file",
+      "summary": "Package a repeatable task into instructions an agent can load on demand.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "skills",
+        "agents",
+        "automation"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "task_description",
+          "label": "Task description",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "skill_name",
+          "label": "Skill name",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Create a SKILL.md for this repeatable task: {{task_description}}\n\nFormat:\n---\nname: {{skill_name}}\ndescription: One sentence saying exactly when to use this skill.\n---\n\nThen:\n1. Inputs the agent needs and where to find them.\n2. Step-by-step procedure with exact commands or tool calls.\n3. Checks that prove the task is done correctly.\n4. Common mistakes and how to avoid them.\n5. Example of a finished result.\n\nKeep instructions imperative and specific. No filler.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/write-a-reusable-ai-skill-file-8b9711c7",
+      "raw_url": "https://commandvault.ai/commands/write-a-reusable-ai-skill-file-8b9711c7/raw",
+      "created_at": "2026-09-27T19:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "github-actions-ci-for-a-node-app-f6830a4e",
+      "title": "GitHub Actions CI for a Node app",
+      "summary": "Lint, typecheck, test and build on every pull request, with caching.",
+      "kind": "template",
+      "community": "devops",
+      "tags": [
+        "ci",
+        "github-actions",
+        "node"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "framework",
+          "label": "Framework",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "package_manager",
+          "label": "Package manager",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "node_version",
+          "label": "Node version",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Write a GitHub Actions workflow for a {{framework}} app using {{package_manager}}.\n\nRequirements:\n- Runs on pull_request and push to main.\n- Node {{node_version}}, dependency caching keyed on the lockfile.\n- Jobs: lint, typecheck, test, build (fail fast; build only after the others pass).\n- Cancels in-progress runs for the same branch.\n- Uses least-privilege permissions (contents: read).\n- No secrets in logs.\n\nReturn the YAML and a one-paragraph explanation of each job.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/github-actions-ci-for-a-node-app-f6830a4e",
+      "raw_url": "https://commandvault.ai/commands/github-actions-ci-for-a-node-app-f6830a4e/raw",
+      "created_at": "2026-09-28T02:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "write-a-minimal-production-dockerfile-39803cfc",
+      "title": "Write a minimal production Dockerfile",
+      "summary": "Small, cached, non-root images for any app.",
+      "kind": "prompt",
+      "community": "devops",
+      "tags": [
+        "docker",
+        "containers",
+        "security"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "language",
+          "label": "Language",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "start_command",
+          "label": "Start command",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "port",
+          "label": "Port",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Write a production Dockerfile for a {{language}} app whose start command is {{start_command}}.\n\nRequirements:\n- Multi-stage build; final image based on a slim or distroless base.\n- Dependency install layer cached separately from source.\n- Runs as a non-root user.\n- Only production dependencies in the final image.\n- HEALTHCHECK if the app exposes HTTP on {{port}}.\n- A matching .dockerignore.\n\nExplain the expected final image size and how to verify it.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/write-a-minimal-production-dockerfile-39803cfc",
+      "raw_url": "https://commandvault.ai/commands/write-a-minimal-production-dockerfile-39803cfc/raw",
+      "created_at": "2026-09-28T09:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "incident-response-first-30-minutes-8f32b3ea",
+      "title": "Incident response first 30 minutes",
+      "summary": "A calm, ordered playbook for when production is down.",
+      "kind": "workflow",
+      "community": "devops",
+      "tags": [
+        "incidents",
+        "on-call",
+        "reliability"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "symptom",
+          "label": "Symptom",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "start_time",
+          "label": "Start time",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "We have an incident: {{symptom}} started at {{start_time}}.\n\nGuide me through the first 30 minutes:\n1. Triage: questions to establish scope (who's affected, since when, what changed).\n2. Stabilize: safest mitigations in order (roll back last deploy, disable feature flag, scale up, fail over).\n3. Communicate: a status-page update and an internal update I can paste now.\n4. Investigate: which dashboards, logs and recent changes to check, in order.\n5. Record: what to write down for the postmortem while it's fresh.\n\nAsk me for the information you need step by step instead of guessing.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/incident-response-first-30-minutes-8f32b3ea",
+      "raw_url": "https://commandvault.ai/commands/incident-response-first-30-minutes-8f32b3ea/raw",
+      "created_at": "2026-09-28T15:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "blameless-postmortem-write-up-681657b8",
+      "title": "Blameless postmortem write-up",
+      "summary": "Turn incident notes into a postmortem the team will actually read.",
+      "kind": "template",
+      "community": "devops",
+      "tags": [
+        "postmortem",
+        "incidents",
+        "writing"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "incident_notes",
+          "label": "Incident notes",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Write a blameless postmortem from these notes:\n\n{{incident_notes}}\n\nSections:\n- Summary (3 sentences: what broke, impact, duration).\n- Timeline (UTC, key events only).\n- Root cause and contributing factors (systems and processes, not people).\n- What went well / what was hard.\n- Action items: owner, due date, and whether each prevents, detects, or mitigates.\n\nPlain language. No blame, no hedging.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/blameless-postmortem-write-up-681657b8",
+      "raw_url": "https://commandvault.ai/commands/blameless-postmortem-write-up-681657b8/raw",
+      "created_at": "2026-09-28T22:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "set-up-structured-logging-and-alerts-c5ff1587",
+      "title": "Set up structured logging and alerts",
+      "summary": "Logs you can search and alerts that only fire when it matters.",
+      "kind": "prompt",
+      "community": "devops",
+      "tags": [
+        "logging",
+        "monitoring",
+        "alerts"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "stack",
+          "label": "Stack",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Set up structured logging and alerting for a {{stack}} service.\n\n1. A logger setup that outputs JSON with timestamp, level, request id, user id (hashed) and duration.\n2. Rules for what to log at each level, and what never to log (tokens, passwords, full card numbers, raw PII).\n3. Middleware that attaches a request id and logs one line per request.\n4. Five alerts worth having for this service, each with a threshold, window and why it matters.\n5. How to avoid alert fatigue: grouping, severity and who gets paged.\n\nShow code for the logger and middleware.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/set-up-structured-logging-and-alerts-c5ff1587",
+      "raw_url": "https://commandvault.ai/commands/set-up-structured-logging-and-alerts-c5ff1587/raw",
+      "created_at": "2026-09-29T05:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "threat-model-a-new-feature-e077b2c4",
+      "title": "Threat model a new feature",
+      "summary": "STRIDE-style review that ends with concrete mitigations.",
+      "kind": "prompt",
+      "community": "security",
+      "tags": [
+        "threat-modeling",
+        "security",
+        "design"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "feature_description",
+          "label": "Feature description",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "data_types",
+          "label": "Data types",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "roles",
+          "label": "Roles",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Threat model this feature before we build it:\n\nFeature: {{feature_description}}\nData involved: {{data_types}}\nUsers and roles: {{roles}}\n\n1. Draw the data flow in text (actors → components → data stores).\n2. For each step, list threats using STRIDE (spoofing, tampering, repudiation, info disclosure, DoS, elevation).\n3. Rate each threat Low/Medium/High by likelihood and impact.\n4. Give a concrete mitigation for every Medium and High.\n5. List the security tests we should add.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/threat-model-a-new-feature-e077b2c4",
+      "raw_url": "https://commandvault.ai/commands/threat-model-a-new-feature-e077b2c4/raw",
+      "created_at": "2026-09-29T11:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "web-app-security-review-30709308",
+      "title": "Web app security review",
+      "summary": "Check an app against the issues attackers try first.",
+      "kind": "checklist",
+      "community": "security",
+      "tags": [
+        "owasp",
+        "security",
+        "review"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "app_or_code",
+          "label": "App or code",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Review {{app_or_code}} against this list. For each, answer PASS / FAIL / N/A with evidence:\n\n1. Every API route checks authentication AND authorization (not just \"logged in\").\n2. User input is validated server-side with an allowlist schema.\n3. Queries are parameterized; no string-built SQL.\n4. Output is escaped; no dangerouslySetInnerHTML with user data.\n5. Secrets are server-only and never shipped to the browser bundle.\n6. Cookies are HttpOnly, Secure, SameSite.\n7. Rate limits on login, signup, password reset and write endpoints.\n8. File uploads check type, size and are re-encoded or scanned.\n9. Error messages don't leak stack traces or internal ids.\n10. Dependencies have no known critical vulnerabilities.\n\nFinish with the top 3 risks ranked by impact.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/web-app-security-review-30709308",
+      "raw_url": "https://commandvault.ai/commands/web-app-security-review-30709308/raw",
+      "created_at": "2026-09-29T18:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "find-leaked-secrets-and-rotate-them-ab675ad1",
+      "title": "Find leaked secrets and rotate them",
+      "summary": "Locate exposed keys in a repo and plan a safe rotation.",
+      "kind": "prompt",
+      "community": "security",
+      "tags": [
+        "secrets",
+        "incident",
+        "git"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "repo_or_location",
+          "label": "Repo or location",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "providers",
+          "label": "Providers",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "I think a secret may have leaked in {{repo_or_location}}.\n\nHelp me:\n1. Search strategy: commands to scan the working tree and full git history for keys, tokens and passwords (e.g. gitleaks, trufflehog, git log -p with patterns).\n2. Triage: how to tell real secrets from test values.\n3. Rotation plan for each provider involved ({{providers}}): create new key, deploy it, revoke old key — in an order that avoids downtime.\n4. Clean-up: whether rewriting git history is worth it (it doesn't un-leak a pushed secret).\n5. Prevention: pre-commit hook and CI scan config.\n\nNever print a full secret value in your answer.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/find-leaked-secrets-and-rotate-them-ab675ad1",
+      "raw_url": "https://commandvault.ai/commands/find-leaked-secrets-and-rotate-them-ab675ad1/raw",
+      "created_at": "2026-09-30T01:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "plain-english-privacy-policy-draft-fa6e798d",
+      "title": "Plain-English privacy policy draft",
+      "summary": "A readable first draft to review with a lawyer.",
+      "kind": "template",
+      "community": "security",
+      "tags": [
+        "privacy",
+        "legal",
+        "policy"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "product_name",
+          "label": "Product name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "product_description",
+          "label": "Product description",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "data_collected",
+          "label": "Data collected",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "vendors",
+          "label": "Vendors",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "regions",
+          "label": "Regions",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Draft a privacy policy in plain English for {{product_name}}, a {{product_description}}.\n\nWe collect: {{data_collected}}\nWe use these vendors: {{vendors}}\nUsers are in: {{regions}}\n\nSections: what we collect, why, legal basis (if EU/UK users), who we share with, how long we keep it, user rights and how to exercise them, cookies, children, security, contact, changes.\n\nUse short sentences and headings. Mark every place a lawyer must confirm with [REVIEW]. This is a draft, not legal advice.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/plain-english-privacy-policy-draft-fa6e798d",
+      "raw_url": "https://commandvault.ai/commands/plain-english-privacy-policy-draft-fa6e798d/raw",
+      "created_at": "2026-09-30T08:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "harden-authentication-flows-e2a1ff85",
+      "title": "Harden authentication flows",
+      "summary": "Review sign-up, login and reset flows for common account takeover holes.",
+      "kind": "prompt",
+      "community": "security",
+      "tags": [
+        "auth",
+        "security",
+        "accounts"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "app_or_code",
+          "label": "App or code",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Review the authentication flows in {{app_or_code}} (sign-up, login, password reset, email change, session handling).\n\nCheck for:\n- User enumeration via different error messages or timings.\n- Missing rate limits / lockouts.\n- Reset tokens that are guessable, long-lived or reusable.\n- Email change without re-authentication or confirmation to the old address.\n- Sessions not revoked after password change.\n- Missing MFA option for admins.\n\nFor each issue: the risk, a realistic attack, and the fix with code.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/harden-authentication-flows-e2a1ff85",
+      "raw_url": "https://commandvault.ai/commands/harden-authentication-flows-e2a1ff85/raw",
+      "created_at": "2026-09-30T14:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "write-a-sql-query-from-a-plain-question-5f579205",
+      "title": "Write a SQL query from a plain question",
+      "summary": "Describe your tables and ask in English; get correct, readable SQL.",
+      "kind": "prompt",
+      "community": "data",
+      "tags": [
+        "sql",
+        "analytics",
+        "postgres"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "database",
+          "label": "Database",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "schema",
+          "label": "Schema",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "question",
+          "label": "Question",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Database: {{database}}\nTables and columns:\n{{schema}}\n\nQuestion: {{question}}\n\nWrite the SQL query. Rules:\n- Use CTEs with clear names instead of nested subqueries.\n- Explain any assumption about what a column means.\n- Handle NULLs and duplicates explicitly.\n- Add a comment above each CTE saying what it computes.\n\nThen show a 3-row example of the expected output and one way the result could be misleading.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/write-a-sql-query-from-a-plain-question-5f579205",
+      "raw_url": "https://commandvault.ai/commands/write-a-sql-query-from-a-plain-question-5f579205/raw",
+      "created_at": "2026-09-30T21:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "explore-a-new-dataset-6a1638a0",
+      "title": "Explore a new dataset",
+      "summary": "A first-hour analysis plan for any CSV or table.",
+      "kind": "workflow",
+      "community": "data",
+      "tags": [
+        "analysis",
+        "pandas",
+        "eda"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "dataset_description",
+          "label": "Dataset description",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "rows",
+          "label": "Rows",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "I have a dataset: {{dataset_description}} ({{rows}} rows). My goal: {{goal}}.\n\nWalk me through a first-pass exploration in Python (pandas):\n1. Load and show shape, dtypes and a sample.\n2. Missing values, duplicates and obviously wrong values per column.\n3. Distributions for key numeric columns and top values for categoricals.\n4. Three relationships most relevant to my goal, with a chart each.\n5. Data-quality issues to fix before deeper analysis.\n\nGive runnable code cells and tell me what to look for in each output.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/explore-a-new-dataset-6a1638a0",
+      "raw_url": "https://commandvault.ai/commands/explore-a-new-dataset-6a1638a0/raw",
+      "created_at": "2026-10-01T04:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "kpi-dashboard-spec-83c7b4d5",
+      "title": "KPI dashboard spec",
+      "summary": "Define metrics precisely before anyone builds a chart.",
+      "kind": "template",
+      "community": "data",
+      "tags": [
+        "dashboards",
+        "metrics",
+        "kpi"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "team",
+          "label": "Team",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "decisions",
+          "label": "Decisions",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Write a dashboard spec for {{team}} who need to answer: {{decisions}}.\n\nFor each metric (aim for 5–8):\n- Name and one-sentence definition.\n- Exact formula and data source.\n- Grain (daily/weekly), filters and segments.\n- Target or healthy range.\n- Chart type and why.\n\nAlso include: metrics we deliberately left out and why, and a note on how often data refreshes.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/kpi-dashboard-spec-83c7b4d5",
+      "raw_url": "https://commandvault.ai/commands/kpi-dashboard-spec-83c7b4d5/raw",
+      "created_at": "2026-10-01T10:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "spreadsheet-formula-helper-6c5eaab3",
+      "title": "Spreadsheet formula helper",
+      "summary": "Get the exact Excel / Google Sheets formula with an explanation.",
+      "kind": "prompt",
+      "community": "data",
+      "tags": [
+        "excel",
+        "google-sheets",
+        "formulas"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "spreadsheet_app",
+          "label": "Spreadsheet app",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "data_layout",
+          "label": "Data layout",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "I'm using {{spreadsheet_app}}. My data: {{data_layout}}\n\nI want to: {{goal}}\n\nGive me:\n1. The formula, ready to paste, with cell references matching my layout.\n2. A plain explanation of each part.\n3. A version that handles blanks and errors gracefully.\n4. If there's a simpler approach (pivot table, filter view, QUERY), mention it.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/spreadsheet-formula-helper-6c5eaab3",
+      "raw_url": "https://commandvault.ai/commands/spreadsheet-formula-helper-6c5eaab3/raw",
+      "created_at": "2026-10-01T17:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "sanity-check-an-a-b-test-result-c249284a",
+      "title": "Sanity-check an A/B test result",
+      "summary": "Decide whether an experiment result is real before you ship it.",
+      "kind": "prompt",
+      "community": "data",
+      "tags": [
+        "ab-testing",
+        "statistics",
+        "experiments"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "control_visitors",
+          "label": "Control visitors",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "control_conversions",
+          "label": "Control conversions",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "variant_visitors",
+          "label": "Variant visitors",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "variant_conversions",
+          "label": "Variant conversions",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "duration",
+          "label": "Duration",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "A/B test results:\n- Control: {{control_visitors}} visitors, {{control_conversions}} conversions\n- Variant: {{variant_visitors}} visitors, {{variant_conversions}} conversions\n- Ran for {{duration}}\n\n1. Compute conversion rates, absolute and relative lift, and a 95% confidence interval for the difference.\n2. Is it statistically significant? Was the sample large enough for the effect size?\n3. Check for common traps: peeking, novelty effect, uneven traffic split, weekday effects.\n4. Recommendation: ship, keep running (how long), or stop — with reasoning a non-statistician understands.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/sanity-check-an-a-b-test-result-c249284a",
+      "raw_url": "https://commandvault.ai/commands/sanity-check-an-a-b-test-result-c249284a/raw",
+      "created_at": "2026-10-02T00:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "landing-page-copy-that-converts-69950bfb",
+      "title": "Landing page copy that converts",
+      "summary": "Headline, sections and CTA written for one specific audience.",
+      "kind": "prompt",
+      "community": "marketing",
+      "tags": [
+        "copywriting",
+        "landing-page",
+        "conversion"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "product",
+          "label": "Product",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "audience",
+          "label": "Audience",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "pain",
+          "label": "Pain",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "proof",
+          "label": "Proof",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Write landing page copy for {{product}}.\n\nAudience: {{audience}}\nMain pain: {{pain}}\nProof we have: {{proof}}\n\nDeliver:\n- 5 headline options (outcome-focused, under 10 words) + subheadline for the best one.\n- Hero CTA button text (3 options).\n- Sections: problem, how it works (3 steps), benefits (not features), social proof, objections & answers, final CTA.\n\nWrite like a person, not a brochure. No buzzwords (\"revolutionary\", \"seamless\", \"unlock\").",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/landing-page-copy-that-converts-69950bfb",
+      "raw_url": "https://commandvault.ai/commands/landing-page-copy-that-converts-69950bfb/raw",
+      "created_at": "2026-10-02T07:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "seo-blog-post-brief-dec823ff",
+      "title": "SEO blog post brief",
+      "summary": "Everything a writer needs to rank for one keyword.",
+      "kind": "template",
+      "community": "marketing",
+      "tags": [
+        "seo",
+        "content",
+        "blog"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "keyword",
+          "label": "Keyword",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "site",
+          "label": "Site",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Create an SEO content brief for the keyword \"{{keyword}}\" for {{site}}.\n\nInclude:\n- Search intent and who is searching.\n- Suggested title (under 60 chars) and meta description (under 155 chars).\n- Outline with H2/H3s that fully answer the intent.\n- Questions to answer (People Also Ask style).\n- Internal links to add and external sources worth citing.\n- What would make this better than the current top results.\n- Target length and a clear CTA.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/seo-blog-post-brief-dec823ff",
+      "raw_url": "https://commandvault.ai/commands/seo-blog-post-brief-dec823ff/raw",
+      "created_at": "2026-10-02T13:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "product-launch-plan-b423e1f5",
+      "title": "Product launch plan",
+      "summary": "Two weeks of launch tasks across channels, day by day.",
+      "kind": "workflow",
+      "community": "marketing",
+      "tags": [
+        "launch",
+        "go-to-market",
+        "planning"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "product_or_feature",
+          "label": "Product or feature",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "launch_date",
+          "label": "Launch date",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "audience",
+          "label": "Audience",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "channels",
+          "label": "Channels",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Plan the launch of {{product_or_feature}} on {{launch_date}}.\n\nAudience: {{audience}}\nChannels we have: {{channels}}\n\nGive me a day-by-day plan from T-14 to T+7 with:\n- Tasks per channel (email, social, community, PR, in-app).\n- The key message and one asset needed per task.\n- Owner placeholder and how to measure each.\n- A launch-day checklist and a \"what if it flops\" plan.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/product-launch-plan-b423e1f5",
+      "raw_url": "https://commandvault.ai/commands/product-launch-plan-b423e1f5/raw",
+      "created_at": "2026-10-02T20:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "cold-email-that-gets-replies-b9351e2e",
+      "title": "Cold email that gets replies",
+      "summary": "Short, specific outreach with follow-ups.",
+      "kind": "prompt",
+      "community": "marketing",
+      "tags": [
+        "email",
+        "outreach",
+        "sales"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "recipient_role",
+          "label": "Recipient role",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "company_type",
+          "label": "Company type",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "offer",
+          "label": "Offer",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "proof",
+          "label": "Proof",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Write a cold email to {{recipient_role}} at {{company_type}} about {{offer}}.\n\nRules:\n- Under 120 words. One idea. One ask.\n- First line is about them, not us.\n- Specific proof (number or named customer) if available: {{proof}}.\n- Low-friction CTA (a question, not \"book a 30-minute call\").\n\nAlso write two follow-ups (day 3 and day 8), each shorter than the last and adding something new. Give 3 subject lines under 6 words.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/cold-email-that-gets-replies-b9351e2e",
+      "raw_url": "https://commandvault.ai/commands/cold-email-that-gets-replies-b9351e2e/raw",
+      "created_at": "2026-10-03T03:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "repurpose-one-piece-into-a-week-of-posts-a052b671",
+      "title": "Repurpose one piece into a week of posts",
+      "summary": "Turn an article, video or talk into social content for each platform.",
+      "kind": "prompt",
+      "community": "marketing",
+      "tags": [
+        "social-media",
+        "content",
+        "repurposing"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "source_content",
+          "label": "Source content",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "voice",
+          "label": "Voice",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Repurpose this content into a week of social posts:\n\n{{source_content}}\n\nCreate:\n- 3 LinkedIn posts (hook line, short paragraphs, one takeaway each).\n- 5 X/Twitter posts, including one thread of 5–7 posts.\n- 2 short-video scripts (under 45 seconds) with on-screen text.\n- 1 newsletter blurb.\n\nKeep the voice {{voice}}. No hashtags spam — max 2 where useful.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/repurpose-one-piece-into-a-week-of-posts-a052b671",
+      "raw_url": "https://commandvault.ai/commands/repurpose-one-piece-into-a-week-of-posts-a052b671/raw",
+      "created_at": "2026-10-03T09:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "edit-for-clarity-without-changing-my-voice-9bc9086d",
+      "title": "Edit for clarity without changing my voice",
+      "summary": "Tighter sentences, same personality.",
+      "kind": "prompt",
+      "community": "writing",
+      "tags": [
+        "editing",
+        "clarity",
+        "style"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "text",
+          "label": "Text",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Edit the text below for clarity and flow. Keep my voice, opinions and vocabulary.\n\n{{text}}\n\nRules:\n- Cut filler and repetition; shorten long sentences.\n- Fix grammar and typos.\n- Don't add new ideas or corporate phrasing.\n- Keep it roughly the same length or shorter.\n\nReturn the edited text, then a bullet list of the 5 most important changes and why.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/edit-for-clarity-without-changing-my-voice-9bc9086d",
+      "raw_url": "https://commandvault.ai/commands/edit-for-clarity-without-changing-my-voice-9bc9086d/raw",
+      "created_at": "2026-10-03T16:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "readme-that-people-actually-read-d16d647e",
+      "title": "README that people actually read",
+      "summary": "A clear README for any project in the right order.",
+      "kind": "template",
+      "community": "writing",
+      "tags": [
+        "documentation",
+        "readme",
+        "open-source"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "project_name",
+          "label": "Project name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "project_description",
+          "label": "Project description",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Write a README for {{project_name}}: {{project_description}}.\n\nOrder:\n1. One-line description and who it's for.\n2. Screenshot or demo placeholder.\n3. Quick start (copy-paste commands, under 5 steps).\n4. Configuration (table: name, required, default, description).\n5. Common tasks / usage examples.\n6. How it works (short, optional diagram).\n7. Contributing and license.\n\nUse short sections and code blocks. Assume the reader has 2 minutes.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/readme-that-people-actually-read-d16d647e",
+      "raw_url": "https://commandvault.ai/commands/readme-that-people-actually-read-d16d647e/raw",
+      "created_at": "2026-10-03T23:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "explain-a-technical-topic-to-non-technical-readers-de7ca3e8",
+      "title": "Explain a technical topic to non-technical readers",
+      "summary": "Clear explanations with analogies and no jargon.",
+      "kind": "prompt",
+      "community": "writing",
+      "tags": [
+        "explainers",
+        "communication",
+        "audience"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "topic",
+          "label": "Topic",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "audience",
+          "label": "Audience",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "length",
+          "label": "Length",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Explain {{topic}} to {{audience}}.\n\n- Start with why they should care, in one sentence.\n- Use one everyday analogy and say where the analogy breaks down.\n- Define any term you can't avoid, the first time you use it.\n- Max {{length}} words.\n- End with the one thing they should remember.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/explain-a-technical-topic-to-non-technical-readers-de7ca3e8",
+      "raw_url": "https://commandvault.ai/commands/explain-a-technical-topic-to-non-technical-readers-de7ca3e8/raw",
+      "created_at": "2026-10-04T06:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "write-release-notes-users-care-about-deb42144",
+      "title": "Write release notes users care about",
+      "summary": "Turn a changelog or commit list into readable release notes.",
+      "kind": "prompt",
+      "community": "writing",
+      "tags": [
+        "release-notes",
+        "changelog",
+        "product"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "audience",
+          "label": "Audience",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "changes",
+          "label": "Changes",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Turn these changes into release notes for {{audience}}:\n\n{{changes}}\n\n- Group as New, Improved, Fixed.\n- Write each item as a user benefit, not an implementation detail.\n- Skip internal-only changes.\n- Lead with the most valuable change and give it one extra sentence.\n- Friendly, specific, no hype.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/write-release-notes-users-care-about-deb42144",
+      "raw_url": "https://commandvault.ai/commands/write-release-notes-users-care-about-deb42144/raw",
+      "created_at": "2026-10-04T12:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "outline-a-long-form-article-11c9e7cf",
+      "title": "Outline a long-form article",
+      "summary": "Structure, argument and hooks before you write a word.",
+      "kind": "prompt",
+      "community": "writing",
+      "tags": [
+        "outlining",
+        "blog",
+        "essays"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "topic",
+          "label": "Topic",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "audience",
+          "label": "Audience",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "thesis",
+          "label": "Thesis",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Help me outline an article about {{topic}} for {{audience}}. My main point: {{thesis}}.\n\nGive me:\n- 3 title options and 3 opening hooks.\n- A section-by-section outline with the claim each section makes and the evidence or example it needs.\n- The strongest counterargument and where to address it.\n- A closing that ties back to the opening.\n- Target length per section.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/outline-a-long-form-article-11c9e7cf",
+      "raw_url": "https://commandvault.ai/commands/outline-a-long-form-article-11c9e7cf/raw",
+      "created_at": "2026-10-04T19:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "meeting-notes-to-action-items-6460abec",
+      "title": "Meeting notes to action items",
+      "summary": "Turn messy notes or a transcript into decisions and owners.",
+      "kind": "template",
+      "community": "productivity",
+      "tags": [
+        "meetings",
+        "notes",
+        "action-items"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "meeting_topic",
+          "label": "Meeting topic",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Here are notes / a transcript from a meeting about {{meeting_topic}}:\n\n{{notes}}\n\nProduce:\n1. Summary (max 5 bullets).\n2. Decisions made.\n3. Action items as a table: task, owner, due date (write \"TBD\" if not stated).\n4. Open questions and who should answer them.\n5. A short follow-up message I can send to attendees.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/meeting-notes-to-action-items-6460abec",
+      "raw_url": "https://commandvault.ai/commands/meeting-notes-to-action-items-6460abec/raw",
+      "created_at": "2026-10-05T02:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "weekly-review-and-planning-dd2b9a68",
+      "title": "Weekly review and planning",
+      "summary": "A 30-minute ritual to close the week and plan the next one.",
+      "kind": "workflow",
+      "community": "productivity",
+      "tags": [
+        "planning",
+        "weekly-review",
+        "habits"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "period",
+          "label": "Period",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Run my weekly review. Ask me these one at a time and wait for each answer:\n\n1. What did you finish this week? What slipped, and why?\n2. What's on your calendar next week?\n3. What are your top 3 goals for this {{period}}?\n\nThen:\n- Pick the 3 most important outcomes for next week.\n- Time-block them into my calendar gaps (suggest specific slots).\n- List things to delegate, defer or drop.\n- Write a one-paragraph note to my future self for Friday.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/weekly-review-and-planning-dd2b9a68",
+      "raw_url": "https://commandvault.ai/commands/weekly-review-and-planning-dd2b9a68/raw",
+      "created_at": "2026-10-05T09:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "write-a-hard-email-diplomatically-1b06c9ad",
+      "title": "Write a hard email diplomatically",
+      "summary": "Say no, push back or deliver bad news without burning bridges.",
+      "kind": "prompt",
+      "community": "productivity",
+      "tags": [
+        "email",
+        "communication",
+        "workplace"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "recipient",
+          "label": "Recipient",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "context",
+          "label": "Context",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "tone",
+          "label": "Tone",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "I need to email {{recipient}} to {{goal}}.\n\nContext: {{context}}\nTone: {{tone}}\n\nWrite the email:\n- Clear first sentence that states the point.\n- Brief reason, no over-explaining or excessive apology.\n- Offer an alternative or next step if possible.\n- Under 150 words.\n\nAlso give a softer and a firmer version.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/write-a-hard-email-diplomatically-1b06c9ad",
+      "raw_url": "https://commandvault.ai/commands/write-a-hard-email-diplomatically-1b06c9ad/raw",
+      "created_at": "2026-10-05T15:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "decision-matrix-for-a-tough-choice-af0713bb",
+      "title": "Decision matrix for a tough choice",
+      "summary": "Compare options against weighted criteria and surface what really matters.",
+      "kind": "prompt",
+      "community": "productivity",
+      "tags": [
+        "decisions",
+        "frameworks",
+        "thinking"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "decision",
+          "label": "Decision",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "options",
+          "label": "Options",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "criteria",
+          "label": "Criteria",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Help me decide: {{decision}}\n\nOptions: {{options}}\nWhat I care about: {{criteria}}\n\n1. Ask me to weight each criterion 1–5 (or suggest weights and let me adjust).\n2. Score each option per criterion with a one-line reason.\n3. Show a weighted table and the totals.\n4. Point out what would have to be true for the losing option to be the right choice.\n5. Suggest one cheap experiment to reduce the biggest uncertainty.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/decision-matrix-for-a-tough-choice-af0713bb",
+      "raw_url": "https://commandvault.ai/commands/decision-matrix-for-a-tough-choice-af0713bb/raw",
+      "created_at": "2026-10-05T22:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "claude-md-template-for-a-django-project-a6598bdb",
+      "title": "CLAUDE.md template for a Django project",
+      "summary": "Give Claude Code your Django project's commands, app layout and rules in one file.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "claude-md",
+        "django",
+        "python"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_name",
+          "label": "Project name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "what_it_does",
+          "label": "What it does",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "python_version",
+          "label": "Python version",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "django_version",
+          "label": "Django version",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "database",
+          "label": "Database",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "project_package",
+          "label": "Project package",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: Python {{python_version}}, Django {{django_version}}, {{database}}.\n\n## Commands\n- Run locally: `python manage.py runserver`\n- Tests: `pytest -q (or python manage.py test)`\n- Lint/format: `ruff check . && ruff format --check .`\n\n## Where things live\n- `{{project_package}}/settings/`: base, dev, prod settings\n- `apps/<app>/`: models, views, serializers, urls, tests per app\n- `templates/` and `static/`: shared front end\n\n## Conventions\n- New models need a migration (`python manage.py makemigrations`) committed with the code.\n- Business logic lives in `services.py`, not views or models.\n- Use the ORM; raw SQL only with a comment explaining why.\n- Every view checks permissions explicitly.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-md-template-for-a-django-project-a6598bdb",
+      "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-django-project-a6598bdb/raw",
+      "created_at": "2026-10-06T03:46:34.816808+00:00",
+      "updated_at": "2026-10-06T03:46:34.816808+00:00"
+    },
+    {
+      "slug": "break-a-big-project-into-a-plan-a686a13c",
+      "title": "Break a big project into a plan",
+      "summary": "From a vague goal to milestones, tasks and a first step for today.",
+      "kind": "prompt",
+      "community": "productivity",
+      "tags": [
+        "planning",
+        "projects",
+        "goals"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "deadline",
+          "label": "Deadline",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "hours_per_week",
+          "label": "Hours per week",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Goal: {{goal}}\nDeadline: {{deadline}}\nTime I have per week: {{hours_per_week}}\n\n1. Define what \"done\" looks like in measurable terms.\n2. Break it into 3–6 milestones with dates.\n3. Break the first milestone into tasks under 2 hours each.\n4. Flag risks and dependencies.\n5. Tell me the single task to do today.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/break-a-big-project-into-a-plan-a686a13c",
+      "raw_url": "https://commandvault.ai/commands/break-a-big-project-into-a-plan-a686a13c/raw",
+      "created_at": "2026-10-06T05:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "claude-md-template-for-a-ruby-on-rails-app-dadb0ceb",
+      "title": "CLAUDE.md template for a Ruby on Rails app",
+      "summary": "Project memory for Claude Code in a Rails codebase: commands, structure and Rails-specific rules.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "claude-md",
+        "rails",
+        "ruby"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_name",
+          "label": "Project name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "what_it_does",
+          "label": "What it does",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "ruby_version",
+          "label": "Ruby version",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "rails_version",
+          "label": "Rails version",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "database",
+          "label": "Database",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "frontend",
+          "label": "Frontend",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "job_backend",
+          "label": "Job backend",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: Ruby {{ruby_version}}, Rails {{rails_version}}, {{database}}, {{frontend}}.\n\n## Commands\n- Run locally: `bin/dev`\n- Tests: `bin/rails test (or bundle exec rspec)`\n- Lint/format: `bundle exec rubocop`\n\n## Where things live\n- `app/models`, `app/controllers`, `app/views`: standard Rails\n- `app/services`: multi-step business logic\n- `app/jobs`: background work ({{job_backend}})\n- `db/migrate`: one migration per change\n\n## Conventions\n- Fat models are fine; fat controllers are not. Move logic out of controllers.\n- Strong parameters on every create/update.\n- Avoid N+1 queries: use `includes` and check the log.\n- Prefer Rails conventions over custom patterns.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-md-template-for-a-ruby-on-rails-app-dadb0ceb",
+      "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-ruby-on-rails-app-dadb0ceb/raw",
+      "created_at": "2026-10-06T05:46:34.816808+00:00",
+      "updated_at": "2026-10-06T05:46:34.816808+00:00"
+    },
+    {
+      "slug": "claude-md-template-for-a-go-service-a256d8da",
+      "title": "CLAUDE.md template for a Go service",
+      "summary": "Tell Claude Code how your Go service is built, tested and structured.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "claude-md",
+        "go",
+        "golang"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_name",
+          "label": "Project name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "what_it_does",
+          "label": "What it does",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "go_version",
+          "label": "Go version",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "router",
+          "label": "Router",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "database",
+          "label": "Database",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "service",
+          "label": "Service",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: Go {{go_version}}, {{router}}, {{database}}.\n\n## Commands\n- Run locally: `go run ./cmd/{{service}}`\n- Tests: `go test ./...`\n- Lint/format: `golangci-lint run`\n\n## Where things live\n- `cmd/{{service}}/`: main package\n- `internal/`: private packages (handlers, services, storage)\n- `pkg/`: code safe for other repos to import\n- `migrations/`: SQL migrations\n\n## Conventions\n- Return errors, don't panic; wrap with `fmt.Errorf(\"context: %w\", err)`.\n- Pass `context.Context` as the first argument to anything that does I/O.\n- Interfaces belong to the consumer, kept small.\n- Table-driven tests for anything with more than two cases.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-md-template-for-a-go-service-a256d8da",
+      "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-go-service-a256d8da/raw",
+      "created_at": "2026-10-06T07:46:34.816808+00:00",
+      "updated_at": "2026-10-06T07:46:34.816808+00:00"
+    },
+    {
+      "slug": "claude-md-template-for-a-laravel-app-22d119b4",
+      "title": "CLAUDE.md template for a Laravel app",
+      "summary": "Project memory for Claude Code in Laravel: Artisan commands, structure and conventions.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "claude-md",
+        "laravel",
+        "php"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_name",
+          "label": "Project name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "what_it_does",
+          "label": "What it does",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "php_version",
+          "label": "Php version",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "laravel_version",
+          "label": "Laravel version",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "database",
+          "label": "Database",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "frontend",
+          "label": "Frontend",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: PHP {{php_version}}, Laravel {{laravel_version}}, {{database}}, {{frontend}}.\n\n## Commands\n- Run locally: `php artisan serve (or composer run dev)`\n- Tests: `php artisan test`\n- Lint/format: `./vendor/bin/pint --test`\n\n## Where things live\n- `app/Http/Controllers`: thin controllers\n- `app/Actions` or `app/Services`: business logic\n- `app/Models`: Eloquent models\n- `database/migrations`: one per change\n\n## Conventions\n- Validate with Form Requests, not inside controllers.\n- Eager-load relations to avoid N+1 queries.\n- Queue anything slow (emails, exports) with jobs.\n- Use policies for authorization.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-md-template-for-a-laravel-app-22d119b4",
+      "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-laravel-app-22d119b4/raw",
+      "created_at": "2026-10-06T09:46:34.816808+00:00",
+      "updated_at": "2026-10-06T09:46:34.816808+00:00"
+    },
+    {
+      "slug": "30-day-learning-plan-for-any-skill-e533dd8c",
+      "title": "30-day learning plan for any skill",
+      "summary": "A realistic daily plan with projects and checkpoints.",
+      "kind": "workflow",
+      "community": "learning",
+      "tags": [
+        "learning",
+        "study-plan",
+        "skills"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "skill",
+          "label": "Skill",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "current_level",
+          "label": "Current level",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "minutes_per_day",
+          "label": "Minutes per day",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "goal",
+          "label": "Goal",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Create a 30-day plan to learn {{skill}}.\n\nMy level: {{current_level}}\nTime per day: {{minutes_per_day}} minutes\nGoal by day 30: {{goal}}\n\nInclude:\n- Weekly themes and a small project at the end of each week.\n- Daily tasks (what to read/watch/practice) with free resources.\n- A checkpoint quiz each week to test understanding.\n- What to skip for now so I don't get overwhelmed.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/30-day-learning-plan-for-any-skill-e533dd8c",
+      "raw_url": "https://commandvault.ai/commands/30-day-learning-plan-for-any-skill-e533dd8c/raw",
+      "created_at": "2026-10-06T11:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d",
+      "title": "Claude Code hooks: format on save and block dangerous commands",
+      "summary": "A .claude/settings.json with hooks that auto-format edited files and stop risky shell commands.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "hooks",
+        "automation",
+        "guardrails"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "formatter_command",
+          "label": "Formatter command",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "extra_blocked_pattern",
+          "label": "Extra blocked pattern",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Add this to `.claude/settings.json` in your project:\n\n```json\n{\n  \"hooks\": {\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Edit|Write\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"jq -r '.tool_input.file_path' | xargs {{formatter_command}}\" }\n        ]\n      }\n    ],\n    \"PreToolUse\": [\n      {\n        \"matcher\": \"Bash\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \".claude/hooks/block-dangerous.sh\" }\n        ]\n      }\n    ]\n  }\n}\n```\n\nAnd create `.claude/hooks/block-dangerous.sh` (make it executable):\n\n```bash\n#!/usr/bin/env bash\ncmd=$(jq -r '.tool_input.command')\nif echo \"$cmd\" | grep -Eq 'rm -rf /|git push --force|DROP TABLE|{{extra_blocked_pattern}}'; then\n  echo \"Blocked by project hook: $cmd\" >&2\n  exit 2   # exit code 2 blocks the tool call and shows the message to Claude\nfi\n```\n\nReplace `{{formatter_command}}` with e.g. `npx prettier --write` or `ruff format`. Test it by asking Claude to edit a file and check it was formatted.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d",
+      "raw_url": "https://commandvault.ai/commands/claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d/raw",
+      "created_at": "2026-10-06T11:46:34.816808+00:00",
+      "updated_at": "2026-10-06T11:46:34.816808+00:00"
+    },
+    {
+      "slug": "claude-md-template-for-a-next-js-supabase-app-9261f33c",
+      "title": "CLAUDE.md template for a Next.js + Supabase app",
+      "summary": "A ready-to-edit CLAUDE.md that tells Claude Code how your Next.js app is built, tested and deployed.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "claude-md",
+        "nextjs",
+        "supabase"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "app_name",
+          "label": "App name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "one_line_description",
+          "label": "One line description",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "who_uses_it",
+          "label": "Who uses it",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "package_manager",
+          "label": "Package manager",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "styling",
+          "label": "Styling",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "hosting",
+          "label": "Hosting",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "# CLAUDE.md\n\n## What this is\n{{app_name}} is a {{one_line_description}}. Users: {{who_uses_it}}.\n\n## Commands\n- Install: `{{package_manager}} install`\n- Dev server: `{{package_manager}} run dev` (http://localhost:3000)\n- Lint + types: `{{package_manager}} run lint && npx tsc --noEmit`\n- Tests: `{{test_command}}`\n- Build: `{{package_manager}} run build`\n\n## Stack\n- Next.js (App Router), React, TypeScript, {{styling}}\n- Supabase: Postgres with row-level security on every table, Auth, Storage\n- Hosting: {{hosting}}\n\n## Where things live\n- `src/app`: routes. Server components by default; add \"use client\" only when needed.\n- `src/app/api`: route handlers. Validate input with zod, check auth first.\n- `src/lib/server`: server-only data access (never import into client code).\n- `supabase/migrations`: one SQL file per change, named `YYYYMMDDHHMMSS_what.sql`.\n\n## Rules\n- Every new table: enable RLS and write policies in the same migration.\n- Never expose the service-role key to the browser or log it.\n- Prefer editing existing components over creating near-duplicates.\n- Match the surrounding code style; no new dependencies without asking.\n\n## Done means\nLint, types and build pass; you ran the change in the browser and checked the console; you listed what you changed and anything you skipped.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-md-template-for-a-next-js-supabase-app-9261f33c",
+      "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-next-js-supabase-app-9261f33c/raw",
+      "created_at": "2026-10-06T13:18:19.067383+00:00",
+      "updated_at": "2026-10-06T13:18:19.067383+00:00"
+    },
+    {
+      "slug": "claude-code-slash-command-commit-584b2474",
+      "title": "Claude Code slash command: /commit",
+      "summary": "Save as .claude/commands/commit.md for clean, conventional commit messages from your staged changes.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "slash-commands",
+        "git"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "commit_style",
+          "label": "Commit style",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: Write a commit message for the staged changes and commit\nargument-hint: [optional context]\nallowed-tools: Bash(git diff:*), Bash(git status:*), Bash(git commit:*)\n---\n\n1. Run `git status` and `git diff --staged`. If nothing is staged, stop and tell me.\n2. Write a commit message:\n   - First line: {{commit_style}} format, imperative, under 72 characters (e.g. \"fix: handle empty cart on checkout\").\n   - Blank line, then 1–3 short bullets on why, not what.\n   - Extra context from me: $ARGUMENTS\n3. Show me the message, then commit with it.\nNever use --no-verify and never amend existing commits.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-code-slash-command-commit-584b2474",
+      "raw_url": "https://commandvault.ai/commands/claude-code-slash-command-commit-584b2474/raw",
+      "created_at": "2026-10-06T13:46:34.816808+00:00",
+      "updated_at": "2026-10-06T13:46:34.816808+00:00"
+    },
+    {
+      "slug": "claude-code-slash-command-plan-3082aeed",
+      "title": "Claude Code slash command: /plan",
+      "summary": "Save as .claude/commands/plan.md to make Claude investigate and plan before writing any code.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "slash-commands",
+        "planning"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_notes",
+          "label": "Project notes",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: Investigate and write a step-by-step plan before coding\nargument-hint: <what you want to build or fix>\n---\n\nTask: $ARGUMENTS\n\nDo not edit any files yet.\n1. Read the relevant code. List the files and functions involved.\n2. Explain how it works today in 3–5 sentences.\n3. Write a numbered plan (max 7 steps). Each step: what changes, in which file, and how you'll verify it.\n4. List risks, open questions and anything you'd need from me.\nWait for my \"go\" before starting step 1. Project notes: {{project_notes}}",
+      "score": 0,
+      "uses": 1,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-code-slash-command-plan-3082aeed",
+      "raw_url": "https://commandvault.ai/commands/claude-code-slash-command-plan-3082aeed/raw",
+      "created_at": "2026-10-06T15:46:34.816808+00:00",
+      "updated_at": "2026-10-12T15:08:56.423568+00:00"
+    },
+    {
+      "slug": "claude-md-template-for-a-python-fastapi-service-6a36a740",
+      "title": "CLAUDE.md template for a Python FastAPI service",
+      "summary": "Project memory for Claude Code on a Python API: commands, layout, testing and the rules that keep it safe.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "claude-md",
+        "python",
+        "fastapi"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "service_name",
+          "label": "Service name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "what_it_does",
+          "label": "What it does",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "python_version",
+          "label": "Python version",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "database",
+          "label": "Database",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "setup_command",
+          "label": "Setup command",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "module",
+          "label": "Module",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "package",
+          "label": "Package",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "# CLAUDE.md\n\n## Service\n{{service_name}}: {{what_it_does}}. Python {{python_version}}, FastAPI, {{database}}.\n\n## Commands\n- Setup: `{{setup_command}}`\n- Run: `uvicorn {{module}}:app --reload`\n- Tests: `pytest -q` (add `-k name` for one test)\n- Lint/format: `ruff check . && ruff format --check .`\n- Types: `mypy {{package}}`\n\n## Layout\n- `{{package}}/api`: routers, one file per resource\n- `{{package}}/services`: business logic (no FastAPI imports here)\n- `{{package}}/db`: models and queries\n- `tests/`: mirrors the package layout\n\n## Conventions\n- Pydantic models for every request and response; never return ORM objects directly.\n- Dependencies via `Depends()`; no globals for sessions or clients.\n- Raise `HTTPException` only in routers; services raise domain errors.\n- Write a test for every bug fix that fails before the fix.\n\n## Never\n- Commit secrets or `.env` files.\n- Run migrations against production.\n- Disable a failing test to make CI pass.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-md-template-for-a-python-fastapi-service-6a36a740",
+      "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-python-fastapi-service-6a36a740/raw",
+      "created_at": "2026-10-06T16:18:19.067383+00:00",
+      "updated_at": "2026-10-06T16:18:19.067383+00:00"
+    },
+    {
+      "slug": "claude-code-slash-command-fix-issue-2de5b0f5",
+      "title": "Claude Code slash command: /fix-issue",
+      "summary": "Save as .claude/commands/fix-issue.md: give it a GitHub issue number and it reproduces, fixes and tests.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "slash-commands",
+        "github",
+        "debugging"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: Reproduce, fix and test a GitHub issue\nargument-hint: <issue number>\nallowed-tools: Bash(gh issue view:*), Bash({{test_command}}:*)\n---\n\n1. Read the issue: `gh issue view $ARGUMENTS`.\n2. Reproduce it: write a failing test that shows the bug. Run it and confirm it fails.\n3. Find the root cause. Explain it in two sentences before changing code.\n4. Fix it with the smallest reasonable change.\n5. Run `{{test_command}}`; the new test and the full suite must pass.\n6. Summarize: cause, fix, test added, and anything you're unsure about. Don't push or open a PR unless I ask.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-code-slash-command-fix-issue-2de5b0f5",
+      "raw_url": "https://commandvault.ai/commands/claude-code-slash-command-fix-issue-2de5b0f5/raw",
+      "created_at": "2026-10-06T17:46:34.816808+00:00",
+      "updated_at": "2026-10-06T17:46:34.816808+00:00"
+    },
+    {
+      "slug": "teach-me-with-the-feynman-technique-b8f97557",
+      "title": "Teach me with the Feynman technique",
+      "summary": "Learn a concept by explaining it simply and finding the gaps.",
+      "kind": "prompt",
+      "community": "learning",
+      "tags": [
+        "feynman",
+        "understanding",
+        "tutoring"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "concept",
+          "label": "Concept",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "I want to understand {{concept}}.\n\n1. Explain it as if I'm 12, in under 150 words.\n2. Ask me to explain it back in my own words.\n3. Point out gaps or mistakes in my explanation — don't just praise it.\n4. Re-explain only the parts I got wrong, with a new example.\n5. Repeat until I can explain it correctly, then give me one harder question.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/teach-me-with-the-feynman-technique-b8f97557",
+      "raw_url": "https://commandvault.ai/commands/teach-me-with-the-feynman-technique-b8f97557/raw",
+      "created_at": "2026-10-06T18:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "agents-md-for-a-monorepo-e4aa4b99",
+      "title": "AGENTS.md for a monorepo",
+      "summary": "One root AGENTS.md plus per-package overrides so Codex, Cursor, Jules and other agents work the same way everywhere.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "agents-md",
+        "monorepo",
+        "codex",
+        "coding-agents"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "monorepo_tool",
+          "label": "Monorepo tool",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "web_app",
+          "label": "Web app",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "web_owner",
+          "label": "Web owner",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "api_app",
+          "label": "Api app",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "api_owner",
+          "label": "Api owner",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "# AGENTS.md (root)\n\nThis repo is a monorepo managed with {{monorepo_tool}}.\n\n## Packages\n| Path | What | Owner |\n|---|---|---|\n| `apps/{{web_app}}` | Customer-facing web app | {{web_owner}} |\n| `apps/{{api_app}}` | Public API | {{api_owner}} |\n| `packages/ui` | Shared components | design-systems |\n| `packages/config` | Lint/TS/test config | platform |\n\n## Working rules for agents\n1. Run commands from the package you're changing: `{{monorepo_tool}} run test --filter <package>`.\n2. Never change `packages/config` without saying so explicitly in your summary.\n3. Shared code goes in `packages/*`; never import one app from another.\n4. Keep PRs to one package unless the task says otherwise.\n\n## Package-specific rules\nEach package may have its own `AGENTS.md`. When it exists, it wins over this file for files inside that package.\n\n## Before you finish\n- `{{monorepo_tool}} run lint test typecheck --filter <changed packages>` passes.\n- Summarize: what changed, how you verified it, open questions.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/agents-md-for-a-monorepo-e4aa4b99",
+      "raw_url": "https://commandvault.ai/commands/agents-md-for-a-monorepo-e4aa4b99/raw",
+      "created_at": "2026-10-06T19:18:19.067383+00:00",
+      "updated_at": "2026-10-06T19:18:19.067383+00:00"
+    },
+    {
+      "slug": "set-up-claude-code-in-an-existing-repo-faaec9e5",
+      "title": "Set up Claude Code in an existing repo",
+      "summary": "A first-session prompt that has Claude Code explore your repo and create CLAUDE.md, commands and settings.",
+      "kind": "prompt",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "onboarding",
+        "setup"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "safe_commands",
+          "label": "Safe commands",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "This is our first session in this repo. Set yourself up properly before any feature work.\n\n1. Explore: read the README, package/build files, CI config and the main folders. Run the test command once to see the current state.\n2. Create `CLAUDE.md` with: project summary, exact commands, where things live, conventions, never-do list, definition of done. Only include what you verified.\n3. Suggest 3 slash commands in `.claude/commands/` that would save time in this repo (e.g. /test-file, /review) and write them.\n4. Suggest `.claude/settings.json` permissions: which commands are safe to always allow ({{safe_commands}}) and which should always ask.\n5. Report: what you created, what you couldn't verify, and the 3 biggest risks you noticed in the codebase.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/set-up-claude-code-in-an-existing-repo-faaec9e5",
+      "raw_url": "https://commandvault.ai/commands/set-up-claude-code-in-an-existing-repo-faaec9e5/raw",
+      "created_at": "2026-10-06T19:46:34.816808+00:00",
+      "updated_at": "2026-10-06T19:46:34.816808+00:00"
+    },
+    {
+      "slug": "cursor-rules-for-next-js-app-router-63d6701b",
+      "title": "Cursor rules for Next.js App Router",
+      "summary": "A .cursor/rules/nextjs.mdc file for server components, data fetching, routing and caching done right.",
+      "kind": "template",
+      "community": "frontend",
+      "tags": [
+        "cursor-rules",
+        "cursor",
+        "nextjs",
+        "react"
+      ],
+      "tools": [
+        "Cursor",
+        "Claude",
+        "ChatGPT",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "validation_library",
+          "label": "Validation library",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: Next.js App Router conventions\nglobs: [\"app/**/*.tsx\",\"app/**/*.ts\",\"src/app/**\"]\nalwaysApply: false\n---\n\n# Next.js App Router\n\n- Server Components by default. Add \"use client\" only for state, effects, browser APIs or event handlers, and keep client components small and at the leaves.\n- Fetch data in Server Components or route handlers, never with useEffect for initial data.\n- `params` and `searchParams` are async: `const { slug } = await params`.\n- Use `generateMetadata` for titles/descriptions on every page; set `alternates.canonical`.\n- Mutations: Server Actions or route handlers in `app/api`; validate input with {{validation_library}}.\n- Images via next/image with width/height; fonts via next/font.\n- Use `loading.tsx`, `error.tsx` and `not-found.tsx` instead of ad-hoc spinners and checks.\n- Never import server-only modules (database clients, secrets) into client components.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/cursor-rules-for-next-js-app-router-63d6701b",
+      "raw_url": "https://commandvault.ai/commands/cursor-rules-for-next-js-app-router-63d6701b/raw",
+      "created_at": "2026-10-06T21:46:34.816808+00:00",
+      "updated_at": "2026-10-06T21:46:34.816808+00:00"
+    },
+    {
+      "slug": "generate-an-agents-md-from-an-existing-codebase-0a21e41d",
+      "title": "Generate an AGENTS.md from an existing codebase",
+      "summary": "Have your coding agent read the repo and write an accurate AGENTS.md instead of guessing.",
+      "kind": "prompt",
+      "community": "agents",
+      "tags": [
+        "agents-md",
+        "onboarding",
+        "coding-agents",
+        "documentation"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "max_lines",
+          "label": "Max lines",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "focus_area",
+          "label": "Focus area",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Read this repository and write an AGENTS.md at the root that a new coding agent could follow on day one.\n\nInvestigate before writing:\n1. package.json / pyproject / Makefile / CI files: the real install, dev, test, lint and build commands.\n2. The folder structure: where routes, business logic, data access and tests live.\n3. Existing conventions: naming, error handling, how data is fetched, how styles are written.\n4. Anything dangerous: migrations, generated files, secrets, production scripts.\n\nWrite AGENTS.md with these sections: Overview (3 lines), Commands (exact, copy-pasteable), Where things live, Conventions, Never do, Definition of done.\n\nRules:\n- Only state things you verified in the code; mark guesses with \"(check)\".\n- Keep it under {{max_lines}} lines.\n- Focus on {{focus_area}} if the repo is large.\n\nThen list the 3 things you were least sure about.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/generate-an-agents-md-from-an-existing-codebase-0a21e41d",
+      "raw_url": "https://commandvault.ai/commands/generate-an-agents-md-from-an-existing-codebase-0a21e41d/raw",
+      "created_at": "2026-10-06T22:18:19.067383+00:00",
+      "updated_at": "2026-10-06T22:18:19.067383+00:00"
+    },
+    {
+      "slug": "cursor-rules-for-vue-3-typescript-d7cba1fa",
+      "title": "Cursor rules for Vue 3 + TypeScript",
+      "summary": "A .cursor/rules/vue.mdc file for Composition API, typed props and Pinia stores.",
+      "kind": "template",
+      "community": "frontend",
+      "tags": [
+        "cursor-rules",
+        "cursor",
+        "vue",
+        "typescript"
+      ],
+      "tools": [
+        "Cursor",
+        "Claude",
+        "ChatGPT",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "styling_approach",
+          "label": "Styling approach",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: Vue 3 + TypeScript conventions\nglobs: [\"src/**/*.vue\",\"src/**/*.ts\"]\nalwaysApply: false\n---\n\n# Vue 3\n\n- `<script setup lang=\"ts\">` in every component; no Options API in new code.\n- Type props with `defineProps<{ ... }>()` and emits with `defineEmits<{ ... }>()`.\n- Shared state in Pinia stores under `src/stores`; components don't talk to the API directly.\n- Composables (`useSomething`) in `src/composables` for reusable logic.\n- Use `computed` for derived values, not watchers.\n- Keep templates simple: move logic over two conditions into computed properties.\n- Styling: {{styling_approach}}; scoped styles by default.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/cursor-rules-for-vue-3-typescript-d7cba1fa",
+      "raw_url": "https://commandvault.ai/commands/cursor-rules-for-vue-3-typescript-d7cba1fa/raw",
+      "created_at": "2026-10-06T23:46:34.816808+00:00",
+      "updated_at": "2026-10-06T23:46:34.816808+00:00"
+    },
+    {
+      "slug": "update-claude-md-after-a-coding-session-a460fb4e",
+      "title": "Update CLAUDE.md after a coding session",
+      "summary": "End-of-session prompt that turns what the agent learned into permanent project memory.",
+      "kind": "prompt",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "claude-md",
+        "memory",
+        "workflow"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "session_topic",
+          "label": "Session topic",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Before we finish, update CLAUDE.md with what you learned in this session.\n\n1. Review what we did: commands that worked, errors we hit, decisions we made, files you had to search for.\n2. Add only durable facts that will help next time:\n   - Commands or flags that weren't documented\n   - Gotchas (\"X looks like Y but actually...\")\n   - Decisions and the reason for them\n   - Where things live if it took you a while to find them\n3. Do not add: things already in the file, one-off debugging notes, or anything obvious from the code.\n4. Keep each addition to one or two lines, under the right heading. Remove anything we proved wrong today.\n\nShow me the diff of CLAUDE.md before saving. Session focus was: {{session_topic}}.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/update-claude-md-after-a-coding-session-a460fb4e",
+      "raw_url": "https://commandvault.ai/commands/update-claude-md-after-a-coding-session-a460fb4e/raw",
+      "created_at": "2026-10-07T01:18:19.067383+00:00",
+      "updated_at": "2026-10-07T01:18:19.067383+00:00"
+    },
+    {
+      "slug": "practice-interview-with-feedback-b20154da",
+      "title": "Practice interview with feedback",
+      "summary": "Mock interview for any role, one question at a time.",
+      "kind": "prompt",
+      "community": "learning",
+      "tags": [
+        "interviews",
+        "career",
+        "practice"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "role",
+          "label": "Role",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "company_type",
+          "label": "Company type",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "seniority",
+          "label": "Seniority",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Run a mock interview for a {{role}} position at a {{company_type}}. Level: {{seniority}}.\n\n- Ask one question at a time; mix behavioral and role-specific questions.\n- Wait for my answer before continuing.\n- After each answer, score it 1–5 and give specific feedback: what was strong, what was missing, and a better example answer.\n- After 6 questions, summarize my strengths, weaknesses and the 3 things to practice.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/practice-interview-with-feedback-b20154da",
+      "raw_url": "https://commandvault.ai/commands/practice-interview-with-feedback-b20154da/raw",
+      "created_at": "2026-10-07T01:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "cursor-rules-for-sveltekit-321f00ef",
+      "title": "Cursor rules for SvelteKit",
+      "summary": "A .cursor/rules/sveltekit.mdc file for load functions, form actions and Svelte 5 runes.",
+      "kind": "template",
+      "community": "frontend",
+      "tags": [
+        "cursor-rules",
+        "cursor",
+        "svelte",
+        "sveltekit"
+      ],
+      "tools": [
+        "Cursor",
+        "Claude",
+        "ChatGPT",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "validation_library",
+          "label": "Validation library",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: SvelteKit conventions\nglobs: [\"src/**/*.svelte\",\"src/**/*.ts\"]\nalwaysApply: false\n---\n\n# SvelteKit\n\n- Use Svelte 5 runes ($state, $derived, $props, $effect); avoid legacy stores in new code.\n- Load data in `+page.server.ts` / `+layout.server.ts`; only use universal `+page.ts` loads for public data.\n- Mutations through form actions with progressive enhancement (`use:enhance`).\n- Secrets only in `$env/static/private` or `$env/dynamic/private`, never in client code.\n- Shared UI in `src/lib/components`, server utilities in `src/lib/server`.\n- Validate form data with {{validation_library}} and return `fail(400, ...)` with field errors.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/cursor-rules-for-sveltekit-321f00ef",
+      "raw_url": "https://commandvault.ai/commands/cursor-rules-for-sveltekit-321f00ef/raw",
+      "created_at": "2026-10-07T01:46:34.816808+00:00",
+      "updated_at": "2026-10-07T01:46:34.816808+00:00"
+    },
+    {
+      "slug": "cursor-rules-for-tailwind-css-7767bbdc",
+      "title": "Cursor rules for Tailwind CSS",
+      "summary": "A .cursor/rules/tailwind.mdc that keeps utility classes consistent, readable and on-brand.",
+      "kind": "template",
+      "community": "frontend",
+      "tags": [
+        "cursor-rules",
+        "cursor",
+        "tailwind",
+        "css"
+      ],
+      "tools": [
+        "Cursor",
+        "Claude",
+        "ChatGPT",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "tailwind_config_path",
+          "label": "Tailwind config path",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "dark_mode_strategy",
+          "label": "Dark mode strategy",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: Tailwind CSS conventions\nglobs: [\"**/*.tsx\",\"**/*.jsx\",\"**/*.vue\",\"**/*.svelte\",\"**/*.html\"]\nalwaysApply: false\n---\n\n# Tailwind CSS\n\n- Use theme tokens from `{{tailwind_config_path}}` (colors, spacing, radius); no arbitrary values like `text-[#123456]` unless the design requires it.\n- Mobile first: base classes for phones, then `sm:`, `md:`, `lg:`.\n- Order classes: layout → box → typography → color → state (or rely on the Prettier Tailwind plugin).\n- Extract repeated class groups (3+ uses) into a component, not `@apply`.\n- Every interactive element gets visible `focus-visible:` styles.\n- Dark mode via `{{dark_mode_strategy}}`; check contrast in both themes.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/cursor-rules-for-tailwind-css-7767bbdc",
+      "raw_url": "https://commandvault.ai/commands/cursor-rules-for-tailwind-css-7767bbdc/raw",
+      "created_at": "2026-10-07T03:46:34.816808+00:00",
+      "updated_at": "2026-10-07T03:46:34.816808+00:00"
+    },
+    {
+      "slug": "cursor-project-rules-for-react-typescript-1238d8aa",
+      "title": "Cursor project rules for React + TypeScript",
+      "summary": "A .cursor/rules/*.mdc file that keeps Cursor's agent consistent with your React codebase.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "cursor-rules",
+        "cursor",
+        "react",
+        "typescript"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_name",
+          "label": "Project name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "Component",
+          "label": "Component",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "data_layer",
+          "label": "Data layer",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "styling_approach",
+          "label": "Styling approach",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "tokens_path",
+          "label": "Tokens path",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "test_folder",
+          "label": "Test folder",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "lint_command",
+          "label": "Lint command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: React + TypeScript conventions for {{project_name}}\nglobs: [\"src/**/*.tsx\", \"src/**/*.ts\"]\nalwaysApply: false\n---\n\n# React + TypeScript rules\n\n## Components\n- Function components only. Props typed with an exported `type {{Component}}Props`.\n- One component per file; file name matches the component.\n- Keep components under ~150 lines; extract hooks for logic.\n\n## State and data\n- Local state first; lift only when two siblings need it.\n- Data fetching through {{data_layer}}; never call fetch directly in components.\n- No `any`. Use `unknown` and narrow.\n\n## Styling\n- {{styling_approach}} only. No inline style objects except for dynamic values.\n- Use design tokens from `{{tokens_path}}`; never hard-code colors.\n\n## Accessibility\n- Every interactive element is a real button/link/input with a label.\n- Images need meaningful alt text or alt=\"\" when decorative.\n\n## When you change code\n- Update or add a test in `{{test_folder}}` for the behavior you changed.\n- Run `{{lint_command}}` and fix what you introduced.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/cursor-project-rules-for-react-typescript-1238d8aa",
+      "raw_url": "https://commandvault.ai/commands/cursor-project-rules-for-react-typescript-1238d8aa/raw",
+      "created_at": "2026-10-07T04:18:19.067383+00:00",
+      "updated_at": "2026-10-07T04:18:19.067383+00:00"
+    },
+    {
+      "slug": "cursor-rules-for-supabase-d4b5ec46",
+      "title": "Cursor rules for Supabase",
+      "summary": "A .cursor/rules/supabase.mdc covering row-level security, migrations, auth and safe client usage.",
+      "kind": "template",
+      "community": "backend",
+      "tags": [
+        "cursor-rules",
+        "cursor",
+        "supabase",
+        "postgres"
+      ],
+      "tools": [
+        "Cursor",
+        "Claude",
+        "ChatGPT",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: Supabase conventions\nglobs: [\"supabase/**\",\"src/**/*.ts\",\"app/**/*.ts\"]\nalwaysApply: false\n---\n\n# Supabase\n\n- Every table: `enable row level security` plus explicit policies in the same migration. Use `(select auth.uid())` in policies.\n- Schema changes only through migrations in `supabase/migrations` (`supabase migration new <name>`); never edit the remote database by hand.\n- The anon key is public; the service-role key is server-only and never logged or sent to the browser.\n- Security definer functions set `search_path = ''` and are revoked from anon/authenticated unless meant to be called.\n- Index every foreign key and every column used in filters or sorting.\n- Generate types with `supabase gen types typescript` after schema changes.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/cursor-rules-for-supabase-d4b5ec46",
+      "raw_url": "https://commandvault.ai/commands/cursor-rules-for-supabase-d4b5ec46/raw",
+      "created_at": "2026-10-07T05:46:34.816808+00:00",
+      "updated_at": "2026-10-07T05:46:34.816808+00:00"
+    },
+    {
+      "slug": "github-copilot-custom-instructions-file-5a9bdedb",
+      "title": "GitHub Copilot custom instructions file",
+      "summary": "A .github/copilot-instructions.md that makes Copilot chat and agent mode follow your repo's rules.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "copilot",
+        "github",
+        "coding-agents",
+        "instructions"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "repo_name",
+          "label": "Repo name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "repo_description",
+          "label": "Repo description",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "language",
+          "label": "Language",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "framework",
+          "label": "Framework",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "install_command",
+          "label": "Install command",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "lint_command",
+          "label": "Lint command",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "generated_folder",
+          "label": "Generated folder",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "api_docs_path",
+          "label": "Api docs path",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "# Copilot instructions for {{repo_name}}\n\n## About this repository\n{{repo_description}}. Main language: {{language}}. Framework: {{framework}}.\n\n## How to build and test\n- Install: `{{install_command}}`\n- Test: `{{test_command}}`\n- Lint: `{{lint_command}}`\nAlways run the tests related to files you change.\n\n## Coding standards\n- Follow the existing patterns in the folder you're editing.\n- Small, focused functions; descriptive names; no abbreviations.\n- Handle errors explicitly; never swallow exceptions.\n- Add or update tests with every behavior change.\n\n## Pull requests\n- Title: imperative, under 60 characters.\n- Description: what changed, why, how it was tested, risks.\n\n## Do not\n- Edit generated files in `{{generated_folder}}`.\n- Add dependencies without explaining why in the PR.\n- Change public APIs without updating `{{api_docs_path}}`.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/github-copilot-custom-instructions-file-5a9bdedb",
+      "raw_url": "https://commandvault.ai/commands/github-copilot-custom-instructions-file-5a9bdedb/raw",
+      "created_at": "2026-10-07T07:18:19.067383+00:00",
+      "updated_at": "2026-10-07T07:18:19.067383+00:00"
+    },
+    {
+      "slug": "cursor-rules-for-prisma-4276d69f",
+      "title": "Cursor rules for Prisma",
+      "summary": "A .cursor/rules/prisma.mdc for schema changes, migrations and efficient queries.",
+      "kind": "template",
+      "community": "backend",
+      "tags": [
+        "cursor-rules",
+        "cursor",
+        "prisma",
+        "database"
+      ],
+      "tools": [
+        "Cursor",
+        "Claude",
+        "ChatGPT",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: Prisma conventions\nglobs: [\"prisma/schema.prisma\",\"src/**/*.ts\"]\nalwaysApply: false\n---\n\n# Prisma\n\n- Change the schema in `prisma/schema.prisma`, then `npx prisma migrate dev --name <change>`; commit the migration.\n- Never run `migrate reset` or `db push` against shared or production databases.\n- One PrismaClient instance per process (`src/lib/db.ts`); never create clients per request.\n- Select only the fields you need; use `include` deliberately to avoid N+1 queries.\n- Wrap multi-step writes in `prisma.$transaction`.\n- Map Prisma errors (P2002 unique, P2025 not found) to clear API errors.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/cursor-rules-for-prisma-4276d69f",
+      "raw_url": "https://commandvault.ai/commands/cursor-rules-for-prisma-4276d69f/raw",
+      "created_at": "2026-10-07T07:46:34.816808+00:00",
+      "updated_at": "2026-10-07T07:46:34.816808+00:00"
+    },
+    {
+      "slug": "summarize-a-paper-or-long-article-71816494",
+      "title": "Summarize a paper or long article",
+      "summary": "Key ideas, evidence and limitations in five minutes.",
+      "kind": "prompt",
+      "community": "learning",
+      "tags": [
+        "research",
+        "summaries",
+        "reading"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "source_type",
+          "label": "Source type",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "purpose",
+          "label": "Purpose",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "text_or_link",
+          "label": "Text or link",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "related_topic",
+          "label": "Related topic",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Summarize this {{source_type}} for someone who needs to {{purpose}}:\n\n{{text_or_link}}\n\nGive me:\n1. The main claim in one sentence.\n2. Key findings or arguments (max 5 bullets).\n3. How they support it (method, data, examples).\n4. Limitations and what the author doesn't address.\n5. How it relates to {{related_topic}}, if at all.\n6. Three questions to think about.\n\nQuote sparingly and mark anything you're unsure about.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/summarize-a-paper-or-long-article-71816494",
+      "raw_url": "https://commandvault.ai/commands/summarize-a-paper-or-long-article-71816494/raw",
+      "created_at": "2026-10-07T08:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+    },
+    {
+      "slug": "cursor-rules-for-python-projects-aae1afcd",
+      "title": "Cursor rules for Python projects",
+      "summary": "A .cursor/rules/python.mdc for typed, tested, well-structured Python.",
+      "kind": "template",
+      "community": "backend",
+      "tags": [
+        "cursor-rules",
+        "cursor",
+        "python"
+      ],
+      "tools": [
+        "Cursor",
+        "Claude",
+        "ChatGPT",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "python_version",
+          "label": "Python version",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "dependency_tool",
+          "label": "Dependency tool",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: Python conventions\nglobs: [\"**/*.py\"]\nalwaysApply: false\n---\n\n# Python\n\n- Python {{python_version}}; type hints on every function signature; `mypy` clean.\n- Format and lint with ruff (`ruff format`, `ruff check --fix`).\n- Small pure functions; side effects (I/O, network, DB) at the edges.\n- Use dataclasses or Pydantic models instead of loose dicts for structured data.\n- Raise specific exceptions; never use bare `except:`.\n- Tests with pytest in `tests/`, mirroring the package layout; use fixtures, not globals.\n- Dependencies managed with {{dependency_tool}}; don't add packages without saying why.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/cursor-rules-for-python-projects-aae1afcd",
+      "raw_url": "https://commandvault.ai/commands/cursor-rules-for-python-projects-aae1afcd/raw",
+      "created_at": "2026-10-07T09:46:34.816808+00:00",
+      "updated_at": "2026-10-07T09:46:34.816808+00:00"
+    },
+    {
+      "slug": "claude-code-custom-slash-command-review-db7a5205",
+      "title": "Claude Code custom slash command: /review",
+      "summary": "Save as .claude/commands/review.md to get a one-word, consistent code review in Claude Code.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "slash-commands",
+        "code-review"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_checks",
+          "label": "Project checks",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: Review the current changes like a senior engineer\nargument-hint: [optional focus, e.g. security or performance]\n---\n\nReview the uncommitted changes in this repository (run `git diff` and `git diff --staged`).\n\nFocus: $ARGUMENTS (if empty, review everything).\n\nReport only what's worth changing, grouped as:\n1. **Bugs**: wrong behavior, crashes, races, security problems. Give file:line and a concrete failing scenario.\n2. **Risky**: missing tests, unclear error handling, performance traps.\n3. **Simplify**: code that can be removed or merged.\n\nSkip style nitpicks unless they hide a bug. End with: ship / ship after fixes / don't ship.\nProject-specific checks: {{project_checks}}",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-code-custom-slash-command-review-db7a5205",
+      "raw_url": "https://commandvault.ai/commands/claude-code-custom-slash-command-review-db7a5205/raw",
+      "created_at": "2026-10-07T10:18:19.067383+00:00",
+      "updated_at": "2026-10-07T10:18:19.067383+00:00"
+    },
+    {
+      "slug": "cursor-rules-for-go-0021fab7",
+      "title": "Cursor rules for Go",
+      "summary": "A .cursor/rules/go.mdc for idiomatic errors, contexts, interfaces and tests.",
+      "kind": "template",
+      "community": "backend",
+      "tags": [
+        "cursor-rules",
+        "cursor",
+        "go",
+        "golang"
+      ],
+      "tools": [
+        "Cursor",
+        "Claude",
+        "ChatGPT",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\ndescription: Go conventions\nglobs: [\"**/*.go\"]\nalwaysApply: false\n---\n\n# Go\n\n- Errors are values: return them, wrap with `%w`, and handle each one. No panics in library code.\n- `context.Context` first argument for anything doing I/O; respect cancellation.\n- Accept interfaces, return structs; define interfaces where they're used.\n- Keep packages small and named for what they provide (no `utils`).\n- Table-driven tests with `t.Run`; use `t.Helper()` in helpers.\n- Run `go vet` and `golangci-lint run` before finishing.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/cursor-rules-for-go-0021fab7",
+      "raw_url": "https://commandvault.ai/commands/cursor-rules-for-go-0021fab7/raw",
+      "created_at": "2026-10-07T11:46:34.816808+00:00",
+      "updated_at": "2026-10-07T11:46:34.816808+00:00"
+    },
+    {
+      "slug": "claude-code-subagent-test-writer-dd7b50c1",
+      "title": "Claude Code subagent: test writer",
+      "summary": "A .claude/agents/test-writer.md subagent that writes focused tests in your project's style.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "subagents",
+        "testing"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_name",
+          "label": "Project name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "test_framework",
+          "label": "Test framework",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\nname: test-writer\ndescription: Writes and fixes tests for recently changed code. Use after implementing a feature or fixing a bug.\ntools: Read, Grep, Glob, Edit, Write, Bash\n---\n\nYou write tests for {{project_name}} using {{test_framework}}.\n\nProcess:\n1. Find what changed: `git diff --name-only HEAD`.\n2. Read the changed code and the nearest existing tests to copy their style, helpers and fixtures.\n3. Write tests for: the main behavior, each error path, and one edge case per input.\n4. Run `{{test_command}}`. If a test fails because the code is wrong, report it; don't change the code.\n5. Never weaken an assertion or skip a test to make it pass.\n\nReturn: the tests you added, the command output, and any bugs you found.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-code-subagent-test-writer-dd7b50c1",
+      "raw_url": "https://commandvault.ai/commands/claude-code-subagent-test-writer-dd7b50c1/raw",
+      "created_at": "2026-10-07T13:18:19.067383+00:00",
+      "updated_at": "2026-10-07T13:18:19.067383+00:00"
+    },
+    {
+      "slug": "claude-code-subagent-code-reviewer-03274b7f",
+      "title": "Claude Code subagent: code reviewer",
+      "summary": "A .claude/agents/code-reviewer.md that reviews changes for bugs, risk and simplicity.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "subagents",
+        "code-review"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_name",
+          "label": "Project name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "base_branch",
+          "label": "Base branch",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\nname: code-reviewer\ndescription: Reviews recent code changes for bugs, security issues and unnecessary complexity. Use after finishing a feature or before committing.\ntools: Read, Grep, Glob, Bash\n---\n\nYou are a senior engineer reviewing changes in {{project_name}}.\n\n1. Get the diff: `git diff` and `git diff --staged` (or the branch diff against {{base_branch}}).\n2. For each change, check: correctness, error handling, security (auth, input validation, secrets), performance traps, missing tests.\n3. Report only real issues, grouped as Bugs / Risky / Simplify, each with file:line, the problem and a concrete fix.\n4. Do not edit files. End with: ship / ship after fixes / don't ship.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-code-subagent-code-reviewer-03274b7f",
+      "raw_url": "https://commandvault.ai/commands/claude-code-subagent-code-reviewer-03274b7f/raw",
+      "created_at": "2026-10-07T13:46:34.816808+00:00",
+      "updated_at": "2026-10-07T13:46:34.816808+00:00"
+    },
+    {
+      "slug": "make-flashcards-from-my-notes-b50fd58d",
+      "title": "Make flashcards from my notes",
+      "summary": "Turn notes into spaced-repetition cards that test understanding.",
+      "kind": "template",
+      "community": "learning",
+      "tags": [
+        "flashcards",
+        "anki",
+        "studying"
+      ],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [
+        {
+          "key": "notes",
+          "label": "Notes",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Turn these notes into flashcards:\n\n{{notes}}\n\nRules:\n- One fact or idea per card.\n- Questions test understanding, not just recall (\"Why does X happen?\" over \"What is X?\").\n- Include a few cards that compare or contrast concepts.\n- Answers under 25 words.\n\nOutput as a two-column CSV (front,back) ready to import into Anki.",
+      "score": 0,
+      "uses": 1,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/make-flashcards-from-my-notes-b50fd58d",
+      "raw_url": "https://commandvault.ai/commands/make-flashcards-from-my-notes-b50fd58d/raw",
+      "created_at": "2026-10-07T14:40:41.315869+00:00",
+      "updated_at": "2026-10-07T22:33:58.120337+00:00"
+    },
+    {
+      "slug": "claude-code-subagent-debugger-4afa4d06",
+      "title": "Claude Code subagent: debugger",
+      "summary": "A .claude/agents/debugger.md that finds root causes instead of patching symptoms.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "subagents",
+        "debugging"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_name",
+          "label": "Project name",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\nname: debugger\ndescription: Investigates errors, failing tests and unexpected behavior to find the root cause. Use when something is broken and the cause isn't obvious.\ntools: Read, Grep, Glob, Bash, Edit\n---\n\nYou debug problems in {{project_name}} methodically.\n\n1. Restate the symptom and how to reproduce it. Reproduce it yourself first.\n2. Form 2–3 hypotheses, cheapest to test first. Test each with logs, a minimal script or a failing test.\n3. Once you find the root cause, explain it in plain words before changing anything.\n4. Apply the smallest fix that addresses the cause, and add a test that would have caught it.\n5. Remove any temporary logging. Report: symptom, cause, fix, test, and what else might be affected.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-code-subagent-debugger-4afa4d06",
+      "raw_url": "https://commandvault.ai/commands/claude-code-subagent-debugger-4afa4d06/raw",
+      "created_at": "2026-10-07T15:46:34.816808+00:00",
+      "updated_at": "2026-10-07T15:46:34.816808+00:00"
+    },
+    {
+      "slug": "convert-claude-md-into-agents-md-gemini-md-and-cursor-rules-9a820aa4",
+      "title": "Convert CLAUDE.md into AGENTS.md, GEMINI.md and Cursor rules",
+      "summary": "Write your project rules once and get the file every major coding agent reads.",
+      "kind": "prompt",
+      "community": "agents",
+      "tags": [
+        "claude-md",
+        "agents-md",
+        "cursor-rules",
+        "gemini"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "claude_md",
+          "label": "Claude md",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "globs",
+          "label": "Globs",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "Here is my CLAUDE.md:\n\n{{claude_md}}\n\nProduce equivalent context files for other coding agents, keeping the same facts and rules:\n1. **AGENTS.md** (Codex, Jules, Cursor, many others): plain Markdown, same sections.\n2. **GEMINI.md** (Gemini CLI): same content; mention Gemini-specific commands only if I listed any.\n3. **.cursor/rules/project.mdc** (Cursor): add front matter with description, globs \"{{globs}}\" and alwaysApply: true.\n4. **.github/copilot-instructions.md** (GitHub Copilot).\n\nRules:\n- Don't invent commands or conventions that aren't in my file.\n- Remove Claude-specific wording (like slash commands) where another tool can't use it.\n- Show each file in its own code block with its path as the heading.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/convert-claude-md-into-agents-md-gemini-md-and-cursor-rules-9a820aa4",
+      "raw_url": "https://commandvault.ai/commands/convert-claude-md-into-agents-md-gemini-md-and-cursor-rules-9a820aa4/raw",
+      "created_at": "2026-10-07T16:18:19.067383+00:00",
+      "updated_at": "2026-10-07T16:18:19.067383+00:00"
+    },
+    {
+      "slug": "claude-code-subagent-database-migration-checker-ff16bd58",
+      "title": "Claude Code subagent: database migration checker",
+      "summary": "A .claude/agents/migration-checker.md that reviews migrations for locks, data loss and rollback.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "subagents",
+        "database",
+        "migrations"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "migrations_path",
+          "label": "Migrations path",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "database",
+          "label": "Database",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\nname: migration-checker\ndescription: Reviews new database migrations for locking, data loss, compatibility and rollback before they run. Use whenever a migration is added or changed.\ntools: Read, Grep, Glob\n---\n\nYou review migrations in `{{migrations_path}}` for a {{database}} database with large tables.\n\nFor each new migration report:\n1. Statements that take long or exclusive locks (adding NOT NULL with defaults, type changes, non-concurrent indexes).\n2. Anything that drops or rewrites data, and whether it's reversible.\n3. Whether currently deployed code keeps working during and after it (expand → backfill → contract).\n4. Missing indexes for new foreign keys or filters.\n5. The exact rollback steps.\nFinish with GO / NO-GO. Never run migrations yourself.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-code-subagent-database-migration-checker-ff16bd58",
+      "raw_url": "https://commandvault.ai/commands/claude-code-subagent-database-migration-checker-ff16bd58/raw",
+      "created_at": "2026-10-07T17:46:34.816808+00:00",
+      "updated_at": "2026-10-07T17:46:34.816808+00:00"
+    },
+    {
+      "slug": "definition-of-done-block-for-agent-context-files-41e7512b",
+      "title": "Definition of done block for agent context files",
+      "summary": "Paste into CLAUDE.md or AGENTS.md so agents stop declaring victory before the work is verified.",
+      "kind": "snippet",
+      "community": "agents",
+      "tags": [
+        "agents-md",
+        "claude-md",
+        "quality",
+        "verification"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "lint_command",
+          "label": "Lint command",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "typecheck_command",
+          "label": "Typecheck command",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "how_to_run",
+          "label": "How to run",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "## Definition of done\nA task is done only when all of these are true:\n- [ ] `{{lint_command}}` and `{{typecheck_command}}` pass with no new warnings.\n- [ ] `{{test_command}}` passes; new behavior has a test.\n- [ ] You ran the change for real ({{how_to_run}}) and checked for errors.\n- [ ] No debug logs, commented-out code or TODOs left behind.\n- [ ] Your summary says: what changed, how you verified it, what you did NOT do, and open questions.\n\nIf you can't verify something, say so plainly instead of guessing.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/definition-of-done-block-for-agent-context-files-41e7512b",
+      "raw_url": "https://commandvault.ai/commands/definition-of-done-block-for-agent-context-files-41e7512b/raw",
+      "created_at": "2026-10-07T19:18:19.067383+00:00",
+      "updated_at": "2026-10-07T19:18:19.067383+00:00"
+    },
+    {
+      "slug": "claude-code-subagent-docs-writer-54a75804",
+      "title": "Claude Code subagent: docs writer",
+      "summary": "A .claude/agents/docs-writer.md that keeps README and docs in sync with the code.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "subagents",
+        "documentation"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_name",
+          "label": "Project name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "base_branch",
+          "label": "Base branch",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "docs_paths",
+          "label": "Docs paths",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\nname: docs-writer\ndescription: Updates README, API docs and code comments to match recent changes. Use after changing behavior, commands or configuration.\ntools: Read, Grep, Glob, Edit, Write\n---\n\nYou keep the documentation for {{project_name}} accurate.\n\n1. Find what changed (`git diff --name-only {{base_branch}}`) and read those files.\n2. Update only the docs affected: {{docs_paths}}. Match the existing tone and structure.\n3. Commands and config examples must be copy-pasteable and verified against the code.\n4. Prefer short sections and examples over long explanations.\n5. Report which docs you changed and anything that still looks out of date.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-code-subagent-docs-writer-54a75804",
+      "raw_url": "https://commandvault.ai/commands/claude-code-subagent-docs-writer-54a75804/raw",
+      "created_at": "2026-10-07T19:46:34.816808+00:00",
+      "updated_at": "2026-10-07T19:46:34.816808+00:00"
+    },
+    {
+      "slug": "claude-code-subagent-security-auditor-b97dec0f",
+      "title": "Claude Code subagent: security auditor",
+      "summary": "A .claude/agents/security-auditor.md that checks changes for the vulnerabilities attackers try first.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "subagents",
+        "security"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_name",
+          "label": "Project name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "audit_command",
+          "label": "Audit command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\nname: security-auditor\ndescription: Audits code for security issues: auth gaps, injection, exposed secrets, unsafe uploads and missing rate limits. Use before releases or after touching auth, payments or user input.\ntools: Read, Grep, Glob\n---\n\nYou audit {{project_name}} for security issues. You never edit files or run anything that changes state.\n\nCheck, with file:line evidence:\n1. Every endpoint checks authentication AND authorization.\n2. Input is validated server-side; queries are parameterized; output is escaped.\n3. Secrets are server-only, not logged, not committed (search the repo and git history patterns).\n4. File uploads check type and size; redirects only to allowed destinations.\n5. Rate limits on login, signup, password reset and write endpoints.\n6. Dependencies with known critical vulnerabilities ({{audit_command}}).\nRank findings by impact and give a concrete fix for each.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-code-subagent-security-auditor-b97dec0f",
+      "raw_url": "https://commandvault.ai/commands/claude-code-subagent-security-auditor-b97dec0f/raw",
+      "created_at": "2026-10-07T21:46:34.816808+00:00",
+      "updated_at": "2026-10-07T21:46:34.816808+00:00"
+    },
+    {
+      "slug": "safety-rules-block-for-coding-agents-31955c3a",
+      "title": "Safety rules block for coding agents",
+      "summary": "A 'never do' section for CLAUDE.md / AGENTS.md that prevents the expensive mistakes.",
+      "kind": "snippet",
+      "community": "agents",
+      "tags": [
+        "agents-md",
+        "claude-md",
+        "security",
+        "guardrails"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "generated_paths",
+          "label": "Generated paths",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "## Never do (ask first instead)\n- Run anything against production: databases, deploys, queues, payment providers.\n- Read, print, log or commit secrets (`.env*`, keys, tokens). Refer to them by name only.\n- Delete or rewrite git history (`push --force`, `reset --hard` on shared branches).\n- Drop tables, delete data or run destructive migrations.\n- Install new dependencies or change lockfiles without saying why.\n- Disable tests, linters, type checks or security rules to make something pass.\n- Edit generated files: {{generated_paths}}.\n- Change auth, permissions or billing logic without flagging it in your summary.\n\nWhen a task seems to require one of these, stop and explain what you need and why.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/safety-rules-block-for-coding-agents-31955c3a",
+      "raw_url": "https://commandvault.ai/commands/safety-rules-block-for-coding-agents-31955c3a/raw",
+      "created_at": "2026-10-07T22:18:19.067383+00:00",
+      "updated_at": "2026-10-07T22:18:19.067383+00:00"
+    },
+    {
+      "slug": "claude-code-subagent-refactorer-3a6be62c",
+      "title": "Claude Code subagent: refactorer",
+      "summary": "A .claude/agents/refactorer.md that simplifies code without changing behavior.",
+      "kind": "template",
+      "community": "agents",
+      "tags": [
+        "claude-code",
+        "subagents",
+        "refactoring"
+      ],
+      "tools": [
+        "Claude",
+        "Cursor",
+        "Codex",
+        "ChatGPT",
+        "Gemini"
+      ],
+      "variables": [
+        {
+          "key": "project_name",
+          "label": "Project name",
+          "description": null,
+          "default": null
+        },
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": null,
+          "default": null
+        }
+      ],
+      "install": null,
+      "body": "---\nname: refactorer\ndescription: Simplifies and restructures code without changing behavior. Use when a file is hard to read, duplicated or too large.\ntools: Read, Grep, Glob, Edit, Bash\n---\n\nYou refactor code in {{project_name}} with zero behavior change.\n\n1. Run `{{test_command}}` first and note the results. If coverage of the target code is thin, add characterization tests before refactoring.\n2. Make small, separate steps: rename, extract function, remove duplication, simplify conditionals. Run tests after each.\n3. Don't change public interfaces, outputs or error messages unless asked.\n4. Stop if a step makes tests fail and you can't explain why.\n5. Report each step, the before/after line counts and the test results.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-code-subagent-refactorer-3a6be62c",
+      "raw_url": "https://commandvault.ai/commands/claude-code-subagent-refactorer-3a6be62c/raw",
+      "created_at": "2026-10-07T23:46:34.816808+00:00",
+      "updated_at": "2026-10-07T23:46:34.816808+00:00"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "commandvault",
+  "owner": { "name": "CommandVault", "url": "https://commandvault.ai" },
+  "plugins": [
+    {
+      "name": "commandvault",
+      "source": "./plugins/commandvault",
+      "description": "Search CommandVault's community-voted prompts, CLAUDE.md templates, Cursor rules, skills and MCP servers from Claude Code."
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "mcpServers": {
+    "commandvault": { "type": "http", "url": "https://commandvault.ai/api/mcp" }
+  }
+}

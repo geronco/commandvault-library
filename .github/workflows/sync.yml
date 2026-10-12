@@ -1,0 +1,39 @@
+name: Sync from commandvault.ai
+
+on:
+  schedule:
+    - cron: "17 3 * * *" # daily, 03:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/sync.mjs
+      - name: Commit changes
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "commandvault-bot"
+            git config user.email "commandvault-bot@users.noreply.github.com"
+            git add -A
+            git commit -m "Sync library from commandvault.ai ($(date -u +%F))"
+            git push
+          else
+            echo "No changes."
+          fi
+      # Optional: mirror data/ to a Hugging Face dataset. Add an HF_TOKEN
+      # secret (write access) and set the HF_DATASET variable, e.g. "commandvault/library".
+      - name: Upload to Hugging Face
+        if: ${{ env.HF_TOKEN != '' && vars.HF_DATASET != '' }}
+        env:
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
+        run: |
+          pip install --quiet "huggingface_hub[cli]"
+          huggingface-cli upload "${{ vars.HF_DATASET }}" data . --repo-type dataset --commit-message "Sync $(date -u +%F)"
