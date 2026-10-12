@@ -1,0 +1,11 @@
+{
+  "name": "Dropbox MCP server (official, remote)",
+  "description": "Search and read files in Dropbox through Dropbox's hosted OAuth server.",
+  "homepage": "https://help.dropbox.com/integrations/connect-dropbox-mcp-server",
+  "mcpServers": {
+    "dropbox": {
+      "type": "http",
+      "url": "https://mcp.dropbox.com/mcp"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Playwright MCP: browser automation",
+  "description": "Lets your agent drive a real browser through the accessibility tree: navigate, click, fill forms, take snapshots and test your app.",
+  "homepage": "https://commandvault.ai/commands/playwright-mcp-browser-automation-cf5ef65c",
+  "repository": "https://github.com/microsoft/playwright-mcp",
+  "mcpServers": {
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    }
+  }
+}

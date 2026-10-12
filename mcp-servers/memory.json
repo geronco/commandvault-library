@@ -1,0 +1,15 @@
+{
+  "name": "Memory MCP server (knowledge graph)",
+  "description": "Gives your assistant a persistent memory as a local knowledge graph of entities, relations and observations.",
+  "homepage": "https://commandvault.ai/commands/memory-mcp-server-knowledge-graph-0d19ecc0",
+  "repository": "https://github.com/modelcontextprotocol/servers",
+  "mcpServers": {
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    }
+  }
+}

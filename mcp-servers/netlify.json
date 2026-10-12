@@ -1,0 +1,18 @@
+{
+  "name": "Netlify MCP server (official)",
+  "description": "Create, deploy and manage Netlify sites, env vars, forms and extensions from your coding agent.",
+  "homepage": "https://docs.netlify.com/build/build-with-ai/netlify-mcp-server/",
+  "repository": "https://github.com/netlify/netlify-mcp",
+  "mcpServers": {
+    "netlify": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@netlify/mcp"
+      ],
+      "env": {
+        "NETLIFY_PERSONAL_ACCESS_TOKEN": "YOUR_NETLIFY_PERSONAL_ACCESS_TOKEN"
+      }
+    }
+  }
+}

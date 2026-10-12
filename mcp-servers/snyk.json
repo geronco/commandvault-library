@@ -1,0 +1,21 @@
+{
+  "name": "Snyk MCP server (official)",
+  "description": "Run Snyk code, dependency, container and IaC security scans from your agent via the Snyk CLI.",
+  "homepage": "https://docs.snyk.io/integrations/agentic-integrations-snyk-mcp-server",
+  "repository": "https://github.com/snyk/snyk-ls",
+  "mcpServers": {
+    "snyk": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "snyk@latest",
+        "mcp",
+        "-t",
+        "stdio"
+      ],
+      "env": {
+        "SNYK_MCP_PROFILE": "YOUR_SNYK_MCP_PROFILE"
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "DeepWiki MCP: ask any GitHub repo",
+  "description": "Ask questions about any public GitHub repository and get answers from its generated wiki. No sign-in.",
+  "homepage": "https://docs.devin.ai/work-with-devin/deepwiki-mcp",
+  "mcpServers": {
+    "deepwiki": {
+      "type": "http",
+      "url": "https://mcp.deepwiki.com/mcp"
+    }
+  }
+}

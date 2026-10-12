@@ -1,0 +1,15 @@
+{
+  "name": "Tavily MCP server (official, remote)",
+  "description": "Search, extract, crawl and map the web with Tavily's agent-focused search API.",
+  "homepage": "https://docs.tavily.com/documentation/mcp",
+  "repository": "https://github.com/tavily-ai/tavily-mcp",
+  "mcpServers": {
+    "tavily": {
+      "type": "http",
+      "url": "https://mcp.tavily.com/mcp",
+      "headers": {
+        "Authorization": "YOUR_AUTHORIZATION"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Exa web search MCP",
+  "description": "Fast web search and page fetching built for AI agents, with clean text results.",
+  "homepage": "https://commandvault.ai/commands/exa-web-search-mcp-ef64732a",
+  "repository": "https://github.com/exa-labs/exa-mcp-server",
+  "mcpServers": {
+    "exa": {
+      "type": "http",
+      "url": "https://mcp.exa.ai/mcp"
+    }
+  }
+}

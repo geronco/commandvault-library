@@ -1,0 +1,12 @@
+{
+  "name": "Buildkite MCP server (official, remote)",
+  "description": "Inspect Buildkite pipelines, builds, jobs, logs and test results from your agent.",
+  "homepage": "https://buildkite.com/docs/apis/mcp-server",
+  "repository": "https://github.com/buildkite/buildkite-mcp-server",
+  "mcpServers": {
+    "buildkite": {
+      "type": "http",
+      "url": "https://mcp.buildkite.com/mcp"
+    }
+  }
+}

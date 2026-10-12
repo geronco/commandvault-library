@@ -1,0 +1,12 @@
+{
+  "name": "Cloudflare docs MCP server",
+  "description": "Search Cloudflare's documentation (Workers, Pages, R2, D1, DNS and more) from your agent. No sign-in.",
+  "homepage": "https://commandvault.ai/commands/cloudflare-docs-mcp-server-869e8d34",
+  "repository": "https://github.com/cloudflare/mcp-server-cloudflare",
+  "mcpServers": {
+    "cloudflare-docs": {
+      "type": "http",
+      "url": "https://docs.mcp.cloudflare.com/mcp"
+    }
+  }
+}

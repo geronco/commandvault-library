@@ -1,0 +1,11 @@
+{
+  "name": "CommandVault MCP server",
+  "description": "Search this site's community-voted prompts, CLAUDE.md templates, Cursor rules, skills and MCP servers from your editor.",
+  "homepage": "https://commandvault.ai/mcp",
+  "mcpServers": {
+    "commandvault": {
+      "type": "http",
+      "url": "https://commandvault.ai/api/mcp"
+    }
+  }
+}

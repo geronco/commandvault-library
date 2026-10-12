@@ -1,0 +1,12 @@
+{
+  "name": "Box MCP server (official, remote)",
+  "description": "Search, read and work with Box files and folders, including Box AI Q&A, through Box's hosted server.",
+  "homepage": "https://developer.box.com/guides/box-mcp/remote/",
+  "repository": "https://github.com/box/mcp-server-box-remote",
+  "mcpServers": {
+    "box": {
+      "type": "http",
+      "url": "https://mcp.box.com"
+    }
+  }
+}

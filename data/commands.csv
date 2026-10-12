@@ -1221,3 +1221,1153 @@ You refactor code in {{project_name}} with zero behavior change.
 3. Don't change public interfaces, outputs or error messages unless asked.
 4. Stop if a step makes tests fail and you can't explain why.
 5. Report each step, the before/after line counts and the test results.",https://commandvault.ai/commands/claude-code-subagent-refactorer-3a6be62c
+pdf-toolkit-anthropic-66111aa9,PDF toolkit (Anthropic),"Read, create, merge, split, fill and OCR PDF files from inside Claude.",skill,productivity,skill;pdf;documents;ocr;forms,"Teaches Claude a full PDF workflow: pulling text and tables out of PDFs, merging and splitting files, rotating pages, watermarking, encrypting, and generating new PDFs from scratch. It triggers whenever a .pdf file is mentioned or requested. A separate forms guide and helper scripts cover filling both fillable and non-fillable PDF forms. It relies on Python libraries such as pypdf, pdfplumber and reportlab, plus optional OCR tooling (pytesseract, pdf2image) for scanned documents. This is one of the skills behind Claude's own file features and is source-available, not open source: you may use it, but not redistribute or modify it.
+
+**Try asking:**
+- ""Merge these three PDFs into one and add page numbers""
+- ""Pull every table out of report.pdf into a CSV""
+- ""Fill in this W-9 PDF form with my company details""
+
+**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/pdf) · source-available · by Anthropic",https://commandvault.ai/commands/pdf-toolkit-anthropic-66111aa9
+word-documents-anthropic-124b8bcd,Word documents (Anthropic),"Create and edit Word .docx files with real formatting, tracked changes and comments.",skill,productivity,skill;docx;word;documents;office,"Gives Claude a reliable way to produce and modify Microsoft Word documents, including headings, tables of contents, page numbers, letterheads and images. New documents are built with the docx JavaScript library; existing files are unpacked and their XML edited directly so formatting survives. It supports redlining with tracked changes and adding comments, and ships helper scripts for packing, unpacking and validating files. Expect to need Node.js (docx package) and usually LibreOffice/pandoc for conversion and checks. Source-available under Anthropic's proprietary terms rather than an open-source license.
+
+**Try asking:**
+- ""Turn these meeting notes into a formatted Word memo with a table of contents""
+- ""Redline this contract.docx with tracked changes changing the term to 24 months""
+- ""Replace the logo in every header of template.docx""
+
+**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/docx) · source-available · by Anthropic",https://commandvault.ai/commands/word-documents-anthropic-124b8bcd
+powerpoint-decks-anthropic-7b1328a8,PowerPoint decks (Anthropic),"Build, edit and QA PowerPoint presentations, from pitch decks to template updates.",skill,productivity,skill;pptx;slides;presentations;office,"Covers everything involving .pptx or .potx files: generating new decks, reading text out of existing ones, editing slides and templates, and handling speaker notes and comments. New decks are created with the pptxgenjs library, while existing decks are edited at the XML level so layouts are preserved. It includes design guidance and a mandatory visual QA step where slides are rendered to images and checked. Requires Node.js packages (pptxgenjs, optionally react-icons and sharp) and LibreOffice for rendering. Source-available under Anthropic's proprietary terms.
+
+**Try asking:**
+- ""Make a 10-slide pitch deck from this one-page business plan""
+- ""Update the numbers on slides 4 and 7 of q3-review.pptx""
+- ""Extract all speaker notes from this deck into a document""
+
+**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/pptx) · source-available · by Anthropic",https://commandvault.ai/commands/powerpoint-decks-anthropic-7b1328a8
+excel-spreadsheets-anthropic-7448d591,Excel spreadsheets (Anthropic),"Create, clean and analyze Excel and CSV files with working formulas and formatting.",skill,data,skill;xlsx;excel;spreadsheets;financial-modeling,"Used whenever a spreadsheet is the main input or output: opening and fixing .xlsx/.csv/.tsv files, adding formulas and charts, cleaning messy data, or building financial models. It insists on live formulas instead of hard-coded numbers and requires a recalculation step that checks every formula for errors before handing the file back. It also explains openpyxl pitfalls and conventions for financial models. Requires Python with openpyxl and pandas, plus LibreOffice for the recalculation script. Source-available under Anthropic's proprietary terms.
+
+**Try asking:**
+- ""Clean up sales.csv and build a pivot-style summary sheet with formulas""
+- ""Build a 3-year revenue model in Excel with editable assumptions""
+- ""Find and fix the #REF errors in budget.xlsx""
+
+**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/xlsx) · source-available · by Anthropic",https://commandvault.ai/commands/excel-spreadsheets-anthropic-7448d591
+skill-creator-anthropic-4085d6b7,Skill creator (Anthropic),"Design, test and tune your own Agent Skills, including evals and description tuning.",skill,agents,skill;skills;meta;evals;authoring,"Walks Claude through writing a new skill or improving an existing one, from interviewing you about the task to drafting SKILL.md and supporting files. It can run test prompts with and without the skill, grade the results, show them in an included eval viewer, and benchmark variance across runs. It also optimizes the description field so the skill triggers at the right times. Bundles agent prompts, scripts and an HTML review viewer; some advanced steps need subagent support.
+
+**Try asking:**
+- ""Help me turn our release checklist into a skill""
+- ""My invoice skill isn't triggering when it should, can you fix the description?""
+- ""Run evals comparing the old and new version of my skill""
+
+**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/skill-creator) · Apache-2.0 · by Anthropic",https://commandvault.ai/commands/skill-creator-anthropic-4085d6b7
+mcp-server-builder-anthropic-ab90b905,MCP server builder (Anthropic),Build well-designed MCP servers in Python or TypeScript that wrap an external API.,skill,agents,skill;mcp;api;python;typescript,"A step-by-step guide for creating Model Context Protocol servers so agents can call an outside service through clean, well-named tools. It covers researching the target API, designing tools for agents rather than humans, implementing with FastMCP (Python) or the MCP TypeScript SDK, and testing with the MCP Inspector. Reference docs for each SDK and best-practice notes are bundled, along with an evaluation workflow that writes realistic test questions for the finished server.
+
+**Try asking:**
+- ""Build an MCP server for our internal ticketing REST API in TypeScript""
+- ""Wrap the Airtable API as an MCP server with FastMCP""
+- ""Review my MCP server's tool names and descriptions""
+
+**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/mcp-builder) · Apache-2.0 · by Anthropic",https://commandvault.ai/commands/mcp-server-builder-anthropic-ab90b905
+frontend-design-anthropic-58f8cf7a,Frontend design (Anthropic),"Push UI work past generic defaults toward a distinctive, deliberate visual design.",skill,frontend,skill;design;ui;css;typography,"Gives Claude design judgment when building or restyling an interface: picking an aesthetic direction rooted in the subject, choosing typography and color with intent, and avoiding the look of a stock template. It describes a loop of planning, checking against the brief, building and then critiquing the result. It is pure guidance with no scripts, so it works with any framework.
+
+**Try asking:**
+- ""Design a landing page for my coffee roastery that doesn't look like every SaaS site""
+- ""Restyle this dashboard so it feels more editorial""
+- ""Build a portfolio homepage with a bold, unusual layout""
+
+**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/frontend-design) · Apache-2.0 · by Anthropic",https://commandvault.ai/commands/frontend-design-anthropic-58f8cf7a
+web-app-testing-with-playwright-anthropic-c0201729,Web app testing with Playwright (Anthropic),"Drive a local web app in a real browser to test flows, grab screenshots and read logs.",skill,frontend,skill;testing;playwright;browser;qa,"Teaches Claude to test local web applications with Python Playwright scripts. It includes a helper that starts one or more dev servers, waits for them, runs the test and shuts them down, plus examples for clicking through flows, capturing screenshots and reading console logs. It encourages a look-first approach: inspect the rendered page, then pick selectors. Requires Python with Playwright and its browsers installed.
+
+**Try asking:**
+- ""Start my dev server and check that the signup form works end to end""
+- ""Take screenshots of every page in my app at mobile width""
+- ""Why does the checkout button do nothing? Check the browser console""
+
+**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/webapp-testing) · Apache-2.0 · by Anthropic",https://commandvault.ai/commands/web-app-testing-with-playwright-anthropic-c0201729
+web-artifacts-builder-anthropic-32211529,Web artifacts builder (Anthropic),Build multi-component React + Tailwind + shadcn/ui apps bundled into a single HTML file.,skill,frontend,skill;react;tailwind;shadcn;artifacts,"For bigger claude.ai artifacts that need state, routing or many components. Scripts set up a React and TypeScript project with Tailwind CSS and shadcn/ui pre-wired, then bundle everything into one self-contained HTML file that can be shared. It also gives style guidance to avoid generic-looking output. Needs Node.js; not meant for simple single-file artifacts.
+
+**Try asking:**
+- ""Build a habit tracker artifact with tabs, charts and local state""
+- ""Make an interactive pricing calculator using shadcn components""
+- ""Turn this React prototype into a single shareable HTML file""
+
+**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/web-artifacts-builder) · Apache-2.0 · by Anthropic",https://commandvault.ai/commands/web-artifacts-builder-anthropic-32211529
+canvas-design-anthropic-c8deeaea,Canvas design (Anthropic),"Create original posters and static art as PNG or PDF, guided by a design philosophy.",skill,frontend,skill;design;poster;art;pdf,"Has Claude first write a short design philosophy for the piece and then render it as a polished static image or PDF, such as a poster, cover or art print. It stresses original work rather than imitating living artists, careful composition and minimal text. A large bundle of open-licensed fonts is included so typography renders properly. Output is produced with Python drawing libraries.
+
+**Try asking:**
+- ""Design a minimalist poster for our jazz night on June 14""
+- ""Make a PDF art print inspired by tide charts""
+- ""Create a cover image for my quarterly report""
+
+**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/canvas-design) · Apache-2.0 · by Anthropic",https://commandvault.ai/commands/canvas-design-anthropic-c8deeaea
+doc-co-authoring-workflow-anthropic-c021d334,Doc co-authoring workflow (Anthropic),"A structured workflow for writing specs, proposals and decision docs together with Claude.",skill,writing,skill;writing;specs;docs;workflow,"Guides Claude through a three-stage process for writing a document with you: gathering context, refining structure and content section by section, and then testing the draft as a fresh reader would to find gaps. It triggers when you start writing documentation, proposals, technical specs or similar. It is guidance only, with no scripts, and works for any kind of structured document.
+
+**Try asking:**
+- ""Help me write a technical spec for moving our auth to passkeys""
+- ""I need a decision doc comparing Postgres and DynamoDB for this service""
+- ""Let's co-write a project proposal for the board""
+
+**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/doc-coauthoring) · Apache-2.0 · by Anthropic",https://commandvault.ai/commands/doc-co-authoring-workflow-anthropic-c021d334
+claude-api-reference-anthropic-b5ea3e3a,Claude API reference (Anthropic),Up-to-date guidance for building apps on the Claude API and Anthropic SDKs.,skill,agents,skill;claude;anthropic;api;sdk,"Gives Claude a current reference for the Claude API so it doesn't rely on stale training data: model IDs, pricing, streaming, tool use, prompt caching, thinking settings, MCP and agent patterns. It triggers whenever code or a question involves Claude or Anthropic, or an LLM task where no other provider is named. Per-language folders cover Python, TypeScript, Go, Java, C#, Ruby, PHP and curl. It is large, and model details reflect the date it was last refreshed.
+
+**Try asking:**
+- ""Add streaming and prompt caching to my Claude chatbot in Python""
+- ""Which Claude model should I use for a cheap classification job?""
+- ""Migrate this code from the old completions API to Messages""
+
+**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/claude-api) · Apache-2.0 · by Anthropic",https://commandvault.ai/commands/claude-api-reference-anthropic-b5ea3e3a
+brainstorming-before-building-superpowers-84194470,Brainstorming before building (Superpowers),Turns a rough idea into an agreed design through focused questions before any code is written.,skill,productivity,skill;planning;design;workflow;requirements,"Makes Claude stop and clarify before creative or feature work. It asks one question at a time to learn the goal and constraints, plays its understanding back to you, sizes the work, and writes up a short design you agree on before implementation starts. An optional visual companion can show mockups in the browser while you talk. Part of the Superpowers workflow, where it hands off to the planning skill.
+
+**Try asking:**
+- ""I want to add team workspaces to my app""
+- ""Let's think through a referral program before we build it""
+- ""Help me plan a redesign of the settings page""
+
+**Source:** [obra/superpowers](https://github.com/obra/superpowers/tree/HEAD/skills/brainstorming) · MIT · by Jesse Vincent (obra)",https://commandvault.ai/commands/brainstorming-before-building-superpowers-84194470
+writing-implementation-plans-superpowers-3a8e80fa,Writing implementation plans (Superpowers),"Converts a spec into a step-by-step implementation plan with small, testable tasks.",skill,productivity,skill;planning;workflow;tasks,"Used once requirements are known but before coding. Claude writes a plan document that lists the files to touch, breaks the work into right-sized tasks, and spells out each step, including the tests to write and commands to run. Plans are detailed enough for another agent or a junior developer to follow without guessing. Pairs with the subagent-driven-development and executing-plans skills.
+
+**Try asking:**
+- ""Write an implementation plan for the spec in docs/payments.md""
+- ""Break this feature into tasks I can hand to subagents""
+- ""Plan the migration from REST to tRPC""
+
+**Source:** [obra/superpowers](https://github.com/obra/superpowers/tree/HEAD/skills/writing-plans) · MIT · by Jesse Vincent (obra)",https://commandvault.ai/commands/writing-implementation-plans-superpowers-3a8e80fa
+test-driven-development-superpowers-cffc223e,Test-driven development (Superpowers),"Enforces red-green-refactor: write a failing test first, then the minimal code to pass it.",skill,backend,skill;tdd;testing;workflow,"Sets a strict rule that no production code is written until a failing test exists for it. Claude writes the test, watches it fail for the right reason, writes the smallest change that passes, then refactors. It lists the common excuses for skipping tests and how to reject them, and includes notes on writing good tests. Applies to any language or test framework.
+
+**Try asking:**
+- ""Fix the date parsing bug, test first""
+- ""Add a discount-code feature using TDD""
+- ""Implement the rate limiter with red-green-refactor""
+
+**Source:** [obra/superpowers](https://github.com/obra/superpowers/tree/HEAD/skills/test-driven-development) · MIT · by Jesse Vincent (obra)",https://commandvault.ai/commands/test-driven-development-superpowers-cffc223e
+systematic-debugging-superpowers-c059abab,Systematic debugging (Superpowers),A four-phase process that finds the root cause of a bug before any fix is attempted.,skill,backend,skill;debugging;root-cause;testing,"Triggers on any bug, failing test or odd behavior and stops Claude from guessing at fixes. It works through four phases: investigate the root cause, compare against working patterns, test a hypothesis, and only then implement a fix. Supporting notes cover tracing a bug back to its source, defense in depth, and waiting on conditions instead of sleeping, plus a script that finds which test pollutes shared state.
+
+**Try asking:**
+- ""This test passes alone but fails in the full suite, figure out why""
+- ""Users sometimes get logged out randomly, debug it""
+- ""The build broke after the upgrade, find the real cause""
+
+**Source:** [obra/superpowers](https://github.com/obra/superpowers/tree/HEAD/skills/systematic-debugging) · MIT · by Jesse Vincent (obra)",https://commandvault.ai/commands/systematic-debugging-superpowers-c059abab
+subagent-driven-development-superpowers-d1358075,Subagent-driven development (Superpowers),"Executes a plan by sending each task to a fresh subagent, with a review after every step.",skill,agents,skill;subagents;orchestration;code-review;workflow,"Used to carry out an implementation plan inside the current session. Claude acts as coordinator: it dispatches each task to a new subagent with a focused prompt, has a reviewer subagent check the result against the spec and code quality, and loops until each task is clean. It includes prompt templates for implementer and reviewer agents and advice on choosing models by task difficulty. Needs an agent that supports subagents, such as Claude Code.
+
+**Try asking:**
+- ""Execute the plan in docs/plans/search.md with subagents""
+- ""Implement these 8 tasks one by one with review between each""
+- ""Run the refactor plan using fresh agents per task""
+
+**Source:** [obra/superpowers](https://github.com/obra/superpowers/tree/HEAD/skills/subagent-driven-development) · MIT · by Jesse Vincent (obra)",https://commandvault.ai/commands/subagent-driven-development-superpowers-d1358075
+commandvault-mcp-server-37fd19fc,CommandVault MCP server,"Search this site's community-voted prompts, CLAUDE.md templates, Cursor rules, skills and MCP servers from your editor.",mcp_server,agents,mcp;prompts;claude-code;cursor,"Gives your agent the whole CommandVault library, ranked by votes and real use.
+
+**Tools:** search_commands, get_command (fills in the blanks for you), trending_commands, list_communities, list_collections.
+**Prompts:** the top commands appear as MCP prompts, so clients like Claude Code list them as slash commands.
+
+No account or API key. Add `?community=agents` or `?collection=claude-code-starter-kit` to the URL to narrow it down.
+
+Try: ""Find a CLAUDE.md template for my stack on CommandVault and fill it in for this repo.""",https://commandvault.ai/commands/commandvault-mcp-server-37fd19fc
+git-worktrees-for-isolation-superpowers-cee8ccdf,Git worktrees for isolation (Superpowers),"Sets up an isolated git worktree with a clean, passing baseline before feature work starts.",skill,devops,skill;git;worktrees;isolation,"Before starting a feature or running a plan, Claude checks whether it is already in an isolated workspace and, if not, creates a git worktree in a sensible location. It then runs the project's setup (npm, pip, cargo, go and so on) and confirms tests pass so later failures can be traced to new changes. Guidance only; it uses standard git commands.
+
+**Try asking:**
+- ""Start the new billing feature in its own worktree""
+- ""Set up an isolated workspace before we run the plan""
+- ""Create a worktree for this experiment so main stays clean""
+
+**Source:** [obra/superpowers](https://github.com/obra/superpowers/tree/HEAD/skills/using-git-worktrees) · MIT · by Jesse Vincent (obra)",https://commandvault.ai/commands/git-worktrees-for-isolation-superpowers-cee8ccdf
+verify-before-claiming-done-superpowers-24f62fa7,Verify before claiming done (Superpowers),Requires Claude to run real checks and show evidence before saying work is finished.,skill,productivity,skill;verification;testing;quality,"Triggers whenever Claude is about to say something is fixed, complete or passing, or is about to commit or open a PR. It must first run the relevant verification commands (tests, builds, linters) and read the output, and it may only report success that the output supports. It lists the common shortcuts and rationalizations to avoid. A short, high-impact guard against false 'all done' reports.
+
+**Try asking:**
+- ""Are we done? Make sure everything actually passes""
+- ""Confirm the fix works before you commit""
+- ""Check the build is green before opening the PR""
+
+**Source:** [obra/superpowers](https://github.com/obra/superpowers/tree/HEAD/skills/verification-before-completion) · MIT · by Jesse Vincent (obra)",https://commandvault.ai/commands/verify-before-claiming-done-superpowers-24f62fa7
+requesting-code-review-superpowers-5257970b,Requesting code review (Superpowers),Sends finished work to a reviewer subagent that checks it against the plan and requirements.,skill,backend,skill;code-review;quality;subagents,"After a task or major feature, Claude packages the changes with what they were meant to do and dispatches a code-reviewer subagent using the included prompt. The review checks requirements, correctness and code quality, and Claude then fixes important issues before moving on or merging. It explains when a review is required and how to handle feedback you disagree with.
+
+**Try asking:**
+- ""Get a code review on this branch before we merge""
+- ""Review what we just built against the spec""
+- ""Run a reviewer over the last three commits""
+
+**Source:** [obra/superpowers](https://github.com/obra/superpowers/tree/HEAD/skills/requesting-code-review) · MIT · by Jesse Vincent (obra)",https://commandvault.ai/commands/requesting-code-review-superpowers-5257970b
+github-mcp-server-official-remote-67353001,"GitHub MCP server (official, remote)","Read and manage repos, issues, pull requests, Actions and code search from your agent, hosted by GitHub.",mcp_server,backend,mcp;github;git;code-review,"GitHub's own MCP server. Your agent can search code, read files, open and review pull requests, triage issues and check workflow runs.
+
+**Auth:** VS Code signs in with OAuth. Other clients send a personal access token as `Authorization: Bearer <token>`; give it only the scopes you need (read-only is fine for exploring).
+
+**Good for:** ""Summarise open PRs that touch the billing code"", ""Find where we call the payments API and open an issue for each TODO"".",https://commandvault.ai/commands/github-mcp-server-official-remote-67353001
+react-next-js-performance-vercel-f9bf3208,React & Next.js performance (Vercel),"Vercel's ranked rules for faster React and Next.js code: waterfalls, bundles, rendering.",skill,frontend,skill;react;nextjs;performance;vercel,"A large rule set from Vercel engineering that Claude applies when writing, reviewing or refactoring React and Next.js code. Rules are grouped by impact, starting with removing request waterfalls and shrinking bundles, then server-side performance, data fetching, re-renders and rendering. Each rule lives in its own file with bad and good examples, and a compiled AGENTS.md version is included.
+
+**Try asking:**
+- ""Review this Next.js page for performance problems""
+- ""Why is my bundle so big? Fix it""
+- ""Refactor this component to avoid unnecessary re-renders""
+
+**Source:** [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills/tree/HEAD/skills/react-best-practices) · MIT · by Vercel",https://commandvault.ai/commands/react-next-js-performance-vercel-f9bf3208
+web-interface-guidelines-review-vercel-e7a3d677,Web interface guidelines review (Vercel),Audits UI code against Vercel's web interface guidelines and reports issues by file and line.,skill,frontend,skill;ui;accessibility;ux;review,"When asked to review UI, accessibility or UX, Claude downloads the latest version of Vercel's Web Interface Guidelines and checks the files you name against every rule. Findings come back in a terse file:line format. The skill is small because the rules are fetched at run time, so it needs web access.
+
+**Try asking:**
+- ""Review my UI in src/components against best practices""
+- ""Check this form for accessibility and UX issues""
+- ""Audit the design of the checkout page""
+
+**Source:** [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills/tree/HEAD/skills/web-design-guidelines) · MIT · by Vercel",https://commandvault.ai/commands/web-interface-guidelines-review-vercel-e7a3d677
+react-composition-patterns-vercel-d9e9b118,React composition patterns (Vercel),"Patterns for flexible React components: compound components, context and fewer boolean props.",skill,frontend,skill;react;components;architecture,"Helps Claude design component APIs that scale, especially when a component has collected too many boolean props. It covers compound components, lifting state into providers, explicit variants and render props, with notes on React 19 changes. Rules are split into separate files with examples, plus a compiled AGENTS.md.
+
+**Try asking:**
+- ""This Modal has 12 boolean props, refactor it""
+- ""Design a reusable Tabs component API""
+- ""Turn this Select into a compound component""
+
+**Source:** [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills/tree/HEAD/skills/composition-patterns) · MIT · by Vercel",https://commandvault.ai/commands/react-composition-patterns-vercel-d9e9b118
+context7-up-to-date-library-docs-a4090c41,Context7: up-to-date library docs,"Pulls current, version-specific docs and code examples for thousands of libraries into your prompt, so the agent stops inventing old APIs.",mcp_server,frontend,mcp;docs;nextjs;react,"By Upstash. Ask for a library and Context7 returns the relevant, current documentation snippets.
+
+**Tools:** resolve-library-id, get-library-docs.
+**Tip:** add ""use context7"" to your prompt, or put a rule in CLAUDE.md / AGENTS.md: ""When you use a library API, check it with Context7 first.""
+
+Works without a key; an optional API key raises rate limits. Local alternative: `npx -y @upstash/context7-mcp`.",https://commandvault.ai/commands/context7-up-to-date-library-docs-a4090c41
+deploy-to-vercel-vercel-4593d0b6,Deploy to Vercel (Vercel),Deploys the current project to Vercel and returns a preview or production URL.,skill,devops,skill;vercel;deployment;hosting,"Handles requests like 'deploy my app' by first checking the project's state: git remote, whether it is linked to a Vercel project, and whether the CLI is installed and logged in. It then picks a method, such as the Vercel CLI or a no-auth flow that returns a preview URL plus a link to claim the deployment. It includes notes for running in different agent environments. Uses the Vercel CLI (npm i -g vercel) when available.
+
+**Try asking:**
+- ""Deploy this app and give me the link""
+- ""Create a preview deployment of this branch""
+- ""Push this site live on Vercel""
+
+**Source:** [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills/tree/HEAD/skills/deploy-to-vercel) · MIT · by Vercel",https://commandvault.ai/commands/deploy-to-vercel-vercel-4593d0b6
+semgrep-security-scan-trail-of-bits-4a0f9cca,Semgrep security scan (Trail of Bits),"Runs a planned, approved Semgrep scan of a codebase and merges results into SARIF.",skill,security,skill;semgrep;sast;security;static-analysis,"Claude detects the languages in a repo, picks suitable Semgrep rulesets and shows you the scan plan for approval before running anything. Bundled scripts run the rulesets in batches and merge the output into SARIF. You can choose full coverage or only medium-to-high-confidence security findings, and Semgrep Pro cross-file analysis is used if available. Requires the Semgrep CLI; metrics are turned off.
+
+**Try asking:**
+- ""Scan this repo for security vulnerabilities with Semgrep""
+- ""Run only high-confidence Semgrep security rules""
+- ""Do a static analysis pass before our audit""
+
+**Source:** [trailofbits/skills](https://github.com/trailofbits/skills/tree/HEAD/plugins/static-analysis/skills/semgrep) · CC-BY-SA-4.0 · by Trail of Bits",https://commandvault.ai/commands/semgrep-security-scan-trail-of-bits-4a0f9cca
+codeql-scan-trail-of-bits-35df9f85,CodeQL scan (Trail of Bits),Builds a CodeQL database and runs data-flow and taint analysis to find vulnerabilities.,skill,security,skill;codeql;sast;taint-analysis;security,"Guides Claude through a complete CodeQL scan: building the database (including tricky compiled-language builds), choosing query suites, running them and collecting results. It supports Python, JavaScript/TypeScript, Go, Java/Kotlin, C/C++, C#, Ruby and Swift, and can write data extension models for project-specific sources and sinks. Ships workflows, agent prompts and scripts. Requires the CodeQL CLI and jq.
+
+**Try asking:**
+- ""Run CodeQL on this Go service""
+- ""Do a taint analysis for SQL injection in this Java app""
+- ""Build a CodeQL database and run the security-extended suite""
+
+**Source:** [trailofbits/skills](https://github.com/trailofbits/skills/tree/HEAD/plugins/static-analysis/skills/codeql) · CC-BY-SA-4.0 · by Trail of Bits",https://commandvault.ai/commands/codeql-scan-trail-of-bits-35df9f85
+security-diff-review-trail-of-bits-b06ba141,Security diff review (Trail of Bits),"Security-focused review of a PR or diff, with blast radius, history and test coverage checks.",skill,security,skill;code-review;security;diff;audit,"When reviewing a PR, commit or diff, Claude checks the changes for security problems with an attacker's mindset. It uses git blame to see why code changed, counts callers to estimate blast radius, checks for re-introduced past bugs and finds changed code with no test coverage, then writes a markdown report. Depth adapts to the size of the codebase. Includes methodology, pattern and reporting guides.
+
+**Try asking:**
+- ""Do a security review of PR #482""
+- ""Could this diff reintroduce the auth bypass we fixed last year?""
+- ""What else could this change break?""
+
+**Source:** [trailofbits/skills](https://github.com/trailofbits/skills/tree/HEAD/plugins/differential-review/skills/differential-review) · CC-BY-SA-4.0 · by Trail of Bits",https://commandvault.ai/commands/security-diff-review-trail-of-bits-b06ba141
+playwright-mcp-browser-automation-cf5ef65c,Playwright MCP: browser automation,"Lets your agent drive a real browser through the accessibility tree: navigate, click, fill forms, take snapshots and test your app.",mcp_server,frontend,mcp;playwright;testing;browser,"Microsoft's Playwright server. It works from structured accessibility snapshots rather than screenshots, so it's fast and reliable for LLMs.
+
+**Good for:** reproducing a bug end to end, checking a form after a change, writing a Playwright test from what the agent just did.
+
+Runs locally and opens a browser on your machine. Add `--headless` to the args for CI.",https://commandvault.ai/commands/playwright-mcp-browser-automation-cf5ef65c
+property-based-testing-trail-of-bits-eef7d2b2,Property-based testing (Trail of Bits),"Write and review property-based tests with Hypothesis, fast-check, proptest and more.",skill,security,skill;testing;property-based;fuzzing;hypothesis,"Helps Claude test whole input domains rather than a few hand-picked examples. It offers a catalog of properties worth testing (round-trips, idempotence, ordering, invariants) for parsers, serializers, validators, numeric types and smart contracts. It also flags property tests that quietly assert nothing. Covers Hypothesis, fast-check, proptest, jqwik, rapid, and Echidna/Medusa for Solidity.
+
+**Try asking:**
+- ""Add Hypothesis tests for my JSON encoder and decoder""
+- ""Are my fast-check tests actually checking anything?""
+- ""Write invariant tests for this ERC-20 contract""
+
+**Source:** [trailofbits/skills](https://github.com/trailofbits/skills/tree/HEAD/plugins/property-based-testing/skills/property-based-testing) · CC-BY-SA-4.0 · by Trail of Bits",https://commandvault.ai/commands/property-based-testing-trail-of-bits-eef7d2b2
+supply-chain-risk-audit-trail-of-bits-15964de0,Supply-chain risk audit (Trail of Bits),"Audits your dependency tree for advisories, abandoned packages and risky install scripts.",skill,security,skill;supply-chain;dependencies;npm;security,"Claude reviews a project's dependencies, including the full lockfile tree, for known advisories matched to the exact versions, archived or abandoned upstream projects, npm packages controlled by very few publishers, and packages that run scripts at install time. Bundled scripts do the measuring so the numbers are reproducible, and the skill explains how to read the resulting report.
+
+**Try asking:**
+- ""Audit our npm dependencies for supply-chain risk""
+- ""Which of our packages are abandoned or have install scripts?""
+- ""Review the lockfile before we start this engagement""
+
+**Source:** [trailofbits/skills](https://github.com/trailofbits/skills/tree/HEAD/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor) · CC-BY-SA-4.0 · by Trail of Bits",https://commandvault.ai/commands/supply-chain-risk-audit-trail-of-bits-15964de0
+hugging-face-hub-cli-hugging-face-a0fe8349,Hugging Face Hub CLI (Hugging Face),"Use the hf CLI to download, upload and manage models, datasets, Spaces and jobs on the Hub.",skill,data,skill;huggingface;cli;models;datasets,"Teaches Claude the Hugging Face Hub command-line tool (hf): logging in, managing the local cache, browsing and downloading models and datasets, creating and updating repos, handling discussions and PRs, running jobs on Hugging Face hardware and managing Inference Endpoints. It also covers mounting Hub repos as local folders. Requires the huggingface_hub CLI to be installed.
+
+**Try asking:**
+- ""Download Llama weights to ./models with the hf CLI""
+- ""Upload this folder as a new private dataset""
+- ""Start a GPU job on Hugging Face to run my script""
+
+**Source:** [huggingface/skills](https://github.com/huggingface/skills/tree/HEAD/skills/hf-cli) · Apache-2.0 · by Hugging Face",https://commandvault.ai/commands/hugging-face-hub-cli-hugging-face-a0fe8349
+chrome-devtools-mcp-a2ef4633,Chrome DevTools MCP,"Gives your agent Chrome DevTools: performance traces, network requests, console messages and screenshots of a live page.",mcp_server,frontend,mcp;chrome;performance;debugging,"From the Chrome DevTools team. The agent can open your page, record a performance trace, inspect failing network calls and read console errors, then suggest fixes with evidence.
+
+**Try:** ""Load localhost:3000, find what's slowing down LCP and fix it.""
+
+Runs a Chrome instance on your machine.",https://commandvault.ai/commands/chrome-devtools-mcp-a2ef4633
+llm-fine-tuning-on-hf-jobs-hugging-face-9422c76b,LLM fine-tuning on HF Jobs (Hugging Face),Fine-tune language and vision models with TRL or Unsloth on Hugging Face cloud GPUs.,skill,data,skill;fine-tuning;trl;llm;huggingface,"A detailed guide for training models on Hugging Face Jobs. It covers SFT, DPO, GRPO and reward-model training with TRL or Unsloth, preparing and validating datasets, picking hardware and estimating cost, monitoring with Trackio, saving results to the Hub, and converting models to GGUF for local use. Bundled scripts and references support each step. Requires a Hugging Face account; GPU jobs need a paid plan.
+
+**Try asking:**
+- ""Fine-tune Qwen on my support-ticket dataset with SFT""
+- ""Run DPO training on Hugging Face Jobs and push the model""
+- ""Convert my fine-tuned model to GGUF for llama.cpp""
+
+**Source:** [huggingface/skills](https://github.com/huggingface/skills/tree/HEAD/skills/huggingface-llm-trainer) · Apache-2.0 · by Hugging Face",https://commandvault.ai/commands/llm-fine-tuning-on-hf-jobs-hugging-face-9422c76b
+gradio-apps-hugging-face-d0321991,Gradio apps (Hugging Face),"Build Gradio web UIs and demos in Python, from simple forms to chatbots.",skill,data,skill;gradio;python;ui;demos,"Gives Claude working knowledge of Gradio for building Python web demos: core patterns, key component signatures, layouts, event listeners, chat interfaces and custom HTML components. It also shows how to call a running Gradio app from the command line. An examples file is included. Requires Python with the gradio package.
+
+**Try asking:**
+- ""Build a Gradio demo for my image classifier""
+- ""Make a chatbot UI in Gradio that streams responses""
+- ""Add a file upload and a results table to this Gradio app""
+
+**Source:** [huggingface/skills](https://github.com/huggingface/skills/tree/HEAD/skills/huggingface-gradio) · Apache-2.0 · by Hugging Face",https://commandvault.ai/commands/gradio-apps-hugging-face-d0321991
+find-bugs-in-your-branch-sentry-996dc68d,Find bugs in your branch (Sentry),"Reviews the changes on your branch for bugs, security holes and quality issues.",skill,backend,skill;code-review;bugs;security,"Claude gathers the full diff of the current branch, maps the attack surface, then goes through a security and correctness checklist for every changed file. It verifies each suspected issue before reporting and does a final self-check, then returns findings in a consistent format. Short and practical; uses git only.
+
+**Try asking:**
+- ""Find bugs in my branch before I open a PR""
+- ""Do a security review of the changes on this branch""
+- ""Audit what I changed today""
+
+**Source:** [getsentry/skills](https://github.com/getsentry/skills/tree/HEAD/skills/find-bugs) · Apache-2.0 · by Sentry",https://commandvault.ai/commands/find-bugs-in-your-branch-sentry-996dc68d
+supabase-mcp-server-official-remote-05e2e405,"Supabase MCP server (official, remote)","Manage Supabase projects from your agent: run SQL, apply migrations, read logs and advisors, generate TypeScript types.",mcp_server,backend,mcp;supabase;postgres;database,"Signs in with your Supabase account (OAuth) the first time you use it.
+
+**Safety:** point it at a development project, not production. Add `?read_only=true` to the URL to block writes, and `&project_ref=<ref>` to limit it to one project.
+
+**Good for:** ""Check the security advisors and fix any table missing RLS"", ""Write a migration that adds soft deletes to orders"".",https://commandvault.ai/commands/supabase-mcp-server-official-remote-05e2e405
+iterate-on-a-pr-until-green-sentry-e5946153,Iterate on a PR until green (Sentry),"Loops on a pull request, fixing CI failures and review feedback until checks pass.",skill,devops,skill;github;ci;pull-requests,"Claude watches a PR's CI checks and review comments, fixes failures and addresses high and medium-priority feedback, pushes, and repeats until CI is green. Bundled scripts fetch check status and review threads. It does not wait for human approval or merge. Requires the GitHub CLI (gh) to be authenticated.
+
+**Try asking:**
+- ""Get PR #91 to green""
+- ""Fix the CI failures and review comments on my PR""
+- ""Keep iterating until all checks pass""
+
+**Source:** [getsentry/skills](https://github.com/getsentry/skills/tree/HEAD/skills/iterate-pr) · Apache-2.0 · by Sentry",https://commandvault.ai/commands/iterate-on-a-pr-until-green-sentry-e5946153
+github-actions-security-review-sentry-015d75ff,GitHub Actions security review (Sentry),"Finds exploitable flaws in GitHub Actions workflows, like pwn requests and script injection.",skill,security,skill;github-actions;ci;security,"Reviews .github/workflows for ways an attacker could abuse CI: pull_request_target 'pwn requests', expression injection, credential theft and supply-chain risks. It classifies triggers, checks each vulnerability class, skips known-safe patterns, and only reports findings with a concrete exploit scenario. Reference files describe each class in detail.
+
+**Try asking:**
+- ""Audit our GitHub Actions workflows for security issues""
+- ""Is this pull_request_target workflow exploitable?""
+- ""Check CI security before we open-source the repo""
+
+**Source:** [getsentry/skills](https://github.com/getsentry/skills/tree/HEAD/skills/gha-security-review) · Apache-2.0 · by Sentry",https://commandvault.ai/commands/github-actions-security-review-sentry-015d75ff
+cloudflare-platform-guide-cloudflare-556a22a1,Cloudflare platform guide (Cloudflare),"Helps pick and use the right Cloudflare products for apps, APIs, agents and storage.",skill,devops,skill;cloudflare;workers;serverless;edge,"Cloudflare's entry-point skill. When you describe what you want to build, Claude maps it to the right Cloudflare products (Workers, Pages, R2, D1, KV, Durable Objects, Queues, AI, Zero Trust and more), chooses the right CLI, and pulls in the matching reference or specialist skill. A large reference library covering each product is bundled.
+
+**Try asking:**
+- ""What's the best way to host an API with a database on Cloudflare?""
+- ""I need file uploads and a queue for processing, which Cloudflare products?""
+- ""Put our internal app behind Cloudflare Access""
+
+**Source:** [cloudflare/skills](https://github.com/cloudflare/skills/tree/HEAD/skills/cloudflare) · Apache-2.0 · by Cloudflare",https://commandvault.ai/commands/cloudflare-platform-guide-cloudflare-556a22a1
+sentry-mcp-server-official-remote-7406bc19,"Sentry MCP server (official, remote)","Bring Sentry errors, stack traces and releases into your agent so it can find and fix the bug behind an issue.",mcp_server,devops,mcp;sentry;errors;debugging,"Signs in with OAuth. The agent can search issues, read events and stack traces, and use Sentry's own AI analysis.
+
+**Try:** ""Look at the top unresolved Sentry issue for the web project, find the cause in this repo and propose a fix.""",https://commandvault.ai/commands/sentry-mcp-server-official-remote-7406bc19
+wrangler-cli-cloudflare-e4007610,Wrangler CLI (Cloudflare),"Run and troubleshoot Wrangler for local dev, previews, deploys and resources.",skill,devops,skill;cloudflare;wrangler;workers;cli,"For projects that already have a wrangler config file, Claude inspects the setup, fetches the docs it needs, and uses Wrangler for local development, preview deployments, production deploys and managing resources such as KV, R2 and D1. It ends with a validation step. It requires a project-local Wrangler at a recent version and points new projects to the cf CLI instead.
+
+**Try asking:**
+- ""Run this Worker locally and fix the binding error""
+- ""Deploy a preview of this Worker""
+- ""Create a D1 database and bind it to my Worker""
+
+**Source:** [cloudflare/skills](https://github.com/cloudflare/skills/tree/HEAD/skills/wrangler) · Apache-2.0 · by Cloudflare",https://commandvault.ai/commands/wrangler-cli-cloudflare-e4007610
+cloudflare-agents-sdk-cloudflare-5756914e,Cloudflare Agents SDK (Cloudflare),Build stateful AI agents on Cloudflare with the agents package.,skill,agents,skill;cloudflare;agents;ai;durable-objects,"Helps Claude build, debug or review apps that use Cloudflare's Agents SDK: defining agent classes, routing, state, scheduling, WebSocket and chat APIs, and the React client hooks. It starts by checking the package is installed and the Wrangler config is right. Reference files cover each part of the SDK. Uses npm packages such as agents and @cloudflare/ai-chat.
+
+**Try asking:**
+- ""Build a chat agent on Cloudflare Agents with persistent memory""
+- ""Add a scheduled task to my Cloudflare agent""
+- ""Why is my agent's state not persisting?""
+
+**Source:** [cloudflare/skills](https://github.com/cloudflare/skills/tree/HEAD/skills/agents-sdk) · Apache-2.0 · by Cloudflare",https://commandvault.ai/commands/cloudflare-agents-sdk-cloudflare-5756914e
+supabase-supabase-2cc91bac,Supabase (Supabase),"Official guidance for any Supabase work: database, auth, RLS, storage, edge functions, CLI.",skill,backend,skill;supabase;postgres;auth;rls,"Supabase's main skill, loaded for any task that touches Supabase. It covers the CLI and MCP server, schema changes and migrations, auth and session handling in SSR frameworks, row-level security, storage policies, edge functions and debugging. It stresses security points such as which RLS policies each operation needs. Reference guides and assets are bundled.
+
+**Try asking:**
+- ""Add Supabase auth to my Next.js app with SSR""
+- ""Write RLS policies so users only see their own rows""
+- ""Why does my storage upload fail with a policy error?""
+
+**Source:** [supabase/agent-skills](https://github.com/supabase/agent-skills/tree/HEAD/skills/supabase) · MIT · by Supabase",https://commandvault.ai/commands/supabase-supabase-2cc91bac
+postgres-best-practices-supabase-6ffa0d57,Postgres best practices (Supabase),"Supabase's prioritized Postgres rules for schema, indexes, RLS, migrations and slow queries.",skill,backend,skill;postgres;sql;performance;database,"A Postgres guide that applies anywhere, not just on Supabase. Claude loads it before creating or changing tables, writing migrations, RLS policies, indexes, triggers or functions, and when tracking down slow queries. Rules are grouped by impact, from query performance and connection management down to advanced features, each with wrong and right SQL examples. Rule files live in a references folder.
+
+**Try asking:**
+- ""Review this migration for Postgres best practices""
+- ""This query is slow, here's the EXPLAIN output""
+- ""Design the schema for a multi-tenant app with RLS""
+
+**Source:** [supabase/agent-skills](https://github.com/supabase/agent-skills/tree/HEAD/skills/supabase-postgres-best-practices) · MIT · by Supabase",https://commandvault.ai/commands/postgres-best-practices-supabase-6ffa0d57
+linear-mcp-server-official-remote-b78b00c9,"Linear MCP server (official, remote)","Find, create and update Linear issues, projects and comments without leaving your editor.",mcp_server,productivity,mcp;linear;issues;project-management,"Signs in with OAuth. Useful for turning a TODO list into issues, or pulling the details of an issue into context before you start coding.
+
+**Try:** ""Read issue ENG-123, implement it, then comment on the issue with what changed.""",https://commandvault.ai/commands/linear-mcp-server-official-remote-b78b00c9
+stripe-integration-best-practices-stripe-517f1da0,Stripe integration best practices (Stripe),Stripe's own guidance on choosing the right APIs and building secure payment integrations.,skill,backend,skill;stripe;payments;billing;security,"Helps Claude make sound Stripe decisions: Checkout Sessions versus PaymentIntents, Connect platform setup, subscriptions, Stripe Tax, sandboxes for testing, and moving off deprecated APIs. It includes security rules for API keys, restricted keys, webhooks and OAuth. It routes to reference files for each area and links to the official docs.
+
+**Try asking:**
+- ""Add subscriptions with a free trial using Stripe""
+- ""Should I use Checkout or the Payment Element for my store?""
+- ""Set up Stripe Connect for a marketplace""
+
+**Source:** [stripe/ai](https://github.com/stripe/ai/tree/HEAD/skills/stripe-best-practices) · MIT · by Stripe",https://commandvault.ai/commands/stripe-integration-best-practices-stripe-517f1da0
+upgrade-stripe-versions-stripe-86fe6e6d,Upgrade Stripe versions (Stripe),"Step-by-step help upgrading Stripe API versions, SDKs, Stripe.js and webhooks.",skill,backend,skill;stripe;upgrades;sdk,"Explains how Stripe API versioning works and guides an upgrade: choosing a target version, updating server SDKs, Stripe.js and mobile SDKs, moving webhook endpoints, and testing the change safely before rollout. It includes an upgrade checklist. Guidance only, no scripts.
+
+**Try asking:**
+- ""Upgrade our Stripe API version to the latest""
+- ""Bump stripe-node and fix whatever breaks""
+- ""Plan the webhook endpoint upgrade""
+
+**Source:** [stripe/ai](https://github.com/stripe/ai/tree/HEAD/skills/upgrade-stripe) · MIT · by Stripe",https://commandvault.ai/commands/upgrade-stripe-versions-stripe-86fe6e6d
+tdd-loop-matt-pocock-b41cc1ab,TDD loop (Matt Pocock),"A compact red-green-refactor guide focused on good tests, seams and avoiding mocks.",skill,backend,skill;tdd;testing;typescript,"Used when you want to build or fix something test-first. It defines what a good test looks like, where test seams belong, which anti-patterns to avoid (especially heavy mocking), and the rules of the loop. Extra notes cover mocking and test style. Short and opinionated, from Matt Pocock's widely used skills collection.
+
+**Try asking:**
+- ""Build the cart total function test-first""
+- ""Fix this bug with red-green-refactor""
+- ""Add integration tests for the signup flow""
+
+**Source:** [mattpocock/skills](https://github.com/mattpocock/skills/tree/HEAD/skills/engineering/tdd) · MIT · by Matt Pocock",https://commandvault.ai/commands/tdd-loop-matt-pocock-b41cc1ab
+notion-mcp-server-official-remote-badfeb58,"Notion MCP server (official, remote)","Search, read and write Notion pages and databases from your AI tool.",mcp_server,productivity,mcp;notion;docs;knowledge-base,"Signs in with OAuth and only sees the pages you grant.
+
+**Good for:** pulling a spec into context before coding, writing release notes into a team page, or keeping a decisions log up to date.",https://commandvault.ai/commands/notion-mcp-server-official-remote-badfeb58
+grill-me-matt-pocock-5a2bccb3,Grill me (Matt Pocock),Has Claude interview you relentlessly to stress-test a plan or design.,skill,productivity,skill;planning;interview;thinking,"A very short skill that turns Claude into a demanding interviewer: it questions your plan or design one point at a time until the gaps and assumptions are exposed. It is set to manual use only, so you run it as /grill-me rather than it triggering on its own. Popular as a quick way to sharpen an idea before building.
+
+**Try asking:**
+- ""/grill-me on my plan to rewrite the API in Go""
+- ""/grill-me about this pricing change""
+- ""/grill-me before I start the migration""
+
+**Source:** [mattpocock/skills](https://github.com/mattpocock/skills/tree/HEAD/skills/productivity/grill-me) · MIT · by Matt Pocock",https://commandvault.ai/commands/grill-me-matt-pocock-5a2bccb3
+improve-codebase-architecture-matt-pocock-f36398c8,Improve codebase architecture (Matt Pocock),Scans a codebase for places to deepen modules and presents them as a visual HTML report.,skill,backend,skill;architecture;refactoring;design,"Claude looks across the codebase for shallow modules and tangled boundaries that could be simplified into deeper ones, writes the options up as an HTML report, and then questions you about whichever one you choose before changing anything. Manual use only (run /improve-codebase-architecture). Includes a report template and agent prompts.
+
+**Try asking:**
+- ""/improve-codebase-architecture""
+- ""/improve-codebase-architecture focusing on the billing module""
+- ""/improve-codebase-architecture for src/server""
+
+**Source:** [mattpocock/skills](https://github.com/mattpocock/skills/tree/HEAD/skills/engineering/improve-codebase-architecture) · MIT · by Matt Pocock",https://commandvault.ai/commands/improve-codebase-architecture-matt-pocock-f36398c8
+conversation-to-spec-matt-pocock-8871a037,Conversation to spec (Matt Pocock),Turns what you've discussed into a structured spec and files it in your issue tracker.,skill,productivity,skill;specs;prd;issues;planning,"Takes the current conversation and writes it up as a spec with problem statement, solution, user stories, implementation and testing decisions, and scope, then publishes it to the project's issue tracker. It doesn't interview you again; it just synthesizes. Manual use only (run /to-spec), and it needs access to your tracker, for example via the gh CLI.
+
+**Try asking:**
+- ""/to-spec""
+- ""/to-spec and file it as a GitHub issue""
+- ""/to-spec for the export feature we just discussed""
+
+**Source:** [mattpocock/skills](https://github.com/mattpocock/skills/tree/HEAD/skills/engineering/to-spec) · MIT · by Matt Pocock",https://commandvault.ai/commands/conversation-to-spec-matt-pocock-8871a037
+stripe-mcp-server-official-remote-657afd59,"Stripe MCP server (official, remote)",Work with the Stripe API and search Stripe's docs and knowledge base from your agent.,mcp_server,backend,mcp;stripe;payments,"Signs in with OAuth. Use a test-mode account while you build: the server can create customers, products and payment links.
+
+**Try:** ""Using Stripe docs, add a Checkout session for the Pro plan to our API route.""",https://commandvault.ai/commands/stripe-mcp-server-official-remote-657afd59
+marketing-copywriting-marketing-skills-78c35e89,Marketing copywriting (Marketing Skills),"Writes and rewrites landing, pricing and product page copy that sounds human and converts.",skill,marketing,skill;copywriting;landing-pages;conversion,"Triggers on requests to write or improve website copy: headlines, hero sections, value propositions, CTAs and full page structures. Claude first gathers context about the product and audience, then applies copywriting principles, page-specific frameworks and a list of 'AI tells' to avoid. Reference files and eval cases are included.
+
+**Try asking:**
+- ""Rewrite our homepage hero, it sounds like AI slop""
+- ""Write copy for our pricing page""
+- ""Give me 10 headline options for this landing page""
+
+**Source:** [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/HEAD/skills/copywriting) · MIT · by Corey Haines",https://commandvault.ai/commands/marketing-copywriting-marketing-skills-78c35e89
+seo-audit-marketing-skills-856aa15d,SEO audit (Marketing Skills),"Diagnoses technical, on-page and content SEO problems and gives a prioritized fix list.",skill,marketing,skill;seo;audit;search,"Used when a site isn't ranking or traffic has dropped. Claude works through technical SEO (crawling, indexing, speed, Core Web Vitals), on-page factors, content quality, international and local SEO, and common issues by site type, then reports findings in priority order. Reference files and evals are bundled. Works best with access to the site and Search Console data.
+
+**Try asking:**
+- ""Why isn't my site ranking? Do an SEO audit""
+- ""Our traffic dropped after the Google update, help""
+- ""Review title tags and meta descriptions on these pages""
+
+**Source:** [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/HEAD/skills/seo-audit) · MIT · by Corey Haines",https://commandvault.ai/commands/seo-audit-marketing-skills-856aa15d
+conversion-rate-optimization-marketing-skills-ddce271b,Conversion rate optimization (Marketing Skills),Reviews a page or form and suggests changes and experiments to lift conversions.,skill,marketing,skill;cro;conversion;landing-pages;ab-testing,"When a page or form isn't converting, Claude assesses it against a CRO framework covering value proposition, headline, CTA, social proof, objections and friction, then gives prioritized recommendations and test ideas. It has specific frameworks for homepages, landing, pricing and feature pages, plus form optimization. Works even if you just share a URL.
+
+**Try asking:**
+- ""This landing page isn't converting, what should I change?""
+- ""Audit our demo request form for friction""
+- ""Give me A/B test ideas for the pricing page""
+
+**Source:** [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/HEAD/skills/cro) · MIT · by Corey Haines",https://commandvault.ai/commands/conversion-rate-optimization-marketing-skills-ddce271b
+vercel-mcp-server-official-remote-889521ed,"Vercel MCP server (official, remote)","Search Vercel docs, and inspect your projects, deployments and build logs from your agent.",mcp_server,devops,mcp;vercel;deployments,"Signs in with OAuth. Handy for ""why did the last deployment fail?"" with the build log in context.",https://commandvault.ai/commands/vercel-mcp-server-official-remote-889521ed
+ai-search-optimization-marketing-skills-20cfa95a,AI search optimization (Marketing Skills),"Helps your content get cited by ChatGPT, Perplexity, Claude and Google AI Overviews.",skill,marketing,skill;seo;ai-search;geo;llms-txt,"Covers 'answer engine' optimization: how AI search picks sources, how to audit your current AI visibility, and which content formats and structures get cited most. It also covers machine-readable assets like llms.txt and agent-friendly pricing pages. References and evals are included.
+
+**Try asking:**
+- ""How do I show up in ChatGPT answers for my category?""
+- ""Audit our AI search visibility""
+- ""Write an llms.txt for our docs site""
+
+**Source:** [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/HEAD/skills/ai-seo) · MIT · by Corey Haines",https://commandvault.ai/commands/ai-search-optimization-marketing-skills-20cfa95a
+exploratory-data-analysis-k-dense-fe96970e,Exploratory data analysis (K-Dense),"Careful, local exploratory analysis of data files with leakage, missingness and outlier checks.",skill,data,skill;eda;data-analysis;python;statistics,"Gives Claude a rigorous EDA routine for supported files such as CSV, TSV and JSON, with optional NumPy, HDF5, FASTA/FASTQ and image metadata. It profiles data, audits missing values and possible leakage, tests sensitivity to outliers and transformations, and scaffolds a written EDA report. Bundled command-line tools run locally without network access; unknown formats are refused rather than guessed. Requires Python 3.11+ (3.12+ and uv for the full optional set).
+
+**Try asking:**
+- ""Do an EDA on experiment_results.csv and flag any leakage""
+- ""Profile this dataset and write up what you find""
+- ""Check this data for missingness and outliers before modeling""
+
+**Source:** [K-Dense-AI/claude-scientific-skills](https://github.com/K-Dense-AI/claude-scientific-skills/tree/HEAD/skills/exploratory-data-analysis) · MIT · by K-Dense AI",https://commandvault.ai/commands/exploratory-data-analysis-k-dense-fe96970e
+web-quality-audit-addy-osmani-3c5ac52d,Web quality audit (Addy Osmani),"Audits a site for performance, accessibility, SEO and best practices, Lighthouse-style.",skill,frontend,skill;performance;lighthouse;seo;audit,"Runs an evidence-based review of a web page across performance, accessibility, SEO, best practices and readiness for AI browsing agents. It routes to the right tools, assigns severity levels and returns results in a fixed format with a quick checklist. A helper script is included. Lighthouse or a browser helps but isn't strictly required.
+
+**Try asking:**
+- ""Audit my site's web quality""
+- ""Run a Lighthouse-style audit on our homepage""
+- ""What should I fix first to optimize this website?""
+
+**Source:** [addyosmani/web-quality-skills](https://github.com/addyosmani/web-quality-skills/tree/HEAD/skills/web-quality-audit) · MIT · by Addy Osmani",https://commandvault.ai/commands/web-quality-audit-addy-osmani-3c5ac52d
+accessibility-audit-addy-osmani-016794c9,Accessibility audit (Addy Osmani),Audit and fix web accessibility issues against WCAG 2.2.,skill,frontend,skill;accessibility;wcag;a11y,"Teaches Claude to check and improve accessibility using the WCAG 2.2 principles (perceivable, operable, understandable, robust). It covers keyboard navigation, screen readers, alt text, contrast, forms and focus, lists common issues by impact, and shows how to test with Lighthouse and axe-core. Reference files add detail.
+
+**Try asking:**
+- ""Do an a11y audit on the checkout page""
+- ""Make this modal keyboard and screen reader accessible""
+- ""Are we WCAG 2.2 AA compliant?""
+
+**Source:** [addyosmani/web-quality-skills](https://github.com/addyosmani/web-quality-skills/tree/HEAD/skills/accessibility) · MIT · by Addy Osmani",https://commandvault.ai/commands/accessibility-audit-addy-osmani-016794c9
+cloudflare-docs-mcp-server-869e8d34,Cloudflare docs MCP server,"Search Cloudflare's documentation (Workers, Pages, R2, D1, DNS and more) from your agent. No sign-in.",mcp_server,devops,mcp;cloudflare;docs,"Read-only and public. Cloudflare also runs servers for Workers bindings, observability and more (they sign in with OAuth); see the repository for the full list.",https://commandvault.ai/commands/cloudflare-docs-mcp-server-869e8d34
+claude-code-hook-development-anthropic-0dac2d77,Claude Code hook development (Anthropic),"How to write Claude Code hooks that validate, block or automate tool use.",skill,agents,skill;claude-code;hooks;automation;plugins,"A detailed guide to Claude Code hooks: every event type (PreToolUse, PostToolUse, Stop, SessionStart, UserPromptSubmit and others), config formats, input and output JSON, matchers, environment variables and prompt-based hooks. It includes security advice, example hooks and validation scripts. Useful for blocking dangerous commands or automating checks.
+
+**Try asking:**
+- ""Add a hook that blocks rm -rf in this project""
+- ""Run prettier automatically after every file edit""
+- ""Write a Stop hook that makes Claude run tests before finishing""
+
+**Source:** [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official/tree/HEAD/plugins/plugin-dev/skills/hook-development) · Apache-2.0 · by Anthropic",https://commandvault.ai/commands/claude-code-hook-development-anthropic-0dac2d77
+claude-md-improver-anthropic-a2fe53a6,CLAUDE.md improver (Anthropic),"Audits your repo's CLAUDE.md files, scores them and makes targeted improvements.",skill,agents,skill;claude-code;claude-md;memory;docs,"Claude finds every CLAUDE.md file in the repository, grades each against quality templates, writes a short report of issues (outdated commands, missing context, bloat) and then makes focused edits. It also suggests tips for keeping project memory useful.
+
+**Try asking:**
+- ""Audit and improve our CLAUDE.md""
+- ""Our CLAUDE.md is out of date, fix it""
+- ""Check all CLAUDE.md files in this monorepo""
+
+**Source:** [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official/tree/HEAD/plugins/claude-md-management/skills/claude-md-improver) · Apache-2.0 · by Anthropic",https://commandvault.ai/commands/claude-md-improver-anthropic-a2fe53a6
+claude-code-automation-recommender-anthropic-0d441fec,Claude Code automation recommender (Anthropic),"Analyzes your codebase and recommends hooks, subagents, skills and MCP servers to set up.",skill,agents,skill;claude-code;setup;automation;mcp,"Inspects a project (languages, tools, dependencies, existing Claude config) and recommends which Claude Code features would help most, such as specific hooks, subagents, skills, plugins or MCP servers, with reasons and setup tips. It's read-only analysis and is useful when first setting up Claude Code on a repo.
+
+**Try asking:**
+- ""What Claude Code automations should I set up for this repo?""
+- ""How should I configure Claude Code for this project?""
+- ""Recommend hooks and MCP servers for our stack""
+
+**Source:** [anthropics/claude-plugins-official](https://github.com/anthropics/claude-plugins-official/tree/HEAD/plugins/claude-code-setup/skills/claude-automation-recommender) · Apache-2.0 · by Anthropic",https://commandvault.ai/commands/claude-code-automation-recommender-anthropic-0d441fec
+deepwiki-mcp-ask-any-github-repo-05b84730,DeepWiki MCP: ask any GitHub repo,Ask questions about any public GitHub repository and get answers from its generated wiki. No sign-in.,mcp_server,learning,mcp;github;docs;research,"By Cognition. Tools: read_wiki_structure, read_wiki_contents, ask_question.
+
+**Try:** ""Using DeepWiki, how does vercel/next.js decide between static and dynamic rendering?""",https://commandvault.ai/commands/deepwiki-mcp-ask-any-github-repo-05b84730
+playwright-cli-browser-automation-microsoft-40136535,Playwright CLI browser automation (Microsoft),"Control a real browser from the terminal with playwright-cli: navigate, click, fill, test.",skill,frontend,skill;playwright;browser;automation;testing,"Teaches Claude to automate a browser through the playwright-cli tool instead of an MCP server, which keeps context use low. It covers opening pages, reading accessibility snapshots, clicking and filling by element reference, uploads, screenshots, tabs and sessions, and working with Playwright tests. Reference files cover advanced commands. Requires the @playwright/cli package (npm install -g @playwright/cli).
+
+**Try asking:**
+- ""Open our staging site and test the login flow""
+- ""Fill out this web form and take a screenshot""
+- ""Write a Playwright test for the search page""
+
+**Source:** [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli/tree/HEAD/skills/playwright-cli) · Apache-2.0 · by Microsoft",https://commandvault.ai/commands/playwright-cli-browser-automation-microsoft-40136535
+terraform-style-guide-hashicorp-0a4fb6c9,Terraform style guide (HashiCorp),"Write Terraform that follows HashiCorp's official style, naming and file layout.",skill,devops,skill;terraform;iac;hcl,"Applied when writing, reviewing or generating Terraform. It covers file organization (terraform.tf, variables, locals, main, outputs), formatting, naming conventions, variable and output design, and security defaults, with good and bad examples throughout.
+
+**Try asking:**
+- ""Write Terraform for an S3 bucket with versioning, following best practices""
+- ""Review this module against HashiCorp style""
+- ""Clean up the naming in our Terraform files""
+
+**Source:** [hashicorp/agent-skills](https://github.com/hashicorp/agent-skills/tree/HEAD/plugins/terraform/skills/terraform-style-guide) · MPL-2.0 · by HashiCorp",https://commandvault.ai/commands/terraform-style-guide-hashicorp-0a4fb6c9
+terraform-tests-hashicorp-b4bd5876,Terraform tests (HashiCorp),"Write and run Terraform's native .tftest.hcl tests, including mocks and assertions.",skill,devops,skill;terraform;testing;iac,"A full guide to Terraform's built-in testing framework: test file structure, run blocks, assertions, variables, provider mocking and testing module outputs, plus fixes for common syntax and execution errors. Reference files add more patterns.
+
+**Try asking:**
+- ""Add tests for my VPC module""
+- ""Mock the AWS provider in my Terraform tests""
+- ""Why does terraform test fail on this run block?""
+
+**Source:** [hashicorp/agent-skills](https://github.com/hashicorp/agent-skills/tree/HEAD/plugins/terraform/skills/terraform-test) · MPL-2.0 · by HashiCorp",https://commandvault.ai/commands/terraform-tests-hashicorp-b4bd5876
+microsoft-learn-mcp-server-33e99ec0,Microsoft Learn MCP server,"Search and fetch official Microsoft documentation (Azure, .NET, Microsoft 365, Windows) from your agent. No sign-in.",mcp_server,learning,mcp;azure;dotnet;docs,Read-only and public. Grounds answers about Azure and .NET in current docs instead of training data.,https://commandvault.ai/commands/microsoft-learn-mcp-server-33e99ec0
+gemini-api-development-google-aefae203,Gemini API development (Google),"Google's guide to writing correct, current code against the Gemini API in Python and TypeScript.",skill,agents,skill;gemini;google;llm;api,"Used whenever code calls the Gemini API. It covers text, chat, multimodal input, image, video and speech generation, streaming, function calling, structured output and agent features, and helps migrate from the older generateContent style. It lists critical rules to follow and points to documentation pages. Uses the google-genai (Python) or @google/genai (TypeScript) SDKs.
+
+**Try asking:**
+- ""Add Gemini image generation to my Python app""
+- ""Migrate this code to the new Gemini SDK""
+- ""Call Gemini with structured JSON output in TypeScript""
+
+**Source:** [google-gemini/gemini-skills](https://github.com/google-gemini/gemini-skills/tree/HEAD/skills/gemini-api-dev) · Apache-2.0 · by Google",https://commandvault.ai/commands/gemini-api-development-google-aefae203
+dbt-analytics-engineering-dbt-labs-6706ced0,dbt analytics engineering (dbt Labs),"Build and modify dbt models the right way: ref/source, tests and checking results with dbt show.",skill,data,skill;dbt;sql;analytics;data-engineering,"dbt Labs' core skill for any dbt work. It guides how to structure the DAG and models, insists on looking at the actual data before modeling, writes tests, validates output with dbt show, and keeps warehouse costs down. It lists common mistakes and includes reference guides and scripts. Requires the dbt CLI.
+
+**Try asking:**
+- ""Build a dbt model for monthly active customers""
+- ""Add tests to our orders models""
+- ""This dbt model fails to compile, fix it""
+
+**Source:** [dbt-labs/dbt-agent-skills](https://github.com/dbt-labs/dbt-agent-skills/tree/HEAD/skills/dbt/skills/using-dbt-for-analytics-engineering) · Apache-2.0 · by dbt Labs",https://commandvault.ai/commands/dbt-analytics-engineering-dbt-labs-6706ced0
+neon-postgres-neon-f6090d75,Neon Postgres (Neon),"Neon's guide to connections, branching, migrations, autoscaling and search on Neon Postgres.",skill,backend,skill;neon;postgres;serverless;database,"For work against an existing Neon database. It covers pooled versus direct connections, schema migrations, database branching, autoscaling and scale-to-zero, instant restore, read replicas, IP allow lists, logical replication, and full-text, vector and hybrid search. New backend setup, auth and functions go to the parent neon skill. References are bundled.
+
+**Try asking:**
+- ""Set up a Neon branch for each preview deployment""
+- ""Should I use the pooled connection string here?""
+- ""Add vector search to my Neon database""
+
+**Source:** [neondatabase/agent-skills](https://github.com/neondatabase/agent-skills/tree/HEAD/skills/neon-postgres) · Apache-2.0 · by Neon",https://commandvault.ai/commands/neon-postgres-neon-f6090d75
+hugging-face-mcp-server-7b6c419c,Hugging Face MCP server,"Search models, datasets, Spaces and papers on the Hugging Face Hub, and call Gradio Spaces as tools.",mcp_server,data,mcp;huggingface;models;datasets,Works anonymously for public search; sign in (or add a token) to use your own settings and Spaces.,https://commandvault.ai/commands/hugging-face-mcp-server-7b6c419c
+expo-native-ui-expo-03d3c6fb,Expo native UI (Expo),"Build native-feeling Expo screens with Apple HIG styling, native controls and SF Symbols.",skill,frontend,skill;expo;react-native;ios;mobile,"Expo's guidance for building polished mobile screens: Apple Human Interface Guidelines styling, semantic colors, native controls, SF Symbols, media, visual effects, gradients, storage and responsive layouts. It sets code style and library preferences and points to separate skills for routing and animation. References and agent prompts are included.
+
+**Try asking:**
+- ""Make this Expo settings screen feel native on iOS""
+- ""Add a blurred header and SF Symbols to my tab bar""
+- ""Build a profile screen in Expo using native controls""
+
+**Source:** [expo/skills](https://github.com/expo/skills/tree/HEAD/plugins/expo/skills/expo-native-ui) · MIT · by Expo",https://commandvault.ai/commands/expo-native-ui-expo-03d3c6fb
+react-native-performance-callstack-130364bd,React Native performance (Callstack),"Callstack's ranked guide to fixing React Native jank, slow startup, big bundles and leaks.",skill,frontend,skill;react-native;performance;mobile,"Gives Claude a prioritized playbook for React Native performance: frame rate, time to interactive, bundle size, memory leaks, re-renders and animations. It covers Hermes, JS thread blocking, FlashList, native modules and measuring bundle size before and after changes. A problem-to-fix map points to detailed reference files.
+
+**Try asking:**
+- ""My React Native list is janky when scrolling, fix it""
+- ""Reduce our app's startup time""
+- ""Find the memory leak in this screen""
+
+**Source:** [callstackincubator/agent-skills](https://github.com/callstackincubator/agent-skills/tree/HEAD/skills/react-native-best-practices) · MIT · by Callstack",https://commandvault.ai/commands/react-native-performance-callstack-130364bd
+repository-threat-model-openai-472d6bf4,Repository threat model (OpenAI),"Produces a threat model for a codebase: trust boundaries, assets, attackers and mitigations.",skill,security,skill;threat-modeling;appsec;security,"When you explicitly ask for threat modeling, Claude studies the repository and writes a concise markdown threat model listing trust boundaries, valuable assets, attacker capabilities, abuse paths and mitigations, ranked by risk. It is meant not to fire for general architecture or code review requests. Published in OpenAI's Codex skills catalog but uses the standard SKILL.md format, so it works in Claude Code too.
+
+**Try asking:**
+- ""Threat model this repository""
+- ""Enumerate the abuse paths for our file upload service""
+- ""Do an AppSec threat model of the payments module""
+
+**Source:** [openai/skills](https://github.com/openai/skills/tree/HEAD/skills/.curated/security-threat-model) · Apache-2.0 · by OpenAI",https://commandvault.ai/commands/repository-threat-model-openai-472d6bf4
+neon-mcp-server-official-remote-99a445eb,"Neon MCP server (official, remote)","Manage Neon serverless Postgres projects, branches and SQL from your agent over a hosted OAuth endpoint.",mcp_server,backend,mcp;postgres;database;serverless;migrations,"Neon's hosted server lets an agent list and create projects, spin up database branches, run SQL, inspect schemas and walk through migrations on a temporary branch before applying them. You sign in with Neon OAuth in the browser, or send a Neon API key as a bearer token for headless clients. Branch-based migrations make it safer than running DDL straight against production. Good for prototyping schemas, debugging slow queries and preparing migrations for review.
+
+**Try asking:**
+- ""Create a branch of my 'shop' project and add an index on orders.customer_id there, then show me the query plan before and after.""
+- ""List my Neon projects and tell me which databases are largest.""
+- ""Draft a migration that adds a 'status' column to invoices and test it on a branch.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/neon-mcp-server-official-remote-99a445eb
+exa-web-search-mcp-ef64732a,Exa web search MCP,"Fast web search and page fetching built for AI agents, with clean text results.",mcp_server,productivity,mcp;search;research,Gives your agent current information from the web. A free tier works without a key; add your Exa API key for higher limits.,https://commandvault.ai/commands/exa-web-search-mcp-ef64732a
+mongodb-mcp-server-official-cda5d4be,MongoDB MCP server (official),"Query MongoDB databases and manage Atlas clusters from an agent, read-only by default in the documented config.",mcp_server,backend,mcp;mongodb;database;atlas;nosql,"MongoDB's server connects to any MongoDB deployment through a connection string and exposes tools to list databases and collections, inspect schemas and indexes, run find and aggregate queries, and (when writes are enabled) insert, update or drop data. With Atlas service-account credentials it can also list projects and clusters, manage access lists and database users. The README recommends the --readOnly flag; remove it only when you want writes. Useful for exploring unfamiliar data, writing aggregation pipelines and Atlas housekeeping.
+
+**Try asking:**
+- ""Look at the 'orders' collection and summarise its schema and indexes.""
+- ""Write an aggregation pipeline that totals revenue by month for 2026 and run it.""
+- ""List my Atlas clusters and their tiers.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/mongodb-mcp-server-official-cda5d4be
+redis-mcp-server-official-9f9441ed,Redis MCP server (official),"Read and write Redis keys, hashes, lists, streams, JSON and vector indexes through natural language.",mcp_server,backend,mcp;redis;cache;database;vector-search,"Redis's own server gives the agent tools for strings, hashes, lists, sets, sorted sets, streams, pub/sub, JSON documents and vector search indexes, plus server info and key scanning. It connects with a Redis URL (or host/port/password variables) and works with Redis Cloud, Redis Software and open-source Redis. There is no separate read-only switch, so point it at a dev instance or use a Redis ACL user with limited commands for production. Handy for inspecting cache contents, debugging queues and prototyping vector search.
+
+**Try asking:**
+- ""Scan keys matching 'session:*' and tell me how many there are and their TTLs.""
+- ""Create a vector index for product embeddings with 1536 dimensions.""
+- ""Show the last 20 entries of the 'events' stream.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/redis-mcp-server-official-9f9441ed
+planetscale-mcp-server-official-remote-28afd61d,"PlanetScale MCP server (official, remote)",Query PlanetScale Postgres and MySQL databases and read Insights and schema recommendations via hosted MCP.,mcp_server,backend,mcp;planetscale;mysql;postgres;database,"PlanetScale hosts an MCP endpoint that lets an agent list organizations, databases and branches, run read and write queries, and pull Query Insights and schema recommendations. You authorize through PlanetScale OAuth and choose which organizations and databases the client can reach; headless clients can send a service token as a bearer token. An insights-only endpoint (/mcp/planetscale-insights-only) drops the query tools when you only want performance data. Great for investigating slow queries and reviewing schema advice.
+
+**Try asking:**
+- ""Which queries on my 'prod' branch were slowest in the last 24 hours, and why?""
+- ""Show me PlanetScale's schema recommendations for the 'app' database.""
+- ""Count users created per day this week on the dev branch.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/planetscale-mcp-server-official-remote-28afd61d
+filesystem-mcp-server-reference-8f2db163,Filesystem MCP server (reference),"Read, write, search and move files, limited to the folders you allow.",mcp_server,agents,mcp;files;reference,"The official reference server. Replace `/path/to/allowed/folder` with the folder(s) it may touch; it can't go outside them.
+
+Most useful in chat apps like Claude Desktop that don't have file access built in. Coding agents (Claude Code, Cursor, Codex) already read your repo.",https://commandvault.ai/commands/filesystem-mcp-server-reference-8f2db163
+prisma-mcp-server-official-remote-07156f6a,"Prisma MCP server (official, remote)","Create and manage Prisma Postgres databases, backups and connection strings from your agent.",mcp_server,backend,mcp;prisma;postgres;orm;database,"Prisma's hosted server lets an agent provision Prisma Postgres databases, list workspaces and databases, create connection strings, manage backups and recoveries, and run SQL or introspect schemas. It authenticates with your Prisma Data Platform login over OAuth. The Prisma CLI also ships a local MCP mode for migrations against your own schema. Useful when you want an agent to stand up a throwaway database for a prototype or to inspect a Prisma Postgres instance.
+
+**Try asking:**
+- ""Create a new Prisma Postgres database in us-east-1 called 'demo' and give me the connection string.""
+- ""List my Prisma Postgres databases and their latest backups.""
+- ""Introspect the schema of my 'staging' database.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/prisma-mcp-server-official-remote-07156f6a
+postgres-mcp-pro-community-6717db14,Postgres MCP Pro (community),"Postgres server with schema exploration, EXPLAIN plans, index tuning and health checks, with a restricted read-only mode.",mcp_server,backend,mcp;postgres;sql;performance;database,"Postgres MCP Pro by Crystal DBA goes beyond running SQL: it lists schemas and objects, explains query plans (including hypothetical indexes), recommends indexes for your workload, finds the top slow queries and runs database health checks for vacuum, bloat, connections and replication. Connection is a standard DATABASE_URI. Use --access-mode=restricted to keep it read-only with time limits, and reserve --access-mode=unrestricted for development. A strong pick for performance tuning sessions on any Postgres.
+
+**Try asking:**
+- ""Find the five slowest queries and suggest indexes for them.""
+- ""Run a health check on this database and summarise anything concerning.""
+- ""Explain why this query does a sequential scan: SELECT * FROM orders WHERE email = $1.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/postgres-mcp-pro-community-6717db14
+mcp-toolbox-for-databases-google-059842ab,MCP Toolbox for Databases (Google),"One server for Postgres, MySQL, SQL Server, SQLite, BigQuery, AlloyDB, Spanner and more, with prebuilt or custom tools.",mcp_server,backend,mcp;database;sql;bigquery;google-cloud,"Google's MCP Toolbox for Databases is an open-source server that ships prebuilt toolsets for many databases (pick one with --prebuilt=postgres, mysql, sqlite, bigquery, spanner and others) or loads your own tools.yaml with parameterised, reviewed SQL. Connection details come from environment variables documented per database. Custom tools.yaml files are a good way to give an agent only the specific queries you approve instead of free-form SQL. Useful for teams spanning several databases or wanting tight control over what an agent can run.
+
+**Try asking:**
+- ""Using the Postgres toolset, list all tables and their row counts.""
+- ""Show me the schema of the 'events' table in BigQuery.""
+- ""Run the 'top_customers' tool for last quarter.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/mcp-toolbox-for-databases-google-059842ab
+memory-mcp-server-knowledge-graph-0d19ecc0,Memory MCP server (knowledge graph),"Gives your assistant a persistent memory as a local knowledge graph of entities, relations and observations.",mcp_server,agents,mcp;memory;reference,"Official reference server. Tell your assistant what to remember (""Remember that our staging DB is read-only"") and it stores it in a local JSON file it can query later.",https://commandvault.ai/commands/memory-mcp-server-knowledge-graph-0d19ecc0
+clickhouse-mcp-server-official-910a624c,ClickHouse MCP server (official),"Explore ClickHouse databases and run analytical SQL, read-only by default, plus an optional embedded chDB engine.",mcp_server,data,mcp;clickhouse;analytics;sql;olap,"ClickHouse's server lists databases and tables and runs SELECT queries against a ClickHouse or ClickHouse Cloud service; it can also query files and URLs through embedded chDB. Queries run read-only unless you set CLICKHOUSE_ALLOW_WRITE_ACCESS=true. Credentials come from CLICKHOUSE_* environment variables. Great for ad-hoc analytics over large event tables and for letting an agent answer product-data questions without a BI tool.
+
+**Try asking:**
+- ""What were daily active users for the last 30 days from the 'events' table?""
+- ""Show the schema of every table in the 'analytics' database.""
+- ""Which countries had the biggest week-over-week change in signups?""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/clickhouse-mcp-server-official-910a624c
+aws-api-mcp-server-aws-labs-351b5a0b,AWS API MCP server (AWS Labs),"Let an agent run validated AWS CLI commands across every AWS service, with read-only and mutation-consent options.",mcp_server,devops,mcp;aws;cloud;cli;infrastructure,"The AWS API server from AWS Labs turns natural-language requests into validated AWS CLI calls and runs them with your local credentials, covering essentially every AWS service. It can suggest commands before running them. Set READ_OPERATIONS_ONLY=true to block anything that changes resources, or REQUIRE_MUTATION_CONSENT=true to ask before writes; pick a least-privilege profile with AWS_API_MCP_PROFILE_NAME. Good for inventory questions, troubleshooting and scripted ops with a human in the loop.
+
+**Try asking:**
+- ""List all EC2 instances in us-east-1 that have been stopped for more than a week.""
+- ""Which S3 buckets in this account are public?""
+- ""Show CloudWatch alarms currently in ALARM state.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/aws-api-mcp-server-aws-labs-351b5a0b
+aws-knowledge-mcp-server-official-remote-62ec33b6,"AWS Knowledge MCP server (official, remote)","Free hosted server for searching and reading AWS documentation, blogs, What's New posts and regional availability.",mcp_server,learning,mcp;aws;documentation;cloud;reference,"AWS hosts a public knowledge server that lets an agent search and read up-to-date AWS documentation, API references, architecture guidance, blog posts and What's New announcements, and check which services and features exist in each region. It needs no AWS account or credentials and only reads public content, so it is safe to enable everywhere. Use it to ground answers about AWS services in current docs instead of model memory.
+
+**Try asking:**
+- ""Is Amazon Bedrock AgentCore available in eu-west-2?""
+- ""Find the current DynamoDB best practices for single-table design.""
+- ""What changed in Lambda in the last month according to What's New?""
+
+**Sign-in:** none needed.",https://commandvault.ai/commands/aws-knowledge-mcp-server-official-remote-62ec33b6
+fetch-mcp-server-756c6c25,Fetch MCP server,Fetches a web page and converts it to Markdown for the model to read.,mcp_server,agents,mcp;web;reference,"Official reference server (Python, runs with uv). Useful in clients without built-in web access.
+
+Fetched pages are untrusted input: treat instructions inside them as data, not commands.",https://commandvault.ai/commands/fetch-mcp-server-756c6c25
+azure-mcp-server-microsoft-dcaf1c7e,Azure MCP server (Microsoft),"Work with Azure resources such as Storage, Cosmos DB, Key Vault, Monitor and AKS from one Microsoft-maintained server.",mcp_server,devops,mcp;azure;cloud;microsoft;infrastructure,"Microsoft's Azure MCP server exposes tools across dozens of Azure services: listing subscriptions and resource groups, querying Log Analytics and Monitor, reading Storage and Cosmos DB, managing Key Vault secrets, AKS, App Configuration, and more, plus Azure best-practice guidance. It signs in with your existing Azure identity (Azure CLI, VS Code or environment credentials), so its reach matches your RBAC role. Use a reader role for exploration and namespace or read-only options to narrow the tool set. Strong fit for Azure ops and troubleshooting.
+
+**Try asking:**
+- ""List the resource groups in my subscription and their main resources.""
+- ""Query Log Analytics for errors from the 'api' app in the last hour.""
+- ""Which storage accounts allow public blob access?""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/azure-mcp-server-microsoft-dcaf1c7e
+gcloud-mcp-server-google-cloud-01c1c619,gcloud MCP server (Google Cloud),"Drive Google Cloud through the gcloud CLI from your agent, using your existing gcloud login.",mcp_server,devops,mcp;google-cloud;gcp;cli;infrastructure,"Google's gcloud MCP server wraps the gcloud CLI so an agent can list and inspect projects, Compute Engine, Cloud Run, GKE, IAM, logging and other services by running gcloud commands. It uses whatever account gcloud is already authenticated as, so permissions follow your IAM roles; the server supports a deny list of commands you never want run. The same repo also offers observability and storage servers. Useful for Google Cloud inventory, troubleshooting and guided changes.
+
+**Try asking:**
+- ""List Cloud Run services in project my-app and their latest revisions.""
+- ""Show error logs from the 'checkout' service in the last 30 minutes.""
+- ""Which service accounts have the Owner role?""
+
+**Sign-in:** none needed.",https://commandvault.ai/commands/gcloud-mcp-server-google-cloud-01c1c619
+cloudflare-workers-bindings-mcp-server-official-remote-44ac999b,"Cloudflare Workers Bindings MCP server (official, remote)","Build on Cloudflare: manage Workers, KV, R2, D1 and Hyperdrive resources from a hosted OAuth server.",mcp_server,devops,mcp;cloudflare;workers;edge;serverless,"This Cloudflare-hosted server lets an agent list and inspect Workers and create or manage storage bindings such as KV namespaces, R2 buckets, D1 databases and Hyperdrive configs, and run D1 queries. You authorize with your Cloudflare account through OAuth and choose the account to use. It can create and delete resources, so review actions on production accounts. Good for scaffolding a new Worker's storage and inspecting what an account already has.
+
+**Try asking:**
+- ""Create a D1 database called 'guestbook' and a table for messages.""
+- ""List my KV namespaces and R2 buckets.""
+- ""Show me the code of my 'api' Worker.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/cloudflare-workers-bindings-mcp-server-official-remote-44ac999b
+cloudflare-observability-mcp-server-official-remote-80f6e9f6,"Cloudflare Observability MCP server (official, remote)",Query Cloudflare Workers logs and analytics to debug errors and performance from your agent.,mcp_server,devops,mcp;cloudflare;logs;observability;workers,"Cloudflare's observability server gives an agent read access to Workers Observability data: it can query logs and events, filter by Worker, status or time, and compute aggregates to find error spikes or slow requests. It authenticates with Cloudflare OAuth and only reads telemetry. Pair it with the bindings server when debugging a Worker end to end.
+
+**Try asking:**
+- ""Why did my 'api' Worker return 500s in the last hour?""
+- ""Show the p95 latency of the 'images' Worker today.""
+- ""Group errors by message for the past 24 hours.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/cloudflare-observability-mcp-server-official-remote-80f6e9f6
+skill-conventional-commit-messages-d5ca7643,Skill: conventional commit messages,"Writes clear Conventional Commits messages from the staged diff, with a body that explains why.",skill,agents,skill;git;claude-code,"---
+name: commit-messages
+description: Write a Conventional Commits message for the staged changes. Use when the user asks to commit, write a commit message, or describe staged changes.
+---
+
+# Commit messages
+
+1. Run `git diff --staged`. If nothing is staged, say so and stop. Don't stage files yourself unless asked.
+2. Pick one type: feat, fix, refactor, perf, docs, test, build, ci, chore. Add a scope when one area is touched: `fix(auth): …`.
+3. Subject: imperative, under 72 characters, no full stop. Say what changes for the user or the code, not which files.
+4. Body (skip for trivial changes): why the change was needed and anything surprising. Wrap at 72 characters.
+5. Footer: `BREAKING CHANGE: …` when behaviour changes for callers; `Closes #123` when an issue is referenced.
+
+If the diff mixes unrelated changes, suggest splitting it and list the groups instead of writing one message.
+
+Never invent context you can't see in the diff.",https://commandvault.ai/commands/skill-conventional-commit-messages-d5ca7643
+netlify-mcp-server-official-bf1efe06,Netlify MCP server (official),"Create, deploy and manage Netlify sites, env vars, forms and extensions from your coding agent.",mcp_server,frontend,mcp;netlify;deploy;hosting;jamstack,"Netlify's server lets an agent create and configure projects, deploy a site, manage environment variables and secrets, read forms and deploy status, and install extensions. It uses your Netlify CLI login, or a personal access token if you set one. Deploy and env-var tools change live sites, so confirm before running them on production projects. Useful for going from local code to a live preview URL without leaving the editor.
+
+**Try asking:**
+- ""Deploy this folder to a new Netlify site and give me the URL.""
+- ""Add the env var API_BASE_URL to my 'marketing' site for production only.""
+- ""Why did the last deploy of 'docs-site' fail?""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/netlify-mcp-server-official-bf1efe06
+railway-mcp-server-official-remote-57d73aa2,"Railway MCP server (official, remote)","Hosted Railway server for listing projects and services, deploying and handing ops tasks to Railway's agent.",mcp_server,devops,mcp;railway;deploy;paas;hosting,"Railway's remote server lets an agent see your account, list and create projects and services, trigger redeploys and pass multi-step work such as debugging a failing deployment to Railway's own agent. You approve access through OAuth and can limit which workspaces and projects the client sees; deploy-accepting tools are marked destructive so clients prompt first. The Railway CLI also offers a local server via 'railway mcp'. Good for small teams running apps on Railway.
+
+**Try asking:**
+- ""Why is the latest deploy of my 'api' service failing?""
+- ""Create a new Postgres service in my 'side-project' project.""
+- ""Redeploy the 'web' service.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/railway-mcp-server-official-remote-57d73aa2
+docker-mcp-gateway-official-eb0eef1d,Docker MCP Gateway (official),"Run containerised MCP servers from Docker's catalog behind one gateway, with isolation and secrets handling.",mcp_server,devops,mcp;docker;containers;gateway;catalog,"Docker's MCP Gateway is a Docker CLI plugin that runs MCP servers from the Docker MCP Catalog in isolated containers and exposes them to your client through a single entry point. You enable servers and store their secrets with 'docker mcp' commands, and can group them into profiles. Containers limit what each server can touch on your machine. It ships with Docker Desktop's MCP Toolkit. Good for managing many servers without installing each one's runtime.
+
+**Try asking:**
+- ""Enable the GitHub and Postgres servers from the Docker catalog and connect them to this client.""
+- ""List the MCP servers available through my gateway.""
+- ""Start the gateway with my 'dev-tools' profile.""
+
+**Sign-in:** none needed.",https://commandvault.ai/commands/docker-mcp-gateway-official-eb0eef1d
+skill-pull-request-description-de4b6929,Skill: pull request description,Drafts a reviewer-friendly PR description from the branch's commits and diff.,skill,agents,skill;git;code-review,"---
+name: pr-description
+description: Write a pull request title and description for the current branch. Use when the user asks to open a PR, describe a branch, or prepare changes for review.
+---
+
+# Pull request description
+
+Gather: `git log --oneline main..HEAD` and `git diff main...HEAD --stat` (use the repo's default branch).
+
+Write:
+- **Title:** what the PR does, under 70 characters.
+- **Why:** one or two sentences on the problem.
+- **What changed:** short bullets grouped by area. Mention migrations, new env vars and config changes explicitly.
+- **How to test:** numbered steps a reviewer can follow, with URLs or commands.
+- **Risks:** what could break and how to roll back. Write ""None known"" only if you checked.
+- **Screenshots:** a placeholder line if UI changed.
+
+Keep it skimmable. Don't paste the diff. Flag anything you couldn't verify.",https://commandvault.ai/commands/skill-pull-request-description-de4b6929
+kubernetes-mcp-server-community-5913682d,Kubernetes MCP server (community),"Native Go server for Kubernetes and OpenShift: pods, logs, events, resources and Helm, with read-only mode.",mcp_server,devops,mcp;kubernetes;k8s;openshift;helm,"This server (from the containers org, maintained by Red Hat engineers) talks to the Kubernetes API directly using your kubeconfig, without shelling out to kubectl. It can list and get any resource, read pod logs and events, exec into pods, apply or delete manifests and manage Helm releases. Start it with --read-only or --disable-destructive to keep it safe on shared clusters. Great for cluster troubleshooting and explaining what is running where.
+
+**Try asking:**
+- ""Which pods in the 'payments' namespace are crash-looping and why?""
+- ""Show the last 100 log lines of the ingress controller.""
+- ""List Helm releases across all namespaces.""
+
+**Sign-in:** none needed.",https://commandvault.ai/commands/kubernetes-mcp-server-community-5913682d
+terraform-mcp-server-hashicorp-a3bf6a6c,Terraform MCP server (HashiCorp),"Look up Terraform Registry providers, modules and policies, and work with HCP Terraform workspaces and runs.",mcp_server,devops,mcp;terraform;iac;hashicorp;infrastructure,"HashiCorp's server gives an agent accurate, current provider and resource documentation from the Terraform Registry, module search and Sentinel policy lookup, which cuts down on invented resource arguments. With an HCP Terraform or Terraform Enterprise token it can also list organizations and workspaces, read variables and trigger or inspect runs. Leave TFE_TOKEN unset for registry-only use. Useful when writing new Terraform or reviewing plans.
+
+**Try asking:**
+- ""What arguments does aws_lambda_function support in the latest AWS provider?""
+- ""Find a well-used module for a VPC with public and private subnets.""
+- ""Show the status of the latest run in my 'prod-network' workspace.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/terraform-mcp-server-hashicorp-a3bf6a6c
+grafana-mcp-server-official-ec4e6782,Grafana MCP server (official),"Search dashboards, query Prometheus and Loki, inspect alerts and incidents in Grafana or Grafana Cloud.",mcp_server,devops,mcp;grafana;prometheus;loki;observability,"Grafana Labs' server lets an agent search and read dashboards, run PromQL and LogQL queries against your data sources, list alert rules and contact points, and work with Grafana Incident and OnCall. It authenticates with a Grafana service account token, so scope that account's role (Viewer for read-only). It includes guardrails against very expensive Loki queries. Good for incident triage and answering 'what changed?' questions from metrics and logs.
+
+**Try asking:**
+- ""What is the error rate for the checkout service over the last 6 hours?""
+- ""Find dashboards about Postgres and summarise the key panels.""
+- ""Show logs from the 'api' app containing 'timeout' in the past 15 minutes.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/grafana-mcp-server-official-ec4e6782
+skill-systematic-debugging-15975f4f,Skill: systematic debugging,"Makes the agent reproduce, isolate and prove a bug's cause before changing code.",skill,agents,skill;debugging;claude-code,"---
+name: systematic-debugging
+description: Debug a failure methodically. Use when the user reports a bug, error, failing test or unexpected behaviour and the cause isn't obvious.
+---
+
+# Systematic debugging
+
+Do not edit code until step 4.
+
+1. **Reproduce.** Find the smallest command, test or click path that shows the bug. Record the exact error and where it appears.
+2. **Locate.** Read the code on the failing path. List the 2–4 places the bug could come from.
+3. **Prove.** For each candidate, add a log, assertion or failing test that confirms or rules it out. Stop when one is proven.
+4. **Fix the cause**, not the symptom. Keep the change as small as possible.
+5. **Verify.** Re-run the reproduction and the nearby tests. Add a regression test if there isn't one.
+6. **Report:** cause (one sentence), fix, evidence it works, and anything else that might share the cause.
+
+If you can't reproduce it, say what you tried and what information would help. Don't guess-fix.",https://commandvault.ai/commands/skill-systematic-debugging-15975f4f
+datadog-mcp-server-official-remote-51c589f3,"Datadog MCP server (official, remote)","Search Datadog logs, metrics, traces, monitors, incidents and dashboards from your agent.",mcp_server,devops,mcp;datadog;observability;logs;apm,"Datadog's hosted server forwards your own Datadog permissions to tools for searching logs, querying metrics, looking up traces and spans, and reading monitors, incidents, dashboards and services. Only the 'core' toolset loads by default; add others such as apm or llmobs with the toolsets query parameter. You sign in with OAuth, or send a personal/service access token or DD_API_KEY and DD_APPLICATION_KEY headers. The URL shown is for US1; other sites have their own endpoints.
+
+**Try asking:**
+- ""What caused the spike in 5xx errors on the web-store service at 14:00?""
+- ""List monitors that are currently alerting.""
+- ""Find traces slower than 2 seconds for the checkout endpoint today.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/datadog-mcp-server-official-remote-51c589f3
+pagerduty-mcp-server-official-remote-e83c695e,"PagerDuty MCP server (official, remote)","Look up and manage PagerDuty incidents, services, schedules and on-call from a hosted server.",mcp_server,devops,mcp;pagerduty;incidents;on-call;sre,"PagerDuty's hosted server gives an agent 'browse' tools to list incidents, services, schedules, escalation policies and who is on call, and 'manage' tools to acknowledge, resolve or create incidents and update related records. Authenticate with OAuth using static client credentials or send a user API key as 'Token token=...'. There is no read-only switch on the hosted server, so use a scoped OAuth client to limit writes. EU accounts use mcp.eu.pagerduty.com. Good for incident triage and handoffs.
+
+**Try asking:**
+- ""Who is on call for the payments service right now?""
+- ""Summarise all triggered incidents from the last 12 hours.""
+- ""Acknowledge incident P1234 and add a note that I'm investigating.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/pagerduty-mcp-server-official-remote-e83c695e
+buildkite-mcp-server-official-remote-1ad44a8b,"Buildkite MCP server (official, remote)","Inspect Buildkite pipelines, builds, jobs, logs and test results from your agent.",mcp_server,devops,mcp;buildkite;ci;builds;testing,"Buildkite's hosted server lets an agent list pipelines and builds, read job logs, find failing jobs and test results, check clusters and agents, and trigger or annotate builds. Sign in with Buildkite OAuth; the server is also available as an open-source binary for self-hosting with an API token. Useful for figuring out why CI broke and summarising flaky tests.
+
+**Try asking:**
+- ""Why did the last build on main fail in the 'web' pipeline?""
+- ""Show me the slowest jobs in yesterday's builds.""
+- ""List flaky tests in the 'api' test suite this week.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/buildkite-mcp-server-official-remote-1ad44a8b
+skill-test-first-changes-690214c5,Skill: test-first changes,"Has the agent write a failing test, make it pass, then tidy up, for any behaviour change.",skill,agents,skill;testing;tdd,"---
+name: test-first
+description: Implement behaviour changes test-first. Use when adding a feature or fixing a bug in code that has a test suite.
+---
+
+# Test-first changes
+
+1. Find how the project runs tests (package.json scripts, Makefile, CLAUDE.md/AGENTS.md). Run the relevant file once to see the baseline.
+2. Write the smallest test that describes the new behaviour or the bug. Run it and confirm it **fails for the right reason**.
+3. Write the simplest code that makes it pass. Run the test again.
+4. Refactor only while tests stay green.
+5. Run the wider suite for the area you touched.
+
+Rules: test behaviour through public interfaces, not private details. No sleeping or real network calls in unit tests. Never delete or skip a failing test to get green; explain it instead.",https://commandvault.ai/commands/skill-test-first-changes-690214c5
+circleci-mcp-server-official-f71ea490,CircleCI MCP server (official),"Get CircleCI build failure logs, flaky tests and pipeline status, and validate config, from your editor.",mcp_server,devops,mcp;circleci;ci;testing;pipelines,"CircleCI's server lets an agent pull failure logs for a branch or pipeline URL, find flaky tests, check the latest pipeline status, validate and explain .circleci/config.yml, and rerun workflows. It uses a CircleCI personal API token. Useful for fixing CI failures without opening the CircleCI UI.
+
+**Try asking:**
+- ""Why is the build on my current branch failing?""
+- ""Find flaky tests in this project.""
+- ""Check my CircleCI config for errors.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/circleci-mcp-server-official-f71ea490
+gitlab-mcp-server-official-remote-0558e3b6,"GitLab MCP server (official, remote)","Work with GitLab issues, merge requests, pipelines and repositories on GitLab.com or self-managed.",mcp_server,devops,mcp;gitlab;git;merge-requests;ci,"GitLab's built-in MCP server (GA since GitLab 19.5) lets an agent read and update work items, merge requests, repository files and CI pipelines, with optional wiki and code-security toolsets selected through a request header. It authenticates with OAuth using the 'mcp' scope or a fine-grained personal access token; classic PATs are rejected. An administrator must allow MCP access for the group or instance first. Self-managed users replace gitlab.com with their own host.
+
+**Try asking:**
+- ""Summarise open merge requests in my project that are waiting on my review.""
+- ""Why did the latest pipeline on main fail?""
+- ""Create an issue for the login timeout bug and assign it to me.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/gitlab-mcp-server-official-remote-0558e3b6
+atlassian-rovo-mcp-server-official-remote-b2c4cb1c,"Atlassian Rovo MCP server (official, remote)","Search, read and update Jira issues and Confluence pages (plus Compass) through Atlassian's hosted server.",mcp_server,productivity,mcp;jira;confluence;atlassian;project-management,"Atlassian's hosted Rovo MCP server lets an agent search Jira with JQL, create and update issues, transition and comment on them, and search, read, create and edit Confluence pages. You sign in with your Atlassian account via OAuth and the agent only sees what you can see; admins can control access centrally. v2 is the recommended endpoint and exposes more products. Great for turning notes into tickets, summarising sprints or drafting documentation.
+
+**Try asking:**
+- ""Create Jira issues for each action item in these meeting notes in project WEB.""
+- ""Summarise what's left in the current sprint for the payments team.""
+- ""Find the Confluence page about our on-call policy and update the escalation section.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/atlassian-rovo-mcp-server-official-remote-b2c4cb1c
+figma-mcp-server-official-remote-d13a8cb8,"Figma MCP server (official, remote)","Give your coding agent Figma design context: layout, variables, components and screenshots for design-to-code.",mcp_server,frontend,mcp;figma;design;design-to-code;ui,"Figma's hosted server lets an agent pull structured design context for a frame or selection (layout, styles, variables, Code Connect mappings) and screenshots, so generated UI matches the design system. It can also generate FigJam diagrams and write to Figma files where your plan allows. Sign in with your Figma account through OAuth; access follows your file permissions and seat. A desktop-app local server is also available. Great for design-to-code and keeping components in sync.
+
+**Try asking:**
+- ""Implement this Figma frame as a React component using our existing Button and Card components: <link>.""
+- ""List the color and spacing variables used in this design.""
+- ""Generate a FigJam flowchart of our checkout flow.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/figma-mcp-server-official-remote-d13a8cb8
+skill-supabase-rls-review-13b2186c,Skill: Supabase RLS review,"Audits Supabase tables, policies and functions for data-exposure mistakes before they ship.",skill,security,skill;supabase;security;postgres,"---
+name: supabase-rls-review
+description: Review Supabase row-level security. Use when the user adds or changes tables, policies, views or database functions in a Supabase project, or asks for a security check.
+---
+
+# Supabase RLS review
+
+For each table in the change (or every table in `public` when asked for a full review):
+
+1. **RLS enabled?** `alter table … enable row level security` must be in the same migration that creates the table.
+2. **Policies match intent.** Select/insert/update/delete each considered. `using` limits rows you can see; `with check` limits rows you can write. Updates usually need both.
+3. **Ownership via auth.uid()**, written as `(select auth.uid())` for performance. Never trust a user_id sent by the client.
+4. **No `using (true)` on private data.** Public read is fine for public content only.
+5. **Views:** use `security_invoker = true` so RLS applies.
+6. **Functions:** `security definer` functions must set `search_path = ''`, check the caller themselves, and have execute revoked from `anon`/`authenticated` unless intended.
+7. **Service role key** only on the server, never in client bundles or logs.
+
+Report findings as: table → problem → exact SQL fix. Run the Supabase security advisors if available.",https://commandvault.ai/commands/skill-supabase-rls-review-13b2186c
+postman-mcp-server-official-remote-5003676f,"Postman MCP server (official, remote)","Manage Postman workspaces, collections, environments, mocks and monitors, or generate client code from APIs.",mcp_server,backend,mcp;postman;api;testing;collections,"Postman's hosted server connects an agent to your Postman workspaces to search and edit collections, requests, environments, specs, mocks and monitors. The /minimal path exposes a small essential tool set, /code focuses on generating client code from API definitions, and /mcp is the full set. Auth is OAuth by default, or a POSTMAN_API_KEY bearer header (required for the EU region). Useful for keeping collections in sync with code and building API clients.
+
+**Try asking:**
+- ""Create a Postman collection from the routes in this Express app.""
+- ""Add a staging environment with BASE_URL set to https://staging.example.com.""
+- ""Generate a TypeScript client for the Payments API collection.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/postman-mcp-server-official-remote-5003676f
+sourcegraph-mcp-server-official-remote-dc84a12b,"Sourcegraph MCP server (official, remote)","Code search, navigation and history across all your repositories through your Sourcegraph instance.",mcp_server,backend,mcp;code-search;sourcegraph;navigation;monorepo,"Sourcegraph's MCP endpoint gives an agent keyword and natural-language code search, file reading, go-to-definition and find-references, commit and diff search, and Deep Search across every repository indexed by your instance. It authenticates with OAuth (mcp scope) or a Sourcegraph access token. Replace sourcegraph.com with your own instance URL for enterprise code; /.api/mcp/all exposes the full tool suite. Ideal for large monorepos and cross-repo questions.
+
+**Try asking:**
+- ""Find every place we call the legacy billing client across all repos.""
+- ""Where is the RateLimiter interface defined and who implements it?""
+- ""What commits touched the auth middleware in the last month?""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/sourcegraph-mcp-server-official-remote-dc84a12b
+semgrep-mcp-server-official-202844d8,Semgrep MCP server (official),"Scan code for security bugs and secrets with Semgrep rules, or write custom rules, from your coding agent.",mcp_server,security,mcp;security;sast;static-analysis;semgrep,"The Semgrep MCP server now ships inside the semgrep binary. It lets an agent scan files or snippets with Semgrep's rules, run custom rules it writes, inspect the abstract syntax tree, and, with a Semgrep AppSec Platform token, pull findings from your organisation. Scans run locally on your machine. Use it as a guardrail after an agent writes code, or to triage security issues.
+
+**Try asking:**
+- ""Scan the files I changed today for security issues.""
+- ""Write a Semgrep rule that flags use of eval() in our JavaScript and run it.""
+- ""Check this function for SQL injection.""
+
+**Sign-in:** none needed.",https://commandvault.ai/commands/semgrep-mcp-server-official-202844d8
+skill-next-js-app-router-conventions-b86493e1,Skill: Next.js App Router conventions,"Keeps the agent on current App Router patterns: server components, server actions, caching and metadata.",skill,frontend,skill;nextjs;react,"---
+name: nextjs-app-router
+description: Follow current Next.js App Router conventions. Use when creating or editing routes, layouts, data fetching, caching or metadata in a Next.js app with an app/ directory.
+---
+
+# Next.js App Router
+
+- Components are **server components by default**. Add ""use client"" only for state, effects, event handlers or browser APIs, and keep client components small and low in the tree.
+- Fetch data in server components or route handlers, not in `useEffect`.
+- `params` and `searchParams` are **Promises** in recent versions: `const { slug } = await params`. Check the installed version's docs in node_modules/next/dist/docs when unsure.
+- Mutations: server actions or route handlers; validate input (e.g. zod) and check auth first.
+- Caching is explicit: decide per route whether it's static, revalidated or dynamic, and invalidate with tags after writes.
+- Metadata via `export const metadata` or `generateMetadata`; one canonical URL per page.
+- Images with next/image, fonts with next/font, links with next/link.
+- Never import server-only modules (DB clients, secrets) into client components.
+
+Before finishing: run lint, type check and build, and load the page to check the console.",https://commandvault.ai/commands/skill-next-js-app-router-conventions-b86493e1
+snyk-mcp-server-official-3d65d4c6,Snyk MCP server (official),"Run Snyk code, dependency, container and IaC security scans from your agent via the Snyk CLI.",mcp_server,security,mcp;security;sca;sast;vulnerabilities,"Snyk's server runs through the Snyk CLI and lets an agent run Snyk Code (SAST), open-source dependency, container, IaC and SBOM scans on local projects, then explain and fix findings. If you are not already logged in to the CLI it opens a browser to authenticate with your Snyk account. Scans run locally; set --profile=lite or SNYK_MCP_PROFILE to reduce the tool set. A good guardrail for agent-written code and dependency upgrades.
+
+**Try asking:**
+- ""Scan this project for vulnerable dependencies and suggest upgrades.""
+- ""Run a Snyk Code scan on the files I just changed.""
+- ""Check this Dockerfile's base image for known vulnerabilities.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/snyk-mcp-server-official-3d65d4c6
+shopify-dev-mcp-server-official-4264c470,Shopify Dev MCP server (official),Search Shopify developer docs and introspect the Admin GraphQL schema to build Shopify apps and themes accurately.,mcp_server,backend,mcp;shopify;ecommerce;graphql;documentation,"Shopify's Dev MCP server helps agents build on Shopify: it searches shopify.dev documentation, fetches doc pages, introspects the Admin GraphQL schema and validates GraphQL and Liquid snippets. It runs locally and does not touch any store data, so no credentials are needed. Set OPT_OUT_INSTRUMENTATION=true to disable usage telemetry. Great for writing correct GraphQL queries, Functions and theme code.
+
+**Try asking:**
+- ""Write an Admin GraphQL mutation to create a product with two variants and validate it.""
+- ""How do I build a discount Function that gives 10% off to VIP customers?""
+- ""Which scopes do I need to read orders older than 60 days?""
+
+**Sign-in:** none needed.",https://commandvault.ai/commands/shopify-dev-mcp-server-official-4264c470
+google-workspace-mcp-community-e05441ee,Google Workspace MCP (community),"Gmail, Drive, Docs, Sheets, Calendar, Slides, Forms, Chat and Tasks in one OAuth server, with tool tiers and read-only mode.",mcp_server,productivity,mcp;gmail;google-drive;google-docs;calendar,"This popular community server covers twelve Google Workspace services with 120+ tools: search and send Gmail, read and edit Docs and Sheets, manage Drive files, create Calendar events, work with Slides, Forms, Chat and Tasks. You supply your own Google Cloud OAuth client ID and secret and sign in through the browser; it supports multi-user OAuth 2.1. Limit exposure with --tools (e.g. gmail drive calendar), --tool-tier core, or read-only mode. Good for inbox triage, document drafting and scheduling.
+
+**Try asking:**
+- ""Find emails from Acme this week and summarise what they're asking for.""
+- ""Create a Google Doc with these meeting notes and share it with the team folder.""
+- ""Find a 30-minute slot next week when Sam and I are both free.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/google-workspace-mcp-community-e05441ee
+skill-changelog-from-git-history-af67561d,Skill: changelog from git history,"Turns commits since the last release into a readable, user-facing changelog.",skill,writing,skill;git;release-notes,"---
+name: changelog
+description: Write release notes or a CHANGELOG entry from git history. Use when the user asks for a changelog, release notes or ""what changed since"".
+---
+
+# Changelog
+
+1. Find the range: the latest tag (`git describe --tags --abbrev=0`) to HEAD, unless the user gives one.
+2. Read `git log --no-merges --format='%s%n%b' <range>`.
+3. Group into **Added, Changed, Fixed, Removed, Security**. Drop internal noise (refactors, CI, typo fixes) unless users would notice.
+4. Write each line for users: what they can now do or what no longer goes wrong. Link PR/issue numbers when present.
+5. Put breaking changes first with migration steps.
+
+Match the existing CHANGELOG.md format if there is one (Keep a Changelog by default).",https://commandvault.ai/commands/skill-changelog-from-git-history-af67561d
+asana-mcp-server-official-remote-a0ba923d,"Asana MCP server (official, remote)","Read and update Asana tasks, projects, portfolios and goals through Asana's hosted server.",mcp_server,productivity,mcp;asana;tasks;project-management;planning,"Asana's V2 hosted server lets an agent search tasks and projects, read task details and comments, create and update tasks, post status updates and look at portfolios and goals. You sign in with Asana OAuth and the agent acts with your permissions. Good for weekly planning, turning notes into tasks and status reporting.
+
+**Try asking:**
+- ""What tasks are due for me this week across all projects?""
+- ""Create tasks in the 'Website relaunch' project for each item in this list.""
+- ""Write a status update for the Q4 Launch project based on completed tasks.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/asana-mcp-server-official-remote-a0ba923d
+monday-com-mcp-server-official-remote-d51d5071,"monday.com MCP server (official, remote)","Read and update monday.com boards, items, updates and docs from your agent.",mcp_server,productivity,mcp;monday;project-management;boards;work-management,"monday.com's hosted server lets an agent read boards and items, create and update items and columns, post updates, query workspaces and users, and work with monday docs. Sign in with OAuth, or use the open-source local package with a personal API token; the local server supports a read-only flag. Useful for keeping project boards current from chat and reporting on progress.
+
+**Try asking:**
+- ""List items on the 'Marketing Q4' board that are stuck.""
+- ""Create an item for each bug in this list on the 'Bugs' board.""
+- ""Summarise this week's updates on the 'Customer onboarding' board.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/monday-com-mcp-server-official-remote-d51d5071
+airtable-mcp-server-community-adc9a84a,Airtable MCP server (community),"Read and write Airtable bases, tables and records, and inspect schemas, with a personal access token.",mcp_server,productivity,mcp;airtable;no-code;database;spreadsheets,"This widely used community server by Adam Jones lets an agent list bases and tables, read schemas, list, search, create, update and delete records, and create tables and fields. It authenticates with an Airtable personal access token, so scope the token to the bases and permissions you need (read-only scopes are enough for analysis). Handy for cleaning up data, bulk edits and answering questions over Airtable bases.
+
+**Try asking:**
+- ""Find all leads in the CRM base with no follow-up date and list them.""
+- ""Add a 'Priority' single-select field to the Tasks table.""
+- ""Summarise the Content Calendar for next month.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/airtable-mcp-server-community-adc9a84a
+skill-incident-postmortem-520a71c0,Skill: incident postmortem,"Drafts a blameless postmortem from notes, logs and a timeline.",skill,writing,skill;incident;sre,"---
+name: incident-postmortem
+description: Write a blameless incident postmortem. Use when the user shares notes, logs or a timeline from an outage or incident and wants a write-up.
+---
+
+# Incident postmortem
+
+Sections:
+1. **Summary:** what happened, impact (who, how many, how long), current status. Three sentences.
+2. **Timeline** (UTC): detection, key decisions, mitigation, resolution.
+3. **Root cause:** the technical cause and the conditions that let it happen. Ask ""why"" until you reach something fixable in process or design.
+4. **What went well / what didn't:** detection, response, communication.
+5. **Action items:** each with owner, due date and type (prevent / detect / mitigate). Specific and checkable.
+
+Blameless: describe actions and systems, not people's failings. Mark anything you're inferring as an assumption and list open questions.",https://commandvault.ai/commands/skill-incident-postmortem-520a71c0
+zapier-mcp-official-remote-c3b2c56a,"Zapier MCP (official, remote)","Give your agent actions in thousands of apps through Zapier, choosing exactly which actions it can run.",mcp_server,productivity,mcp;zapier;automation;integrations;no-code,"Zapier MCP turns Zapier's app integrations into tools: you pick the specific actions (send a Gmail, add a HubSpot contact, create a Trello card and so on) and the agent can call only those. You connect with your Zapier account over OAuth and configure allowed actions in Zapier's dashboard. Each call uses Zapier tasks from your plan. Good for reaching apps that lack their own MCP server.
+
+**Try asking:**
+- ""Add this lead to our Mailchimp list and send a welcome email.""
+- ""Create a Trello card in 'Inbox' for each bug in this message.""
+- ""Post this summary to our Microsoft Teams channel.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/zapier-mcp-official-remote-c3b2c56a
+box-mcp-server-official-remote-9852a791,"Box MCP server (official, remote)","Search, read and work with Box files and folders, including Box AI Q&A, through Box's hosted server.",mcp_server,productivity,mcp;box;documents;file-storage;enterprise,"Box's hosted server lets an agent search content, read file text, browse and manage folders, extract metadata and ask Box AI questions over documents. A Box admin enables it in the Admin Console and issues client credentials; users then sign in through OAuth and only see content they already have access to. Good for document-heavy work like contracts and policies.
+
+**Try asking:**
+- ""Find the latest signed MSA with Acme and summarise the renewal terms.""
+- ""List files in the 'Q3 Board' folder.""
+- ""Ask Box AI what our travel policy says about international flights.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/box-mcp-server-official-remote-9852a791
+dropbox-mcp-server-official-remote-3bd6afe3,"Dropbox MCP server (official, remote)",Search and read files in Dropbox through Dropbox's hosted OAuth server.,mcp_server,productivity,mcp;dropbox;files;file-storage;documents,"Dropbox's hosted server lets an agent search your Dropbox, list folders, read file contents and metadata, and work with shared links. You connect with Dropbox OAuth, and the agent sees only your files. Dropbox also runs a separate Dash server for universal search. Useful for pulling documents into a conversation without downloading them by hand.
+
+**Try asking:**
+- ""Find the latest version of our brand guidelines PDF in Dropbox.""
+- ""What's in the 'Clients/Acme' folder?""
+- ""Summarise the proposal document I saved last week.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/dropbox-mcp-server-official-remote-3bd6afe3
+todoist-mcp-server-official-remote-2e99289e,"Todoist MCP server (official, remote)","Manage Todoist tasks, projects, sections, labels and comments from your agent.",mcp_server,productivity,mcp;todoist;tasks;todo;planning,"Doist's hosted server lets an agent find, add, update and complete tasks, manage projects, sections and labels, and read comments and activity. Sign in with Todoist OAuth; a local npx package also exists if you prefer an API token. Good for daily planning, capturing tasks from notes and weekly reviews.
+
+**Try asking:**
+- ""What's on my plate today and what's overdue?""
+- ""Add tasks for each step in this plan to my 'Home move' project with due dates.""
+- ""Show me what I completed last week.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/todoist-mcp-server-official-remote-2e99289e
+skill-accessibility-check-b800810e,Skill: accessibility check,Reviews a page or component against the most common WCAG failures and fixes them.,skill,frontend,skill;accessibility;a11y;wcag,"---
+name: accessibility-check
+description: Check and fix accessibility issues in UI code. Use when building or reviewing pages, forms or components, or when the user asks about a11y or WCAG.
+---
+
+# Accessibility check
+
+Go through the component and fix what fails:
+
+- **Semantics:** real buttons and links (not clickable divs), one h1, headings in order, lists as lists, landmarks (header, nav, main).
+- **Names:** every input has a label; icon-only buttons have aria-label; images have alt (empty alt for decorative).
+- **Keyboard:** everything works with Tab/Shift+Tab/Enter/Space/Escape; focus is visible; dialogs trap and return focus.
+- **Contrast:** text at least 4.5:1 (3:1 for large text and UI parts) in both light and dark themes.
+- **Motion:** respect prefers-reduced-motion.
+- **Forms:** errors are announced (aria-live or aria-describedby) and say how to fix them.
+- **Targets:** at least 24×24 px.
+
+Report each issue with the fix you made. If a tool like axe or Lighthouse is available, run it and include the result.",https://commandvault.ai/commands/skill-accessibility-check-b800810e
+brave-search-mcp-server-official-d3befb77,Brave Search MCP server (official),"Web, news, image, video and local search with AI summaries, powered by the independent Brave Search API.",mcp_server,data,mcp;search;web-search;news;research,"Brave's server gives an agent web search, news, images, videos, local business results and Brave's summarizer, all from Brave's own independent index. It needs a Brave Search API key (there is a free tier). Results are read-only search data. Good as a general-purpose, privacy-friendly search tool for research tasks.
+
+**Try asking:**
+- ""Search for the latest release notes for Next.js and summarise the breaking changes.""
+- ""Find coffee shops near Union Square open now.""
+- ""What's in the news today about the EU AI Act?""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/brave-search-mcp-server-official-d3befb77
+tavily-mcp-server-official-remote-04f55064,"Tavily MCP server (official, remote)","Search, extract, crawl and map the web with Tavily's agent-focused search API.",mcp_server,data,mcp;search;web-search;crawling;research,"Tavily's hosted server offers search tuned for agents (with answer snippets and source content), page extraction, site crawling and site mapping. It authenticates with a Tavily API key sent as a bearer header (or OAuth in supporting clients); the README also shows a query-parameter form, which is less safe because keys can end up in logs. Good for research tasks that need clean, citeable content.
+
+**Try asking:**
+- ""Research the current state of solid-state battery startups and cite sources.""
+- ""Extract the pricing table from https://example.com/pricing.""
+- ""Map all documentation pages on docs.example.com.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/tavily-mcp-server-official-remote-04f55064
+perplexity-mcp-server-official-2899144a,Perplexity MCP server (official),"Web-grounded answers, deep research and reasoning from Perplexity's Sonar models, plus raw search results.",mcp_server,data,mcp;search;research;citations;llm,"Perplexity's server exposes tools for quick web search results, conversational answers with citations, deep multi-source research and step-by-step reasoning, using Perplexity's Sonar API. It needs a Perplexity API key and usage is billed per request, with deep research costing the most. Good when you want a researched, cited answer rather than a list of links.
+
+**Try asking:**
+- ""Do a deep research report on European heat pump subsidies in 2026, with sources.""
+- ""What is the latest stable version of PostgreSQL and what's new in it?""
+- ""Compare the pricing of the three biggest vector database services.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/perplexity-mcp-server-official-2899144a
+skill-safe-dependency-upgrades-16b76c3b,Skill: safe dependency upgrades,Upgrades packages one at a time with changelog checks and tests between each step.,skill,backend,skill;dependencies;maintenance,"---
+name: dependency-upgrade
+description: Upgrade project dependencies safely. Use when the user asks to update packages, fix outdated or vulnerable dependencies, or bump a framework version.
+---
+
+# Safe dependency upgrades
+
+1. List what's outdated (npm outdated, pip list --outdated, etc.) and what's vulnerable (npm audit, pip-audit). Show the list before changing anything.
+2. Patch and minor versions can go together. Do **major versions one package at a time**.
+3. For each major upgrade, read the changelog or migration guide first and list the breaking changes that affect this code (search for the APIs mentioned).
+4. Upgrade, apply the needed code changes, then run lint, types, tests and a build.
+5. Commit each major upgrade separately so it can be reverted alone.
+
+Never edit lockfiles by hand. Never use --force or legacy-peer-deps to hide a conflict without explaining it. Stop and ask if an upgrade needs a runtime (Node/Python) change.",https://commandvault.ai/commands/skill-safe-dependency-upgrades-16b76c3b
+firecrawl-mcp-server-official-ecff80c6,Firecrawl MCP server (official),"Scrape, crawl, map, search and extract structured data from websites as clean markdown.",mcp_server,data,mcp;scraping;crawling;web-data;markdown,"Firecrawl's server lets an agent scrape single pages to markdown, crawl or map whole sites, run web search with page content, and extract structured JSON with a schema, handling JavaScript rendering and rate limits. It uses a Firecrawl API key (cloud) or FIRECRAWL_API_URL for a self-hosted instance. Respect site terms and robots rules when crawling. Great for building datasets, competitive research and feeding docs into context.
+
+**Try asking:**
+- ""Scrape https://example.com/blog and list every post title and date.""
+- ""Crawl the docs at docs.example.com and summarise the authentication guide.""
+- ""Extract product name, price and stock status from these three URLs.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/firecrawl-mcp-server-official-ecff80c6
+apify-mcp-server-official-remote-9aa39d16,"Apify MCP server (official, remote)","Run thousands of ready-made Apify Actors for scraping social media, maps, search engines and e-commerce.",mcp_server,data,mcp;scraping;web-data;automation;actors,"Apify's hosted server lets an agent discover and run Actors from the Apify Store (Google Maps, Instagram, TikTok, Amazon, website crawlers and more), fetch their datasets and read Apify docs. Authenticate with OAuth or an Apify API token as a bearer header. Actor runs consume credits on your Apify account, so watch costs, and follow each site's terms. Great for lead lists, market research and monitoring.
+
+**Try asking:**
+- ""Get the top 50 Google Maps results for 'dentists in Austin' with ratings and phone numbers.""
+- ""Scrape the latest 20 posts from this Instagram profile.""
+- ""Find an Apify Actor that extracts Amazon reviews and run it on this product.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/apify-mcp-server-official-remote-9aa39d16
+browserbase-mcp-server-official-remote-0a112df1,"Browserbase MCP server (official, remote)","Control cloud browsers with Stagehand: navigate, act, observe and extract data from real web pages.",mcp_server,agents,mcp;browser;automation;stagehand;scraping,"Browserbase's hosted server gives an agent a cloud browser session with Stagehand-powered tools to start and end sessions, navigate, perform actions described in plain language, observe interactive elements and extract data. It needs a Browserbase API key, which the hosted endpoint takes as the browserbaseApiKey query parameter (treat the full URL as a secret). Sessions run on Browserbase's infrastructure, not your machine. Good for automating sites with no API and for scraping behind logins you own.
+
+**Try asking:**
+- ""Go to example.com/pricing and extract each plan's name and price.""
+- ""Search Hacker News for 'MCP' and list the top five posts.""
+- ""Fill in the demo request form on our staging site with test data.""
+
+**Sign-in:** an API key or token (set it in the install snippet below).",https://commandvault.ai/commands/browserbase-mcp-server-official-remote-0a112df1
+paypal-mcp-server-official-remote-3ffac388,"PayPal MCP server (official, remote)","Create invoices, orders, products and subscriptions and look up transactions and disputes in PayPal.",mcp_server,productivity,mcp;paypal;payments;invoicing;commerce,"PayPal's hosted server lets an agent create and send invoices, create orders and payment links, manage catalog products and subscription plans, track shipments, and list transactions and disputes. You sign in with PayPal through OAuth; a sandbox endpoint (mcp.sandbox.paypal.com) exists for testing, and you should start there. Most tools need a PayPal Business account. Good for small-business billing tasks and reporting.
+
+**Try asking:**
+- ""Create and send an invoice to client@example.com for 10 hours of consulting at $120/hour.""
+- ""List transactions from the last 7 days over $500.""
+- ""Show any open disputes and their deadlines.""
+
+**Sign-in:** OAuth in your AI tool the first time you use it.",https://commandvault.ai/commands/paypal-mcp-server-official-remote-3ffac388
+git-mcp-server-reference-54531cfb,Git MCP server (reference),"Read and operate on local Git repositories: status, diffs, logs, branches, commits.",mcp_server,backend,mcp;git;version-control;reference;local,"The reference Git server from the MCP project lets an agent run git status, diff (staged and unstaged), log, show, branch, checkout, add, commit and reset on a local repository. It works only on paths you pass with --repository, and has no network push tool. Commit and reset change your working tree, so review before approving. Good for clients that lack built-in Git tools.
+
+**Try asking:**
+- ""Show me the diff of my staged changes and suggest a commit message.""
+- ""What changed in the last five commits?""
+- ""Create a branch called fix/login-timeout.""
+
+**Sign-in:** none needed.",https://commandvault.ai/commands/git-mcp-server-reference-54531cfb
+time-mcp-server-reference-ec150243,Time MCP server (reference),Get the current time in any timezone and convert times between timezones.,mcp_server,productivity,mcp;time;timezone;reference;utility,"The reference Time server gives an agent two simple tools: get the current time for an IANA timezone and convert a time from one timezone to another. It needs no credentials and reads nothing from your system beyond the clock. Small but useful for scheduling across regions and avoiding date mistakes.
+
+**Try asking:**
+- ""What time is it in Tokyo right now?""
+- ""If the meeting is 9am in New York, what time is it in Berlin and Sydney?""
+- ""How many hours until midnight UTC?""
+
+**Sign-in:** none needed.",https://commandvault.ai/commands/time-mcp-server-reference-ec150243
+sequential-thinking-mcp-server-reference-44b0f626,Sequential Thinking MCP server (reference),"A structured scratchpad tool that helps an agent break problems into revisable, branching steps.",mcp_server,agents,mcp;reasoning;planning;reference;thinking,"The reference Sequential Thinking server provides a single tool the model uses to write out numbered thoughts, revise earlier ones and branch into alternatives while solving a problem. It has no external access and needs no credentials. It helps most with planning, debugging and design questions where step-by-step reasoning matters.
+
+**Try asking:**
+- ""Use sequential thinking to plan the migration from REST to GraphQL for our API.""
+- ""Think step by step about why this race condition happens.""
+- ""Break down the launch checklist and revise it as you go.""
+
+**Sign-in:** none needed.",https://commandvault.ai/commands/sequential-thinking-mcp-server-reference-44b0f626
+everything-mcp-server-reference-test-server-9bd2c4ea,Everything MCP server (reference test server),"Test server exercising every MCP feature: tools, resources, prompts, sampling, logging and more.",mcp_server,agents,mcp;testing;reference;developer-tools,"The reference Everything server is meant for client developers: it implements sample tools, resources, prompts, sampling, elicitation, logging, progress notifications and other protocol features so you can check that an MCP client handles them. It has no real-world integrations and needs no credentials. Use it when building or debugging an MCP client, not for day-to-day work.
+
+**Try asking:**
+- ""List every tool and resource the Everything server exposes.""
+- ""Call the long-running operation tool and show progress updates.""
+- ""Test sampling by running the sampleLLM tool.""
+
+**Sign-in:** none needed.",https://commandvault.ai/commands/everything-mcp-server-reference-test-server-9bd2c4ea

@@ -1,0 +1,20 @@
+{
+  "name": "AWS API MCP server (AWS Labs)",
+  "description": "Let an agent run validated AWS CLI commands across every AWS service, with read-only and mutation-consent options.",
+  "homepage": "https://awslabs.github.io/mcp/",
+  "repository": "https://github.com/awslabs/mcp",
+  "mcpServers": {
+    "aws-api": {
+      "command": "uvx",
+      "args": [
+        "awslabs.aws-api-mcp-server@latest"
+      ],
+      "env": {
+        "AWS_REGION": "YOUR_AWS_REGION",
+        "AWS_API_MCP_PROFILE_NAME": "YOUR_AWS_API_MCP_PROFILE_NAME",
+        "READ_OPERATIONS_ONLY": "YOUR_READ_OPERATIONS_ONLY",
+        "REQUIRE_MUTATION_CONSENT": "YOUR_REQUIRE_MUTATION_CONSENT"
+      }
+    }
+  }
+}

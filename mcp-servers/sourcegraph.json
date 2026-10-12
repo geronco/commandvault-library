@@ -1,0 +1,14 @@
+{
+  "name": "Sourcegraph MCP server (official, remote)",
+  "description": "Code search, navigation and history across all your repositories through your Sourcegraph instance.",
+  "homepage": "https://sourcegraph.com/docs/api/mcp",
+  "mcpServers": {
+    "sourcegraph": {
+      "type": "http",
+      "url": "https://sourcegraph.com/.api/mcp",
+      "headers": {
+        "Authorization": "YOUR_AUTHORIZATION"
+      }
+    }
+  }
+}

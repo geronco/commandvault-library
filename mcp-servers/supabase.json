@@ -1,0 +1,12 @@
+{
+  "name": "Supabase MCP server (official, remote)",
+  "description": "Manage Supabase projects from your agent: run SQL, apply migrations, read logs and advisors, generate TypeScript types.",
+  "homepage": "https://supabase.com/docs/guides/getting-started/mcp",
+  "repository": "https://github.com/supabase-community/supabase-mcp",
+  "mcpServers": {
+    "supabase": {
+      "type": "http",
+      "url": "https://mcp.supabase.com/mcp"
+    }
+  }
+}

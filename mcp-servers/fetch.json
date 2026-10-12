@@ -1,0 +1,14 @@
+{
+  "name": "Fetch MCP server",
+  "description": "Fetches a web page and converts it to Markdown for the model to read.",
+  "homepage": "https://commandvault.ai/commands/fetch-mcp-server-756c6c25",
+  "repository": "https://github.com/modelcontextprotocol/servers",
+  "mcpServers": {
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
+    }
+  }
+}

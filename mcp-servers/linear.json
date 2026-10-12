@@ -1,0 +1,11 @@
+{
+  "name": "Linear MCP server (official, remote)",
+  "description": "Find, create and update Linear issues, projects and comments without leaving your editor.",
+  "homepage": "https://linear.app/docs/mcp",
+  "mcpServers": {
+    "linear": {
+      "type": "http",
+      "url": "https://mcp.linear.app/mcp"
+    }
+  }
+}

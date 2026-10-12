@@ -1,0 +1,12 @@
+{
+  "name": "Sentry MCP server (official, remote)",
+  "description": "Bring Sentry errors, stack traces and releases into your agent so it can find and fix the bug behind an issue.",
+  "homepage": "https://docs.sentry.io/product/sentry-mcp/",
+  "repository": "https://github.com/getsentry/sentry-mcp",
+  "mcpServers": {
+    "sentry": {
+      "type": "http",
+      "url": "https://mcp.sentry.dev/mcp"
+    }
+  }
+}

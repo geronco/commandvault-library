@@ -1,0 +1,21 @@
+{
+  "name": "MongoDB MCP server (official)",
+  "description": "Query MongoDB databases and manage Atlas clusters from an agent, read-only by default in the documented config.",
+  "homepage": "https://www.mongodb.com/docs/mcp-server/",
+  "repository": "https://github.com/mongodb-js/mongodb-mcp-server",
+  "mcpServers": {
+    "mongodb": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mongodb-mcp-server@latest",
+        "--readOnly"
+      ],
+      "env": {
+        "MDB_MCP_CONNECTION_STRING": "YOUR_MDB_MCP_CONNECTION_STRING",
+        "MDB_MCP_API_CLIENT_ID": "YOUR_MDB_MCP_API_CLIENT_ID",
+        "MDB_MCP_API_CLIENT_SECRET": "YOUR_MDB_MCP_API_CLIENT_SECRET"
+      }
+    }
+  }
+}

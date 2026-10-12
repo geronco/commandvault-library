@@ -1,0 +1,15 @@
+{
+  "name": "Sequential Thinking MCP server (reference)",
+  "description": "A structured scratchpad tool that helps an agent break problems into revisable, branching steps.",
+  "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+  "repository": "https://github.com/modelcontextprotocol/servers",
+  "mcpServers": {
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    }
+  }
+}

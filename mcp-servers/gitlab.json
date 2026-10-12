@@ -1,0 +1,14 @@
+{
+  "name": "GitLab MCP server (official, remote)",
+  "description": "Work with GitLab issues, merge requests, pipelines and repositories on GitLab.com or self-managed.",
+  "homepage": "https://docs.gitlab.com/user/model_context_protocol/mcp_server/",
+  "mcpServers": {
+    "gitlab": {
+      "type": "http",
+      "url": "https://gitlab.com/api/v4/mcp",
+      "headers": {
+        "X-Gitlab-Enabled-Mcp-Server-Toolsets": "YOUR_X_GITLAB_ENABLED_MCP_SERVER_TOOLSETS"
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Terraform MCP server (HashiCorp)",
+  "description": "Look up Terraform Registry providers, modules and policies, and work with HCP Terraform workspaces and runs.",
+  "homepage": "https://developer.hashicorp.com/terraform/mcp-server",
+  "repository": "https://github.com/hashicorp/terraform-mcp-server",
+  "mcpServers": {
+    "terraform": {
+      "command": "docker",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-e",
+        "TFE_TOKEN",
+        "-e",
+        "TFE_ADDRESS",
+        "hashicorp/terraform-mcp-server"
+      ],
+      "env": {
+        "TFE_TOKEN": "YOUR_TFE_TOKEN",
+        "TFE_ADDRESS": "YOUR_TFE_ADDRESS"
+      }
+    }
+  }
+}

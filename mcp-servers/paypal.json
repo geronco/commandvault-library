@@ -1,0 +1,12 @@
+{
+  "name": "PayPal MCP server (official, remote)",
+  "description": "Create invoices, orders, products and subscriptions and look up transactions and disputes in PayPal.",
+  "homepage": "https://developer.paypal.com/tools/mcp-server/",
+  "repository": "https://github.com/paypal/agent-toolkit",
+  "mcpServers": {
+    "paypal": {
+      "type": "http",
+      "url": "https://mcp.paypal.com/mcp"
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Docker MCP Gateway (official)",
+  "description": "Run containerised MCP servers from Docker's catalog behind one gateway, with isolation and secrets handling.",
+  "homepage": "https://docs.docker.com/ai/mcp-catalog-and-toolkit/mcp-gateway/",
+  "repository": "https://github.com/docker/mcp-gateway",
+  "mcpServers": {
+    "docker": {
+      "command": "docker",
+      "args": [
+        "mcp",
+        "gateway",
+        "run"
+      ]
+    }
+  }
+}

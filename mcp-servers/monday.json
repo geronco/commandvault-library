@@ -1,0 +1,12 @@
+{
+  "name": "monday.com MCP server (official, remote)",
+  "description": "Read and update monday.com boards, items, updates and docs from your agent.",
+  "homepage": "https://developer.monday.com/apps/docs/mondaycom-mcp-integration",
+  "repository": "https://github.com/mondaycom/mcp",
+  "mcpServers": {
+    "monday": {
+      "type": "http",
+      "url": "https://mcp.monday.com/mcp"
+    }
+  }
+}

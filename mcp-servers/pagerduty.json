@@ -1,0 +1,14 @@
+{
+  "name": "PagerDuty MCP server (official, remote)",
+  "description": "Look up and manage PagerDuty incidents, services, schedules and on-call from a hosted server.",
+  "homepage": "https://support.pagerduty.com/main/docs/pagerduty-mcp-server",
+  "mcpServers": {
+    "pagerduty": {
+      "type": "http",
+      "url": "https://mcp.pagerduty.com/mcp",
+      "headers": {
+        "Authorization": "YOUR_AUTHORIZATION"
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "Cloudflare Workers Bindings MCP server (official, remote)",
+  "description": "Build on Cloudflare: manage Workers, KV, R2, D1 and Hyperdrive resources from a hosted OAuth server.",
+  "homepage": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/",
+  "repository": "https://github.com/cloudflare/mcp-server-cloudflare",
+  "mcpServers": {
+    "cloudflare-bindings": {
+      "type": "http",
+      "url": "https://bindings.mcp.cloudflare.com/mcp"
+    }
+  }
+}

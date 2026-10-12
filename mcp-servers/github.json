@@ -1,0 +1,15 @@
+{
+  "name": "GitHub MCP server (official, remote)",
+  "description": "Read and manage repos, issues, pull requests, Actions and code search from your agent, hosted by GitHub.",
+  "homepage": "https://github.com/github/github-mcp-server",
+  "repository": "https://github.com/github/github-mcp-server",
+  "mcpServers": {
+    "github": {
+      "type": "http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "Authorization": "YOUR_AUTHORIZATION"
+      }
+    }
+  }
+}

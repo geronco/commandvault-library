@@ -1,0 +1,12 @@
+{
+  "name": "Atlassian Rovo MCP server (official, remote)",
+  "description": "Search, read and update Jira issues and Confluence pages (plus Compass) through Atlassian's hosted server.",
+  "homepage": "https://github.com/atlassian/atlassian-mcp-server",
+  "repository": "https://github.com/atlassian/atlassian-mcp-server",
+  "mcpServers": {
+    "atlassian": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v2/mcp"
+    }
+  }
+}

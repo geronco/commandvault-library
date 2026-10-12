@@ -1,0 +1,15 @@
+{
+  "name": "Apify MCP server (official, remote)",
+  "description": "Run thousands of ready-made Apify Actors for scraping social media, maps, search engines and e-commerce.",
+  "homepage": "https://docs.apify.com/platform/integrations/mcp",
+  "repository": "https://github.com/apify/apify-mcp-server",
+  "mcpServers": {
+    "apify": {
+      "type": "http",
+      "url": "https://mcp.apify.com",
+      "headers": {
+        "Authorization": "YOUR_AUTHORIZATION"
+      }
+    }
+  }
+}

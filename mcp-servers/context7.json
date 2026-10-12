@@ -1,0 +1,12 @@
+{
+  "name": "Context7: up-to-date library docs",
+  "description": "Pulls current, version-specific docs and code examples for thousands of libraries into your prompt, so the agent stops inventing old APIs.",
+  "homepage": "https://context7.com",
+  "repository": "https://github.com/upstash/context7",
+  "mcpServers": {
+    "context7": {
+      "type": "http",
+      "url": "https://mcp.context7.com/mcp"
+    }
+  }
+}

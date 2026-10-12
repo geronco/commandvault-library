@@ -1,0 +1,16 @@
+{
+  "name": "Filesystem MCP server (reference)",
+  "description": "Read, write, search and move files, limited to the folders you allow.",
+  "homepage": "https://commandvault.ai/commands/filesystem-mcp-server-reference-8f2db163",
+  "repository": "https://github.com/modelcontextprotocol/servers",
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/path/to/allowed/folder"
+      ]
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "Notion MCP server (official, remote)",
+  "description": "Search, read and write Notion pages and databases from your AI tool.",
+  "homepage": "https://developers.notion.com/docs/mcp",
+  "mcpServers": {
+    "notion": {
+      "type": "http",
+      "url": "https://mcp.notion.com/mcp"
+    }
+  }
+}

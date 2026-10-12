@@ -1,0 +1,12 @@
+{
+  "name": "Microsoft Learn MCP server",
+  "description": "Search and fetch official Microsoft documentation (Azure, .NET, Microsoft 365, Windows) from your agent. No sign-in.",
+  "homepage": "https://commandvault.ai/commands/microsoft-learn-mcp-server-33e99ec0",
+  "repository": "https://github.com/MicrosoftDocs/mcp",
+  "mcpServers": {
+    "microsoft-learn": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp"
+    }
+  }
+}

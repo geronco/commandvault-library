@@ -1,0 +1,15 @@
+{
+  "name": "Chrome DevTools MCP",
+  "description": "Gives your agent Chrome DevTools: performance traces, network requests, console messages and screenshots of a live page.",
+  "homepage": "https://commandvault.ai/commands/chrome-devtools-mcp-a2ef4633",
+  "repository": "https://github.com/ChromeDevTools/chrome-devtools-mcp",
+  "mcpServers": {
+    "chrome-devtools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ]
+    }
+  }
+}

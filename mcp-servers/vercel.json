@@ -1,0 +1,11 @@
+{
+  "name": "Vercel MCP server (official, remote)",
+  "description": "Search Vercel docs, and inspect your projects, deployments and build logs from your agent.",
+  "homepage": "https://vercel.com/docs/mcp/vercel-mcp",
+  "mcpServers": {
+    "vercel": {
+      "type": "http",
+      "url": "https://mcp.vercel.com"
+    }
+  }
+}

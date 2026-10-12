@@ -1,0 +1,11 @@
+{
+  "name": "Browserbase MCP server (official, remote)",
+  "description": "Control cloud browsers with Stagehand: navigate, act, observe and extract data from real web pages.",
+  "homepage": "https://docs.browserbase.com/integrations/mcp/introduction",
+  "mcpServers": {
+    "browserbase": {
+      "type": "http",
+      "url": "https://mcp.browserbase.com/mcp?browserbaseApiKey=YOUR_BROWSERBASE_API_KEY"
+    }
+  }
+}

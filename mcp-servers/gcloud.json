@@ -1,0 +1,15 @@
+{
+  "name": "gcloud MCP server (Google Cloud)",
+  "description": "Drive Google Cloud through the gcloud CLI from your agent, using your existing gcloud login.",
+  "homepage": "https://github.com/googleapis/gcloud-mcp",
+  "repository": "https://github.com/googleapis/gcloud-mcp",
+  "mcpServers": {
+    "gcloud": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@google-cloud/gcloud-mcp"
+      ]
+    }
+  }
+}

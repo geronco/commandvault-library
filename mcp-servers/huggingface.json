@@ -1,0 +1,11 @@
+{
+  "name": "Hugging Face MCP server",
+  "description": "Search models, datasets, Spaces and papers on the Hugging Face Hub, and call Gradio Spaces as tools.",
+  "homepage": "https://huggingface.co/settings/mcp",
+  "mcpServers": {
+    "huggingface": {
+      "type": "http",
+      "url": "https://huggingface.co/mcp"
+    }
+  }
+}

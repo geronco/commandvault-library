@@ -1,0 +1,11 @@
+{
+  "name": "Railway MCP server (official, remote)",
+  "description": "Hosted Railway server for listing projects and services, deploying and handing ops tasks to Railway's agent.",
+  "homepage": "https://docs.railway.com/ai/remote-mcp-server",
+  "mcpServers": {
+    "railway": {
+      "type": "http",
+      "url": "https://mcp.railway.com"
+    }
+  }
+}

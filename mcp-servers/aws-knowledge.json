@@ -1,0 +1,12 @@
+{
+  "name": "AWS Knowledge MCP server (official, remote)",
+  "description": "Free hosted server for searching and reading AWS documentation, blogs, What's New posts and regional availability.",
+  "homepage": "https://awslabs.github.io/mcp/servers/aws-knowledge-mcp-server",
+  "repository": "https://github.com/awslabs/mcp",
+  "mcpServers": {
+    "aws-knowledge": {
+      "type": "http",
+      "url": "https://knowledge-mcp.global.api.aws"
+    }
+  }
+}

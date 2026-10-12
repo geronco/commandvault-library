@@ -1,0 +1,12 @@
+{
+  "name": "Zapier MCP (official, remote)",
+  "description": "Give your agent actions in thousands of apps through Zapier, choosing exactly which actions it can run.",
+  "homepage": "https://zapier.com/mcp",
+  "repository": "https://github.com/zapier/zapier-mcp",
+  "mcpServers": {
+    "zapier": {
+      "type": "http",
+      "url": "https://mcp.zapier.com/api/v1/connect"
+    }
+  }
+}

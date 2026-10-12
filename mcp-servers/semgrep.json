@@ -1,0 +1,17 @@
+{
+  "name": "Semgrep MCP server (official)",
+  "description": "Scan code for security bugs and secrets with Semgrep rules, or write custom rules, from your coding agent.",
+  "homepage": "https://semgrep.dev/docs/mcp",
+  "repository": "https://github.com/semgrep/semgrep",
+  "mcpServers": {
+    "semgrep": {
+      "command": "semgrep",
+      "args": [
+        "mcp"
+      ],
+      "env": {
+        "SEMGREP_APP_TOKEN": "YOUR_SEMGREP_APP_TOKEN"
+      }
+    }
+  }
+}

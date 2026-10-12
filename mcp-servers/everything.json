@@ -1,0 +1,15 @@
+{
+  "name": "Everything MCP server (reference test server)",
+  "description": "Test server exercising every MCP feature: tools, resources, prompts, sampling, logging and more.",
+  "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/everything",
+  "repository": "https://github.com/modelcontextprotocol/servers",
+  "mcpServers": {
+    "everything": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-everything"
+      ]
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Shopify Dev MCP server (official)",
+  "description": "Search Shopify developer docs and introspect the Admin GraphQL schema to build Shopify apps and themes accurately.",
+  "homepage": "https://shopify.dev/docs/apps/build/devmcp",
+  "mcpServers": {
+    "shopify-dev": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@shopify/dev-mcp@latest"
+      ],
+      "env": {
+        "OPT_OUT_INSTRUMENTATION": "YOUR_OPT_OUT_INSTRUMENTATION"
+      }
+    }
+  }
+}

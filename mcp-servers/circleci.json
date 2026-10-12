@@ -1,0 +1,19 @@
+{
+  "name": "CircleCI MCP server (official)",
+  "description": "Get CircleCI build failure logs, flaky tests and pipeline status, and validate config, from your editor.",
+  "homepage": "https://circleci.com/docs/guides/toolkit/using-the-circleci-mcp-server/",
+  "repository": "https://github.com/CircleCI-Public/mcp-server-circleci",
+  "mcpServers": {
+    "circleci": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@circleci/mcp-server-circleci@latest"
+      ],
+      "env": {
+        "CIRCLECI_TOKEN": "YOUR_CIRCLECI_TOKEN",
+        "CIRCLECI_BASE_URL": "YOUR_CIRCLECI_BASE_URL"
+      }
+    }
+  }
+}

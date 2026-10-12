@@ -1,0 +1,11 @@
+{
+  "name": "Prisma MCP server (official, remote)",
+  "description": "Create and manage Prisma Postgres databases, backups and connection strings from your agent.",
+  "homepage": "https://www.prisma.io/docs/postgres/integrations/mcp-server",
+  "mcpServers": {
+    "prisma": {
+      "type": "http",
+      "url": "https://mcp.prisma.io/mcp"
+    }
+  }
+}

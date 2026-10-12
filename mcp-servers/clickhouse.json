@@ -1,0 +1,26 @@
+{
+  "name": "ClickHouse MCP server (official)",
+  "description": "Explore ClickHouse databases and run analytical SQL, read-only by default, plus an optional embedded chDB engine.",
+  "homepage": "https://github.com/ClickHouse/mcp-clickhouse",
+  "repository": "https://github.com/ClickHouse/mcp-clickhouse",
+  "mcpServers": {
+    "clickhouse": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "mcp-clickhouse",
+        "--python",
+        "3.12",
+        "mcp-clickhouse"
+      ],
+      "env": {
+        "CLICKHOUSE_HOST": "YOUR_CLICKHOUSE_HOST",
+        "CLICKHOUSE_PORT": "YOUR_CLICKHOUSE_PORT",
+        "CLICKHOUSE_USER": "YOUR_CLICKHOUSE_USER",
+        "CLICKHOUSE_PASSWORD": "YOUR_CLICKHOUSE_PASSWORD",
+        "CLICKHOUSE_SECURE": "YOUR_CLICKHOUSE_SECURE"
+      }
+    }
+  }
+}

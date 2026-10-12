@@ -1,0 +1,12 @@
+{
+  "name": "Todoist MCP server (official, remote)",
+  "description": "Manage Todoist tasks, projects, sections, labels and comments from your agent.",
+  "homepage": "https://github.com/Doist/todoist-mcp",
+  "repository": "https://github.com/Doist/todoist-mcp",
+  "mcpServers": {
+    "todoist": {
+      "type": "http",
+      "url": "https://ai.todoist.net/mcp"
+    }
+  }
+}

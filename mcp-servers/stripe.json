@@ -1,0 +1,11 @@
+{
+  "name": "Stripe MCP server (official, remote)",
+  "description": "Work with the Stripe API and search Stripe's docs and knowledge base from your agent.",
+  "homepage": "https://docs.stripe.com/mcp",
+  "mcpServers": {
+    "stripe": {
+      "type": "http",
+      "url": "https://mcp.stripe.com"
+    }
+  }
+}

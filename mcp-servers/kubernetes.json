@@ -1,0 +1,19 @@
+{
+  "name": "Kubernetes MCP server (community)",
+  "description": "Native Go server for Kubernetes and OpenShift: pods, logs, events, resources and Helm, with read-only mode.",
+  "homepage": "https://github.com/containers/kubernetes-mcp-server",
+  "repository": "https://github.com/containers/kubernetes-mcp-server",
+  "mcpServers": {
+    "kubernetes": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "kubernetes-mcp-server@latest",
+        "--read-only"
+      ],
+      "env": {
+        "KUBECONFIG": "YOUR_KUBECONFIG"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "name": "MCP Toolbox for Databases (Google)",
+  "description": "One server for Postgres, MySQL, SQL Server, SQLite, BigQuery, AlloyDB, Spanner and more, with prebuilt or custom tools.",
+  "homepage": "https://mcp-toolbox.dev/",
+  "repository": "https://github.com/googleapis/mcp-toolbox",
+  "mcpServers": {
+    "toolbox": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@toolbox-sdk/server",
+        "--prebuilt=postgres",
+        "--stdio"
+      ],
+      "env": {
+        "POSTGRES_HOST": "YOUR_POSTGRES_HOST",
+        "POSTGRES_PORT": "YOUR_POSTGRES_PORT",
+        "POSTGRES_DATABASE": "YOUR_POSTGRES_DATABASE",
+        "POSTGRES_USER": "YOUR_POSTGRES_USER",
+        "POSTGRES_PASSWORD": "YOUR_POSTGRES_PASSWORD"
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "name": "Datadog MCP server (official, remote)",
+  "description": "Search Datadog logs, metrics, traces, monitors, incidents and dashboards from your agent.",
+  "homepage": "https://docs.datadoghq.com/bits_ai/mcp_server/",
+  "mcpServers": {
+    "datadog": {
+      "type": "http",
+      "url": "https://mcp.datadoghq.com/api/unstable/mcp-server/mcp",
+      "headers": {
+        "DD_API_KEY": "YOUR_DD_API_KEY",
+        "DD_APPLICATION_KEY": "YOUR_DD_APPLICATION_KEY"
+      }
+    }
+  }
+}

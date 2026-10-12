@@ -1,0 +1,18 @@
+{
+  "name": "Airtable MCP server (community)",
+  "description": "Read and write Airtable bases, tables and records, and inspect schemas, with a personal access token.",
+  "homepage": "https://github.com/domdomegg/airtable-mcp-server",
+  "repository": "https://github.com/domdomegg/airtable-mcp-server",
+  "mcpServers": {
+    "airtable": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "airtable-mcp-server"
+      ],
+      "env": {
+        "AIRTABLE_API_KEY": "YOUR_AIRTABLE_API_KEY"
+      }
+    }
+  }
+}

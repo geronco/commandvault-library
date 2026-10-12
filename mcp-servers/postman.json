@@ -1,0 +1,15 @@
+{
+  "name": "Postman MCP server (official, remote)",
+  "description": "Manage Postman workspaces, collections, environments, mocks and monitors, or generate client code from APIs.",
+  "homepage": "https://learning.postman.com/docs/developer/postman-api/postman-mcp-server/",
+  "repository": "https://github.com/postmanlabs/postman-mcp-server",
+  "mcpServers": {
+    "postman": {
+      "type": "http",
+      "url": "https://mcp.postman.com/minimal",
+      "headers": {
+        "Authorization": "YOUR_AUTHORIZATION"
+      }
+    }
+  }
+}

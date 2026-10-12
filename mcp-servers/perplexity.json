@@ -1,0 +1,18 @@
+{
+  "name": "Perplexity MCP server (official)",
+  "description": "Web-grounded answers, deep research and reasoning from Perplexity's Sonar models, plus raw search results.",
+  "homepage": "https://docs.perplexity.ai/guides/mcp-server",
+  "repository": "https://github.com/perplexityai/modelcontextprotocol",
+  "mcpServers": {
+    "perplexity": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@perplexity-ai/mcp-server"
+      ],
+      "env": {
+        "PERPLEXITY_API_KEY": "YOUR_PERPLEXITY_API_KEY"
+      }
+    }
+  }
+}

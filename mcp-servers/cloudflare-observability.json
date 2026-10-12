@@ -1,0 +1,12 @@
+{
+  "name": "Cloudflare Observability MCP server (official, remote)",
+  "description": "Query Cloudflare Workers logs and analytics to debug errors and performance from your agent.",
+  "homepage": "https://developers.cloudflare.com/agents/model-context-protocol/mcp-servers-for-cloudflare/",
+  "repository": "https://github.com/cloudflare/mcp-server-cloudflare",
+  "mcpServers": {
+    "cloudflare-observability": {
+      "type": "http",
+      "url": "https://observability.mcp.cloudflare.com/mcp"
+    }
+  }
+}

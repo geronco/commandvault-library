@@ -1,0 +1,11 @@
+{
+  "name": "Asana MCP server (official, remote)",
+  "description": "Read and update Asana tasks, projects, portfolios and goals through Asana's hosted server.",
+  "homepage": "https://developers.asana.com/docs/using-asanas-mcp-server",
+  "mcpServers": {
+    "asana": {
+      "type": "http",
+      "url": "https://mcp.asana.com/v2/mcp"
+    }
+  }
+}

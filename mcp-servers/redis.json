@@ -1,0 +1,23 @@
+{
+  "name": "Redis MCP server (official)",
+  "description": "Read and write Redis keys, hashes, lists, streams, JSON and vector indexes through natural language.",
+  "homepage": "https://github.com/redis/mcp-redis",
+  "repository": "https://github.com/redis/mcp-redis",
+  "mcpServers": {
+    "redis": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "redis-mcp-server@latest",
+        "redis-mcp-server",
+        "--url",
+        "redis://localhost:6379/0"
+      ],
+      "env": {
+        "REDIS_HOST": "YOUR_REDIS_HOST",
+        "REDIS_PORT": "YOUR_REDIS_PORT",
+        "REDIS_PWD": "YOUR_REDIS_PWD"
+      }
+    }
+  }
+}

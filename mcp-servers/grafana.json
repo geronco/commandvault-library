@@ -1,0 +1,18 @@
+{
+  "name": "Grafana MCP server (official)",
+  "description": "Search dashboards, query Prometheus and Loki, inspect alerts and incidents in Grafana or Grafana Cloud.",
+  "homepage": "https://grafana.com/docs/grafana-cloud/machine-learning/assistant/mcp/",
+  "repository": "https://github.com/grafana/mcp-grafana",
+  "mcpServers": {
+    "grafana": {
+      "command": "uvx",
+      "args": [
+        "mcp-grafana"
+      ],
+      "env": {
+        "GRAFANA_URL": "YOUR_GRAFANA_URL",
+        "GRAFANA_SERVICE_ACCOUNT_TOKEN": "YOUR_GRAFANA_SERVICE_ACCOUNT_TOKEN"
+      }
+    }
+  }
+}

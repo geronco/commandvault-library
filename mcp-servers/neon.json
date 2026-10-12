@@ -1,0 +1,15 @@
+{
+  "name": "Neon MCP server (official, remote)",
+  "description": "Manage Neon serverless Postgres projects, branches and SQL from your agent over a hosted OAuth endpoint.",
+  "homepage": "https://neon.com/docs/ai/neon-mcp-server",
+  "repository": "https://github.com/neondatabase/mcp-server-neon",
+  "mcpServers": {
+    "neon": {
+      "type": "http",
+      "url": "https://mcp.neon.tech/mcp",
+      "headers": {
+        "Authorization": "YOUR_AUTHORIZATION"
+      }
+    }
+  }
+}

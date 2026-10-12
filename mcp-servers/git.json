@@ -1,0 +1,16 @@
+{
+  "name": "Git MCP server (reference)",
+  "description": "Read and operate on local Git repositories: status, diffs, logs, branches, commits.",
+  "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/git",
+  "repository": "https://github.com/modelcontextprotocol/servers",
+  "mcpServers": {
+    "git": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-git",
+        "--repository",
+        "/path/to/repo"
+      ]
+    }
+  }
+}

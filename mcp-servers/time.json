@@ -1,0 +1,14 @@
+{
+  "name": "Time MCP server (reference)",
+  "description": "Get the current time in any timezone and convert times between timezones.",
+  "homepage": "https://github.com/modelcontextprotocol/servers/tree/main/src/time",
+  "repository": "https://github.com/modelcontextprotocol/servers",
+  "mcpServers": {
+    "time": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-time"
+      ]
+    }
+  }
+}
