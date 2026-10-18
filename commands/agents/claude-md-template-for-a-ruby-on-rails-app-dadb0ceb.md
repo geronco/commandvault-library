@@ -3,7 +3,7 @@ title: "CLAUDE.md template for a Ruby on Rails app"
 description: "Project memory for Claude Code in a Rails codebase: commands, structure and Rails-specific rules."
 kind: template
 tags: ["claude-code", "claude-md", "rails", "ruby"]
-variables: ["project_name", "what_it_does", "ruby_version", "rails_version", "database", "frontend", "job_backend"]
+variables: ["project_name", "what_it_does", "ruby_version", "rails_version", "database", "frontend", "job_backend", "test_command"]
 source: https://commandvault.ai/commands/claude-md-template-for-a-ruby-on-rails-app-dadb0ceb
 license: CC-BY-4.0
 ---
@@ -15,7 +15,7 @@ license: CC-BY-4.0
 
 ## Commands
 - Run locally: `bin/dev`
-- Tests: `bin/rails test (or bundle exec rspec)`
+- Tests: `{{test_command}}`
 - Lint/format: `bundle exec rubocop`
 
 ## Where things live

@@ -21,4 +21,9 @@ Include sections:
 - Never do: list of dangerous or banned actions (e.g. editing generated files, touching prod data).
 - Definition of done for a change.
 
+Rules for writing it:
+- If an AGENTS.md already exists, update it and keep the parts that are still true.
+- Only state facts you checked in this repo: run the commands, open the folders. Mark folders that don't exist yet as (planned), and write "no test runner yet" if there isn't one.
+- Don't copy your own personal or global instructions into this project file.
+
 Keep it under 120 lines. Prefer concrete rules over advice.

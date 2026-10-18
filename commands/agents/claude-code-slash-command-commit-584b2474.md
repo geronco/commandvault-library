@@ -19,5 +19,5 @@ allowed-tools: Bash(git diff:*), Bash(git status:*), Bash(git commit:*)
    - First line: {{commit_style}} format, imperative, under 72 characters (e.g. "fix: handle empty cart on checkout").
    - Blank line, then 1–3 short bullets on why, not what.
    - Extra context from me: $ARGUMENTS
-3. Show me the message, then commit with it.
+3. Show me the message and wait for my OK before committing. If you can't ask (for example a non-interactive run), stop after showing it.
 Never use --no-verify and never amend existing commits.

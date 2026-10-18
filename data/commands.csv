@@ -1,31 +1,147 @@
 slug,title,summary,kind,community,tags,body,url
-scroll-to-top-on-every-navigation-e66fb364,Scroll-to-Top on Every Navigation,"This commands ensures that when a user lands on any page of an application, the user gets taken to the very top of that page, and not the position the user was on the previous page.",prompt,frontend,top of the page;page position;fixed page position,"On every route change, reset the viewport scroll position to (0, 0) before the destination page renders, so users always land at the very top of every page—no scroll state should ever carry over between pages anywhere in the application.",https://commandvault.ai/commands/scroll-to-top-on-every-navigation-e66fb364
-universal-dark-mode-toggle-80b6fd46,Universal Dark-Mode Toggle,Persist a user’s light/dark preference across sessions and devices.,prompt,frontend,dark mode;dark,"Add a theme toggle that stores the chosen mode in localStorage and user profile; on every page load, read that value and apply the corresponding CSS class before content flashes.",https://commandvault.ai/commands/universal-dark-mode-toggle-80b6fd46
-instant-email-verification-link-507dce29,Instant Email Verification Link,Verify new accounts seamlessly,prompt,backend,email;email verification,"Upon user registration, generate a signed, 24-hour email-verification URL and block login until that link is clicked—then flip email_verified to true.",https://commandvault.ai/commands/instant-email-verification-link-507dce29
-one-click-password-reset-182f1360,One-Click Password Reset,"Fast, secure password recovery",prompt,backend,password;password reset,"Expose a ‘Forgot Password’ flow that sends a single-use token expiring in 60 minutes; on token submission, let the user set a new password and invalidate every active session",https://commandvault.ai/commands/one-click-password-reset-182f1360
-autosave-form-drafts-13cb65f4,Autosave Form Drafts,Prevent data loss on long forms,prompt,frontend,autosave;forms;form autosave,"Every 5 seconds, diff unsaved form fields and store them in IndexedDB keyed by form ID; restore those fields automatically if the user returns before a successful submit",https://commandvault.ai/commands/autosave-form-drafts-13cb65f4
-debounced-live-search-a8ec2c2f,Debounced Live Search,Reduce server load while users type,prompt,frontend,server load,Wrap the global search input in a 300 ms debounce; ignore keystrokes during that window and fire one API request with the final query string,https://commandvault.ai/commands/debounced-live-search-a8ec2c2f
-skeleton-loading-placeholders-95a8cd27,Skeleton Loading Placeholders,Smooth perceived performance,prompt,frontend,skeleton blocks;loading;placeholders;loading placeholder,"Show lightweight skeleton blocks that match each component’s shape until the real data arrives, then swap instantly—never display a blank screen",https://commandvault.ai/commands/skeleton-loading-placeholders-95a8cd27
-graceful-404-fallback-e907f8bc,Graceful 404 Fallback,Keep users oriented on bad URLs,prompt,frontend,404;404 fallback,Route any unmatched path to a branded 404 page with a ‘Back to Dashboard’ button and a search bar; send the path to error analytics,https://commandvault.ai/commands/graceful-404-fallback-e907f8bc
-role-based-access-control-5cccc8f4,Role-Based Access Control,Limit sensitive features to the right people,prompt,backend,access control;login;password protected;roles,Attach a role field to every auth token and gate each protected route and API mutation against a whitelist of accepted roles before executing,https://commandvault.ai/commands/role-based-access-control-5cccc8f4
-local-business-directory-system-d4d6d361,Local Business Directory System,A full template including initial command and knowledge base to build a local business directory service that you can apply to your local community and start helping small businesses while making a profit.,prompt,backend,local business;directory;marketing;saas,"Build a local directory software to list and promote local businesses in a specific industry, enabling online advertising and lead generation. Include a front-end directory for users to browse listings and a back-end admin panel to manage content. Focus on these core functionalities, described only by what they do, without specifying technology or methods:
-Front-End Directory:
-1.  Show a searchable directory of businesses with name, description, contact info, address, and images.
-2.  Allow keyword search and filters for category or location.
-3.  Enable lead generation via a “Contact Business” form sending inquiries to businesses.
-4.  Support user accounts to save favorites and submit reviews.
-5.  Display ads (e.g., banners, sponsored listings) for businesses.
-Back-End Admin Panel:
-1.  Let admins add, edit, or remove listings with an approval process.
-2.  Manage user accounts and moderate reviews.
-3.  Track leads and manage ad campaigns (e.g., banners, premium listings).
-4.  Collect fees from businesses, deducting a percentage as profit.
-5.  Provide an analytics dashboard for listings, engagement, and revenue.
-Business Model:
-1.  Charge businesses for listings or premium features, with a profit percentage deducted.
-2.  Ensure scalability for many listings and users.
-3.  Comply with data privacy laws and secure the admin panel.
-Build an intuitive, reliable system, easy for non-technical users and admins, with fast performance and clear error handling.",https://commandvault.ai/commands/local-business-directory-system-d4d6d361
+scroll-to-top-on-every-navigation-e66fb364,Scroll-to-Top on Every Navigation,"This commands ensures that when a user lands on any page of an application, the user gets taken to the very top of that page, and not the position the user was on the previous page.",prompt,frontend,top of the page;page position;fixed page position,"Make every navigation in my app start at the top of the new page.
+
+Stack: {{stack}}
+Exceptions that must keep or restore scroll position: {{goal}}
+
+Requirements:
+1. On each route change, scroll to (0, 0) before or as the new page paints, so there's no visible jump.
+2. Respect the exceptions above. Browser back/forward should restore the previous position unless I said otherwise, and links to #anchors should scroll to the anchor.
+3. Handle scrollable containers too, not just window, if the layout scrolls inside a main element.
+4. Move keyboard focus to the new page's main heading so screen-reader users know the page changed.
+5. Use the framework's built-in mechanism if it has one before writing custom code, and explain why.
+
+Tell me how to test it: three navigation scenarios to click through and what should happen in each.",https://commandvault.ai/commands/scroll-to-top-on-every-navigation-e66fb364
+universal-dark-mode-toggle-80b6fd46,Universal Dark-Mode Toggle,Persist a user’s light/dark preference across sessions and devices.,prompt,frontend,dark mode;dark,"Add a light/dark theme toggle that remembers each person's choice.
+
+Stack: {{stack}}
+Default for new visitors: {{goal}}
+
+Requirements:
+1. Three options: Light, Dark and System. Apply the default above until someone chooses.
+2. Save the choice in localStorage, and in the user's profile when they're logged in, so it follows them across devices.
+3. Apply the theme before first paint (an inline script or server-rendered class), so there's no flash of the wrong theme.
+4. Drive colors from CSS variables, and check text contrast meets WCAG AA in both themes.
+5. The toggle must be a real button with an accessible name and the current state announced.
+
+List the files you'll change, then give me a test checklist: first visit, switch and reload, log in on a second browser, and system theme changes.",https://commandvault.ai/commands/universal-dark-mode-toggle-80b6fd46
+instant-email-verification-link-507dce29,Instant Email Verification Link,Verify new accounts seamlessly,prompt,backend,email;email verification,"Add email verification to sign-up.
+
+Stack: {{stack}}
+Until they verify, users may: {{goal}}
+
+Requirements:
+1. On sign-up, send a single-use, signed verification link that expires after 24 hours. Store only a hash of the token.
+2. Enforce the restriction above on the server, not just in the UI.
+3. Let people resend the link (rate-limited) and show a clear message when a link is expired or already used.
+4. Clicking the link marks email_verified = true and logs them in or sends them to log in, depending on how our auth works.
+5. Don't reveal whether an email address has an account on the resend form.
+
+Tell me which files change, what the email says, and how to test the whole flow locally, including an expired link.",https://commandvault.ai/commands/instant-email-verification-link-507dce29
+one-click-password-reset-182f1360,One-Click Password Reset,"Fast, secure password recovery",prompt,backend,password;password reset,"Add a secure ""Forgot password"" flow.
+
+Stack: {{stack}}
+After a successful reset, send people to: {{goal}}
+
+Requirements:
+1. The request form always shows the same message, whether or not the email has an account.
+2. Send a single-use token that expires in 60 minutes; store only its hash. Rate-limit requests per email and IP.
+3. The reset page checks the token, enforces our password rules, and then invalidates the token and every other active session.
+4. Email the user that their password was changed, with a way to report it wasn't them.
+5. Redirect as described above, with a confirmation message.
+
+List the files you'll change and give me a test plan, including reusing a token, an expired token and two tabs requesting resets.",https://commandvault.ai/commands/one-click-password-reset-182f1360
+autosave-form-drafts-13cb65f4,Autosave Form Drafts,Prevent data loss on long forms,prompt,frontend,autosave;forms;form autosave,"Autosave drafts so people never lose a long form.
+
+Stack: {{stack}}
+Form: {{goal}}
+
+Requirements:
+1. Save changed fields locally (IndexedDB, keyed by form and user) a few seconds after typing stops, not on every keystroke.
+2. When the person comes back before submitting, offer to restore the draft and show when it was saved.
+3. Clear the draft after a successful submit or when they choose ""Discard"".
+4. Never store passwords, card numbers or other sensitive fields; list which fields you excluded.
+5. Show a quiet ""Saved"" indicator, and handle two tabs editing the same form without overwriting each other silently.
+
+List the files you'll change, then give me a test plan: type, reload, close the tab, come back, submit, and the two-tab case.",https://commandvault.ai/commands/autosave-form-drafts-13cb65f4
+debounced-live-search-a8ec2c2f,Debounced Live Search,Reduce server load while users type,prompt,frontend,server load,"Add live search that updates as people type without overloading the server.
+
+Stack: {{stack}}
+Search covers: {{goal}}
+
+Requirements:
+1. Debounce input by about 300 ms and send one request with the final query.
+2. Cancel in-flight requests when a newer query starts, so older results never overwrite newer ones.
+3. Skip requests for queries shorter than 2 characters; trim whitespace.
+4. Show loading, empty (""No results for …"") and error states, and keep the previous results visible while the next ones load.
+5. Make results keyboard-navigable (arrow keys, Enter, Escape) and announce the result count to screen readers.
+6. Reflect the query in the URL so searches can be shared and the back button works.
+
+Explain how to verify it: what the network tab should show while typing quickly, and the edge cases you tested.",https://commandvault.ai/commands/debounced-live-search-a8ec2c2f
+skeleton-loading-placeholders-95a8cd27,Skeleton Loading Placeholders,Smooth perceived performance,prompt,frontend,skeleton blocks;loading;placeholders;loading placeholder,"Replace blank or spinner states with skeleton placeholders.
+
+Stack: {{stack}}
+Start with these screens: {{goal}}
+
+Requirements:
+1. Skeletons match the final layout (same size and position), so nothing shifts when data arrives. Aim for zero layout shift.
+2. Show them only while data is actually loading; if loading takes under ~150 ms, don't flash them.
+3. Use the framework's loading/streaming features where they exist instead of hand-rolled state.
+4. Add a subtle shimmer that is disabled when the user prefers reduced motion.
+5. Mark loading regions with aria-busy and keep the skeletons hidden from screen readers.
+
+Show me one reusable skeleton component, then apply it to the screens above. Tell me how to see it locally (for example by throttling the network in DevTools).",https://commandvault.ai/commands/skeleton-loading-placeholders-95a8cd27
+graceful-404-fallback-e907f8bc,Graceful 404 Fallback,Keep users oriented on bad URLs,prompt,frontend,404;404 fallback,"Add a graceful 404 experience to my app.
+
+Stack: {{stack}}
+Lost visitors should be steered to: {{goal}}
+
+Requirements:
+1. Catch every unmatched route (including nested and dynamic segments) and render a branded 404 page that returns a real HTTP 404 status, not a 200.
+2. Show a short, human message, a primary button that takes people to {{goal}}, and a search box that searches the site.
+3. Log the missing path to our error analytics, but strip query strings, emails, tokens and IDs before sending.
+4. Keep the normal header and navigation so the page doesn't feel like a dead end.
+5. Make it accessible: one h1, focus moves to the heading on load, the button and search work with the keyboard.
+
+Before changing code, list the files you'll touch. After, give me:
+- the exact steps to test it (a URL that should 404, what I should see, and how to confirm the status code in DevTools or with curl -I)
+- anything you couldn't verify.",https://commandvault.ai/commands/graceful-404-fallback-e907f8bc
+role-based-access-control-5cccc8f4,Role-Based Access Control,Limit sensitive features to the right people,prompt,backend,access control;login;password protected;roles,"Add role-based access control.
+
+Stack: {{stack}}
+Roles and permissions: {{goal}}
+
+Requirements:
+1. Define the roles and permissions above in one place in code, and check permissions (not role names) at each use.
+2. Enforce access on the server for every protected page, API route and mutation. Hiding buttons in the UI is not enough.
+3. Deny by default: new routes are blocked until they declare the permission they need.
+4. Return 403 (not 404 or 500) for authenticated users without permission, and log the denial.
+5. Keep roles somewhere the client can't edit (server-side session or database), and make role changes take effect on the next request.
+
+List the files you'll change, then give me a test matrix: each role against each protected action, with the expected result.",https://commandvault.ai/commands/role-based-access-control-5cccc8f4
+local-business-directory-system-d4d6d361,Local Business Directory System,A full template including initial command and knowledge base to build a local business directory service that you can apply to your local community and start helping small businesses while making a profit.,prompt,backend,local business;directory;marketing;saas,"Plan and build a local business directory for: {{goal}}
+
+Stack: {{stack}}
+
+Build it in this order, and stop after each phase so I can review:
+
+Phase 1: Directory
+1. Searchable listings with name, description, contact details, address, opening hours and photos.
+2. Keyword search plus filters for category and neighborhood.
+3. A ""Contact this business"" form that sends inquiries to the business and records them as leads.
+
+Phase 2: Accounts and reviews
+4. Visitor accounts to save favorites and leave reviews (one per business per person, with moderation).
+5. Business owners can claim and edit their listing after verification.
+
+Phase 3: Admin and revenue
+6. An admin panel to approve, edit and remove listings, moderate reviews and see leads.
+7. Paid placements (featured listings, banners) with clear ""Sponsored"" labels.
+8. A simple analytics dashboard: views, leads and revenue per listing.
+
+Throughout: comply with privacy law for the area above, secure the admin panel, keep pages fast on mobile, and write clear error messages.
+
+Start with Phase 1: propose the data model and pages, list the files you'll create, and wait for my go-ahead.",https://commandvault.ai/commands/local-business-directory-system-d4d6d361
 build-an-accessible-react-component-592a69d5,Build an accessible React component,"Get a production-ready component with keyboard support, ARIA and tests.",prompt,frontend,react;accessibility;components,"Build a {{component}} component in React + TypeScript for {{use_case}}.
 
 Requirements:
@@ -148,6 +264,11 @@ Include sections:
 - Conventions: naming, error handling, data fetching, styling.
 - Never do: list of dangerous or banned actions (e.g. editing generated files, touching prod data).
 - Definition of done for a change.
+
+Rules for writing it:
+- If an AGENTS.md already exists, update it and keep the parts that are still true.
+- Only state facts you checked in this repo: run the commands, open the folders. Mark folders that don't exist yet as (planned), and write ""no test runner yet"" if there isn't one.
+- Don't copy your own personal or global instructions into this project file.
 
 Keep it under 120 lines. Prefer concrete rules over advice.",https://commandvault.ai/commands/project-context-pack-for-coding-agents-7fe49393
 plan-implement-verify-loop-07076966,Plan → implement → verify loop,"Make an AI agent plan first, work in small steps and prove each one.",workflow,agents,agents;workflow;planning,"Task: {{task}}
@@ -505,7 +626,7 @@ claude-md-template-for-a-django-project-a6598bdb,CLAUDE.md template for a Django
 
 ## Commands
 - Run locally: `python manage.py runserver`
-- Tests: `pytest -q (or python manage.py test)`
+- Tests: `{{test_command}}`
 - Lint/format: `ruff check . && ruff format --check .`
 
 ## Where things live
@@ -542,7 +663,7 @@ claude-md-template-for-a-ruby-on-rails-app-dadb0ceb,CLAUDE.md template for a Rub
 
 ## Commands
 - Run locally: `bin/dev`
-- Tests: `bin/rails test (or bundle exec rspec)`
+- Tests: `{{test_command}}`
 - Lint/format: `bundle exec rubocop`
 
 ## Where things live
@@ -599,7 +720,7 @@ claude-md-template-for-a-laravel-app-22d119b4,CLAUDE.md template for a Laravel a
 {{project_name}}: {{what_it_does}}. Stack: PHP {{php_version}}, Laravel {{laravel_version}}, {{database}}, {{frontend}}.
 
 ## Commands
-- Run locally: `php artisan serve (or composer run dev)`
+- Run locally: `{{dev_command}}`
 - Tests: `php artisan test`
 - Lint/format: `./vendor/bin/pint --test`
 
@@ -633,7 +754,7 @@ Include:
 - Daily tasks (what to read/watch/practice) with free resources.
 - A checkpoint quiz each week to test understanding.
 - What to skip for now so I don't get overwhelmed.",https://commandvault.ai/commands/30-day-learning-plan-for-any-skill-e533dd8c
-claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d,Claude Code hooks: format on save and block dangerous commands,A .claude/settings.json with hooks that auto-format edited files and stop risky shell commands.,template,agents,claude-code;hooks;automation;guardrails,"Add this to `.claude/settings.json` in your project:
+claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d,Claude Code hooks: format on save and block dangerous commands,A .claude/settings.json with hooks that auto-format edited files and stop risky shell commands.,template,agents,claude-code;hooks;automation;guardrails,"Add this to `.claude/settings.json` in your project (merge it with any settings you already have):
 
 ```json
 {
@@ -642,7 +763,7 @@ claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d,Claude Co
       {
         ""matcher"": ""Edit|Write"",
         ""hooks"": [
-          { ""type"": ""command"", ""command"": ""jq -r '.tool_input.file_path' | xargs {{formatter_command}}"" }
+          { ""type"": ""command"", ""command"": ""f=$(jq -r '.tool_input.file_path // empty'); [ -n \""$f\"" ] && {{formatter_command}} \""$f\"" || true"" }
         ]
       }
     ],
@@ -658,18 +779,44 @@ claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d,Claude Co
 }
 ```
 
-And create `.claude/hooks/block-dangerous.sh` (make it executable):
+And create `.claude/hooks/block-dangerous.sh`, then run `chmod +x .claude/hooks/block-dangerous.sh`:
 
 ```bash
 #!/usr/bin/env bash
-cmd=$(jq -r '.tool_input.command')
-if echo ""$cmd"" | grep -Eq 'rm -rf /|git push --force|DROP TABLE|{{extra_blocked_pattern}}'; then
-  echo ""Blocked by project hook: $cmd"" >&2
-  exit 2   # exit code 2 blocks the tool call and shows the message to Claude
+# Stops risky shell commands before Claude Code runs them. Needs jq.
+cmd=$(jq -r '.tool_input.command // empty')
+block() { echo ""Blocked by project hook ($1): $cmd"" >&2; exit 2; }   # exit 2 = block and tell Claude why
+
+# Recursive delete of the root, your home folder, or the whole current folder (any flag order).
+if echo ""$cmd"" | grep -Eq '(^|[;&|[:space:]])rm[[:space:]]([^;&|]*[[:space:]])?(-[a-zA-Z]*[rR][a-zA-Z]*|--recursive)([[:space:]]|$)' &&
+   echo ""$cmd"" | grep -Eq '(^|[;&|[:space:]])rm[[:space:]][^;&|]*[[:space:]](/|/\*|~|~/|\$HOME|\$HOME/|\.|\./|\.\.|\*)([[:space:];&|]|$)'; then
+  block ""recursive delete of /, ~ or .""
 fi
+
+# Force pushes: -f, --force, --force-with-lease, or a +branch refspec.
+if echo ""$cmd"" | grep -Eq 'git[[:space:]]+push([[:space:]]|$)' &&
+   echo ""$cmd"" | grep -Eq '[[:space:]](-[a-zA-Z]*f[a-zA-Z]*|--force|--force-with-lease(=[^[:space:]]*)?|--force-if-includes)([[:space:]]|$)|[[:space:]]\+[^[:space:]]+'; then
+  block ""force push""
+fi
+
+# Destructive SQL.
+if echo ""$cmd"" | grep -Eiq 'drop[[:space:]]+(table|database|schema)|truncate[[:space:]]+(table[[:space:]]+)?[a-z_""`]'; then
+  block ""destructive SQL""
+fi
+
+# Your own extra rule (an extended regex). Leave it empty to skip.
+EXTRA='{{extra_blocked_pattern}}'
+if [ -n ""$EXTRA"" ] && echo ""$cmd"" | grep -Eq ""$EXTRA""; then
+  block ""project rule""
+fi
+exit 0
 ```
 
-Replace `{{formatter_command}}` with e.g. `npx prettier --write` or `ruff format`. Test it by asking Claude to edit a file and check it was formatted.",https://commandvault.ai/commands/claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d
+**Needs:** `jq` (`brew install jq` or `apt install jq`) and your formatter installed in the project (for example `npm i -D prettier`), not just available through npx.
+
+**What it blocks:** recursive deletes of `/`, `~` or the whole current folder in any flag order (`rm -rf`, `rm -fr`, `rm -r -f`), force pushes (`-f`, `--force`, `--force-with-lease`, `+branch`), `DROP TABLE/DATABASE/SCHEMA` and `TRUNCATE`, plus your extra pattern. Normal cleanups like `rm -rf node_modules` or `rm -rf /tmp/cache` still run.
+
+**Check it:** run `/hooks` to see both hooks loaded, ask Claude to edit a file and confirm it was formatted, then ask it to run `psql -c ""DROP TABLE x""` and confirm it's blocked.",https://commandvault.ai/commands/claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d
 claude-md-template-for-a-next-js-supabase-app-9261f33c,CLAUDE.md template for a Next.js + Supabase app,"A ready-to-edit CLAUDE.md that tells Claude Code how your Next.js app is built, tested and deployed.",template,agents,claude-code;claude-md;nextjs;supabase,"# CLAUDE.md
 
 ## What this is
@@ -712,7 +859,7 @@ allowed-tools: Bash(git diff:*), Bash(git status:*), Bash(git commit:*)
    - First line: {{commit_style}} format, imperative, under 72 characters (e.g. ""fix: handle empty cart on checkout"").
    - Blank line, then 1–3 short bullets on why, not what.
    - Extra context from me: $ARGUMENTS
-3. Show me the message, then commit with it.
+3. Show me the message and wait for my OK before committing. If you can't ask (for example a non-interactive run), stop after showing it.
 Never use --no-verify and never amend existing commits.",https://commandvault.ai/commands/claude-code-slash-command-commit-584b2474
 claude-code-slash-command-plan-3082aeed,Claude Code slash command: /plan,Save as .claude/commands/plan.md to make Claude investigate and plan before writing any code.,template,agents,claude-code;slash-commands;planning,"---
 description: Investigate and write a step-by-step plan before coding
@@ -783,11 +930,11 @@ This repo is a monorepo managed with {{monorepo_tool}}.
 |---|---|---|
 | `apps/{{web_app}}` | Customer-facing web app | {{web_owner}} |
 | `apps/{{api_app}}` | Public API | {{api_owner}} |
-| `packages/ui` | Shared components | design-systems |
+| `packages/ui` | Shared components | {{ui_owner}} |
 | `packages/config` | Lint/TS/test config | platform |
 
 ## Working rules for agents
-1. Run commands from the package you're changing: `{{monorepo_tool}} run test --filter <package>`.
+1. Run commands from the package you're changing: `{{test_one_package}}`.
 2. Never change `packages/config` without saying so explicitly in your summary.
 3. Shared code goes in `packages/*`; never import one app from another.
 4. Keep PRs to one package unless the task says otherwise.
@@ -796,7 +943,7 @@ This repo is a monorepo managed with {{monorepo_tool}}.
 Each package may have its own `AGENTS.md`. When it exists, it wins over this file for files inside that package.
 
 ## Before you finish
-- `{{monorepo_tool}} run lint test typecheck --filter <changed packages>` passes.
+- `{{check_changed}}` passes.
 - Summarize: what changed, how you verified it, open questions.",https://commandvault.ai/commands/agents-md-for-a-monorepo-e4aa4b99
 set-up-claude-code-in-an-existing-repo-faaec9e5,Set up Claude Code in an existing repo,"A first-session prompt that has Claude Code explore your repo and create CLAUDE.md, commands and settings.",prompt,agents,claude-code;onboarding;setup,"This is our first session in this repo. Set yourself up properly before any feature work.
 
@@ -1046,9 +1193,10 @@ alwaysApply: false
 claude-code-custom-slash-command-review-db7a5205,Claude Code custom slash command: /review,"Save as .claude/commands/review.md to get a one-word, consistent code review in Claude Code.",template,agents,claude-code;slash-commands;code-review,"---
 description: Review the current changes like a senior engineer
 argument-hint: [optional focus, e.g. security or performance]
+allowed-tools: Bash(git diff:*), Bash(git status:*)
 ---
 
-Review the uncommitted changes in this repository (run `git diff` and `git diff --staged`).
+Review the uncommitted changes in this repository: run `git status --short` (new files only show there; read them in full), `git diff` and `git diff --staged`.
 
 Focus: $ARGUMENTS (if empty, review everything).
 
@@ -1087,7 +1235,7 @@ tools: Read, Grep, Glob, Edit, Write, Bash
 You write tests for {{project_name}} using {{test_framework}}.
 
 Process:
-1. Find what changed: `git diff --name-only HEAD`.
+1. Find what changed: `git status --short` and `git diff --name-only HEAD` (new, untracked files only show in git status). If the project has no test runner yet, say so and propose the smallest setup before writing tests.
 2. Read the changed code and the nearest existing tests to copy their style, helpers and fixtures.
 3. Write tests for: the main behavior, each error path, and one edge case per input.
 4. Run `{{test_command}}`. If a test fails because the code is wrong, report it; don't change the code.
@@ -1102,7 +1250,7 @@ tools: Read, Grep, Glob, Bash
 
 You are a senior engineer reviewing changes in {{project_name}}.
 
-1. Get the diff: `git diff` and `git diff --staged` (or the branch diff against {{base_branch}}).
+1. Get the changes: `git status --short` (new files don't show in `git diff` until added; read them in full), then `git diff` and `git diff --staged`, or the branch diff against {{base_branch}}.
 2. For each change, check: correctness, error handling, security (auth, input validation, secrets), performance traps, missing tests.
 3. Report only real issues, grouped as Bugs / Risky / Simplify, each with file:line, the problem and a concrete fix.
 4. Do not edit files. End with: ship / ship after fixes / don't ship.",https://commandvault.ai/commands/claude-code-subagent-code-reviewer-03274b7f
@@ -1128,7 +1276,7 @@ You debug problems in {{project_name}} methodically.
 1. Restate the symptom and how to reproduce it. Reproduce it yourself first.
 2. Form 2–3 hypotheses, cheapest to test first. Test each with logs, a minimal script or a failing test.
 3. Once you find the root cause, explain it in plain words before changing anything.
-4. Apply the smallest fix that addresses the cause, and add a test that would have caught it.
+4. Apply the smallest fix that addresses the cause, and add a test that would have caught it (if the project has no test runner, add a small check script instead and say so).
 5. Remove any temporary logging. Report: symptom, cause, fix, test, and what else might be affected.",https://commandvault.ai/commands/claude-code-subagent-debugger-4afa4d06
 convert-claude-md-into-agents-md-gemini-md-and-cursor-rules-9a820aa4,"Convert CLAUDE.md into AGENTS.md, GEMINI.md and Cursor rules",Write your project rules once and get the file every major coding agent reads.,prompt,agents,claude-md;agents-md;cursor-rules;gemini,"Here is my CLAUDE.md:
 
@@ -1184,10 +1332,10 @@ You keep the documentation for {{project_name}} accurate.
 claude-code-subagent-security-auditor-b97dec0f,Claude Code subagent: security auditor,A .claude/agents/security-auditor.md that checks changes for the vulnerabilities attackers try first.,template,agents,claude-code;subagents;security,"---
 name: security-auditor
 description: Audits code for security issues: auth gaps, injection, exposed secrets, unsafe uploads and missing rate limits. Use before releases or after touching auth, payments or user input.
-tools: Read, Grep, Glob
+tools: Read, Grep, Glob, Bash
 ---
 
-You audit {{project_name}} for security issues. You never edit files or run anything that changes state.
+You audit {{project_name}} for security issues. You never edit files. Only run read-only commands: {{audit_command}}, git log and git grep.
 
 Check, with file:line evidence:
 1. Every endpoint checks authentication AND authorization.

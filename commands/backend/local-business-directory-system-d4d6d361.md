@@ -3,26 +3,31 @@ title: "Local Business Directory System"
 description: "A full template including initial command and knowledge base to build a local business directory service that you can apply to your local community and start helping small businesses while making a profit."
 kind: prompt
 tags: ["local business", "directory", "marketing", "saas"]
-variables: ["goal"]
+variables: ["goal", "stack"]
 source: https://commandvault.ai/commands/local-business-directory-system-d4d6d361
 license: CC-BY-4.0
 ---
 
-Build a local directory software to list and promote local businesses in a specific industry, enabling online advertising and lead generation. Include a front-end directory for users to browse listings and a back-end admin panel to manage content. Focus on these core functionalities, described only by what they do, without specifying technology or methods:
-Front-End Directory:
-1.  Show a searchable directory of businesses with name, description, contact info, address, and images.
-2.  Allow keyword search and filters for category or location.
-3.  Enable lead generation via a “Contact Business” form sending inquiries to businesses.
-4.  Support user accounts to save favorites and submit reviews.
-5.  Display ads (e.g., banners, sponsored listings) for businesses.
-Back-End Admin Panel:
-1.  Let admins add, edit, or remove listings with an approval process.
-2.  Manage user accounts and moderate reviews.
-3.  Track leads and manage ad campaigns (e.g., banners, premium listings).
-4.  Collect fees from businesses, deducting a percentage as profit.
-5.  Provide an analytics dashboard for listings, engagement, and revenue.
-Business Model:
-1.  Charge businesses for listings or premium features, with a profit percentage deducted.
-2.  Ensure scalability for many listings and users.
-3.  Comply with data privacy laws and secure the admin panel.
-Build an intuitive, reliable system, easy for non-technical users and admins, with fast performance and clear error handling.
+Plan and build a local business directory for: {{goal}}
+
+Stack: {{stack}}
+
+Build it in this order, and stop after each phase so I can review:
+
+Phase 1: Directory
+1. Searchable listings with name, description, contact details, address, opening hours and photos.
+2. Keyword search plus filters for category and neighborhood.
+3. A "Contact this business" form that sends inquiries to the business and records them as leads.
+
+Phase 2: Accounts and reviews
+4. Visitor accounts to save favorites and leave reviews (one per business per person, with moderation).
+5. Business owners can claim and edit their listing after verification.
+
+Phase 3: Admin and revenue
+6. An admin panel to approve, edit and remove listings, moderate reviews and see leads.
+7. Paid placements (featured listings, banners) with clear "Sponsored" labels.
+8. A simple analytics dashboard: views, leads and revenue per listing.
+
+Throughout: comply with privacy law for the area above, secure the admin panel, keep pages fast on mobile, and write clear error messages.
+
+Start with Phase 1: propose the data model and pages, list the files you'll create, and wait for my go-ahead.

@@ -24,20 +24,26 @@
       "variables": [
         {
           "key": "goal",
-          "label": "Goal",
-          "description": "The outcome this command should help produce.",
+          "label": "Pages that must keep their scroll position",
+          "description": "Exceptions, e.g. 'back/forward navigation and in-page #anchors', or 'none'",
+          "default": null
+        },
+        {
+          "key": "stack",
+          "label": "Your stack",
+          "description": "Framework, language and versions, e.g. Next.js 16 App Router + TypeScript",
           "default": null
         }
       ],
       "install": null,
-      "body": "On every route change, reset the viewport scroll position to (0, 0) before the destination page renders, so users always land at the very top of every page—no scroll state should ever carry over between pages anywhere in the application.",
+      "body": "Make every navigation in my app start at the top of the new page.\n\nStack: {{stack}}\nExceptions that must keep or restore scroll position: {{goal}}\n\nRequirements:\n1. On each route change, scroll to (0, 0) before or as the new page paints, so there's no visible jump.\n2. Respect the exceptions above. Browser back/forward should restore the previous position unless I said otherwise, and links to #anchors should scroll to the anchor.\n3. Handle scrollable containers too, not just window, if the layout scrolls inside a main element.\n4. Move keyboard focus to the new page's main heading so screen-reader users know the page changed.\n5. Use the framework's built-in mechanism if it has one before writing custom code, and explain why.\n\nTell me how to test it: three navigation scenarios to click through and what should happen in each.",
       "score": 0,
       "uses": 17,
       "author": "client",
       "url": "https://commandvault.ai/commands/scroll-to-top-on-every-navigation-e66fb364",
       "raw_url": "https://commandvault.ai/commands/scroll-to-top-on-every-navigation-e66fb364/raw",
       "created_at": "2025-07-01T19:56:16.163751+00:00",
-      "updated_at": "2026-10-12T15:14:33.370911+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "universal-dark-mode-toggle-80b6fd46",
@@ -59,20 +65,26 @@
       "variables": [
         {
           "key": "goal",
-          "label": "Goal",
-          "description": "The outcome this command should help produce.",
+          "label": "Default theme for new visitors",
+          "description": "e.g. 'follow the system setting' or 'always light first'",
+          "default": null
+        },
+        {
+          "key": "stack",
+          "label": "Your stack",
+          "description": "Framework, language and versions, e.g. Next.js 16 App Router + TypeScript",
           "default": null
         }
       ],
       "install": null,
-      "body": "Add a theme toggle that stores the chosen mode in localStorage and user profile; on every page load, read that value and apply the corresponding CSS class before content flashes.",
+      "body": "Add a light/dark theme toggle that remembers each person's choice.\n\nStack: {{stack}}\nDefault for new visitors: {{goal}}\n\nRequirements:\n1. Three options: Light, Dark and System. Apply the default above until someone chooses.\n2. Save the choice in localStorage, and in the user's profile when they're logged in, so it follows them across devices.\n3. Apply the theme before first paint (an inline script or server-rendered class), so there's no flash of the wrong theme.\n4. Drive colors from CSS variables, and check text contrast meets WCAG AA in both themes.\n5. The toggle must be a real button with an accessible name and the current state announced.\n\nList the files you'll change, then give me a test checklist: first visit, switch and reload, log in on a second browser, and system theme changes.",
       "score": 0,
       "uses": 4,
       "author": "client",
       "url": "https://commandvault.ai/commands/universal-dark-mode-toggle-80b6fd46",
       "raw_url": "https://commandvault.ai/commands/universal-dark-mode-toggle-80b6fd46/raw",
       "created_at": "2025-07-01T22:20:23.161895+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "instant-email-verification-link-507dce29",
@@ -94,20 +106,26 @@
       "variables": [
         {
           "key": "goal",
-          "label": "Goal",
-          "description": "The outcome this command should help produce.",
+          "label": "What unverified users may do",
+          "description": "e.g. 'nothing until verified' or 'browse but not post'",
+          "default": null
+        },
+        {
+          "key": "stack",
+          "label": "Your stack",
+          "description": "Framework, language and versions, e.g. Next.js 16 App Router + TypeScript",
           "default": null
         }
       ],
       "install": null,
-      "body": "Upon user registration, generate a signed, 24-hour email-verification URL and block login until that link is clicked—then flip email_verified to true.",
+      "body": "Add email verification to sign-up.\n\nStack: {{stack}}\nUntil they verify, users may: {{goal}}\n\nRequirements:\n1. On sign-up, send a single-use, signed verification link that expires after 24 hours. Store only a hash of the token.\n2. Enforce the restriction above on the server, not just in the UI.\n3. Let people resend the link (rate-limited) and show a clear message when a link is expired or already used.\n4. Clicking the link marks email_verified = true and logs them in or sends them to log in, depending on how our auth works.\n5. Don't reveal whether an email address has an account on the resend form.\n\nTell me which files change, what the email says, and how to test the whole flow locally, including an expired link.",
       "score": 0,
       "uses": 3,
       "author": "client",
       "url": "https://commandvault.ai/commands/instant-email-verification-link-507dce29",
       "raw_url": "https://commandvault.ai/commands/instant-email-verification-link-507dce29/raw",
       "created_at": "2025-07-01T22:21:33.338204+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "one-click-password-reset-182f1360",
@@ -129,20 +147,26 @@
       "variables": [
         {
           "key": "goal",
-          "label": "Goal",
-          "description": "The outcome this command should help produce.",
+          "label": "Where to send people after resetting",
+          "description": "e.g. 'the dashboard, already logged in' or 'the login page'",
+          "default": null
+        },
+        {
+          "key": "stack",
+          "label": "Your stack",
+          "description": "Framework, language and versions, e.g. Next.js 16 App Router + TypeScript",
           "default": null
         }
       ],
       "install": null,
-      "body": "Expose a ‘Forgot Password’ flow that sends a single-use token expiring in 60 minutes; on token submission, let the user set a new password and invalidate every active session",
+      "body": "Add a secure \"Forgot password\" flow.\n\nStack: {{stack}}\nAfter a successful reset, send people to: {{goal}}\n\nRequirements:\n1. The request form always shows the same message, whether or not the email has an account.\n2. Send a single-use token that expires in 60 minutes; store only its hash. Rate-limit requests per email and IP.\n3. The reset page checks the token, enforces our password rules, and then invalidates the token and every other active session.\n4. Email the user that their password was changed, with a way to report it wasn't them.\n5. Redirect as described above, with a confirmation message.\n\nList the files you'll change and give me a test plan, including reusing a token, an expired token and two tabs requesting resets.",
       "score": 0,
       "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/one-click-password-reset-182f1360",
       "raw_url": "https://commandvault.ai/commands/one-click-password-reset-182f1360/raw",
       "created_at": "2025-07-01T22:22:17.053804+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "autosave-form-drafts-13cb65f4",
@@ -165,20 +189,26 @@
       "variables": [
         {
           "key": "goal",
-          "label": "Goal",
-          "description": "The outcome this command should help produce.",
+          "label": "The form to protect",
+          "description": "e.g. 'the job application form' or 'the long blog post editor'",
+          "default": null
+        },
+        {
+          "key": "stack",
+          "label": "Your stack",
+          "description": "Framework, language and versions, e.g. Next.js 16 App Router + TypeScript",
           "default": null
         }
       ],
       "install": null,
-      "body": "Every 5 seconds, diff unsaved form fields and store them in IndexedDB keyed by form ID; restore those fields automatically if the user returns before a successful submit",
+      "body": "Autosave drafts so people never lose a long form.\n\nStack: {{stack}}\nForm: {{goal}}\n\nRequirements:\n1. Save changed fields locally (IndexedDB, keyed by form and user) a few seconds after typing stops, not on every keystroke.\n2. When the person comes back before submitting, offer to restore the draft and show when it was saved.\n3. Clear the draft after a successful submit or when they choose \"Discard\".\n4. Never store passwords, card numbers or other sensitive fields; list which fields you excluded.\n5. Show a quiet \"Saved\" indicator, and handle two tabs editing the same form without overwriting each other silently.\n\nList the files you'll change, then give me a test plan: type, reload, close the tab, come back, submit, and the two-tab case.",
       "score": 0,
       "uses": 2,
       "author": "client",
       "url": "https://commandvault.ai/commands/autosave-form-drafts-13cb65f4",
       "raw_url": "https://commandvault.ai/commands/autosave-form-drafts-13cb65f4/raw",
       "created_at": "2025-07-01T22:30:32.218863+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "debounced-live-search-a8ec2c2f",
@@ -199,20 +229,26 @@
       "variables": [
         {
           "key": "goal",
-          "label": "Goal",
-          "description": "The outcome this command should help produce.",
+          "label": "What the search covers",
+          "description": "e.g. 'products by name and SKU' or 'help articles'",
+          "default": null
+        },
+        {
+          "key": "stack",
+          "label": "Your stack",
+          "description": "Framework, language and versions, e.g. Next.js 16 App Router + TypeScript",
           "default": null
         }
       ],
       "install": null,
-      "body": "Wrap the global search input in a 300 ms debounce; ignore keystrokes during that window and fire one API request with the final query string",
+      "body": "Add live search that updates as people type without overloading the server.\n\nStack: {{stack}}\nSearch covers: {{goal}}\n\nRequirements:\n1. Debounce input by about 300 ms and send one request with the final query.\n2. Cancel in-flight requests when a newer query starts, so older results never overwrite newer ones.\n3. Skip requests for queries shorter than 2 characters; trim whitespace.\n4. Show loading, empty (\"No results for …\") and error states, and keep the previous results visible while the next ones load.\n5. Make results keyboard-navigable (arrow keys, Enter, Escape) and announce the result count to screen readers.\n6. Reflect the query in the URL so searches can be shared and the back button works.\n\nExplain how to verify it: what the network tab should show while typing quickly, and the edge cases you tested.",
       "score": 0,
       "uses": 2,
       "author": "client",
       "url": "https://commandvault.ai/commands/debounced-live-search-a8ec2c2f",
       "raw_url": "https://commandvault.ai/commands/debounced-live-search-a8ec2c2f/raw",
       "created_at": "2025-07-01T22:31:15.606337+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "skeleton-loading-placeholders-95a8cd27",
@@ -236,20 +272,26 @@
       "variables": [
         {
           "key": "goal",
-          "label": "Goal",
-          "description": "The outcome this command should help produce.",
+          "label": "Screens that feel slow today",
+          "description": "e.g. 'the dashboard cards and the orders table'",
+          "default": null
+        },
+        {
+          "key": "stack",
+          "label": "Your stack",
+          "description": "Framework, language and versions, e.g. Next.js 16 App Router + TypeScript",
           "default": null
         }
       ],
       "install": null,
-      "body": "Show lightweight skeleton blocks that match each component’s shape until the real data arrives, then swap instantly—never display a blank screen",
+      "body": "Replace blank or spinner states with skeleton placeholders.\n\nStack: {{stack}}\nStart with these screens: {{goal}}\n\nRequirements:\n1. Skeletons match the final layout (same size and position), so nothing shifts when data arrives. Aim for zero layout shift.\n2. Show them only while data is actually loading; if loading takes under ~150 ms, don't flash them.\n3. Use the framework's loading/streaming features where they exist instead of hand-rolled state.\n4. Add a subtle shimmer that is disabled when the user prefers reduced motion.\n5. Mark loading regions with aria-busy and keep the skeletons hidden from screen readers.\n\nShow me one reusable skeleton component, then apply it to the screens above. Tell me how to see it locally (for example by throttling the network in DevTools).",
       "score": 0,
       "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/skeleton-loading-placeholders-95a8cd27",
       "raw_url": "https://commandvault.ai/commands/skeleton-loading-placeholders-95a8cd27/raw",
       "created_at": "2025-07-01T22:32:26.897072+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "graceful-404-fallback-e907f8bc",
@@ -271,20 +313,26 @@
       "variables": [
         {
           "key": "goal",
-          "label": "Goal",
-          "description": "The outcome this command should help produce.",
+          "label": "Where lost visitors should go",
+          "description": "The page or action that helps them most, e.g. 'the dashboard and search' or 'the product catalog'",
+          "default": null
+        },
+        {
+          "key": "stack",
+          "label": "Your stack",
+          "description": "Framework, language and versions, e.g. Next.js 16 App Router + TypeScript",
           "default": null
         }
       ],
       "install": null,
-      "body": "Route any unmatched path to a branded 404 page with a ‘Back to Dashboard’ button and a search bar; send the path to error analytics",
+      "body": "Add a graceful 404 experience to my app.\n\nStack: {{stack}}\nLost visitors should be steered to: {{goal}}\n\nRequirements:\n1. Catch every unmatched route (including nested and dynamic segments) and render a branded 404 page that returns a real HTTP 404 status, not a 200.\n2. Show a short, human message, a primary button that takes people to {{goal}}, and a search box that searches the site.\n3. Log the missing path to our error analytics, but strip query strings, emails, tokens and IDs before sending.\n4. Keep the normal header and navigation so the page doesn't feel like a dead end.\n5. Make it accessible: one h1, focus moves to the heading on load, the button and search work with the keyboard.\n\nBefore changing code, list the files you'll touch. After, give me:\n- the exact steps to test it (a URL that should 404, what I should see, and how to confirm the status code in DevTools or with curl -I)\n- anything you couldn't verify.",
       "score": 0,
       "uses": 6,
       "author": "client",
       "url": "https://commandvault.ai/commands/graceful-404-fallback-e907f8bc",
       "raw_url": "https://commandvault.ai/commands/graceful-404-fallback-e907f8bc/raw",
       "created_at": "2025-07-01T22:34:24.807268+00:00",
-      "updated_at": "2026-10-12T15:14:50.809122+00:00"
+      "updated_at": "2026-10-17T15:23:54.27961+00:00"
     },
     {
       "slug": "role-based-access-control-5cccc8f4",
@@ -308,20 +356,26 @@
       "variables": [
         {
           "key": "goal",
-          "label": "Goal",
-          "description": "The outcome this command should help produce.",
+          "label": "Your roles and what each can do",
+          "description": "e.g. 'admin: everything; editor: create and edit posts; viewer: read only'",
+          "default": null
+        },
+        {
+          "key": "stack",
+          "label": "Your stack",
+          "description": "Framework, language and versions, e.g. Next.js 16 App Router + TypeScript",
           "default": null
         }
       ],
       "install": null,
-      "body": "Attach a role field to every auth token and gate each protected route and API mutation against a whitelist of accepted roles before executing",
+      "body": "Add role-based access control.\n\nStack: {{stack}}\nRoles and permissions: {{goal}}\n\nRequirements:\n1. Define the roles and permissions above in one place in code, and check permissions (not role names) at each use.\n2. Enforce access on the server for every protected page, API route and mutation. Hiding buttons in the UI is not enough.\n3. Deny by default: new routes are blocked until they declare the permission they need.\n4. Return 403 (not 404 or 500) for authenticated users without permission, and log the denial.\n5. Keep roles somewhere the client can't edit (server-side session or database), and make role changes take effect on the next request.\n\nList the files you'll change, then give me a test matrix: each role against each protected action, with the expected result.",
       "score": 0,
       "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/role-based-access-control-5cccc8f4",
       "raw_url": "https://commandvault.ai/commands/role-based-access-control-5cccc8f4/raw",
       "created_at": "2025-07-01T22:35:22.799608+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "local-business-directory-system-d4d6d361",
@@ -345,20 +399,26 @@
       "variables": [
         {
           "key": "goal",
-          "label": "Goal",
-          "description": "The outcome this command should help produce.",
+          "label": "Industry and area",
+          "description": "e.g. 'home cleaning services in St. Augustine, FL'",
+          "default": null
+        },
+        {
+          "key": "stack",
+          "label": "Your stack",
+          "description": "Framework, language and versions, e.g. Next.js 16 App Router + TypeScript",
           "default": null
         }
       ],
       "install": null,
-      "body": "Build a local directory software to list and promote local businesses in a specific industry, enabling online advertising and lead generation. Include a front-end directory for users to browse listings and a back-end admin panel to manage content. Focus on these core functionalities, described only by what they do, without specifying technology or methods:\nFront-End Directory:\n1.  Show a searchable directory of businesses with name, description, contact info, address, and images.\n2.  Allow keyword search and filters for category or location.\n3.  Enable lead generation via a “Contact Business” form sending inquiries to businesses.\n4.  Support user accounts to save favorites and submit reviews.\n5.  Display ads (e.g., banners, sponsored listings) for businesses.\nBack-End Admin Panel:\n1.  Let admins add, edit, or remove listings with an approval process.\n2.  Manage user accounts and moderate reviews.\n3.  Track leads and manage ad campaigns (e.g., banners, premium listings).\n4.  Collect fees from businesses, deducting a percentage as profit.\n5.  Provide an analytics dashboard for listings, engagement, and revenue.\nBusiness Model:\n1.  Charge businesses for listings or premium features, with a profit percentage deducted.\n2.  Ensure scalability for many listings and users.\n3.  Comply with data privacy laws and secure the admin panel.\nBuild an intuitive, reliable system, easy for non-technical users and admins, with fast performance and clear error handling.",
+      "body": "Plan and build a local business directory for: {{goal}}\n\nStack: {{stack}}\n\nBuild it in this order, and stop after each phase so I can review:\n\nPhase 1: Directory\n1. Searchable listings with name, description, contact details, address, opening hours and photos.\n2. Keyword search plus filters for category and neighborhood.\n3. A \"Contact this business\" form that sends inquiries to the business and records them as leads.\n\nPhase 2: Accounts and reviews\n4. Visitor accounts to save favorites and leave reviews (one per business per person, with moderation).\n5. Business owners can claim and edit their listing after verification.\n\nPhase 3: Admin and revenue\n6. An admin panel to approve, edit and remove listings, moderate reviews and see leads.\n7. Paid placements (featured listings, banners) with clear \"Sponsored\" labels.\n8. A simple analytics dashboard: views, leads and revenue per listing.\n\nThroughout: comply with privacy law for the area above, secure the admin panel, keep pages fast on mobile, and write clear error messages.\n\nStart with Phase 1: propose the data model and pages, list the files you'll create, and wait for my go-ahead.",
       "score": 0,
       "uses": 2,
       "author": "client",
       "url": "https://commandvault.ai/commands/local-business-directory-system-d4d6d361",
       "raw_url": "https://commandvault.ai/commands/local-business-directory-system-d4d6d361/raw",
       "created_at": "2025-07-15T18:23:07.80972+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "build-an-accessible-react-component-592a69d5",
@@ -406,7 +466,7 @@
       "url": "https://commandvault.ai/commands/build-an-accessible-react-component-592a69d5",
       "raw_url": "https://commandvault.ai/commands/build-an-accessible-react-component-592a69d5/raw",
       "created_at": "2026-09-23T21:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "pre-launch-ui-polish-checklist-cdf82223",
@@ -442,7 +502,7 @@
       "url": "https://commandvault.ai/commands/pre-launch-ui-polish-checklist-cdf82223",
       "raw_url": "https://commandvault.ai/commands/pre-launch-ui-polish-checklist-cdf82223/raw",
       "created_at": "2026-09-24T04:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "convert-a-design-screenshot-into-clean-html-css-6e824cb6",
@@ -484,7 +544,7 @@
       "url": "https://commandvault.ai/commands/convert-a-design-screenshot-into-clean-html-css-6e824cb6",
       "raw_url": "https://commandvault.ai/commands/convert-a-design-screenshot-into-clean-html-css-6e824cb6/raw",
       "created_at": "2026-09-24T10:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "find-and-fix-react-re-render-problems-89688638",
@@ -526,7 +586,7 @@
       "url": "https://commandvault.ai/commands/find-and-fix-react-re-render-problems-89688638",
       "raw_url": "https://commandvault.ai/commands/find-and-fix-react-re-render-problems-89688638/raw",
       "created_at": "2026-09-24T17:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "form-validation-schema-with-friendly-errors-922d9ec3",
@@ -568,7 +628,7 @@
       "url": "https://commandvault.ai/commands/form-validation-schema-with-friendly-errors-922d9ec3",
       "raw_url": "https://commandvault.ai/commands/form-validation-schema-with-friendly-errors-922d9ec3/raw",
       "created_at": "2026-09-25T00:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "design-a-rest-api-for-a-feature-4bfdfef6",
@@ -610,7 +670,7 @@
       "url": "https://commandvault.ai/commands/design-a-rest-api-for-a-feature-4bfdfef6",
       "raw_url": "https://commandvault.ai/commands/design-a-rest-api-for-a-feature-4bfdfef6/raw",
       "created_at": "2026-09-25T07:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "model-a-postgres-schema-with-row-level-security-4c536980",
@@ -653,7 +713,7 @@
       "url": "https://commandvault.ai/commands/model-a-postgres-schema-with-row-level-security-4c536980",
       "raw_url": "https://commandvault.ai/commands/model-a-postgres-schema-with-row-level-security-4c536980/raw",
       "created_at": "2026-09-25T13:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "add-a-background-job-safely-ffa03721",
@@ -701,7 +761,7 @@
       "url": "https://commandvault.ai/commands/add-a-background-job-safely-ffa03721",
       "raw_url": "https://commandvault.ai/commands/add-a-background-job-safely-ffa03721/raw",
       "created_at": "2026-09-25T20:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "write-integration-tests-for-an-endpoint-95976de5",
@@ -743,7 +803,7 @@
       "url": "https://commandvault.ai/commands/write-integration-tests-for-an-endpoint-95976de5",
       "raw_url": "https://commandvault.ai/commands/write-integration-tests-for-an-endpoint-95976de5/raw",
       "created_at": "2026-09-26T03:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "database-migration-safety-review-abd8f75a",
@@ -785,7 +845,7 @@
       "url": "https://commandvault.ai/commands/database-migration-safety-review-abd8f75a",
       "raw_url": "https://commandvault.ai/commands/database-migration-safety-review-abd8f75a/raw",
       "created_at": "2026-09-26T09:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "project-context-pack-for-coding-agents-7fe49393",
@@ -821,14 +881,14 @@
         }
       ],
       "install": null,
-      "body": "Write an AGENTS.md for my project so coding agents work the way my team does.\n\nProject: {{project_description}}\nStack: {{stack}}\n\nInclude sections:\n- What this app is and who uses it (3 lines).\n- How to run, test, lint and build (exact commands).\n- Folder map: where things live and where new code goes.\n- Conventions: naming, error handling, data fetching, styling.\n- Never do: list of dangerous or banned actions (e.g. editing generated files, touching prod data).\n- Definition of done for a change.\n\nKeep it under 120 lines. Prefer concrete rules over advice.",
+      "body": "Write an AGENTS.md for my project so coding agents work the way my team does.\n\nProject: {{project_description}}\nStack: {{stack}}\n\nInclude sections:\n- What this app is and who uses it (3 lines).\n- How to run, test, lint and build (exact commands).\n- Folder map: where things live and where new code goes.\n- Conventions: naming, error handling, data fetching, styling.\n- Never do: list of dangerous or banned actions (e.g. editing generated files, touching prod data).\n- Definition of done for a change.\n\nRules for writing it:\n- If an AGENTS.md already exists, update it and keep the parts that are still true.\n- Only state facts you checked in this repo: run the commands, open the folders. Mark folders that don't exist yet as (planned), and write \"no test runner yet\" if there isn't one.\n- Don't copy your own personal or global instructions into this project file.\n\nKeep it under 120 lines. Prefer concrete rules over advice.",
       "score": 0,
       "uses": 0,
       "author": "client",
       "url": "https://commandvault.ai/commands/project-context-pack-for-coding-agents-7fe49393",
       "raw_url": "https://commandvault.ai/commands/project-context-pack-for-coding-agents-7fe49393/raw",
       "created_at": "2026-09-26T16:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "plan-implement-verify-loop-07076966",
@@ -870,7 +930,7 @@
       "url": "https://commandvault.ai/commands/plan-implement-verify-loop-07076966",
       "raw_url": "https://commandvault.ai/commands/plan-implement-verify-loop-07076966/raw",
       "created_at": "2026-09-26T23:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "turn-a-vague-request-into-a-precise-prompt-68b67569",
@@ -905,7 +965,7 @@
       "url": "https://commandvault.ai/commands/turn-a-vague-request-into-a-precise-prompt-68b67569",
       "raw_url": "https://commandvault.ai/commands/turn-a-vague-request-into-a-precise-prompt-68b67569/raw",
       "created_at": "2026-09-27T06:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "code-review-as-a-senior-engineer-2c52c2a9",
@@ -947,7 +1007,7 @@
       "url": "https://commandvault.ai/commands/code-review-as-a-senior-engineer-2c52c2a9",
       "raw_url": "https://commandvault.ai/commands/code-review-as-a-senior-engineer-2c52c2a9/raw",
       "created_at": "2026-09-27T12:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "write-a-reusable-ai-skill-file-8b9711c7",
@@ -989,7 +1049,7 @@
       "url": "https://commandvault.ai/commands/write-a-reusable-ai-skill-file-8b9711c7",
       "raw_url": "https://commandvault.ai/commands/write-a-reusable-ai-skill-file-8b9711c7/raw",
       "created_at": "2026-09-27T19:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "github-actions-ci-for-a-node-app-f6830a4e",
@@ -1037,7 +1097,7 @@
       "url": "https://commandvault.ai/commands/github-actions-ci-for-a-node-app-f6830a4e",
       "raw_url": "https://commandvault.ai/commands/github-actions-ci-for-a-node-app-f6830a4e/raw",
       "created_at": "2026-09-28T02:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "write-a-minimal-production-dockerfile-39803cfc",
@@ -1085,7 +1145,7 @@
       "url": "https://commandvault.ai/commands/write-a-minimal-production-dockerfile-39803cfc",
       "raw_url": "https://commandvault.ai/commands/write-a-minimal-production-dockerfile-39803cfc/raw",
       "created_at": "2026-09-28T09:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "incident-response-first-30-minutes-8f32b3ea",
@@ -1127,7 +1187,7 @@
       "url": "https://commandvault.ai/commands/incident-response-first-30-minutes-8f32b3ea",
       "raw_url": "https://commandvault.ai/commands/incident-response-first-30-minutes-8f32b3ea/raw",
       "created_at": "2026-09-28T15:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "blameless-postmortem-write-up-681657b8",
@@ -1163,7 +1223,7 @@
       "url": "https://commandvault.ai/commands/blameless-postmortem-write-up-681657b8",
       "raw_url": "https://commandvault.ai/commands/blameless-postmortem-write-up-681657b8/raw",
       "created_at": "2026-09-28T22:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "set-up-structured-logging-and-alerts-c5ff1587",
@@ -1199,7 +1259,7 @@
       "url": "https://commandvault.ai/commands/set-up-structured-logging-and-alerts-c5ff1587",
       "raw_url": "https://commandvault.ai/commands/set-up-structured-logging-and-alerts-c5ff1587/raw",
       "created_at": "2026-09-29T05:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "threat-model-a-new-feature-e077b2c4",
@@ -1247,7 +1307,7 @@
       "url": "https://commandvault.ai/commands/threat-model-a-new-feature-e077b2c4",
       "raw_url": "https://commandvault.ai/commands/threat-model-a-new-feature-e077b2c4/raw",
       "created_at": "2026-09-29T11:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "web-app-security-review-30709308",
@@ -1283,7 +1343,7 @@
       "url": "https://commandvault.ai/commands/web-app-security-review-30709308",
       "raw_url": "https://commandvault.ai/commands/web-app-security-review-30709308/raw",
       "created_at": "2026-09-29T18:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "find-leaked-secrets-and-rotate-them-ab675ad1",
@@ -1325,7 +1385,7 @@
       "url": "https://commandvault.ai/commands/find-leaked-secrets-and-rotate-them-ab675ad1",
       "raw_url": "https://commandvault.ai/commands/find-leaked-secrets-and-rotate-them-ab675ad1/raw",
       "created_at": "2026-09-30T01:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "plain-english-privacy-policy-draft-fa6e798d",
@@ -1385,7 +1445,7 @@
       "url": "https://commandvault.ai/commands/plain-english-privacy-policy-draft-fa6e798d",
       "raw_url": "https://commandvault.ai/commands/plain-english-privacy-policy-draft-fa6e798d/raw",
       "created_at": "2026-09-30T08:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "harden-authentication-flows-e2a1ff85",
@@ -1421,7 +1481,7 @@
       "url": "https://commandvault.ai/commands/harden-authentication-flows-e2a1ff85",
       "raw_url": "https://commandvault.ai/commands/harden-authentication-flows-e2a1ff85/raw",
       "created_at": "2026-09-30T14:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "write-a-sql-query-from-a-plain-question-5f579205",
@@ -1469,7 +1529,7 @@
       "url": "https://commandvault.ai/commands/write-a-sql-query-from-a-plain-question-5f579205",
       "raw_url": "https://commandvault.ai/commands/write-a-sql-query-from-a-plain-question-5f579205/raw",
       "created_at": "2026-09-30T21:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "explore-a-new-dataset-6a1638a0",
@@ -1517,7 +1577,7 @@
       "url": "https://commandvault.ai/commands/explore-a-new-dataset-6a1638a0",
       "raw_url": "https://commandvault.ai/commands/explore-a-new-dataset-6a1638a0/raw",
       "created_at": "2026-10-01T04:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "kpi-dashboard-spec-83c7b4d5",
@@ -1559,7 +1619,7 @@
       "url": "https://commandvault.ai/commands/kpi-dashboard-spec-83c7b4d5",
       "raw_url": "https://commandvault.ai/commands/kpi-dashboard-spec-83c7b4d5/raw",
       "created_at": "2026-10-01T10:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "spreadsheet-formula-helper-6c5eaab3",
@@ -1607,7 +1667,7 @@
       "url": "https://commandvault.ai/commands/spreadsheet-formula-helper-6c5eaab3",
       "raw_url": "https://commandvault.ai/commands/spreadsheet-formula-helper-6c5eaab3/raw",
       "created_at": "2026-10-01T17:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "sanity-check-an-a-b-test-result-c249284a",
@@ -1667,7 +1727,7 @@
       "url": "https://commandvault.ai/commands/sanity-check-an-a-b-test-result-c249284a",
       "raw_url": "https://commandvault.ai/commands/sanity-check-an-a-b-test-result-c249284a/raw",
       "created_at": "2026-10-02T00:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "landing-page-copy-that-converts-69950bfb",
@@ -1721,7 +1781,7 @@
       "url": "https://commandvault.ai/commands/landing-page-copy-that-converts-69950bfb",
       "raw_url": "https://commandvault.ai/commands/landing-page-copy-that-converts-69950bfb/raw",
       "created_at": "2026-10-02T07:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "seo-blog-post-brief-dec823ff",
@@ -1763,7 +1823,7 @@
       "url": "https://commandvault.ai/commands/seo-blog-post-brief-dec823ff",
       "raw_url": "https://commandvault.ai/commands/seo-blog-post-brief-dec823ff/raw",
       "created_at": "2026-10-02T13:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "product-launch-plan-b423e1f5",
@@ -1817,7 +1877,7 @@
       "url": "https://commandvault.ai/commands/product-launch-plan-b423e1f5",
       "raw_url": "https://commandvault.ai/commands/product-launch-plan-b423e1f5/raw",
       "created_at": "2026-10-02T20:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "cold-email-that-gets-replies-b9351e2e",
@@ -1871,7 +1931,7 @@
       "url": "https://commandvault.ai/commands/cold-email-that-gets-replies-b9351e2e",
       "raw_url": "https://commandvault.ai/commands/cold-email-that-gets-replies-b9351e2e/raw",
       "created_at": "2026-10-03T03:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "repurpose-one-piece-into-a-week-of-posts-a052b671",
@@ -1913,7 +1973,7 @@
       "url": "https://commandvault.ai/commands/repurpose-one-piece-into-a-week-of-posts-a052b671",
       "raw_url": "https://commandvault.ai/commands/repurpose-one-piece-into-a-week-of-posts-a052b671/raw",
       "created_at": "2026-10-03T09:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "edit-for-clarity-without-changing-my-voice-9bc9086d",
@@ -1949,7 +2009,7 @@
       "url": "https://commandvault.ai/commands/edit-for-clarity-without-changing-my-voice-9bc9086d",
       "raw_url": "https://commandvault.ai/commands/edit-for-clarity-without-changing-my-voice-9bc9086d/raw",
       "created_at": "2026-10-03T16:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "readme-that-people-actually-read-d16d647e",
@@ -1991,7 +2051,7 @@
       "url": "https://commandvault.ai/commands/readme-that-people-actually-read-d16d647e",
       "raw_url": "https://commandvault.ai/commands/readme-that-people-actually-read-d16d647e/raw",
       "created_at": "2026-10-03T23:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "explain-a-technical-topic-to-non-technical-readers-de7ca3e8",
@@ -2039,7 +2099,7 @@
       "url": "https://commandvault.ai/commands/explain-a-technical-topic-to-non-technical-readers-de7ca3e8",
       "raw_url": "https://commandvault.ai/commands/explain-a-technical-topic-to-non-technical-readers-de7ca3e8/raw",
       "created_at": "2026-10-04T06:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "write-release-notes-users-care-about-deb42144",
@@ -2081,7 +2141,7 @@
       "url": "https://commandvault.ai/commands/write-release-notes-users-care-about-deb42144",
       "raw_url": "https://commandvault.ai/commands/write-release-notes-users-care-about-deb42144/raw",
       "created_at": "2026-10-04T12:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "outline-a-long-form-article-11c9e7cf",
@@ -2129,7 +2189,7 @@
       "url": "https://commandvault.ai/commands/outline-a-long-form-article-11c9e7cf",
       "raw_url": "https://commandvault.ai/commands/outline-a-long-form-article-11c9e7cf/raw",
       "created_at": "2026-10-04T19:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "meeting-notes-to-action-items-6460abec",
@@ -2171,7 +2231,7 @@
       "url": "https://commandvault.ai/commands/meeting-notes-to-action-items-6460abec",
       "raw_url": "https://commandvault.ai/commands/meeting-notes-to-action-items-6460abec/raw",
       "created_at": "2026-10-05T02:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "weekly-review-and-planning-dd2b9a68",
@@ -2207,7 +2267,7 @@
       "url": "https://commandvault.ai/commands/weekly-review-and-planning-dd2b9a68",
       "raw_url": "https://commandvault.ai/commands/weekly-review-and-planning-dd2b9a68/raw",
       "created_at": "2026-10-05T09:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "write-a-hard-email-diplomatically-1b06c9ad",
@@ -2261,7 +2321,7 @@
       "url": "https://commandvault.ai/commands/write-a-hard-email-diplomatically-1b06c9ad",
       "raw_url": "https://commandvault.ai/commands/write-a-hard-email-diplomatically-1b06c9ad/raw",
       "created_at": "2026-10-05T15:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "decision-matrix-for-a-tough-choice-af0713bb",
@@ -2309,7 +2369,7 @@
       "url": "https://commandvault.ai/commands/decision-matrix-for-a-tough-choice-af0713bb",
       "raw_url": "https://commandvault.ai/commands/decision-matrix-for-a-tough-choice-af0713bb/raw",
       "created_at": "2026-10-05T22:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-md-template-for-a-django-project-a6598bdb",
@@ -2334,49 +2394,55 @@
         {
           "key": "project_name",
           "label": "Project name",
-          "description": null,
+          "description": "e.g. clinic-portal",
           "default": null
         },
         {
           "key": "what_it_does",
           "label": "What it does",
-          "description": null,
+          "description": "One line, e.g. patient booking and records for small clinics",
           "default": null
         },
         {
           "key": "python_version",
           "label": "Python version",
-          "description": null,
+          "description": "e.g. 3.12",
           "default": null
         },
         {
           "key": "django_version",
           "label": "Django version",
-          "description": null,
+          "description": "e.g. 5.2",
           "default": null
         },
         {
           "key": "database",
           "label": "Database",
-          "description": null,
+          "description": "e.g. PostgreSQL 16",
           "default": null
         },
         {
           "key": "project_package",
           "label": "Project package",
-          "description": null,
+          "description": "The folder with settings.py, e.g. config",
           "default": null
+        },
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": "The exact command you run, e.g. pytest -q or python manage.py test",
+          "default": "pytest -q"
         }
       ],
       "install": null,
-      "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: Python {{python_version}}, Django {{django_version}}, {{database}}.\n\n## Commands\n- Run locally: `python manage.py runserver`\n- Tests: `pytest -q (or python manage.py test)`\n- Lint/format: `ruff check . && ruff format --check .`\n\n## Where things live\n- `{{project_package}}/settings/`: base, dev, prod settings\n- `apps/<app>/`: models, views, serializers, urls, tests per app\n- `templates/` and `static/`: shared front end\n\n## Conventions\n- New models need a migration (`python manage.py makemigrations`) committed with the code.\n- Business logic lives in `services.py`, not views or models.\n- Use the ORM; raw SQL only with a comment explaining why.\n- Every view checks permissions explicitly.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
+      "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: Python {{python_version}}, Django {{django_version}}, {{database}}.\n\n## Commands\n- Run locally: `python manage.py runserver`\n- Tests: `{{test_command}}`\n- Lint/format: `ruff check . && ruff format --check .`\n\n## Where things live\n- `{{project_package}}/settings/`: base, dev, prod settings\n- `apps/<app>/`: models, views, serializers, urls, tests per app\n- `templates/` and `static/`: shared front end\n\n## Conventions\n- New models need a migration (`python manage.py makemigrations`) committed with the code.\n- Business logic lives in `services.py`, not views or models.\n- Use the ORM; raw SQL only with a comment explaining why.\n- Every view checks permissions explicitly.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
       "score": 0,
       "uses": 0,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-django-project-a6598bdb",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-django-project-a6598bdb/raw",
       "created_at": "2026-10-06T03:46:34.816808+00:00",
-      "updated_at": "2026-10-06T03:46:34.816808+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "break-a-big-project-into-a-plan-a686a13c",
@@ -2424,7 +2490,7 @@
       "url": "https://commandvault.ai/commands/break-a-big-project-into-a-plan-a686a13c",
       "raw_url": "https://commandvault.ai/commands/break-a-big-project-into-a-plan-a686a13c/raw",
       "created_at": "2026-10-06T05:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-md-template-for-a-ruby-on-rails-app-dadb0ceb",
@@ -2449,55 +2515,61 @@
         {
           "key": "project_name",
           "label": "Project name",
-          "description": null,
+          "description": "e.g. shop-admin",
           "default": null
         },
         {
           "key": "what_it_does",
           "label": "What it does",
-          "description": null,
+          "description": "One line, e.g. inventory and orders for a small store",
           "default": null
         },
         {
           "key": "ruby_version",
           "label": "Ruby version",
-          "description": null,
+          "description": "e.g. 3.3",
           "default": null
         },
         {
           "key": "rails_version",
           "label": "Rails version",
-          "description": null,
+          "description": "e.g. 8.0",
           "default": null
         },
         {
           "key": "database",
           "label": "Database",
-          "description": null,
+          "description": "e.g. PostgreSQL 16",
           "default": null
         },
         {
           "key": "frontend",
           "label": "Frontend",
-          "description": null,
+          "description": "e.g. Hotwire (Turbo + Stimulus) or React via jsbundling",
           "default": null
         },
         {
           "key": "job_backend",
           "label": "Job backend",
-          "description": null,
+          "description": "e.g. Solid Queue or Sidekiq",
           "default": null
+        },
+        {
+          "key": "test_command",
+          "label": "Test command",
+          "description": "The exact command you run, e.g. bin/rails test or bundle exec rspec",
+          "default": "bin/rails test"
         }
       ],
       "install": null,
-      "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: Ruby {{ruby_version}}, Rails {{rails_version}}, {{database}}, {{frontend}}.\n\n## Commands\n- Run locally: `bin/dev`\n- Tests: `bin/rails test (or bundle exec rspec)`\n- Lint/format: `bundle exec rubocop`\n\n## Where things live\n- `app/models`, `app/controllers`, `app/views`: standard Rails\n- `app/services`: multi-step business logic\n- `app/jobs`: background work ({{job_backend}})\n- `db/migrate`: one migration per change\n\n## Conventions\n- Fat models are fine; fat controllers are not. Move logic out of controllers.\n- Strong parameters on every create/update.\n- Avoid N+1 queries: use `includes` and check the log.\n- Prefer Rails conventions over custom patterns.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
+      "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: Ruby {{ruby_version}}, Rails {{rails_version}}, {{database}}, {{frontend}}.\n\n## Commands\n- Run locally: `bin/dev`\n- Tests: `{{test_command}}`\n- Lint/format: `bundle exec rubocop`\n\n## Where things live\n- `app/models`, `app/controllers`, `app/views`: standard Rails\n- `app/services`: multi-step business logic\n- `app/jobs`: background work ({{job_backend}})\n- `db/migrate`: one migration per change\n\n## Conventions\n- Fat models are fine; fat controllers are not. Move logic out of controllers.\n- Strong parameters on every create/update.\n- Avoid N+1 queries: use `includes` and check the log.\n- Prefer Rails conventions over custom patterns.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
       "score": 0,
       "uses": 0,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-ruby-on-rails-app-dadb0ceb",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-ruby-on-rails-app-dadb0ceb/raw",
       "created_at": "2026-10-06T05:46:34.816808+00:00",
-      "updated_at": "2026-10-06T05:46:34.816808+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "claude-md-template-for-a-go-service-a256d8da",
@@ -2522,37 +2594,37 @@
         {
           "key": "project_name",
           "label": "Project name",
-          "description": null,
+          "description": "e.g. ledger-svc",
           "default": null
         },
         {
           "key": "what_it_does",
           "label": "What it does",
-          "description": null,
+          "description": "One line, e.g. records payments and exposes a REST API",
           "default": null
         },
         {
           "key": "go_version",
           "label": "Go version",
-          "description": null,
+          "description": "e.g. 1.24",
           "default": null
         },
         {
           "key": "router",
           "label": "Router",
-          "description": null,
+          "description": "e.g. chi, gin or net/http",
           "default": null
         },
         {
           "key": "database",
           "label": "Database",
-          "description": null,
+          "description": "e.g. PostgreSQL via pgx",
           "default": null
         },
         {
           "key": "service",
-          "label": "Service",
-          "description": null,
+          "label": "Service binary",
+          "description": "Name of the folder under cmd/, e.g. ledger",
           "default": null
         }
       ],
@@ -2564,7 +2636,7 @@
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-go-service-a256d8da",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-go-service-a256d8da/raw",
       "created_at": "2026-10-06T07:46:34.816808+00:00",
-      "updated_at": "2026-10-06T07:46:34.816808+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "claude-md-template-for-a-laravel-app-22d119b4",
@@ -2589,49 +2661,55 @@
         {
           "key": "project_name",
           "label": "Project name",
-          "description": null,
+          "description": "e.g. booking-app",
           "default": null
         },
         {
           "key": "what_it_does",
           "label": "What it does",
-          "description": null,
+          "description": "One line, e.g. appointment booking for salons",
           "default": null
         },
         {
           "key": "php_version",
-          "label": "Php version",
-          "description": null,
+          "label": "PHP version",
+          "description": "e.g. 8.3",
           "default": null
         },
         {
           "key": "laravel_version",
           "label": "Laravel version",
-          "description": null,
+          "description": "e.g. 12",
           "default": null
         },
         {
           "key": "database",
           "label": "Database",
-          "description": null,
+          "description": "e.g. MySQL 8",
           "default": null
         },
         {
           "key": "frontend",
           "label": "Frontend",
-          "description": null,
+          "description": "e.g. Livewire, Inertia + Vue, or Blade",
           "default": null
+        },
+        {
+          "key": "dev_command",
+          "label": "Dev server command",
+          "description": "The exact command you run, e.g. composer run dev or php artisan serve",
+          "default": "composer run dev"
         }
       ],
       "install": null,
-      "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: PHP {{php_version}}, Laravel {{laravel_version}}, {{database}}, {{frontend}}.\n\n## Commands\n- Run locally: `php artisan serve (or composer run dev)`\n- Tests: `php artisan test`\n- Lint/format: `./vendor/bin/pint --test`\n\n## Where things live\n- `app/Http/Controllers`: thin controllers\n- `app/Actions` or `app/Services`: business logic\n- `app/Models`: Eloquent models\n- `database/migrations`: one per change\n\n## Conventions\n- Validate with Form Requests, not inside controllers.\n- Eager-load relations to avoid N+1 queries.\n- Queue anything slow (emails, exports) with jobs.\n- Use policies for authorization.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
+      "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: PHP {{php_version}}, Laravel {{laravel_version}}, {{database}}, {{frontend}}.\n\n## Commands\n- Run locally: `{{dev_command}}`\n- Tests: `php artisan test`\n- Lint/format: `./vendor/bin/pint --test`\n\n## Where things live\n- `app/Http/Controllers`: thin controllers\n- `app/Actions` or `app/Services`: business logic\n- `app/Models`: Eloquent models\n- `database/migrations`: one per change\n\n## Conventions\n- Validate with Form Requests, not inside controllers.\n- Eager-load relations to avoid N+1 queries.\n- Queue anything slow (emails, exports) with jobs.\n- Use policies for authorization.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
       "score": 0,
       "uses": 0,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-laravel-app-22d119b4",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-laravel-app-22d119b4/raw",
       "created_at": "2026-10-06T09:46:34.816808+00:00",
-      "updated_at": "2026-10-06T09:46:34.816808+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "30-day-learning-plan-for-any-skill-e533dd8c",
@@ -2685,7 +2763,7 @@
       "url": "https://commandvault.ai/commands/30-day-learning-plan-for-any-skill-e533dd8c",
       "raw_url": "https://commandvault.ai/commands/30-day-learning-plan-for-any-skill-e533dd8c/raw",
       "created_at": "2026-10-06T11:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d",
@@ -2710,25 +2788,25 @@
         {
           "key": "formatter_command",
           "label": "Formatter command",
-          "description": null,
-          "default": null
+          "description": "Formats one file passed at the end, e.g. npx prettier --write, ruff format or gofmt -w",
+          "default": "npx prettier --write"
         },
         {
           "key": "extra_blocked_pattern",
           "label": "Extra blocked pattern",
-          "description": null,
-          "default": null
+          "description": "An extended regex for anything else to block, e.g. terraform destroy|kubectl delete ns",
+          "default": "terraform destroy|kubectl delete namespace"
         }
       ],
       "install": null,
-      "body": "Add this to `.claude/settings.json` in your project:\n\n```json\n{\n  \"hooks\": {\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Edit|Write\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"jq -r '.tool_input.file_path' | xargs {{formatter_command}}\" }\n        ]\n      }\n    ],\n    \"PreToolUse\": [\n      {\n        \"matcher\": \"Bash\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \".claude/hooks/block-dangerous.sh\" }\n        ]\n      }\n    ]\n  }\n}\n```\n\nAnd create `.claude/hooks/block-dangerous.sh` (make it executable):\n\n```bash\n#!/usr/bin/env bash\ncmd=$(jq -r '.tool_input.command')\nif echo \"$cmd\" | grep -Eq 'rm -rf /|git push --force|DROP TABLE|{{extra_blocked_pattern}}'; then\n  echo \"Blocked by project hook: $cmd\" >&2\n  exit 2   # exit code 2 blocks the tool call and shows the message to Claude\nfi\n```\n\nReplace `{{formatter_command}}` with e.g. `npx prettier --write` or `ruff format`. Test it by asking Claude to edit a file and check it was formatted.",
+      "body": "Add this to `.claude/settings.json` in your project (merge it with any settings you already have):\n\n```json\n{\n  \"hooks\": {\n    \"PostToolUse\": [\n      {\n        \"matcher\": \"Edit|Write\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \"f=$(jq -r '.tool_input.file_path // empty'); [ -n \\\"$f\\\" ] && {{formatter_command}} \\\"$f\\\" || true\" }\n        ]\n      }\n    ],\n    \"PreToolUse\": [\n      {\n        \"matcher\": \"Bash\",\n        \"hooks\": [\n          { \"type\": \"command\", \"command\": \".claude/hooks/block-dangerous.sh\" }\n        ]\n      }\n    ]\n  }\n}\n```\n\nAnd create `.claude/hooks/block-dangerous.sh`, then run `chmod +x .claude/hooks/block-dangerous.sh`:\n\n```bash\n#!/usr/bin/env bash\n# Stops risky shell commands before Claude Code runs them. Needs jq.\ncmd=$(jq -r '.tool_input.command // empty')\nblock() { echo \"Blocked by project hook ($1): $cmd\" >&2; exit 2; }   # exit 2 = block and tell Claude why\n\n# Recursive delete of the root, your home folder, or the whole current folder (any flag order).\nif echo \"$cmd\" | grep -Eq '(^|[;&|[:space:]])rm[[:space:]]([^;&|]*[[:space:]])?(-[a-zA-Z]*[rR][a-zA-Z]*|--recursive)([[:space:]]|$)' &&\n   echo \"$cmd\" | grep -Eq '(^|[;&|[:space:]])rm[[:space:]][^;&|]*[[:space:]](/|/\\*|~|~/|\\$HOME|\\$HOME/|\\.|\\./|\\.\\.|\\*)([[:space:];&|]|$)'; then\n  block \"recursive delete of /, ~ or .\"\nfi\n\n# Force pushes: -f, --force, --force-with-lease, or a +branch refspec.\nif echo \"$cmd\" | grep -Eq 'git[[:space:]]+push([[:space:]]|$)' &&\n   echo \"$cmd\" | grep -Eq '[[:space:]](-[a-zA-Z]*f[a-zA-Z]*|--force|--force-with-lease(=[^[:space:]]*)?|--force-if-includes)([[:space:]]|$)|[[:space:]]\\+[^[:space:]]+'; then\n  block \"force push\"\nfi\n\n# Destructive SQL.\nif echo \"$cmd\" | grep -Eiq 'drop[[:space:]]+(table|database|schema)|truncate[[:space:]]+(table[[:space:]]+)?[a-z_\"`]'; then\n  block \"destructive SQL\"\nfi\n\n# Your own extra rule (an extended regex). Leave it empty to skip.\nEXTRA='{{extra_blocked_pattern}}'\nif [ -n \"$EXTRA\" ] && echo \"$cmd\" | grep -Eq \"$EXTRA\"; then\n  block \"project rule\"\nfi\nexit 0\n```\n\n**Needs:** `jq` (`brew install jq` or `apt install jq`) and your formatter installed in the project (for example `npm i -D prettier`), not just available through npx.\n\n**What it blocks:** recursive deletes of `/`, `~` or the whole current folder in any flag order (`rm -rf`, `rm -fr`, `rm -r -f`), force pushes (`-f`, `--force`, `--force-with-lease`, `+branch`), `DROP TABLE/DATABASE/SCHEMA` and `TRUNCATE`, plus your extra pattern. Normal cleanups like `rm -rf node_modules` or `rm -rf /tmp/cache` still run.\n\n**Check it:** run `/hooks` to see both hooks loaded, ask Claude to edit a file and confirm it was formatted, then ask it to run `psql -c \"DROP TABLE x\"` and confirm it's blocked.",
       "score": 0,
       "uses": 0,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d",
       "raw_url": "https://commandvault.ai/commands/claude-code-hooks-format-on-save-and-block-dangerous-commands-610b844d/raw",
       "created_at": "2026-10-06T11:46:34.816808+00:00",
-      "updated_at": "2026-10-06T11:46:34.816808+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "claude-md-template-for-a-next-js-supabase-app-9261f33c",
@@ -2801,7 +2879,7 @@
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-next-js-supabase-app-9261f33c",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-next-js-supabase-app-9261f33c/raw",
       "created_at": "2026-10-06T13:18:19.067383+00:00",
-      "updated_at": "2026-10-06T13:18:19.067383+00:00"
+      "updated_at": "2026-10-17T15:23:54.27961+00:00"
     },
     {
       "slug": "claude-code-slash-command-commit-584b2474",
@@ -2830,14 +2908,14 @@
         }
       ],
       "install": null,
-      "body": "---\ndescription: Write a commit message for the staged changes and commit\nargument-hint: [optional context]\nallowed-tools: Bash(git diff:*), Bash(git status:*), Bash(git commit:*)\n---\n\n1. Run `git status` and `git diff --staged`. If nothing is staged, stop and tell me.\n2. Write a commit message:\n   - First line: {{commit_style}} format, imperative, under 72 characters (e.g. \"fix: handle empty cart on checkout\").\n   - Blank line, then 1–3 short bullets on why, not what.\n   - Extra context from me: $ARGUMENTS\n3. Show me the message, then commit with it.\nNever use --no-verify and never amend existing commits.",
+      "body": "---\ndescription: Write a commit message for the staged changes and commit\nargument-hint: [optional context]\nallowed-tools: Bash(git diff:*), Bash(git status:*), Bash(git commit:*)\n---\n\n1. Run `git status` and `git diff --staged`. If nothing is staged, stop and tell me.\n2. Write a commit message:\n   - First line: {{commit_style}} format, imperative, under 72 characters (e.g. \"fix: handle empty cart on checkout\").\n   - Blank line, then 1–3 short bullets on why, not what.\n   - Extra context from me: $ARGUMENTS\n3. Show me the message and wait for my OK before committing. If you can't ask (for example a non-interactive run), stop after showing it.\nNever use --no-verify and never amend existing commits.",
       "score": 0,
       "uses": 0,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-slash-command-commit-584b2474",
       "raw_url": "https://commandvault.ai/commands/claude-code-slash-command-commit-584b2474/raw",
       "created_at": "2026-10-06T13:46:34.816808+00:00",
-      "updated_at": "2026-10-06T13:46:34.816808+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "claude-code-slash-command-plan-3082aeed",
@@ -2873,7 +2951,7 @@
       "url": "https://commandvault.ai/commands/claude-code-slash-command-plan-3082aeed",
       "raw_url": "https://commandvault.ai/commands/claude-code-slash-command-plan-3082aeed/raw",
       "created_at": "2026-10-06T15:46:34.816808+00:00",
-      "updated_at": "2026-10-12T15:08:56.423568+00:00"
+      "updated_at": "2026-10-17T15:23:54.27961+00:00"
     },
     {
       "slug": "claude-md-template-for-a-python-fastapi-service-6a36a740",
@@ -2898,43 +2976,43 @@
         {
           "key": "service_name",
           "label": "Service name",
-          "description": null,
+          "description": "What the team calls this service, e.g. billing-api",
           "default": null
         },
         {
           "key": "what_it_does",
           "label": "What it does",
-          "description": null,
+          "description": "One line, e.g. issues invoices and handles Stripe webhooks",
           "default": null
         },
         {
           "key": "python_version",
           "label": "Python version",
-          "description": null,
+          "description": "e.g. 3.12",
           "default": null
         },
         {
           "key": "database",
           "label": "Database",
-          "description": null,
+          "description": "e.g. PostgreSQL 16 via SQLAlchemy",
           "default": null
         },
         {
           "key": "setup_command",
           "label": "Setup command",
-          "description": null,
+          "description": "Exact command to install dependencies, e.g. uv sync",
           "default": null
         },
         {
           "key": "module",
-          "label": "Module",
-          "description": null,
+          "label": "App import path",
+          "description": "Where the FastAPI app object lives, e.g. app.main (for uvicorn app.main:app)",
           "default": null
         },
         {
           "key": "package",
-          "label": "Package",
-          "description": null,
+          "label": "Package folder",
+          "description": "Top-level Python package for type checks, e.g. app",
           "default": null
         }
       ],
@@ -2946,7 +3024,7 @@
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-python-fastapi-service-6a36a740",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-python-fastapi-service-6a36a740/raw",
       "created_at": "2026-10-06T16:18:19.067383+00:00",
-      "updated_at": "2026-10-06T16:18:19.067383+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "claude-code-slash-command-fix-issue-2de5b0f5",
@@ -2983,7 +3061,7 @@
       "url": "https://commandvault.ai/commands/claude-code-slash-command-fix-issue-2de5b0f5",
       "raw_url": "https://commandvault.ai/commands/claude-code-slash-command-fix-issue-2de5b0f5/raw",
       "created_at": "2026-10-06T17:46:34.816808+00:00",
-      "updated_at": "2026-10-06T17:46:34.816808+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "teach-me-with-the-feynman-technique-b8f97557",
@@ -3019,7 +3097,7 @@
       "url": "https://commandvault.ai/commands/teach-me-with-the-feynman-technique-b8f97557",
       "raw_url": "https://commandvault.ai/commands/teach-me-with-the-feynman-technique-b8f97557/raw",
       "created_at": "2026-10-06T18:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "agents-md-for-a-monorepo-e4aa4b99",
@@ -3044,43 +3122,61 @@
         {
           "key": "monorepo_tool",
           "label": "Monorepo tool",
-          "description": null,
+          "description": "e.g. pnpm workspaces + Turborepo, Nx, or npm workspaces",
           "default": null
         },
         {
           "key": "web_app",
-          "label": "Web app",
-          "description": null,
+          "label": "Web app folder",
+          "description": "Folder name under apps/, e.g. web",
           "default": null
         },
         {
           "key": "web_owner",
-          "label": "Web owner",
-          "description": null,
+          "label": "Web app owner",
+          "description": "Team or person, e.g. @frontend",
           "default": null
         },
         {
           "key": "api_app",
-          "label": "Api app",
-          "description": null,
+          "label": "API folder",
+          "description": "Folder name under apps/, e.g. api",
           "default": null
         },
         {
           "key": "api_owner",
-          "label": "Api owner",
-          "description": null,
+          "label": "API owner",
+          "description": "Team or person, e.g. @platform",
+          "default": null
+        },
+        {
+          "key": "ui_owner",
+          "label": "UI package owner",
+          "description": "Team or person, e.g. @design-systems",
+          "default": null
+        },
+        {
+          "key": "test_one_package",
+          "label": "Test one package",
+          "description": "Exact command, e.g. pnpm --filter <package> test, npx nx test <package>, or turbo run test --filter=<package>",
+          "default": null
+        },
+        {
+          "key": "check_changed",
+          "label": "Check changed packages",
+          "description": "Exact command that lints, tests and type-checks what changed, e.g. turbo run lint test typecheck --filter=...[origin/main] or npx nx affected -t lint test typecheck",
           "default": null
         }
       ],
       "install": null,
-      "body": "# AGENTS.md (root)\n\nThis repo is a monorepo managed with {{monorepo_tool}}.\n\n## Packages\n| Path | What | Owner |\n|---|---|---|\n| `apps/{{web_app}}` | Customer-facing web app | {{web_owner}} |\n| `apps/{{api_app}}` | Public API | {{api_owner}} |\n| `packages/ui` | Shared components | design-systems |\n| `packages/config` | Lint/TS/test config | platform |\n\n## Working rules for agents\n1. Run commands from the package you're changing: `{{monorepo_tool}} run test --filter <package>`.\n2. Never change `packages/config` without saying so explicitly in your summary.\n3. Shared code goes in `packages/*`; never import one app from another.\n4. Keep PRs to one package unless the task says otherwise.\n\n## Package-specific rules\nEach package may have its own `AGENTS.md`. When it exists, it wins over this file for files inside that package.\n\n## Before you finish\n- `{{monorepo_tool}} run lint test typecheck --filter <changed packages>` passes.\n- Summarize: what changed, how you verified it, open questions.",
+      "body": "# AGENTS.md (root)\n\nThis repo is a monorepo managed with {{monorepo_tool}}.\n\n## Packages\n| Path | What | Owner |\n|---|---|---|\n| `apps/{{web_app}}` | Customer-facing web app | {{web_owner}} |\n| `apps/{{api_app}}` | Public API | {{api_owner}} |\n| `packages/ui` | Shared components | {{ui_owner}} |\n| `packages/config` | Lint/TS/test config | platform |\n\n## Working rules for agents\n1. Run commands from the package you're changing: `{{test_one_package}}`.\n2. Never change `packages/config` without saying so explicitly in your summary.\n3. Shared code goes in `packages/*`; never import one app from another.\n4. Keep PRs to one package unless the task says otherwise.\n\n## Package-specific rules\nEach package may have its own `AGENTS.md`. When it exists, it wins over this file for files inside that package.\n\n## Before you finish\n- `{{check_changed}}` passes.\n- Summarize: what changed, how you verified it, open questions.",
       "score": 0,
       "uses": 0,
       "author": "client",
       "url": "https://commandvault.ai/commands/agents-md-for-a-monorepo-e4aa4b99",
       "raw_url": "https://commandvault.ai/commands/agents-md-for-a-monorepo-e4aa4b99/raw",
       "created_at": "2026-10-06T19:18:19.067383+00:00",
-      "updated_at": "2026-10-06T19:18:19.067383+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "set-up-claude-code-in-an-existing-repo-faaec9e5",
@@ -3116,7 +3212,7 @@
       "url": "https://commandvault.ai/commands/set-up-claude-code-in-an-existing-repo-faaec9e5",
       "raw_url": "https://commandvault.ai/commands/set-up-claude-code-in-an-existing-repo-faaec9e5/raw",
       "created_at": "2026-10-06T19:46:34.816808+00:00",
-      "updated_at": "2026-10-06T19:46:34.816808+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "cursor-rules-for-next-js-app-router-63d6701b",
@@ -3158,7 +3254,7 @@
       "url": "https://commandvault.ai/commands/cursor-rules-for-next-js-app-router-63d6701b",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-next-js-app-router-63d6701b/raw",
       "created_at": "2026-10-06T21:46:34.816808+00:00",
-      "updated_at": "2026-10-06T21:46:34.816808+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "generate-an-agents-md-from-an-existing-codebase-0a21e41d",
@@ -3201,7 +3297,7 @@
       "url": "https://commandvault.ai/commands/generate-an-agents-md-from-an-existing-codebase-0a21e41d",
       "raw_url": "https://commandvault.ai/commands/generate-an-agents-md-from-an-existing-codebase-0a21e41d/raw",
       "created_at": "2026-10-06T22:18:19.067383+00:00",
-      "updated_at": "2026-10-06T22:18:19.067383+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "cursor-rules-for-vue-3-typescript-d7cba1fa",
@@ -3243,7 +3339,7 @@
       "url": "https://commandvault.ai/commands/cursor-rules-for-vue-3-typescript-d7cba1fa",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-vue-3-typescript-d7cba1fa/raw",
       "created_at": "2026-10-06T23:46:34.816808+00:00",
-      "updated_at": "2026-10-06T23:46:34.816808+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "update-claude-md-after-a-coding-session-a460fb4e",
@@ -3280,7 +3376,7 @@
       "url": "https://commandvault.ai/commands/update-claude-md-after-a-coding-session-a460fb4e",
       "raw_url": "https://commandvault.ai/commands/update-claude-md-after-a-coding-session-a460fb4e/raw",
       "created_at": "2026-10-07T01:18:19.067383+00:00",
-      "updated_at": "2026-10-07T01:18:19.067383+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "practice-interview-with-feedback-b20154da",
@@ -3328,7 +3424,7 @@
       "url": "https://commandvault.ai/commands/practice-interview-with-feedback-b20154da",
       "raw_url": "https://commandvault.ai/commands/practice-interview-with-feedback-b20154da/raw",
       "created_at": "2026-10-07T01:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "cursor-rules-for-sveltekit-321f00ef",
@@ -3370,7 +3466,7 @@
       "url": "https://commandvault.ai/commands/cursor-rules-for-sveltekit-321f00ef",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-sveltekit-321f00ef/raw",
       "created_at": "2026-10-07T01:46:34.816808+00:00",
-      "updated_at": "2026-10-07T01:46:34.816808+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "cursor-rules-for-tailwind-css-7767bbdc",
@@ -3418,7 +3514,7 @@
       "url": "https://commandvault.ai/commands/cursor-rules-for-tailwind-css-7767bbdc",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-tailwind-css-7767bbdc/raw",
       "created_at": "2026-10-07T03:46:34.816808+00:00",
-      "updated_at": "2026-10-07T03:46:34.816808+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "cursor-project-rules-for-react-typescript-1238d8aa",
@@ -3491,7 +3587,7 @@
       "url": "https://commandvault.ai/commands/cursor-project-rules-for-react-typescript-1238d8aa",
       "raw_url": "https://commandvault.ai/commands/cursor-project-rules-for-react-typescript-1238d8aa/raw",
       "created_at": "2026-10-07T04:18:19.067383+00:00",
-      "updated_at": "2026-10-07T04:18:19.067383+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "cursor-rules-for-supabase-d4b5ec46",
@@ -3527,7 +3623,7 @@
       "url": "https://commandvault.ai/commands/cursor-rules-for-supabase-d4b5ec46",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-supabase-d4b5ec46/raw",
       "created_at": "2026-10-07T05:46:34.816808+00:00",
-      "updated_at": "2026-10-07T05:46:34.816808+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "github-copilot-custom-instructions-file-5a9bdedb",
@@ -3612,7 +3708,7 @@
       "url": "https://commandvault.ai/commands/github-copilot-custom-instructions-file-5a9bdedb",
       "raw_url": "https://commandvault.ai/commands/github-copilot-custom-instructions-file-5a9bdedb/raw",
       "created_at": "2026-10-07T07:18:19.067383+00:00",
-      "updated_at": "2026-10-07T07:18:19.067383+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "cursor-rules-for-prisma-4276d69f",
@@ -3648,7 +3744,7 @@
       "url": "https://commandvault.ai/commands/cursor-rules-for-prisma-4276d69f",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-prisma-4276d69f/raw",
       "created_at": "2026-10-07T07:46:34.816808+00:00",
-      "updated_at": "2026-10-07T07:46:34.816808+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "summarize-a-paper-or-long-article-71816494",
@@ -3702,7 +3798,7 @@
       "url": "https://commandvault.ai/commands/summarize-a-paper-or-long-article-71816494",
       "raw_url": "https://commandvault.ai/commands/summarize-a-paper-or-long-article-71816494/raw",
       "created_at": "2026-10-07T08:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:11:16.615839+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "cursor-rules-for-python-projects-aae1afcd",
@@ -3749,7 +3845,7 @@
       "url": "https://commandvault.ai/commands/cursor-rules-for-python-projects-aae1afcd",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-python-projects-aae1afcd/raw",
       "created_at": "2026-10-07T09:46:34.816808+00:00",
-      "updated_at": "2026-10-07T09:46:34.816808+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-code-custom-slash-command-review-db7a5205",
@@ -3778,14 +3874,14 @@
         }
       ],
       "install": null,
-      "body": "---\ndescription: Review the current changes like a senior engineer\nargument-hint: [optional focus, e.g. security or performance]\n---\n\nReview the uncommitted changes in this repository (run `git diff` and `git diff --staged`).\n\nFocus: $ARGUMENTS (if empty, review everything).\n\nReport only what's worth changing, grouped as:\n1. **Bugs**: wrong behavior, crashes, races, security problems. Give file:line and a concrete failing scenario.\n2. **Risky**: missing tests, unclear error handling, performance traps.\n3. **Simplify**: code that can be removed or merged.\n\nSkip style nitpicks unless they hide a bug. End with: ship / ship after fixes / don't ship.\nProject-specific checks: {{project_checks}}",
+      "body": "---\ndescription: Review the current changes like a senior engineer\nargument-hint: [optional focus, e.g. security or performance]\nallowed-tools: Bash(git diff:*), Bash(git status:*)\n---\n\nReview the uncommitted changes in this repository: run `git status --short` (new files only show there; read them in full), `git diff` and `git diff --staged`.\n\nFocus: $ARGUMENTS (if empty, review everything).\n\nReport only what's worth changing, grouped as:\n1. **Bugs**: wrong behavior, crashes, races, security problems. Give file:line and a concrete failing scenario.\n2. **Risky**: missing tests, unclear error handling, performance traps.\n3. **Simplify**: code that can be removed or merged.\n\nSkip style nitpicks unless they hide a bug. End with: ship / ship after fixes / don't ship.\nProject-specific checks: {{project_checks}}",
       "score": 0,
       "uses": 0,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-custom-slash-command-review-db7a5205",
       "raw_url": "https://commandvault.ai/commands/claude-code-custom-slash-command-review-db7a5205/raw",
       "created_at": "2026-10-07T10:18:19.067383+00:00",
-      "updated_at": "2026-10-07T10:18:19.067383+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "cursor-rules-for-go-0021fab7",
@@ -3821,7 +3917,7 @@
       "url": "https://commandvault.ai/commands/cursor-rules-for-go-0021fab7",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-go-0021fab7/raw",
       "created_at": "2026-10-07T11:46:34.816808+00:00",
-      "updated_at": "2026-10-07T11:46:34.816808+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-code-subagent-test-writer-dd7b50c1",
@@ -3862,14 +3958,14 @@
         }
       ],
       "install": null,
-      "body": "---\nname: test-writer\ndescription: Writes and fixes tests for recently changed code. Use after implementing a feature or fixing a bug.\ntools: Read, Grep, Glob, Edit, Write, Bash\n---\n\nYou write tests for {{project_name}} using {{test_framework}}.\n\nProcess:\n1. Find what changed: `git diff --name-only HEAD`.\n2. Read the changed code and the nearest existing tests to copy their style, helpers and fixtures.\n3. Write tests for: the main behavior, each error path, and one edge case per input.\n4. Run `{{test_command}}`. If a test fails because the code is wrong, report it; don't change the code.\n5. Never weaken an assertion or skip a test to make it pass.\n\nReturn: the tests you added, the command output, and any bugs you found.",
+      "body": "---\nname: test-writer\ndescription: Writes and fixes tests for recently changed code. Use after implementing a feature or fixing a bug.\ntools: Read, Grep, Glob, Edit, Write, Bash\n---\n\nYou write tests for {{project_name}} using {{test_framework}}.\n\nProcess:\n1. Find what changed: `git status --short` and `git diff --name-only HEAD` (new, untracked files only show in git status). If the project has no test runner yet, say so and propose the smallest setup before writing tests.\n2. Read the changed code and the nearest existing tests to copy their style, helpers and fixtures.\n3. Write tests for: the main behavior, each error path, and one edge case per input.\n4. Run `{{test_command}}`. If a test fails because the code is wrong, report it; don't change the code.\n5. Never weaken an assertion or skip a test to make it pass.\n\nReturn: the tests you added, the command output, and any bugs you found.",
       "score": 0,
       "uses": 0,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-subagent-test-writer-dd7b50c1",
       "raw_url": "https://commandvault.ai/commands/claude-code-subagent-test-writer-dd7b50c1/raw",
       "created_at": "2026-10-07T13:18:19.067383+00:00",
-      "updated_at": "2026-10-07T13:18:19.067383+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "claude-code-subagent-code-reviewer-03274b7f",
@@ -3904,14 +4000,14 @@
         }
       ],
       "install": null,
-      "body": "---\nname: code-reviewer\ndescription: Reviews recent code changes for bugs, security issues and unnecessary complexity. Use after finishing a feature or before committing.\ntools: Read, Grep, Glob, Bash\n---\n\nYou are a senior engineer reviewing changes in {{project_name}}.\n\n1. Get the diff: `git diff` and `git diff --staged` (or the branch diff against {{base_branch}}).\n2. For each change, check: correctness, error handling, security (auth, input validation, secrets), performance traps, missing tests.\n3. Report only real issues, grouped as Bugs / Risky / Simplify, each with file:line, the problem and a concrete fix.\n4. Do not edit files. End with: ship / ship after fixes / don't ship.",
+      "body": "---\nname: code-reviewer\ndescription: Reviews recent code changes for bugs, security issues and unnecessary complexity. Use after finishing a feature or before committing.\ntools: Read, Grep, Glob, Bash\n---\n\nYou are a senior engineer reviewing changes in {{project_name}}.\n\n1. Get the changes: `git status --short` (new files don't show in `git diff` until added; read them in full), then `git diff` and `git diff --staged`, or the branch diff against {{base_branch}}.\n2. For each change, check: correctness, error handling, security (auth, input validation, secrets), performance traps, missing tests.\n3. Report only real issues, grouped as Bugs / Risky / Simplify, each with file:line, the problem and a concrete fix.\n4. Do not edit files. End with: ship / ship after fixes / don't ship.",
       "score": 0,
       "uses": 0,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-subagent-code-reviewer-03274b7f",
       "raw_url": "https://commandvault.ai/commands/claude-code-subagent-code-reviewer-03274b7f/raw",
       "created_at": "2026-10-07T13:46:34.816808+00:00",
-      "updated_at": "2026-10-07T13:46:34.816808+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "make-flashcards-from-my-notes-b50fd58d",
@@ -3947,7 +4043,7 @@
       "url": "https://commandvault.ai/commands/make-flashcards-from-my-notes-b50fd58d",
       "raw_url": "https://commandvault.ai/commands/make-flashcards-from-my-notes-b50fd58d/raw",
       "created_at": "2026-10-07T14:40:41.315869+00:00",
-      "updated_at": "2026-10-07T22:33:58.120337+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-code-subagent-debugger-4afa4d06",
@@ -3976,14 +4072,14 @@
         }
       ],
       "install": null,
-      "body": "---\nname: debugger\ndescription: Investigates errors, failing tests and unexpected behavior to find the root cause. Use when something is broken and the cause isn't obvious.\ntools: Read, Grep, Glob, Bash, Edit\n---\n\nYou debug problems in {{project_name}} methodically.\n\n1. Restate the symptom and how to reproduce it. Reproduce it yourself first.\n2. Form 2–3 hypotheses, cheapest to test first. Test each with logs, a minimal script or a failing test.\n3. Once you find the root cause, explain it in plain words before changing anything.\n4. Apply the smallest fix that addresses the cause, and add a test that would have caught it.\n5. Remove any temporary logging. Report: symptom, cause, fix, test, and what else might be affected.",
+      "body": "---\nname: debugger\ndescription: Investigates errors, failing tests and unexpected behavior to find the root cause. Use when something is broken and the cause isn't obvious.\ntools: Read, Grep, Glob, Bash, Edit\n---\n\nYou debug problems in {{project_name}} methodically.\n\n1. Restate the symptom and how to reproduce it. Reproduce it yourself first.\n2. Form 2–3 hypotheses, cheapest to test first. Test each with logs, a minimal script or a failing test.\n3. Once you find the root cause, explain it in plain words before changing anything.\n4. Apply the smallest fix that addresses the cause, and add a test that would have caught it (if the project has no test runner, add a small check script instead and say so).\n5. Remove any temporary logging. Report: symptom, cause, fix, test, and what else might be affected.",
       "score": 0,
       "uses": 0,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-subagent-debugger-4afa4d06",
       "raw_url": "https://commandvault.ai/commands/claude-code-subagent-debugger-4afa4d06/raw",
       "created_at": "2026-10-07T15:46:34.816808+00:00",
-      "updated_at": "2026-10-07T15:46:34.816808+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "convert-claude-md-into-agents-md-gemini-md-and-cursor-rules-9a820aa4",
@@ -4026,7 +4122,7 @@
       "url": "https://commandvault.ai/commands/convert-claude-md-into-agents-md-gemini-md-and-cursor-rules-9a820aa4",
       "raw_url": "https://commandvault.ai/commands/convert-claude-md-into-agents-md-gemini-md-and-cursor-rules-9a820aa4/raw",
       "created_at": "2026-10-07T16:18:19.067383+00:00",
-      "updated_at": "2026-10-07T16:18:19.067383+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-code-subagent-database-migration-checker-ff16bd58",
@@ -4069,7 +4165,7 @@
       "url": "https://commandvault.ai/commands/claude-code-subagent-database-migration-checker-ff16bd58",
       "raw_url": "https://commandvault.ai/commands/claude-code-subagent-database-migration-checker-ff16bd58/raw",
       "created_at": "2026-10-07T17:46:34.816808+00:00",
-      "updated_at": "2026-10-07T17:46:34.816808+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "definition-of-done-block-for-agent-context-files-41e7512b",
@@ -4124,7 +4220,7 @@
       "url": "https://commandvault.ai/commands/definition-of-done-block-for-agent-context-files-41e7512b",
       "raw_url": "https://commandvault.ai/commands/definition-of-done-block-for-agent-context-files-41e7512b/raw",
       "created_at": "2026-10-07T19:18:19.067383+00:00",
-      "updated_at": "2026-10-07T19:18:19.067383+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-code-subagent-docs-writer-54a75804",
@@ -4172,7 +4268,7 @@
       "url": "https://commandvault.ai/commands/claude-code-subagent-docs-writer-54a75804",
       "raw_url": "https://commandvault.ai/commands/claude-code-subagent-docs-writer-54a75804/raw",
       "created_at": "2026-10-07T19:46:34.816808+00:00",
-      "updated_at": "2026-10-07T19:46:34.816808+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-code-subagent-security-auditor-b97dec0f",
@@ -4207,14 +4303,14 @@
         }
       ],
       "install": null,
-      "body": "---\nname: security-auditor\ndescription: Audits code for security issues: auth gaps, injection, exposed secrets, unsafe uploads and missing rate limits. Use before releases or after touching auth, payments or user input.\ntools: Read, Grep, Glob\n---\n\nYou audit {{project_name}} for security issues. You never edit files or run anything that changes state.\n\nCheck, with file:line evidence:\n1. Every endpoint checks authentication AND authorization.\n2. Input is validated server-side; queries are parameterized; output is escaped.\n3. Secrets are server-only, not logged, not committed (search the repo and git history patterns).\n4. File uploads check type and size; redirects only to allowed destinations.\n5. Rate limits on login, signup, password reset and write endpoints.\n6. Dependencies with known critical vulnerabilities ({{audit_command}}).\nRank findings by impact and give a concrete fix for each.",
+      "body": "---\nname: security-auditor\ndescription: Audits code for security issues: auth gaps, injection, exposed secrets, unsafe uploads and missing rate limits. Use before releases or after touching auth, payments or user input.\ntools: Read, Grep, Glob, Bash\n---\n\nYou audit {{project_name}} for security issues. You never edit files. Only run read-only commands: {{audit_command}}, git log and git grep.\n\nCheck, with file:line evidence:\n1. Every endpoint checks authentication AND authorization.\n2. Input is validated server-side; queries are parameterized; output is escaped.\n3. Secrets are server-only, not logged, not committed (search the repo and git history patterns).\n4. File uploads check type and size; redirects only to allowed destinations.\n5. Rate limits on login, signup, password reset and write endpoints.\n6. Dependencies with known critical vulnerabilities ({{audit_command}}).\nRank findings by impact and give a concrete fix for each.",
       "score": 0,
       "uses": 0,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-subagent-security-auditor-b97dec0f",
       "raw_url": "https://commandvault.ai/commands/claude-code-subagent-security-auditor-b97dec0f/raw",
       "created_at": "2026-10-07T21:46:34.816808+00:00",
-      "updated_at": "2026-10-07T21:46:34.816808+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "safety-rules-block-for-coding-agents-31955c3a",
@@ -4251,7 +4347,7 @@
       "url": "https://commandvault.ai/commands/safety-rules-block-for-coding-agents-31955c3a",
       "raw_url": "https://commandvault.ai/commands/safety-rules-block-for-coding-agents-31955c3a/raw",
       "created_at": "2026-10-07T22:18:19.067383+00:00",
-      "updated_at": "2026-10-07T22:18:19.067383+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-code-subagent-refactorer-3a6be62c",
@@ -4293,7 +4389,7 @@
       "url": "https://commandvault.ai/commands/claude-code-subagent-refactorer-3a6be62c",
       "raw_url": "https://commandvault.ai/commands/claude-code-subagent-refactorer-3a6be62c/raw",
       "created_at": "2026-10-07T23:46:34.816808+00:00",
-      "updated_at": "2026-10-07T23:46:34.816808+00:00"
+      "updated_at": "2026-10-17T15:46:06.838402+00:00"
     },
     {
       "slug": "pdf-toolkit-anthropic-66111aa9",
@@ -4334,7 +4430,7 @@
       "url": "https://commandvault.ai/commands/pdf-toolkit-anthropic-66111aa9",
       "raw_url": "https://commandvault.ai/commands/pdf-toolkit-anthropic-66111aa9/raw",
       "created_at": "2026-10-09T19:09:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "word-documents-anthropic-124b8bcd",
@@ -4375,7 +4471,7 @@
       "url": "https://commandvault.ai/commands/word-documents-anthropic-124b8bcd",
       "raw_url": "https://commandvault.ai/commands/word-documents-anthropic-124b8bcd/raw",
       "created_at": "2026-10-09T19:46:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "powerpoint-decks-anthropic-7b1328a8",
@@ -4416,7 +4512,7 @@
       "url": "https://commandvault.ai/commands/powerpoint-decks-anthropic-7b1328a8",
       "raw_url": "https://commandvault.ai/commands/powerpoint-decks-anthropic-7b1328a8/raw",
       "created_at": "2026-10-09T20:23:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "excel-spreadsheets-anthropic-7448d591",
@@ -4457,7 +4553,7 @@
       "url": "https://commandvault.ai/commands/excel-spreadsheets-anthropic-7448d591",
       "raw_url": "https://commandvault.ai/commands/excel-spreadsheets-anthropic-7448d591/raw",
       "created_at": "2026-10-09T21:00:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "skill-creator-anthropic-4085d6b7",
@@ -4498,7 +4594,7 @@
       "url": "https://commandvault.ai/commands/skill-creator-anthropic-4085d6b7",
       "raw_url": "https://commandvault.ai/commands/skill-creator-anthropic-4085d6b7/raw",
       "created_at": "2026-10-09T21:37:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "mcp-server-builder-anthropic-ab90b905",
@@ -4539,7 +4635,7 @@
       "url": "https://commandvault.ai/commands/mcp-server-builder-anthropic-ab90b905",
       "raw_url": "https://commandvault.ai/commands/mcp-server-builder-anthropic-ab90b905/raw",
       "created_at": "2026-10-09T22:14:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "frontend-design-anthropic-58f8cf7a",
@@ -4580,7 +4676,7 @@
       "url": "https://commandvault.ai/commands/frontend-design-anthropic-58f8cf7a",
       "raw_url": "https://commandvault.ai/commands/frontend-design-anthropic-58f8cf7a/raw",
       "created_at": "2026-10-09T22:51:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "web-app-testing-with-playwright-anthropic-c0201729",
@@ -4621,7 +4717,7 @@
       "url": "https://commandvault.ai/commands/web-app-testing-with-playwright-anthropic-c0201729",
       "raw_url": "https://commandvault.ai/commands/web-app-testing-with-playwright-anthropic-c0201729/raw",
       "created_at": "2026-10-09T23:28:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "web-artifacts-builder-anthropic-32211529",
@@ -4662,7 +4758,7 @@
       "url": "https://commandvault.ai/commands/web-artifacts-builder-anthropic-32211529",
       "raw_url": "https://commandvault.ai/commands/web-artifacts-builder-anthropic-32211529/raw",
       "created_at": "2026-10-10T00:05:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "canvas-design-anthropic-c8deeaea",
@@ -4703,7 +4799,7 @@
       "url": "https://commandvault.ai/commands/canvas-design-anthropic-c8deeaea",
       "raw_url": "https://commandvault.ai/commands/canvas-design-anthropic-c8deeaea/raw",
       "created_at": "2026-10-10T00:42:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "doc-co-authoring-workflow-anthropic-c021d334",
@@ -4744,7 +4840,7 @@
       "url": "https://commandvault.ai/commands/doc-co-authoring-workflow-anthropic-c021d334",
       "raw_url": "https://commandvault.ai/commands/doc-co-authoring-workflow-anthropic-c021d334/raw",
       "created_at": "2026-10-10T01:19:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-api-reference-anthropic-b5ea3e3a",
@@ -4785,7 +4881,7 @@
       "url": "https://commandvault.ai/commands/claude-api-reference-anthropic-b5ea3e3a",
       "raw_url": "https://commandvault.ai/commands/claude-api-reference-anthropic-b5ea3e3a/raw",
       "created_at": "2026-10-10T01:56:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "brainstorming-before-building-superpowers-84194470",
@@ -4825,7 +4921,7 @@
       "url": "https://commandvault.ai/commands/brainstorming-before-building-superpowers-84194470",
       "raw_url": "https://commandvault.ai/commands/brainstorming-before-building-superpowers-84194470/raw",
       "created_at": "2026-10-10T02:33:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "writing-implementation-plans-superpowers-3a8e80fa",
@@ -4864,7 +4960,7 @@
       "url": "https://commandvault.ai/commands/writing-implementation-plans-superpowers-3a8e80fa",
       "raw_url": "https://commandvault.ai/commands/writing-implementation-plans-superpowers-3a8e80fa/raw",
       "created_at": "2026-10-10T03:10:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "test-driven-development-superpowers-cffc223e",
@@ -4903,7 +4999,7 @@
       "url": "https://commandvault.ai/commands/test-driven-development-superpowers-cffc223e",
       "raw_url": "https://commandvault.ai/commands/test-driven-development-superpowers-cffc223e/raw",
       "created_at": "2026-10-10T03:47:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "systematic-debugging-superpowers-c059abab",
@@ -4942,7 +5038,7 @@
       "url": "https://commandvault.ai/commands/systematic-debugging-superpowers-c059abab",
       "raw_url": "https://commandvault.ai/commands/systematic-debugging-superpowers-c059abab/raw",
       "created_at": "2026-10-10T04:24:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "subagent-driven-development-superpowers-d1358075",
@@ -4982,7 +5078,7 @@
       "url": "https://commandvault.ai/commands/subagent-driven-development-superpowers-d1358075",
       "raw_url": "https://commandvault.ai/commands/subagent-driven-development-superpowers-d1358075/raw",
       "created_at": "2026-10-10T05:01:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "commandvault-mcp-server-37fd19fc",
@@ -5022,7 +5118,7 @@
       "url": "https://commandvault.ai/commands/commandvault-mcp-server-37fd19fc",
       "raw_url": "https://commandvault.ai/commands/commandvault-mcp-server-37fd19fc/raw",
       "created_at": "2026-10-10T05:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "git-worktrees-for-isolation-superpowers-cee8ccdf",
@@ -5061,7 +5157,7 @@
       "url": "https://commandvault.ai/commands/git-worktrees-for-isolation-superpowers-cee8ccdf",
       "raw_url": "https://commandvault.ai/commands/git-worktrees-for-isolation-superpowers-cee8ccdf/raw",
       "created_at": "2026-10-10T05:38:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "verify-before-claiming-done-superpowers-24f62fa7",
@@ -5100,7 +5196,7 @@
       "url": "https://commandvault.ai/commands/verify-before-claiming-done-superpowers-24f62fa7",
       "raw_url": "https://commandvault.ai/commands/verify-before-claiming-done-superpowers-24f62fa7/raw",
       "created_at": "2026-10-10T06:15:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "requesting-code-review-superpowers-5257970b",
@@ -5139,7 +5235,7 @@
       "url": "https://commandvault.ai/commands/requesting-code-review-superpowers-5257970b",
       "raw_url": "https://commandvault.ai/commands/requesting-code-review-superpowers-5257970b/raw",
       "created_at": "2026-10-10T06:52:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "github-mcp-server-official-remote-67353001",
@@ -5185,7 +5281,7 @@
       "url": "https://commandvault.ai/commands/github-mcp-server-official-remote-67353001",
       "raw_url": "https://commandvault.ai/commands/github-mcp-server-official-remote-67353001/raw",
       "created_at": "2026-10-10T07:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "react-next-js-performance-vercel-f9bf3208",
@@ -5222,7 +5318,7 @@
       "url": "https://commandvault.ai/commands/react-next-js-performance-vercel-f9bf3208",
       "raw_url": "https://commandvault.ai/commands/react-next-js-performance-vercel-f9bf3208/raw",
       "created_at": "2026-10-10T07:29:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "web-interface-guidelines-review-vercel-e7a3d677",
@@ -5259,7 +5355,7 @@
       "url": "https://commandvault.ai/commands/web-interface-guidelines-review-vercel-e7a3d677",
       "raw_url": "https://commandvault.ai/commands/web-interface-guidelines-review-vercel-e7a3d677/raw",
       "created_at": "2026-10-10T08:06:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "react-composition-patterns-vercel-d9e9b118",
@@ -5295,7 +5391,7 @@
       "url": "https://commandvault.ai/commands/react-composition-patterns-vercel-d9e9b118",
       "raw_url": "https://commandvault.ai/commands/react-composition-patterns-vercel-d9e9b118/raw",
       "created_at": "2026-10-10T08:43:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "context7-up-to-date-library-docs-a4090c41",
@@ -5335,7 +5431,7 @@
       "url": "https://commandvault.ai/commands/context7-up-to-date-library-docs-a4090c41",
       "raw_url": "https://commandvault.ai/commands/context7-up-to-date-library-docs-a4090c41/raw",
       "created_at": "2026-10-10T09:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "deploy-to-vercel-vercel-4593d0b6",
@@ -5371,7 +5467,7 @@
       "url": "https://commandvault.ai/commands/deploy-to-vercel-vercel-4593d0b6",
       "raw_url": "https://commandvault.ai/commands/deploy-to-vercel-vercel-4593d0b6/raw",
       "created_at": "2026-10-10T09:20:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "semgrep-security-scan-trail-of-bits-4a0f9cca",
@@ -5412,7 +5508,7 @@
       "url": "https://commandvault.ai/commands/semgrep-security-scan-trail-of-bits-4a0f9cca",
       "raw_url": "https://commandvault.ai/commands/semgrep-security-scan-trail-of-bits-4a0f9cca/raw",
       "created_at": "2026-10-10T09:57:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "codeql-scan-trail-of-bits-35df9f85",
@@ -5453,7 +5549,7 @@
       "url": "https://commandvault.ai/commands/codeql-scan-trail-of-bits-35df9f85",
       "raw_url": "https://commandvault.ai/commands/codeql-scan-trail-of-bits-35df9f85/raw",
       "created_at": "2026-10-10T10:34:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "security-diff-review-trail-of-bits-b06ba141",
@@ -5494,7 +5590,7 @@
       "url": "https://commandvault.ai/commands/security-diff-review-trail-of-bits-b06ba141",
       "raw_url": "https://commandvault.ai/commands/security-diff-review-trail-of-bits-b06ba141/raw",
       "created_at": "2026-10-10T11:11:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "playwright-mcp-browser-automation-cf5ef65c",
@@ -5536,7 +5632,7 @@
       "url": "https://commandvault.ai/commands/playwright-mcp-browser-automation-cf5ef65c",
       "raw_url": "https://commandvault.ai/commands/playwright-mcp-browser-automation-cf5ef65c/raw",
       "created_at": "2026-10-10T11:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "property-based-testing-trail-of-bits-eef7d2b2",
@@ -5577,7 +5673,7 @@
       "url": "https://commandvault.ai/commands/property-based-testing-trail-of-bits-eef7d2b2",
       "raw_url": "https://commandvault.ai/commands/property-based-testing-trail-of-bits-eef7d2b2/raw",
       "created_at": "2026-10-10T11:48:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "supply-chain-risk-audit-trail-of-bits-15964de0",
@@ -5618,7 +5714,7 @@
       "url": "https://commandvault.ai/commands/supply-chain-risk-audit-trail-of-bits-15964de0",
       "raw_url": "https://commandvault.ai/commands/supply-chain-risk-audit-trail-of-bits-15964de0/raw",
       "created_at": "2026-10-10T12:25:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "hugging-face-hub-cli-hugging-face-a0fe8349",
@@ -5659,7 +5755,7 @@
       "url": "https://commandvault.ai/commands/hugging-face-hub-cli-hugging-face-a0fe8349",
       "raw_url": "https://commandvault.ai/commands/hugging-face-hub-cli-hugging-face-a0fe8349/raw",
       "created_at": "2026-10-10T13:02:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "chrome-devtools-mcp-a2ef4633",
@@ -5702,7 +5798,7 @@
       "url": "https://commandvault.ai/commands/chrome-devtools-mcp-a2ef4633",
       "raw_url": "https://commandvault.ai/commands/chrome-devtools-mcp-a2ef4633/raw",
       "created_at": "2026-10-10T13:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "llm-fine-tuning-on-hf-jobs-hugging-face-9422c76b",
@@ -5739,7 +5835,7 @@
       "url": "https://commandvault.ai/commands/llm-fine-tuning-on-hf-jobs-hugging-face-9422c76b",
       "raw_url": "https://commandvault.ai/commands/llm-fine-tuning-on-hf-jobs-hugging-face-9422c76b/raw",
       "created_at": "2026-10-10T13:39:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "gradio-apps-hugging-face-d0321991",
@@ -5776,7 +5872,7 @@
       "url": "https://commandvault.ai/commands/gradio-apps-hugging-face-d0321991",
       "raw_url": "https://commandvault.ai/commands/gradio-apps-hugging-face-d0321991/raw",
       "created_at": "2026-10-10T14:16:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "find-bugs-in-your-branch-sentry-996dc68d",
@@ -5816,7 +5912,7 @@
       "url": "https://commandvault.ai/commands/find-bugs-in-your-branch-sentry-996dc68d",
       "raw_url": "https://commandvault.ai/commands/find-bugs-in-your-branch-sentry-996dc68d/raw",
       "created_at": "2026-10-10T14:53:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "supabase-mcp-server-official-remote-05e2e405",
@@ -5856,7 +5952,7 @@
       "url": "https://commandvault.ai/commands/supabase-mcp-server-official-remote-05e2e405",
       "raw_url": "https://commandvault.ai/commands/supabase-mcp-server-official-remote-05e2e405/raw",
       "created_at": "2026-10-10T15:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "iterate-on-a-pr-until-green-sentry-e5946153",
@@ -5896,7 +5992,7 @@
       "url": "https://commandvault.ai/commands/iterate-on-a-pr-until-green-sentry-e5946153",
       "raw_url": "https://commandvault.ai/commands/iterate-on-a-pr-until-green-sentry-e5946153/raw",
       "created_at": "2026-10-10T15:30:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "github-actions-security-review-sentry-015d75ff",
@@ -5936,7 +6032,7 @@
       "url": "https://commandvault.ai/commands/github-actions-security-review-sentry-015d75ff",
       "raw_url": "https://commandvault.ai/commands/github-actions-security-review-sentry-015d75ff/raw",
       "created_at": "2026-10-10T16:07:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "cloudflare-platform-guide-cloudflare-556a22a1",
@@ -5977,7 +6073,7 @@
       "url": "https://commandvault.ai/commands/cloudflare-platform-guide-cloudflare-556a22a1",
       "raw_url": "https://commandvault.ai/commands/cloudflare-platform-guide-cloudflare-556a22a1/raw",
       "created_at": "2026-10-10T16:44:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "sentry-mcp-server-official-remote-7406bc19",
@@ -6017,7 +6113,7 @@
       "url": "https://commandvault.ai/commands/sentry-mcp-server-official-remote-7406bc19",
       "raw_url": "https://commandvault.ai/commands/sentry-mcp-server-official-remote-7406bc19/raw",
       "created_at": "2026-10-10T17:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "wrangler-cli-cloudflare-e4007610",
@@ -6058,7 +6154,7 @@
       "url": "https://commandvault.ai/commands/wrangler-cli-cloudflare-e4007610",
       "raw_url": "https://commandvault.ai/commands/wrangler-cli-cloudflare-e4007610/raw",
       "created_at": "2026-10-10T17:21:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "cloudflare-agents-sdk-cloudflare-5756914e",
@@ -6099,7 +6195,7 @@
       "url": "https://commandvault.ai/commands/cloudflare-agents-sdk-cloudflare-5756914e",
       "raw_url": "https://commandvault.ai/commands/cloudflare-agents-sdk-cloudflare-5756914e/raw",
       "created_at": "2026-10-10T17:58:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "supabase-supabase-2cc91bac",
@@ -6140,7 +6236,7 @@
       "url": "https://commandvault.ai/commands/supabase-supabase-2cc91bac",
       "raw_url": "https://commandvault.ai/commands/supabase-supabase-2cc91bac/raw",
       "created_at": "2026-10-10T18:35:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "postgres-best-practices-supabase-6ffa0d57",
@@ -6181,7 +6277,7 @@
       "url": "https://commandvault.ai/commands/postgres-best-practices-supabase-6ffa0d57",
       "raw_url": "https://commandvault.ai/commands/postgres-best-practices-supabase-6ffa0d57/raw",
       "created_at": "2026-10-10T19:12:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "linear-mcp-server-official-remote-b78b00c9",
@@ -6221,7 +6317,7 @@
       "url": "https://commandvault.ai/commands/linear-mcp-server-official-remote-b78b00c9",
       "raw_url": "https://commandvault.ai/commands/linear-mcp-server-official-remote-b78b00c9/raw",
       "created_at": "2026-10-10T19:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "stripe-integration-best-practices-stripe-517f1da0",
@@ -6262,7 +6358,7 @@
       "url": "https://commandvault.ai/commands/stripe-integration-best-practices-stripe-517f1da0",
       "raw_url": "https://commandvault.ai/commands/stripe-integration-best-practices-stripe-517f1da0/raw",
       "created_at": "2026-10-10T19:49:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "upgrade-stripe-versions-stripe-86fe6e6d",
@@ -6302,7 +6398,7 @@
       "url": "https://commandvault.ai/commands/upgrade-stripe-versions-stripe-86fe6e6d",
       "raw_url": "https://commandvault.ai/commands/upgrade-stripe-versions-stripe-86fe6e6d/raw",
       "created_at": "2026-10-10T20:26:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "tdd-loop-matt-pocock-b41cc1ab",
@@ -6342,7 +6438,7 @@
       "url": "https://commandvault.ai/commands/tdd-loop-matt-pocock-b41cc1ab",
       "raw_url": "https://commandvault.ai/commands/tdd-loop-matt-pocock-b41cc1ab/raw",
       "created_at": "2026-10-10T21:03:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "notion-mcp-server-official-remote-badfeb58",
@@ -6382,7 +6478,7 @@
       "url": "https://commandvault.ai/commands/notion-mcp-server-official-remote-badfeb58",
       "raw_url": "https://commandvault.ai/commands/notion-mcp-server-official-remote-badfeb58/raw",
       "created_at": "2026-10-10T21:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "grill-me-matt-pocock-5a2bccb3",
@@ -6422,7 +6518,7 @@
       "url": "https://commandvault.ai/commands/grill-me-matt-pocock-5a2bccb3",
       "raw_url": "https://commandvault.ai/commands/grill-me-matt-pocock-5a2bccb3/raw",
       "created_at": "2026-10-10T21:40:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "improve-codebase-architecture-matt-pocock-f36398c8",
@@ -6462,7 +6558,7 @@
       "url": "https://commandvault.ai/commands/improve-codebase-architecture-matt-pocock-f36398c8",
       "raw_url": "https://commandvault.ai/commands/improve-codebase-architecture-matt-pocock-f36398c8/raw",
       "created_at": "2026-10-10T22:17:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "conversation-to-spec-matt-pocock-8871a037",
@@ -6503,7 +6599,7 @@
       "url": "https://commandvault.ai/commands/conversation-to-spec-matt-pocock-8871a037",
       "raw_url": "https://commandvault.ai/commands/conversation-to-spec-matt-pocock-8871a037/raw",
       "created_at": "2026-10-10T22:54:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "stripe-mcp-server-official-remote-657afd59",
@@ -6542,7 +6638,7 @@
       "url": "https://commandvault.ai/commands/stripe-mcp-server-official-remote-657afd59",
       "raw_url": "https://commandvault.ai/commands/stripe-mcp-server-official-remote-657afd59/raw",
       "created_at": "2026-10-10T23:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "marketing-copywriting-marketing-skills-78c35e89",
@@ -6582,7 +6678,7 @@
       "url": "https://commandvault.ai/commands/marketing-copywriting-marketing-skills-78c35e89",
       "raw_url": "https://commandvault.ai/commands/marketing-copywriting-marketing-skills-78c35e89/raw",
       "created_at": "2026-10-10T23:31:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "seo-audit-marketing-skills-856aa15d",
@@ -6622,7 +6718,7 @@
       "url": "https://commandvault.ai/commands/seo-audit-marketing-skills-856aa15d",
       "raw_url": "https://commandvault.ai/commands/seo-audit-marketing-skills-856aa15d/raw",
       "created_at": "2026-10-11T00:08:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "conversion-rate-optimization-marketing-skills-ddce271b",
@@ -6663,7 +6759,7 @@
       "url": "https://commandvault.ai/commands/conversion-rate-optimization-marketing-skills-ddce271b",
       "raw_url": "https://commandvault.ai/commands/conversion-rate-optimization-marketing-skills-ddce271b/raw",
       "created_at": "2026-10-11T00:45:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "vercel-mcp-server-official-remote-889521ed",
@@ -6702,7 +6798,7 @@
       "url": "https://commandvault.ai/commands/vercel-mcp-server-official-remote-889521ed",
       "raw_url": "https://commandvault.ai/commands/vercel-mcp-server-official-remote-889521ed/raw",
       "created_at": "2026-10-11T01:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "ai-search-optimization-marketing-skills-20cfa95a",
@@ -6743,7 +6839,7 @@
       "url": "https://commandvault.ai/commands/ai-search-optimization-marketing-skills-20cfa95a",
       "raw_url": "https://commandvault.ai/commands/ai-search-optimization-marketing-skills-20cfa95a/raw",
       "created_at": "2026-10-11T01:22:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "exploratory-data-analysis-k-dense-fe96970e",
@@ -6780,7 +6876,7 @@
       "url": "https://commandvault.ai/commands/exploratory-data-analysis-k-dense-fe96970e",
       "raw_url": "https://commandvault.ai/commands/exploratory-data-analysis-k-dense-fe96970e/raw",
       "created_at": "2026-10-11T01:59:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "web-quality-audit-addy-osmani-3c5ac52d",
@@ -6821,7 +6917,7 @@
       "url": "https://commandvault.ai/commands/web-quality-audit-addy-osmani-3c5ac52d",
       "raw_url": "https://commandvault.ai/commands/web-quality-audit-addy-osmani-3c5ac52d/raw",
       "created_at": "2026-10-11T02:36:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "accessibility-audit-addy-osmani-016794c9",
@@ -6861,7 +6957,7 @@
       "url": "https://commandvault.ai/commands/accessibility-audit-addy-osmani-016794c9",
       "raw_url": "https://commandvault.ai/commands/accessibility-audit-addy-osmani-016794c9/raw",
       "created_at": "2026-10-11T03:13:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "cloudflare-docs-mcp-server-869e8d34",
@@ -6900,7 +6996,7 @@
       "url": "https://commandvault.ai/commands/cloudflare-docs-mcp-server-869e8d34",
       "raw_url": "https://commandvault.ai/commands/cloudflare-docs-mcp-server-869e8d34/raw",
       "created_at": "2026-10-11T03:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "claude-code-hook-development-anthropic-0dac2d77",
@@ -6940,7 +7036,7 @@
       "url": "https://commandvault.ai/commands/claude-code-hook-development-anthropic-0dac2d77",
       "raw_url": "https://commandvault.ai/commands/claude-code-hook-development-anthropic-0dac2d77/raw",
       "created_at": "2026-10-11T03:50:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-md-improver-anthropic-a2fe53a6",
@@ -6980,7 +7076,7 @@
       "url": "https://commandvault.ai/commands/claude-md-improver-anthropic-a2fe53a6",
       "raw_url": "https://commandvault.ai/commands/claude-md-improver-anthropic-a2fe53a6/raw",
       "created_at": "2026-10-11T04:27:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "claude-code-automation-recommender-anthropic-0d441fec",
@@ -7020,7 +7116,7 @@
       "url": "https://commandvault.ai/commands/claude-code-automation-recommender-anthropic-0d441fec",
       "raw_url": "https://commandvault.ai/commands/claude-code-automation-recommender-anthropic-0d441fec/raw",
       "created_at": "2026-10-11T05:04:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "deepwiki-mcp-ask-any-github-repo-05b84730",
@@ -7060,7 +7156,7 @@
       "url": "https://commandvault.ai/commands/deepwiki-mcp-ask-any-github-repo-05b84730",
       "raw_url": "https://commandvault.ai/commands/deepwiki-mcp-ask-any-github-repo-05b84730/raw",
       "created_at": "2026-10-11T05:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "playwright-cli-browser-automation-microsoft-40136535",
@@ -7097,7 +7193,7 @@
       "url": "https://commandvault.ai/commands/playwright-cli-browser-automation-microsoft-40136535",
       "raw_url": "https://commandvault.ai/commands/playwright-cli-browser-automation-microsoft-40136535/raw",
       "created_at": "2026-10-11T05:41:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "terraform-style-guide-hashicorp-0a4fb6c9",
@@ -7137,7 +7233,7 @@
       "url": "https://commandvault.ai/commands/terraform-style-guide-hashicorp-0a4fb6c9",
       "raw_url": "https://commandvault.ai/commands/terraform-style-guide-hashicorp-0a4fb6c9/raw",
       "created_at": "2026-10-11T06:18:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "terraform-tests-hashicorp-b4bd5876",
@@ -7177,7 +7273,7 @@
       "url": "https://commandvault.ai/commands/terraform-tests-hashicorp-b4bd5876",
       "raw_url": "https://commandvault.ai/commands/terraform-tests-hashicorp-b4bd5876/raw",
       "created_at": "2026-10-11T06:55:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "microsoft-learn-mcp-server-33e99ec0",
@@ -7217,7 +7313,7 @@
       "url": "https://commandvault.ai/commands/microsoft-learn-mcp-server-33e99ec0",
       "raw_url": "https://commandvault.ai/commands/microsoft-learn-mcp-server-33e99ec0/raw",
       "created_at": "2026-10-11T07:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "gemini-api-development-google-aefae203",
@@ -7258,7 +7354,7 @@
       "url": "https://commandvault.ai/commands/gemini-api-development-google-aefae203",
       "raw_url": "https://commandvault.ai/commands/gemini-api-development-google-aefae203/raw",
       "created_at": "2026-10-11T07:32:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "dbt-analytics-engineering-dbt-labs-6706ced0",
@@ -7299,7 +7395,7 @@
       "url": "https://commandvault.ai/commands/dbt-analytics-engineering-dbt-labs-6706ced0",
       "raw_url": "https://commandvault.ai/commands/dbt-analytics-engineering-dbt-labs-6706ced0/raw",
       "created_at": "2026-10-11T08:09:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "neon-postgres-neon-f6090d75",
@@ -7340,7 +7436,7 @@
       "url": "https://commandvault.ai/commands/neon-postgres-neon-f6090d75",
       "raw_url": "https://commandvault.ai/commands/neon-postgres-neon-f6090d75/raw",
       "created_at": "2026-10-11T08:46:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "hugging-face-mcp-server-7b6c419c",
@@ -7380,7 +7476,7 @@
       "url": "https://commandvault.ai/commands/hugging-face-mcp-server-7b6c419c",
       "raw_url": "https://commandvault.ai/commands/hugging-face-mcp-server-7b6c419c/raw",
       "created_at": "2026-10-11T09:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "expo-native-ui-expo-03d3c6fb",
@@ -7421,7 +7517,7 @@
       "url": "https://commandvault.ai/commands/expo-native-ui-expo-03d3c6fb",
       "raw_url": "https://commandvault.ai/commands/expo-native-ui-expo-03d3c6fb/raw",
       "created_at": "2026-10-11T09:23:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "react-native-performance-callstack-130364bd",
@@ -7461,7 +7557,7 @@
       "url": "https://commandvault.ai/commands/react-native-performance-callstack-130364bd",
       "raw_url": "https://commandvault.ai/commands/react-native-performance-callstack-130364bd/raw",
       "created_at": "2026-10-11T10:00:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "repository-threat-model-openai-472d6bf4",
@@ -7497,7 +7593,7 @@
       "url": "https://commandvault.ai/commands/repository-threat-model-openai-472d6bf4",
       "raw_url": "https://commandvault.ai/commands/repository-threat-model-openai-472d6bf4/raw",
       "created_at": "2026-10-11T10:37:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "neon-mcp-server-official-remote-99a445eb",
@@ -7544,7 +7640,7 @@
       "url": "https://commandvault.ai/commands/neon-mcp-server-official-remote-99a445eb",
       "raw_url": "https://commandvault.ai/commands/neon-mcp-server-official-remote-99a445eb/raw",
       "created_at": "2026-10-11T11:14:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "exa-web-search-mcp-ef64732a",
@@ -7583,7 +7679,7 @@
       "url": "https://commandvault.ai/commands/exa-web-search-mcp-ef64732a",
       "raw_url": "https://commandvault.ai/commands/exa-web-search-mcp-ef64732a/raw",
       "created_at": "2026-10-11T11:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "mongodb-mcp-server-official-cda5d4be",
@@ -7644,7 +7740,7 @@
       "url": "https://commandvault.ai/commands/mongodb-mcp-server-official-cda5d4be",
       "raw_url": "https://commandvault.ai/commands/mongodb-mcp-server-official-cda5d4be/raw",
       "created_at": "2026-10-11T11:51:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "redis-mcp-server-official-9f9441ed",
@@ -7707,7 +7803,7 @@
       "url": "https://commandvault.ai/commands/redis-mcp-server-official-9f9441ed",
       "raw_url": "https://commandvault.ai/commands/redis-mcp-server-official-9f9441ed/raw",
       "created_at": "2026-10-11T12:28:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "planetscale-mcp-server-official-remote-28afd61d",
@@ -7754,7 +7850,7 @@
       "url": "https://commandvault.ai/commands/planetscale-mcp-server-official-remote-28afd61d",
       "raw_url": "https://commandvault.ai/commands/planetscale-mcp-server-official-remote-28afd61d/raw",
       "created_at": "2026-10-11T13:05:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "filesystem-mcp-server-reference-8f2db163",
@@ -7797,7 +7893,7 @@
       "url": "https://commandvault.ai/commands/filesystem-mcp-server-reference-8f2db163",
       "raw_url": "https://commandvault.ai/commands/filesystem-mcp-server-reference-8f2db163/raw",
       "created_at": "2026-10-11T13:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "prisma-mcp-server-official-remote-07156f6a",
@@ -7838,7 +7934,7 @@
       "url": "https://commandvault.ai/commands/prisma-mcp-server-official-remote-07156f6a",
       "raw_url": "https://commandvault.ai/commands/prisma-mcp-server-official-remote-07156f6a/raw",
       "created_at": "2026-10-11T13:42:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "postgres-mcp-pro-community-6717db14",
@@ -7888,7 +7984,7 @@
       "url": "https://commandvault.ai/commands/postgres-mcp-pro-community-6717db14",
       "raw_url": "https://commandvault.ai/commands/postgres-mcp-pro-community-6717db14/raw",
       "created_at": "2026-10-11T14:19:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "mcp-toolbox-for-databases-google-059842ab",
@@ -7960,7 +8056,7 @@
       "url": "https://commandvault.ai/commands/mcp-toolbox-for-databases-google-059842ab",
       "raw_url": "https://commandvault.ai/commands/mcp-toolbox-for-databases-google-059842ab/raw",
       "created_at": "2026-10-11T14:56:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "memory-mcp-server-knowledge-graph-0d19ecc0",
@@ -8002,7 +8098,7 @@
       "url": "https://commandvault.ai/commands/memory-mcp-server-knowledge-graph-0d19ecc0",
       "raw_url": "https://commandvault.ai/commands/memory-mcp-server-knowledge-graph-0d19ecc0/raw",
       "created_at": "2026-10-11T15:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "clickhouse-mcp-server-official-910a624c",
@@ -8076,7 +8172,7 @@
       "url": "https://commandvault.ai/commands/clickhouse-mcp-server-official-910a624c",
       "raw_url": "https://commandvault.ai/commands/clickhouse-mcp-server-official-910a624c/raw",
       "created_at": "2026-10-11T15:33:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "aws-api-mcp-server-aws-labs-351b5a0b",
@@ -8140,7 +8236,7 @@
       "url": "https://commandvault.ai/commands/aws-api-mcp-server-aws-labs-351b5a0b",
       "raw_url": "https://commandvault.ai/commands/aws-api-mcp-server-aws-labs-351b5a0b/raw",
       "created_at": "2026-10-11T16:10:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "aws-knowledge-mcp-server-official-remote-62ec33b6",
@@ -8181,7 +8277,7 @@
       "url": "https://commandvault.ai/commands/aws-knowledge-mcp-server-official-remote-62ec33b6",
       "raw_url": "https://commandvault.ai/commands/aws-knowledge-mcp-server-official-remote-62ec33b6/raw",
       "created_at": "2026-10-11T16:47:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "fetch-mcp-server-756c6c25",
@@ -8222,7 +8318,7 @@
       "url": "https://commandvault.ai/commands/fetch-mcp-server-756c6c25",
       "raw_url": "https://commandvault.ai/commands/fetch-mcp-server-756c6c25/raw",
       "created_at": "2026-10-11T17:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "azure-mcp-server-microsoft-dcaf1c7e",
@@ -8284,7 +8380,7 @@
       "url": "https://commandvault.ai/commands/azure-mcp-server-microsoft-dcaf1c7e",
       "raw_url": "https://commandvault.ai/commands/azure-mcp-server-microsoft-dcaf1c7e/raw",
       "created_at": "2026-10-11T17:24:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "gcloud-mcp-server-google-cloud-01c1c619",
@@ -8328,7 +8424,7 @@
       "url": "https://commandvault.ai/commands/gcloud-mcp-server-google-cloud-01c1c619",
       "raw_url": "https://commandvault.ai/commands/gcloud-mcp-server-google-cloud-01c1c619/raw",
       "created_at": "2026-10-11T18:01:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "cloudflare-workers-bindings-mcp-server-official-remote-44ac999b",
@@ -8369,7 +8465,7 @@
       "url": "https://commandvault.ai/commands/cloudflare-workers-bindings-mcp-server-official-remote-44ac999b",
       "raw_url": "https://commandvault.ai/commands/cloudflare-workers-bindings-mcp-server-official-remote-44ac999b/raw",
       "created_at": "2026-10-11T18:38:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "cloudflare-observability-mcp-server-official-remote-80f6e9f6",
@@ -8410,7 +8506,7 @@
       "url": "https://commandvault.ai/commands/cloudflare-observability-mcp-server-official-remote-80f6e9f6",
       "raw_url": "https://commandvault.ai/commands/cloudflare-observability-mcp-server-official-remote-80f6e9f6/raw",
       "created_at": "2026-10-11T19:15:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "skill-conventional-commit-messages-d5ca7643",
@@ -8440,7 +8536,7 @@
       "url": "https://commandvault.ai/commands/skill-conventional-commit-messages-d5ca7643",
       "raw_url": "https://commandvault.ai/commands/skill-conventional-commit-messages-d5ca7643/raw",
       "created_at": "2026-10-11T19:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "netlify-mcp-server-official-bf1efe06",
@@ -8490,7 +8586,7 @@
       "url": "https://commandvault.ai/commands/netlify-mcp-server-official-bf1efe06",
       "raw_url": "https://commandvault.ai/commands/netlify-mcp-server-official-bf1efe06/raw",
       "created_at": "2026-10-11T19:52:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "railway-mcp-server-official-remote-57d73aa2",
@@ -8531,7 +8627,7 @@
       "url": "https://commandvault.ai/commands/railway-mcp-server-official-remote-57d73aa2",
       "raw_url": "https://commandvault.ai/commands/railway-mcp-server-official-remote-57d73aa2/raw",
       "created_at": "2026-10-11T20:29:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "docker-mcp-gateway-official-eb0eef1d",
@@ -8576,7 +8672,7 @@
       "url": "https://commandvault.ai/commands/docker-mcp-gateway-official-eb0eef1d",
       "raw_url": "https://commandvault.ai/commands/docker-mcp-gateway-official-eb0eef1d/raw",
       "created_at": "2026-10-11T21:06:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "skill-pull-request-description-de4b6929",
@@ -8606,7 +8702,7 @@
       "url": "https://commandvault.ai/commands/skill-pull-request-description-de4b6929",
       "raw_url": "https://commandvault.ai/commands/skill-pull-request-description-de4b6929/raw",
       "created_at": "2026-10-11T21:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "kubernetes-mcp-server-community-5913682d",
@@ -8657,7 +8753,7 @@
       "url": "https://commandvault.ai/commands/kubernetes-mcp-server-community-5913682d",
       "raw_url": "https://commandvault.ai/commands/kubernetes-mcp-server-community-5913682d/raw",
       "created_at": "2026-10-11T21:43:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "terraform-mcp-server-hashicorp-a3bf6a6c",
@@ -8718,7 +8814,7 @@
       "url": "https://commandvault.ai/commands/terraform-mcp-server-hashicorp-a3bf6a6c",
       "raw_url": "https://commandvault.ai/commands/terraform-mcp-server-hashicorp-a3bf6a6c/raw",
       "created_at": "2026-10-11T22:20:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "grafana-mcp-server-official-ec4e6782",
@@ -8772,7 +8868,7 @@
       "url": "https://commandvault.ai/commands/grafana-mcp-server-official-ec4e6782",
       "raw_url": "https://commandvault.ai/commands/grafana-mcp-server-official-ec4e6782/raw",
       "created_at": "2026-10-11T22:57:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "skill-systematic-debugging-15975f4f",
@@ -8802,7 +8898,7 @@
       "url": "https://commandvault.ai/commands/skill-systematic-debugging-15975f4f",
       "raw_url": "https://commandvault.ai/commands/skill-systematic-debugging-15975f4f/raw",
       "created_at": "2026-10-11T23:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "datadog-mcp-server-official-remote-51c589f3",
@@ -8854,7 +8950,7 @@
       "url": "https://commandvault.ai/commands/datadog-mcp-server-official-remote-51c589f3",
       "raw_url": "https://commandvault.ai/commands/datadog-mcp-server-official-remote-51c589f3/raw",
       "created_at": "2026-10-11T23:34:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "pagerduty-mcp-server-official-remote-e83c695e",
@@ -8901,7 +8997,7 @@
       "url": "https://commandvault.ai/commands/pagerduty-mcp-server-official-remote-e83c695e",
       "raw_url": "https://commandvault.ai/commands/pagerduty-mcp-server-official-remote-e83c695e/raw",
       "created_at": "2026-10-12T00:11:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "buildkite-mcp-server-official-remote-1ad44a8b",
@@ -8942,7 +9038,7 @@
       "url": "https://commandvault.ai/commands/buildkite-mcp-server-official-remote-1ad44a8b",
       "raw_url": "https://commandvault.ai/commands/buildkite-mcp-server-official-remote-1ad44a8b/raw",
       "created_at": "2026-10-12T00:48:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "skill-test-first-changes-690214c5",
@@ -8972,7 +9068,7 @@
       "url": "https://commandvault.ai/commands/skill-test-first-changes-690214c5",
       "raw_url": "https://commandvault.ai/commands/skill-test-first-changes-690214c5/raw",
       "created_at": "2026-10-12T01:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "circleci-mcp-server-official-f71ea490",
@@ -9027,7 +9123,7 @@
       "url": "https://commandvault.ai/commands/circleci-mcp-server-official-f71ea490",
       "raw_url": "https://commandvault.ai/commands/circleci-mcp-server-official-f71ea490/raw",
       "created_at": "2026-10-12T01:25:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "gitlab-mcp-server-official-remote-0558e3b6",
@@ -9074,7 +9170,7 @@
       "url": "https://commandvault.ai/commands/gitlab-mcp-server-official-remote-0558e3b6",
       "raw_url": "https://commandvault.ai/commands/gitlab-mcp-server-official-remote-0558e3b6/raw",
       "created_at": "2026-10-12T02:02:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "atlassian-rovo-mcp-server-official-remote-b2c4cb1c",
@@ -9115,7 +9211,7 @@
       "url": "https://commandvault.ai/commands/atlassian-rovo-mcp-server-official-remote-b2c4cb1c",
       "raw_url": "https://commandvault.ai/commands/atlassian-rovo-mcp-server-official-remote-b2c4cb1c/raw",
       "created_at": "2026-10-12T02:39:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "figma-mcp-server-official-remote-d13a8cb8",
@@ -9156,7 +9252,7 @@
       "url": "https://commandvault.ai/commands/figma-mcp-server-official-remote-d13a8cb8",
       "raw_url": "https://commandvault.ai/commands/figma-mcp-server-official-remote-d13a8cb8/raw",
       "created_at": "2026-10-12T03:16:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "skill-supabase-rls-review-13b2186c",
@@ -9187,7 +9283,7 @@
       "url": "https://commandvault.ai/commands/skill-supabase-rls-review-13b2186c",
       "raw_url": "https://commandvault.ai/commands/skill-supabase-rls-review-13b2186c/raw",
       "created_at": "2026-10-12T03:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "postman-mcp-server-official-remote-5003676f",
@@ -9234,7 +9330,7 @@
       "url": "https://commandvault.ai/commands/postman-mcp-server-official-remote-5003676f",
       "raw_url": "https://commandvault.ai/commands/postman-mcp-server-official-remote-5003676f/raw",
       "created_at": "2026-10-12T03:53:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "sourcegraph-mcp-server-official-remote-dc84a12b",
@@ -9281,7 +9377,7 @@
       "url": "https://commandvault.ai/commands/sourcegraph-mcp-server-official-remote-dc84a12b",
       "raw_url": "https://commandvault.ai/commands/sourcegraph-mcp-server-official-remote-dc84a12b/raw",
       "created_at": "2026-10-12T04:30:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "semgrep-mcp-server-official-202844d8",
@@ -9330,7 +9426,7 @@
       "url": "https://commandvault.ai/commands/semgrep-mcp-server-official-202844d8",
       "raw_url": "https://commandvault.ai/commands/semgrep-mcp-server-official-202844d8/raw",
       "created_at": "2026-10-12T05:07:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "skill-next-js-app-router-conventions-b86493e1",
@@ -9360,7 +9456,7 @@
       "url": "https://commandvault.ai/commands/skill-next-js-app-router-conventions-b86493e1",
       "raw_url": "https://commandvault.ai/commands/skill-next-js-app-router-conventions-b86493e1/raw",
       "created_at": "2026-10-12T05:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "snyk-mcp-server-official-3d65d4c6",
@@ -9413,7 +9509,7 @@
       "url": "https://commandvault.ai/commands/snyk-mcp-server-official-3d65d4c6",
       "raw_url": "https://commandvault.ai/commands/snyk-mcp-server-official-3d65d4c6/raw",
       "created_at": "2026-10-12T05:44:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "shopify-dev-mcp-server-official-4264c470",
@@ -9463,7 +9559,7 @@
       "url": "https://commandvault.ai/commands/shopify-dev-mcp-server-official-4264c470",
       "raw_url": "https://commandvault.ai/commands/shopify-dev-mcp-server-official-4264c470/raw",
       "created_at": "2026-10-12T06:21:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "google-workspace-mcp-community-e05441ee",
@@ -9519,7 +9615,7 @@
       "url": "https://commandvault.ai/commands/google-workspace-mcp-community-e05441ee",
       "raw_url": "https://commandvault.ai/commands/google-workspace-mcp-community-e05441ee/raw",
       "created_at": "2026-10-12T06:58:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "skill-changelog-from-git-history-af67561d",
@@ -9549,7 +9645,7 @@
       "url": "https://commandvault.ai/commands/skill-changelog-from-git-history-af67561d",
       "raw_url": "https://commandvault.ai/commands/skill-changelog-from-git-history-af67561d/raw",
       "created_at": "2026-10-12T07:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "asana-mcp-server-official-remote-a0ba923d",
@@ -9590,7 +9686,7 @@
       "url": "https://commandvault.ai/commands/asana-mcp-server-official-remote-a0ba923d",
       "raw_url": "https://commandvault.ai/commands/asana-mcp-server-official-remote-a0ba923d/raw",
       "created_at": "2026-10-12T07:35:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "monday-com-mcp-server-official-remote-d51d5071",
@@ -9631,7 +9727,7 @@
       "url": "https://commandvault.ai/commands/monday-com-mcp-server-official-remote-d51d5071",
       "raw_url": "https://commandvault.ai/commands/monday-com-mcp-server-official-remote-d51d5071/raw",
       "created_at": "2026-10-12T08:12:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "airtable-mcp-server-community-adc9a84a",
@@ -9681,7 +9777,7 @@
       "url": "https://commandvault.ai/commands/airtable-mcp-server-community-adc9a84a",
       "raw_url": "https://commandvault.ai/commands/airtable-mcp-server-community-adc9a84a/raw",
       "created_at": "2026-10-12T08:49:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "skill-incident-postmortem-520a71c0",
@@ -9711,7 +9807,7 @@
       "url": "https://commandvault.ai/commands/skill-incident-postmortem-520a71c0",
       "raw_url": "https://commandvault.ai/commands/skill-incident-postmortem-520a71c0/raw",
       "created_at": "2026-10-12T09:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "zapier-mcp-official-remote-c3b2c56a",
@@ -9752,7 +9848,7 @@
       "url": "https://commandvault.ai/commands/zapier-mcp-official-remote-c3b2c56a",
       "raw_url": "https://commandvault.ai/commands/zapier-mcp-official-remote-c3b2c56a/raw",
       "created_at": "2026-10-12T09:26:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "box-mcp-server-official-remote-9852a791",
@@ -9793,7 +9889,7 @@
       "url": "https://commandvault.ai/commands/box-mcp-server-official-remote-9852a791",
       "raw_url": "https://commandvault.ai/commands/box-mcp-server-official-remote-9852a791/raw",
       "created_at": "2026-10-12T10:03:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "dropbox-mcp-server-official-remote-3bd6afe3",
@@ -9834,7 +9930,7 @@
       "url": "https://commandvault.ai/commands/dropbox-mcp-server-official-remote-3bd6afe3",
       "raw_url": "https://commandvault.ai/commands/dropbox-mcp-server-official-remote-3bd6afe3/raw",
       "created_at": "2026-10-12T10:40:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "todoist-mcp-server-official-remote-2e99289e",
@@ -9875,7 +9971,7 @@
       "url": "https://commandvault.ai/commands/todoist-mcp-server-official-remote-2e99289e",
       "raw_url": "https://commandvault.ai/commands/todoist-mcp-server-official-remote-2e99289e/raw",
       "created_at": "2026-10-12T11:17:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "skill-accessibility-check-b800810e",
@@ -9906,7 +10002,7 @@
       "url": "https://commandvault.ai/commands/skill-accessibility-check-b800810e",
       "raw_url": "https://commandvault.ai/commands/skill-accessibility-check-b800810e/raw",
       "created_at": "2026-10-12T11:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "brave-search-mcp-server-official-d3befb77",
@@ -9956,7 +10052,7 @@
       "url": "https://commandvault.ai/commands/brave-search-mcp-server-official-d3befb77",
       "raw_url": "https://commandvault.ai/commands/brave-search-mcp-server-official-d3befb77/raw",
       "created_at": "2026-10-12T11:54:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "tavily-mcp-server-official-remote-04f55064",
@@ -10003,7 +10099,7 @@
       "url": "https://commandvault.ai/commands/tavily-mcp-server-official-remote-04f55064",
       "raw_url": "https://commandvault.ai/commands/tavily-mcp-server-official-remote-04f55064/raw",
       "created_at": "2026-10-12T12:31:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "perplexity-mcp-server-official-2899144a",
@@ -10053,7 +10149,7 @@
       "url": "https://commandvault.ai/commands/perplexity-mcp-server-official-2899144a",
       "raw_url": "https://commandvault.ai/commands/perplexity-mcp-server-official-2899144a/raw",
       "created_at": "2026-10-12T13:08:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "skill-safe-dependency-upgrades-16b76c3b",
@@ -10083,7 +10179,7 @@
       "url": "https://commandvault.ai/commands/skill-safe-dependency-upgrades-16b76c3b",
       "raw_url": "https://commandvault.ai/commands/skill-safe-dependency-upgrades-16b76c3b/raw",
       "created_at": "2026-10-12T13:20:20.313707+00:00",
-      "updated_at": "2026-10-12T15:53:09.588297+00:00"
+      "updated_at": "2026-10-17T14:41:57.209405+00:00"
     },
     {
       "slug": "firecrawl-mcp-server-official-ecff80c6",
@@ -10138,7 +10234,7 @@
       "url": "https://commandvault.ai/commands/firecrawl-mcp-server-official-ecff80c6",
       "raw_url": "https://commandvault.ai/commands/firecrawl-mcp-server-official-ecff80c6/raw",
       "created_at": "2026-10-12T13:45:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "apify-mcp-server-official-remote-9aa39d16",
@@ -10185,7 +10281,7 @@
       "url": "https://commandvault.ai/commands/apify-mcp-server-official-remote-9aa39d16",
       "raw_url": "https://commandvault.ai/commands/apify-mcp-server-official-remote-9aa39d16/raw",
       "created_at": "2026-10-12T14:22:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "browserbase-mcp-server-official-remote-0a112df1",
@@ -10226,7 +10322,7 @@
       "url": "https://commandvault.ai/commands/browserbase-mcp-server-official-remote-0a112df1",
       "raw_url": "https://commandvault.ai/commands/browserbase-mcp-server-official-remote-0a112df1/raw",
       "created_at": "2026-10-12T14:59:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "paypal-mcp-server-official-remote-3ffac388",
@@ -10267,7 +10363,7 @@
       "url": "https://commandvault.ai/commands/paypal-mcp-server-official-remote-3ffac388",
       "raw_url": "https://commandvault.ai/commands/paypal-mcp-server-official-remote-3ffac388/raw",
       "created_at": "2026-10-12T15:36:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "git-mcp-server-reference-54531cfb",
@@ -10312,7 +10408,7 @@
       "url": "https://commandvault.ai/commands/git-mcp-server-reference-54531cfb",
       "raw_url": "https://commandvault.ai/commands/git-mcp-server-reference-54531cfb/raw",
       "created_at": "2026-10-12T16:13:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "time-mcp-server-reference-ec150243",
@@ -10355,7 +10451,7 @@
       "url": "https://commandvault.ai/commands/time-mcp-server-reference-ec150243",
       "raw_url": "https://commandvault.ai/commands/time-mcp-server-reference-ec150243/raw",
       "created_at": "2026-10-12T16:50:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "sequential-thinking-mcp-server-reference-44b0f626",
@@ -10399,7 +10495,7 @@
       "url": "https://commandvault.ai/commands/sequential-thinking-mcp-server-reference-44b0f626",
       "raw_url": "https://commandvault.ai/commands/sequential-thinking-mcp-server-reference-44b0f626/raw",
       "created_at": "2026-10-12T17:27:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     },
     {
       "slug": "everything-mcp-server-reference-test-server-9bd2c4ea",
@@ -10442,7 +10538,7 @@
       "url": "https://commandvault.ai/commands/everything-mcp-server-reference-test-server-9bd2c4ea",
       "raw_url": "https://commandvault.ai/commands/everything-mcp-server-reference-test-server-9bd2c4ea/raw",
       "created_at": "2026-10-12T18:04:35.954546+00:00",
-      "updated_at": "2026-10-12T19:09:12.025974+00:00"
+      "updated_at": "2026-10-17T14:42:39.104528+00:00"
     }
   ]
 }

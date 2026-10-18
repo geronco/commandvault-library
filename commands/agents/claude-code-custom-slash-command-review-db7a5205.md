@@ -11,9 +11,10 @@ license: CC-BY-4.0
 ---
 description: Review the current changes like a senior engineer
 argument-hint: [optional focus, e.g. security or performance]
+allowed-tools: Bash(git diff:*), Bash(git status:*)
 ---
 
-Review the uncommitted changes in this repository (run `git diff` and `git diff --staged`).
+Review the uncommitted changes in this repository: run `git status --short` (new files only show there; read them in full), `git diff` and `git diff --staged`.
 
 Focus: $ARGUMENTS (if empty, review everything).
 

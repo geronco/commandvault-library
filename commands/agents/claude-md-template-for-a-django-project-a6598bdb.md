@@ -3,7 +3,7 @@ title: "CLAUDE.md template for a Django project"
 description: "Give Claude Code your Django project's commands, app layout and rules in one file."
 kind: template
 tags: ["claude-code", "claude-md", "django", "python"]
-variables: ["project_name", "what_it_does", "python_version", "django_version", "database", "project_package"]
+variables: ["project_name", "what_it_does", "python_version", "django_version", "database", "project_package", "test_command"]
 source: https://commandvault.ai/commands/claude-md-template-for-a-django-project-a6598bdb
 license: CC-BY-4.0
 ---
@@ -15,7 +15,7 @@ license: CC-BY-4.0
 
 ## Commands
 - Run locally: `python manage.py runserver`
-- Tests: `pytest -q (or python manage.py test)`
+- Tests: `{{test_command}}`
 - Lint/format: `ruff check . && ruff format --check .`
 
 ## Where things live

@@ -3,7 +3,7 @@ title: "CLAUDE.md template for a Laravel app"
 description: "Project memory for Claude Code in Laravel: Artisan commands, structure and conventions."
 kind: template
 tags: ["claude-code", "claude-md", "laravel", "php"]
-variables: ["project_name", "what_it_does", "php_version", "laravel_version", "database", "frontend"]
+variables: ["project_name", "what_it_does", "php_version", "laravel_version", "database", "frontend", "dev_command"]
 source: https://commandvault.ai/commands/claude-md-template-for-a-laravel-app-22d119b4
 license: CC-BY-4.0
 ---
@@ -14,7 +14,7 @@ license: CC-BY-4.0
 {{project_name}}: {{what_it_does}}. Stack: PHP {{php_version}}, Laravel {{laravel_version}}, {{database}}, {{frontend}}.
 
 ## Commands
-- Run locally: `php artisan serve (or composer run dev)`
+- Run locally: `{{dev_command}}`
 - Tests: `php artisan test`
 - Lint/format: `./vendor/bin/pint --test`
 
