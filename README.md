@@ -35,7 +35,7 @@ Setup for Cursor, VS Code, Codex, Claude Desktop and Gemini CLI: [commandvault.a
 Content: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit "CommandVault (commandvault.ai)" with a link. Code (scripts, workflow, plugin): MIT.
 
 <!-- index:start -->
-_Synced from [commandvault.ai](https://commandvault.ai) on 2026-10-21: 240 items._
+_Synced from [commandvault.ai](https://commandvault.ai) on 2026-10-22: 240 items._
 
 ## Agent Skills (75)
 
