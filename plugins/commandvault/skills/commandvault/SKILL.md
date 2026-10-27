@@ -5,10 +5,10 @@ description: Find a proven prompt, CLAUDE.md/AGENTS.md template, Cursor rule, Ag
 
 # CommandVault lookup
 
-CommandVault (commandvault.ai) is a community-voted library. Its MCP server is configured by this plugin as `commandvault`.
+CommandVault (commandvault.ai) is a library of reusable instructions for AI tools; entries marked tested were run in Claude Code and Codex. Its MCP server is configured by this plugin as `commandvault`.
 
 1. Call `search_commands` with a few specific words. Add `kind` when you know it: `template` for context files and rules, `skill`, `mcp_server`, or `prompt`.
-2. Pick the best result by fit first, then score and uses. Tell the user which one you chose and link its URL.
+2. Pick the best result by fit first; prefer entries marked tested. Tell the user which one you chose and link its URL.
 3. Call `get_command` with its slug. Pass `variables` for blanks you can fill from the repo (project name, test command, package manager…). Ask the user only for blanks you can't work out.
 4. For a context file, write it to the right place (CLAUDE.md, AGENTS.md, .cursor/rules/*.mdc) and adapt it to what you can see in the repo. For a skill or MCP server, show the install step from the result and run it only if the user agrees.
 

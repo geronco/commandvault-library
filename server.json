@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.geronco/commandvault",
+  "title": "CommandVault",
+  "description": "Search prompts, CLAUDE.md/AGENTS.md templates, Cursor rules, Agent Skills and MCP servers.",
+  "websiteUrl": "https://commandvault.ai/mcp",
+  "repository": {
+    "url": "https://github.com/geronco/commandvault-library",
+    "source": "github"
+  },
+  "version": "1.0.0",
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://commandvault.ai/api/mcp"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # CommandVault library
 
-Community-voted AI commands from [commandvault.ai](https://commandvault.ai): prompts, `CLAUDE.md` / `AGENTS.md` templates, Cursor rules, Claude Code slash commands and subagents, Agent Skills and MCP servers. Every item has fill-in `{{blanks}}` and links back to its page, where you can vote, comment and fill the blanks in the browser.
+AI commands from [commandvault.ai](https://commandvault.ai): prompts, `CLAUDE.md` / `AGENTS.md` templates, Cursor rules, Claude Code slash commands and subagents, Agent Skills and MCP servers. Every item has fill-in `{{blanks}}` and links back to its page, where you can fill the blanks in the browser. Entries marked tested on the site were run in Claude Code and Codex before publishing.
 
 This repo is synced automatically every day from the site. To suggest a change, comment on the item's page on commandvault.ai (pull requests to the generated files are overwritten by the next sync).
 
@@ -33,6 +33,8 @@ Setup for Cursor, VS Code, Codex, Claude Desktop and Gemini CLI: [commandvault.a
 ## License
 
 Content: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit "CommandVault (commandvault.ai)" with a link. Code (scripts, workflow, plugin): MIT.
+
+Third-party skills (`skills/third-party/`) and MCP servers are linked, not copied: each file names the author, source repo and license, and the original keeps its own license.
 
 <!-- index:start -->
 _Synced from [commandvault.ai](https://commandvault.ai) on 2026-10-26: 240 items._
@@ -138,7 +140,7 @@ _Synced from [commandvault.ai](https://commandvault.ai) on 2026-10-26: 240 items
 | [Cloudflare docs MCP server](mcp-servers/cloudflare-docs.json) · [web](https://commandvault.ai/commands/cloudflare-docs-mcp-server-869e8d34) | Search Cloudflare's documentation (Workers, Pages, R2, D1, DNS and more) from your agent. No sign-in. |
 | [Cloudflare Observability MCP server (official, remote)](mcp-servers/cloudflare-observability.json) · [web](https://commandvault.ai/commands/cloudflare-observability-mcp-server-official-remote-80f6e9f6) | Query Cloudflare Workers logs and analytics to debug errors and performance from your agent. |
 | [Cloudflare Workers Bindings MCP server (official, remote)](mcp-servers/cloudflare-bindings.json) · [web](https://commandvault.ai/commands/cloudflare-workers-bindings-mcp-server-official-remote-44ac999b) | Build on Cloudflare: manage Workers, KV, R2, D1 and Hyperdrive resources from a hosted OAuth server. |
-| [CommandVault MCP server](mcp-servers/commandvault.json) · [web](https://commandvault.ai/commands/commandvault-mcp-server-37fd19fc) | Search this site's community-voted prompts, CLAUDE.md templates, Cursor rules, skills and MCP servers from your editor. |
+| [CommandVault MCP server](mcp-servers/commandvault.json) · [web](https://commandvault.ai/commands/commandvault-mcp-server-37fd19fc) | Search CommandVault's prompts, CLAUDE.md templates, Cursor rules, skills and MCP servers from your editor. |
 | [Context7: up-to-date library docs](mcp-servers/context7.json) · [web](https://commandvault.ai/commands/context7-up-to-date-library-docs-a4090c41) | Pulls current, version-specific docs and code examples for thousands of libraries into your prompt, so the agent stops inventing old APIs. |
 | [Datadog MCP server (official, remote)](mcp-servers/datadog.json) · [web](https://commandvault.ai/commands/datadog-mcp-server-official-remote-51c589f3) | Search Datadog logs, metrics, traces, monitors, incidents and dashboards from your agent. |
 | [DeepWiki MCP: ask any GitHub repo](mcp-servers/deepwiki.json) · [web](https://commandvault.ai/commands/deepwiki-mcp-ask-any-github-repo-05b84730) | Ask questions about any public GitHub repository and get answers from its generated wiki. No sign-in. |

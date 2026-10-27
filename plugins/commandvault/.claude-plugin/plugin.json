@@ -1,8 +1,20 @@
 {
   "name": "commandvault",
-  "version": "1.0.0",
-  "description": "CommandVault's MCP server plus a skill and a /vault command for finding community-voted prompts, context files, skills and MCP servers.",
-  "author": { "name": "CommandVault", "url": "https://commandvault.ai" },
+  "version": "1.1.0",
+  "description": "CommandVault's MCP server plus a skill and a /vault command for finding prompts, context files, skills and MCP servers.",
+  "author": {
+    "name": "CommandVault",
+    "url": "https://commandvault.ai"
+  },
   "homepage": "https://commandvault.ai/mcp",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": "https://github.com/geronco/commandvault-library",
+  "keywords": [
+    "prompts",
+    "claude-md",
+    "agents-md",
+    "cursor-rules",
+    "skills",
+    "mcp"
+  ]
 }

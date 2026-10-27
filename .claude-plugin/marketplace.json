@@ -1,11 +1,16 @@
 {
   "name": "commandvault",
-  "owner": { "name": "CommandVault", "url": "https://commandvault.ai" },
+  "owner": {
+    "name": "CommandVault",
+    "url": "https://commandvault.ai"
+  },
   "plugins": [
     {
       "name": "commandvault",
       "source": "./plugins/commandvault",
-      "description": "Search CommandVault's community-voted prompts, CLAUDE.md templates, Cursor rules, skills and MCP servers from Claude Code."
+      "description": "Find prompts, CLAUDE.md/AGENTS.md templates, Cursor rules, skills and MCP servers on CommandVault from Claude Code.",
+      "version": "1.1.0"
     }
-  ]
+  ],
+  "description": "CommandVault's MCP server, a lookup skill and a /vault command for Claude Code."
 }
