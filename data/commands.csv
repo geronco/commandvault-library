@@ -1505,7 +1505,7 @@ subagent-driven-development-superpowers-d1358075,Subagent-driven development (Su
 - ""Run the refactor plan using fresh agents per task""
 
 **Source:** [obra/superpowers](https://github.com/obra/superpowers/tree/HEAD/skills/subagent-driven-development) · MIT · by Jesse Vincent (obra)",https://commandvault.ai/commands/subagent-driven-development-superpowers-d1358075
-commandvault-mcp-server-37fd19fc,CommandVault MCP server,"Search this site's community-voted prompts, CLAUDE.md templates, Cursor rules, skills and MCP servers from your editor.",mcp_server,agents,mcp;prompts;claude-code;cursor,"Gives your agent the whole CommandVault library, ranked by votes and real use.
+commandvault-mcp-server-37fd19fc,CommandVault MCP server,"Search CommandVault's prompts, CLAUDE.md templates, Cursor rules, skills and MCP servers from your editor.",mcp_server,agents,mcp;prompts;claude-code;cursor,"Gives your agent the whole CommandVault library, ranked by votes and real use.
 
 **Tools:** search_commands, get_command (fills in the blanks for you), trending_commands, list_communities, list_collections.
 **Prompts:** the top commands appear as MCP prompts, so clients like Claude Code list them as slash commands.

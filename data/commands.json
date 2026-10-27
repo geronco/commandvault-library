@@ -2437,12 +2437,12 @@
       "install": null,
       "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: Python {{python_version}}, Django {{django_version}}, {{database}}.\n\n## Commands\n- Run locally: `python manage.py runserver`\n- Tests: `{{test_command}}`\n- Lint/format: `ruff check . && ruff format --check .`\n\n## Where things live\n- `{{project_package}}/settings/`: base, dev, prod settings\n- `apps/<app>/`: models, views, serializers, urls, tests per app\n- `templates/` and `static/`: shared front end\n\n## Conventions\n- New models need a migration (`python manage.py makemigrations`) committed with the code.\n- Business logic lives in `services.py`, not views or models.\n- Use the ORM; raw SQL only with a comment explaining why.\n- Every view checks permissions explicitly.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-django-project-a6598bdb",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-django-project-a6598bdb/raw",
       "created_at": "2026-10-06T03:46:34.816808+00:00",
-      "updated_at": "2026-10-17T15:46:06.838402+00:00"
+      "updated_at": "2026-10-27T02:05:40.341318+00:00"
     },
     {
       "slug": "break-a-big-project-into-a-plan-a686a13c",
@@ -5083,7 +5083,7 @@
     {
       "slug": "commandvault-mcp-server-37fd19fc",
       "title": "CommandVault MCP server",
-      "summary": "Search this site's community-voted prompts, CLAUDE.md templates, Cursor rules, skills and MCP servers from your editor.",
+      "summary": "Search CommandVault's prompts, CLAUDE.md templates, Cursor rules, skills and MCP servers from your editor.",
       "kind": "mcp_server",
       "community": "agents",
       "tags": [
@@ -5118,7 +5118,7 @@
       "url": "https://commandvault.ai/commands/commandvault-mcp-server-37fd19fc",
       "raw_url": "https://commandvault.ai/commands/commandvault-mcp-server-37fd19fc/raw",
       "created_at": "2026-10-10T05:20:20.313707+00:00",
-      "updated_at": "2026-10-17T14:42:39.104528+00:00"
+      "updated_at": "2026-10-27T01:56:41.757078+00:00"
     },
     {
       "slug": "git-worktrees-for-isolation-superpowers-cee8ccdf",
