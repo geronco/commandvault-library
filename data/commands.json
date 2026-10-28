@@ -38,12 +38,12 @@
       "install": null,
       "body": "Make every navigation in my app start at the top of the new page.\n\nStack: {{stack}}\nExceptions that must keep or restore scroll position: {{goal}}\n\nRequirements:\n1. On each route change, scroll to (0, 0) before or as the new page paints, so there's no visible jump.\n2. Respect the exceptions above. Browser back/forward should restore the previous position unless I said otherwise, and links to #anchors should scroll to the anchor.\n3. Handle scrollable containers too, not just window, if the layout scrolls inside a main element.\n4. Move keyboard focus to the new page's main heading so screen-reader users know the page changed.\n5. Use the framework's built-in mechanism if it has one before writing custom code, and explain why.\n\nTell me how to test it: three navigation scenarios to click through and what should happen in each.",
       "score": 0,
-      "uses": 17,
+      "uses": 18,
       "author": "client",
       "url": "https://commandvault.ai/commands/scroll-to-top-on-every-navigation-e66fb364",
       "raw_url": "https://commandvault.ai/commands/scroll-to-top-on-every-navigation-e66fb364/raw",
       "created_at": "2025-07-01T19:56:16.163751+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-10-27T15:32:52.421434+00:00"
     },
     {
       "slug": "universal-dark-mode-toggle-80b6fd46",
@@ -79,12 +79,12 @@
       "install": null,
       "body": "Add a light/dark theme toggle that remembers each person's choice.\n\nStack: {{stack}}\nDefault for new visitors: {{goal}}\n\nRequirements:\n1. Three options: Light, Dark and System. Apply the default above until someone chooses.\n2. Save the choice in localStorage, and in the user's profile when they're logged in, so it follows them across devices.\n3. Apply the theme before first paint (an inline script or server-rendered class), so there's no flash of the wrong theme.\n4. Drive colors from CSS variables, and check text contrast meets WCAG AA in both themes.\n5. The toggle must be a real button with an accessible name and the current state announced.\n\nList the files you'll change, then give me a test checklist: first visit, switch and reload, log in on a second browser, and system theme changes.",
       "score": 0,
-      "uses": 4,
+      "uses": 5,
       "author": "client",
       "url": "https://commandvault.ai/commands/universal-dark-mode-toggle-80b6fd46",
       "raw_url": "https://commandvault.ai/commands/universal-dark-mode-toggle-80b6fd46/raw",
       "created_at": "2025-07-01T22:20:23.161895+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-10-27T15:32:53.301475+00:00"
     },
     {
       "slug": "instant-email-verification-link-507dce29",
@@ -120,12 +120,12 @@
       "install": null,
       "body": "Add email verification to sign-up.\n\nStack: {{stack}}\nUntil they verify, users may: {{goal}}\n\nRequirements:\n1. On sign-up, send a single-use, signed verification link that expires after 24 hours. Store only a hash of the token.\n2. Enforce the restriction above on the server, not just in the UI.\n3. Let people resend the link (rate-limited) and show a clear message when a link is expired or already used.\n4. Clicking the link marks email_verified = true and logs them in or sends them to log in, depending on how our auth works.\n5. Don't reveal whether an email address has an account on the resend form.\n\nTell me which files change, what the email says, and how to test the whole flow locally, including an expired link.",
       "score": 0,
-      "uses": 3,
+      "uses": 4,
       "author": "client",
       "url": "https://commandvault.ai/commands/instant-email-verification-link-507dce29",
       "raw_url": "https://commandvault.ai/commands/instant-email-verification-link-507dce29/raw",
       "created_at": "2025-07-01T22:21:33.338204+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-10-27T15:32:53.74042+00:00"
     },
     {
       "slug": "one-click-password-reset-182f1360",
@@ -161,12 +161,12 @@
       "install": null,
       "body": "Add a secure \"Forgot password\" flow.\n\nStack: {{stack}}\nAfter a successful reset, send people to: {{goal}}\n\nRequirements:\n1. The request form always shows the same message, whether or not the email has an account.\n2. Send a single-use token that expires in 60 minutes; store only its hash. Rate-limit requests per email and IP.\n3. The reset page checks the token, enforces our password rules, and then invalidates the token and every other active session.\n4. Email the user that their password was changed, with a way to report it wasn't them.\n5. Redirect as described above, with a confirmation message.\n\nList the files you'll change and give me a test plan, including reusing a token, an expired token and two tabs requesting resets.",
       "score": 0,
-      "uses": 1,
+      "uses": 2,
       "author": "client",
       "url": "https://commandvault.ai/commands/one-click-password-reset-182f1360",
       "raw_url": "https://commandvault.ai/commands/one-click-password-reset-182f1360/raw",
       "created_at": "2025-07-01T22:22:17.053804+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-10-27T15:32:57.281434+00:00"
     },
     {
       "slug": "autosave-form-drafts-13cb65f4",
@@ -203,12 +203,12 @@
       "install": null,
       "body": "Autosave drafts so people never lose a long form.\n\nStack: {{stack}}\nForm: {{goal}}\n\nRequirements:\n1. Save changed fields locally (IndexedDB, keyed by form and user) a few seconds after typing stops, not on every keystroke.\n2. When the person comes back before submitting, offer to restore the draft and show when it was saved.\n3. Clear the draft after a successful submit or when they choose \"Discard\".\n4. Never store passwords, card numbers or other sensitive fields; list which fields you excluded.\n5. Show a quiet \"Saved\" indicator, and handle two tabs editing the same form without overwriting each other silently.\n\nList the files you'll change, then give me a test plan: type, reload, close the tab, come back, submit, and the two-tab case.",
       "score": 0,
-      "uses": 2,
+      "uses": 3,
       "author": "client",
       "url": "https://commandvault.ai/commands/autosave-form-drafts-13cb65f4",
       "raw_url": "https://commandvault.ai/commands/autosave-form-drafts-13cb65f4/raw",
       "created_at": "2025-07-01T22:30:32.218863+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-10-27T15:32:54.687956+00:00"
     },
     {
       "slug": "debounced-live-search-a8ec2c2f",
@@ -243,12 +243,12 @@
       "install": null,
       "body": "Add live search that updates as people type without overloading the server.\n\nStack: {{stack}}\nSearch covers: {{goal}}\n\nRequirements:\n1. Debounce input by about 300 ms and send one request with the final query.\n2. Cancel in-flight requests when a newer query starts, so older results never overwrite newer ones.\n3. Skip requests for queries shorter than 2 characters; trim whitespace.\n4. Show loading, empty (\"No results for …\") and error states, and keep the previous results visible while the next ones load.\n5. Make results keyboard-navigable (arrow keys, Enter, Escape) and announce the result count to screen readers.\n6. Reflect the query in the URL so searches can be shared and the back button works.\n\nExplain how to verify it: what the network tab should show while typing quickly, and the edge cases you tested.",
       "score": 0,
-      "uses": 2,
+      "uses": 3,
       "author": "client",
       "url": "https://commandvault.ai/commands/debounced-live-search-a8ec2c2f",
       "raw_url": "https://commandvault.ai/commands/debounced-live-search-a8ec2c2f/raw",
       "created_at": "2025-07-01T22:31:15.606337+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-10-27T15:32:54.24152+00:00"
     },
     {
       "slug": "skeleton-loading-placeholders-95a8cd27",
@@ -286,12 +286,12 @@
       "install": null,
       "body": "Replace blank or spinner states with skeleton placeholders.\n\nStack: {{stack}}\nStart with these screens: {{goal}}\n\nRequirements:\n1. Skeletons match the final layout (same size and position), so nothing shifts when data arrives. Aim for zero layout shift.\n2. Show them only while data is actually loading; if loading takes under ~150 ms, don't flash them.\n3. Use the framework's loading/streaming features where they exist instead of hand-rolled state.\n4. Add a subtle shimmer that is disabled when the user prefers reduced motion.\n5. Mark loading regions with aria-busy and keep the skeletons hidden from screen readers.\n\nShow me one reusable skeleton component, then apply it to the screens above. Tell me how to see it locally (for example by throttling the network in DevTools).",
       "score": 0,
-      "uses": 1,
+      "uses": 2,
       "author": "client",
       "url": "https://commandvault.ai/commands/skeleton-loading-placeholders-95a8cd27",
       "raw_url": "https://commandvault.ai/commands/skeleton-loading-placeholders-95a8cd27/raw",
       "created_at": "2025-07-01T22:32:26.897072+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-10-27T15:32:56.792105+00:00"
     },
     {
       "slug": "graceful-404-fallback-e907f8bc",
@@ -327,12 +327,12 @@
       "install": null,
       "body": "Add a graceful 404 experience to my app.\n\nStack: {{stack}}\nLost visitors should be steered to: {{goal}}\n\nRequirements:\n1. Catch every unmatched route (including nested and dynamic segments) and render a branded 404 page that returns a real HTTP 404 status, not a 200.\n2. Show a short, human message, a primary button that takes people to {{goal}}, and a search box that searches the site.\n3. Log the missing path to our error analytics, but strip query strings, emails, tokens and IDs before sending.\n4. Keep the normal header and navigation so the page doesn't feel like a dead end.\n5. Make it accessible: one h1, focus moves to the heading on load, the button and search work with the keyboard.\n\nBefore changing code, list the files you'll touch. After, give me:\n- the exact steps to test it (a URL that should 404, what I should see, and how to confirm the status code in DevTools or with curl -I)\n- anything you couldn't verify.",
       "score": 0,
-      "uses": 6,
+      "uses": 7,
       "author": "client",
       "url": "https://commandvault.ai/commands/graceful-404-fallback-e907f8bc",
       "raw_url": "https://commandvault.ai/commands/graceful-404-fallback-e907f8bc/raw",
       "created_at": "2025-07-01T22:34:24.807268+00:00",
-      "updated_at": "2026-10-17T15:23:54.27961+00:00"
+      "updated_at": "2026-10-27T15:32:52.866066+00:00"
     },
     {
       "slug": "role-based-access-control-5cccc8f4",
@@ -370,12 +370,12 @@
       "install": null,
       "body": "Add role-based access control.\n\nStack: {{stack}}\nRoles and permissions: {{goal}}\n\nRequirements:\n1. Define the roles and permissions above in one place in code, and check permissions (not role names) at each use.\n2. Enforce access on the server for every protected page, API route and mutation. Hiding buttons in the UI is not enough.\n3. Deny by default: new routes are blocked until they declare the permission they need.\n4. Return 403 (not 404 or 500) for authenticated users without permission, and log the denial.\n5. Keep roles somewhere the client can't edit (server-side session or database), and make role changes take effect on the next request.\n\nList the files you'll change, then give me a test matrix: each role against each protected action, with the expected result.",
       "score": 0,
-      "uses": 1,
+      "uses": 2,
       "author": "client",
       "url": "https://commandvault.ai/commands/role-based-access-control-5cccc8f4",
       "raw_url": "https://commandvault.ai/commands/role-based-access-control-5cccc8f4/raw",
       "created_at": "2025-07-01T22:35:22.799608+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-10-27T15:32:57.679762+00:00"
     },
     {
       "slug": "local-business-directory-system-d4d6d361",
@@ -413,12 +413,12 @@
       "install": null,
       "body": "Plan and build a local business directory for: {{goal}}\n\nStack: {{stack}}\n\nBuild it in this order, and stop after each phase so I can review:\n\nPhase 1: Directory\n1. Searchable listings with name, description, contact details, address, opening hours and photos.\n2. Keyword search plus filters for category and neighborhood.\n3. A \"Contact this business\" form that sends inquiries to the business and records them as leads.\n\nPhase 2: Accounts and reviews\n4. Visitor accounts to save favorites and leave reviews (one per business per person, with moderation).\n5. Business owners can claim and edit their listing after verification.\n\nPhase 3: Admin and revenue\n6. An admin panel to approve, edit and remove listings, moderate reviews and see leads.\n7. Paid placements (featured listings, banners) with clear \"Sponsored\" labels.\n8. A simple analytics dashboard: views, leads and revenue per listing.\n\nThroughout: comply with privacy law for the area above, secure the admin panel, keep pages fast on mobile, and write clear error messages.\n\nStart with Phase 1: propose the data model and pages, list the files you'll create, and wait for my go-ahead.",
       "score": 0,
-      "uses": 2,
+      "uses": 3,
       "author": "client",
       "url": "https://commandvault.ai/commands/local-business-directory-system-d4d6d361",
       "raw_url": "https://commandvault.ai/commands/local-business-directory-system-d4d6d361/raw",
       "created_at": "2025-07-15T18:23:07.80972+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-10-27T15:32:55.103133+00:00"
     },
     {
       "slug": "build-an-accessible-react-component-592a69d5",
@@ -2437,12 +2437,12 @@
       "install": null,
       "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: Python {{python_version}}, Django {{django_version}}, {{database}}.\n\n## Commands\n- Run locally: `python manage.py runserver`\n- Tests: `{{test_command}}`\n- Lint/format: `ruff check . && ruff format --check .`\n\n## Where things live\n- `{{project_package}}/settings/`: base, dev, prod settings\n- `apps/<app>/`: models, views, serializers, urls, tests per app\n- `templates/` and `static/`: shared front end\n\n## Conventions\n- New models need a migration (`python manage.py makemigrations`) committed with the code.\n- Business logic lives in `services.py`, not views or models.\n- Use the ORM; raw SQL only with a comment explaining why.\n- Every view checks permissions explicitly.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
       "score": 0,
-      "uses": 1,
+      "uses": 2,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-django-project-a6598bdb",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-django-project-a6598bdb/raw",
       "created_at": "2026-10-06T03:46:34.816808+00:00",
-      "updated_at": "2026-10-27T02:05:40.341318+00:00"
+      "updated_at": "2026-10-27T15:32:55.557371+00:00"
     },
     {
       "slug": "break-a-big-project-into-a-plan-a686a13c",
@@ -2564,12 +2564,12 @@
       "install": null,
       "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: Ruby {{ruby_version}}, Rails {{rails_version}}, {{database}}, {{frontend}}.\n\n## Commands\n- Run locally: `bin/dev`\n- Tests: `{{test_command}}`\n- Lint/format: `bundle exec rubocop`\n\n## Where things live\n- `app/models`, `app/controllers`, `app/views`: standard Rails\n- `app/services`: multi-step business logic\n- `app/jobs`: background work ({{job_backend}})\n- `db/migrate`: one migration per change\n\n## Conventions\n- Fat models are fine; fat controllers are not. Move logic out of controllers.\n- Strong parameters on every create/update.\n- Avoid N+1 queries: use `includes` and check the log.\n- Prefer Rails conventions over custom patterns.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-ruby-on-rails-app-dadb0ceb",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-ruby-on-rails-app-dadb0ceb/raw",
       "created_at": "2026-10-06T05:46:34.816808+00:00",
-      "updated_at": "2026-10-17T15:46:06.838402+00:00"
+      "updated_at": "2026-10-27T15:33:01.115773+00:00"
     },
     {
       "slug": "claude-md-template-for-a-go-service-a256d8da",
@@ -2874,12 +2874,12 @@
       "install": null,
       "body": "# CLAUDE.md\n\n## What this is\n{{app_name}} is a {{one_line_description}}. Users: {{who_uses_it}}.\n\n## Commands\n- Install: `{{package_manager}} install`\n- Dev server: `{{package_manager}} run dev` (http://localhost:3000)\n- Lint + types: `{{package_manager}} run lint && npx tsc --noEmit`\n- Tests: `{{test_command}}`\n- Build: `{{package_manager}} run build`\n\n## Stack\n- Next.js (App Router), React, TypeScript, {{styling}}\n- Supabase: Postgres with row-level security on every table, Auth, Storage\n- Hosting: {{hosting}}\n\n## Where things live\n- `src/app`: routes. Server components by default; add \"use client\" only when needed.\n- `src/app/api`: route handlers. Validate input with zod, check auth first.\n- `src/lib/server`: server-only data access (never import into client code).\n- `supabase/migrations`: one SQL file per change, named `YYYYMMDDHHMMSS_what.sql`.\n\n## Rules\n- Every new table: enable RLS and write policies in the same migration.\n- Never expose the service-role key to the browser or log it.\n- Prefer editing existing components over creating near-duplicates.\n- Match the surrounding code style; no new dependencies without asking.\n\n## Done means\nLint, types and build pass; you ran the change in the browser and checked the console; you listed what you changed and anything you skipped.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-next-js-supabase-app-9261f33c",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-next-js-supabase-app-9261f33c/raw",
       "created_at": "2026-10-06T13:18:19.067383+00:00",
-      "updated_at": "2026-10-17T15:23:54.27961+00:00"
+      "updated_at": "2026-10-27T15:32:58.876798+00:00"
     },
     {
       "slug": "claude-code-slash-command-commit-584b2474",
@@ -2946,12 +2946,12 @@
       "install": null,
       "body": "---\ndescription: Investigate and write a step-by-step plan before coding\nargument-hint: <what you want to build or fix>\n---\n\nTask: $ARGUMENTS\n\nDo not edit any files yet.\n1. Read the relevant code. List the files and functions involved.\n2. Explain how it works today in 3–5 sentences.\n3. Write a numbered plan (max 7 steps). Each step: what changes, in which file, and how you'll verify it.\n4. List risks, open questions and anything you'd need from me.\nWait for my \"go\" before starting step 1. Project notes: {{project_notes}}",
       "score": 0,
-      "uses": 1,
+      "uses": 2,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-slash-command-plan-3082aeed",
       "raw_url": "https://commandvault.ai/commands/claude-code-slash-command-plan-3082aeed/raw",
       "created_at": "2026-10-06T15:46:34.816808+00:00",
-      "updated_at": "2026-10-17T15:23:54.27961+00:00"
+      "updated_at": "2026-10-27T15:32:55.954347+00:00"
     },
     {
       "slug": "claude-md-template-for-a-python-fastapi-service-6a36a740",
@@ -3960,12 +3960,12 @@
       "install": null,
       "body": "---\nname: test-writer\ndescription: Writes and fixes tests for recently changed code. Use after implementing a feature or fixing a bug.\ntools: Read, Grep, Glob, Edit, Write, Bash\n---\n\nYou write tests for {{project_name}} using {{test_framework}}.\n\nProcess:\n1. Find what changed: `git status --short` and `git diff --name-only HEAD` (new, untracked files only show in git status). If the project has no test runner yet, say so and propose the smallest setup before writing tests.\n2. Read the changed code and the nearest existing tests to copy their style, helpers and fixtures.\n3. Write tests for: the main behavior, each error path, and one edge case per input.\n4. Run `{{test_command}}`. If a test fails because the code is wrong, report it; don't change the code.\n5. Never weaken an assertion or skip a test to make it pass.\n\nReturn: the tests you added, the command output, and any bugs you found.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-subagent-test-writer-dd7b50c1",
       "raw_url": "https://commandvault.ai/commands/claude-code-subagent-test-writer-dd7b50c1/raw",
       "created_at": "2026-10-07T13:18:19.067383+00:00",
-      "updated_at": "2026-10-17T15:46:06.838402+00:00"
+      "updated_at": "2026-10-27T15:33:00.580653+00:00"
     },
     {
       "slug": "claude-code-subagent-code-reviewer-03274b7f",
@@ -4038,12 +4038,12 @@
       "install": null,
       "body": "Turn these notes into flashcards:\n\n{{notes}}\n\nRules:\n- One fact or idea per card.\n- Questions test understanding, not just recall (\"Why does X happen?\" over \"What is X?\").\n- Include a few cards that compare or contrast concepts.\n- Answers under 25 words.\n\nOutput as a two-column CSV (front,back) ready to import into Anki.",
       "score": 0,
-      "uses": 1,
+      "uses": 2,
       "author": "client",
       "url": "https://commandvault.ai/commands/make-flashcards-from-my-notes-b50fd58d",
       "raw_url": "https://commandvault.ai/commands/make-flashcards-from-my-notes-b50fd58d/raw",
       "created_at": "2026-10-07T14:40:41.315869+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-10-27T15:32:56.392034+00:00"
     },
     {
       "slug": "claude-code-subagent-debugger-4afa4d06",
@@ -4876,12 +4876,12 @@
       },
       "body": "Gives Claude a current reference for the Claude API so it doesn't rely on stale training data: model IDs, pricing, streaming, tool use, prompt caching, thinking settings, MCP and agent patterns. It triggers whenever code or a question involves Claude or Anthropic, or an LLM task where no other provider is named. Per-language folders cover Python, TypeScript, Go, Java, C#, Ruby, PHP and curl. It is large, and model details reflect the date it was last refreshed.\n\n**Try asking:**\n- \"Add streaming and prompt caching to my Claude chatbot in Python\"\n- \"Which Claude model should I use for a cheap classification job?\"\n- \"Migrate this code from the old completions API to Messages\"\n\n**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/claude-api) · Apache-2.0 · by Anthropic",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-api-reference-anthropic-b5ea3e3a",
       "raw_url": "https://commandvault.ai/commands/claude-api-reference-anthropic-b5ea3e3a/raw",
       "created_at": "2026-10-10T01:56:35.954546+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-10-27T15:32:58.091337+00:00"
     },
     {
       "slug": "brainstorming-before-building-superpowers-84194470",
@@ -4916,12 +4916,12 @@
       },
       "body": "Makes Claude stop and clarify before creative or feature work. It asks one question at a time to learn the goal and constraints, plays its understanding back to you, sizes the work, and writes up a short design you agree on before implementation starts. An optional visual companion can show mockups in the browser while you talk. Part of the Superpowers workflow, where it hands off to the planning skill.\n\n**Try asking:**\n- \"I want to add team workspaces to my app\"\n- \"Let's think through a referral program before we build it\"\n- \"Help me plan a redesign of the settings page\"\n\n**Source:** [obra/superpowers](https://github.com/obra/superpowers/tree/HEAD/skills/brainstorming) · MIT · by Jesse Vincent (obra)",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/brainstorming-before-building-superpowers-84194470",
       "raw_url": "https://commandvault.ai/commands/brainstorming-before-building-superpowers-84194470/raw",
       "created_at": "2026-10-10T02:33:35.954546+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-10-27T15:32:59.356631+00:00"
     },
     {
       "slug": "writing-implementation-plans-superpowers-3a8e80fa",
@@ -6793,12 +6793,12 @@
       },
       "body": "Signs in with OAuth. Handy for \"why did the last deployment fail?\" with the build log in context.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/vercel-mcp-server-official-remote-889521ed",
       "raw_url": "https://commandvault.ai/commands/vercel-mcp-server-official-remote-889521ed/raw",
       "created_at": "2026-10-11T01:20:20.313707+00:00",
-      "updated_at": "2026-10-17T14:42:39.104528+00:00"
+      "updated_at": "2026-10-27T15:32:59.7328+00:00"
     },
     {
       "slug": "ai-search-optimization-marketing-skills-20cfa95a",
@@ -6991,12 +6991,12 @@
       },
       "body": "Read-only and public. Cloudflare also runs servers for Workers bindings, observability and more (they sign in with OAuth); see the repository for the full list.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/cloudflare-docs-mcp-server-869e8d34",
       "raw_url": "https://commandvault.ai/commands/cloudflare-docs-mcp-server-869e8d34/raw",
       "created_at": "2026-10-11T03:20:20.313707+00:00",
-      "updated_at": "2026-10-17T14:42:39.104528+00:00"
+      "updated_at": "2026-10-27T15:33:00.173361+00:00"
     },
     {
       "slug": "claude-code-hook-development-anthropic-0dac2d77",

@@ -37,7 +37,7 @@ Content: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Credit "Comm
 Third-party skills (`skills/third-party/`) and MCP servers are linked, not copied: each file names the author, source repo and license, and the original keeps its own license.
 
 <!-- index:start -->
-_Synced from [commandvault.ai](https://commandvault.ai) on 2026-10-27: 240 items._
+_Synced from [commandvault.ai](https://commandvault.ai) on 2026-10-28: 240 items._
 
 ## Agent Skills (75)
 
