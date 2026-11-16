@@ -16,7 +16,7 @@ alwaysApply: false
 
 # Prisma
 
-- Change the schema in `prisma/schema.prisma`, then `npx prisma migrate dev --name <change>`; commit the migration.
+- Change the schema in `prisma/schema.prisma`, then `npx prisma migrate dev --name <change>`; keep the generated migration folder with your change (don't run git commit unless asked).
 - Never run `migrate reset` or `db push` against shared or production databases.
 - One PrismaClient instance per process (`src/lib/db.ts`); never create clients per request.
 - Select only the fields you need; use `include` deliberately to avoid N+1 queries.

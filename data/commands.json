@@ -708,12 +708,12 @@
       "install": null,
       "body": "I'm building {{feature}} on Postgres (Supabase). Users: {{user_roles}}.\n\nProduce a single SQL migration that:\n- Creates tables with uuid primary keys, timestamps, foreign keys and check constraints.\n- Adds indexes for every foreign key and every column I'll filter or sort by.\n- Enables RLS on every table and writes select/insert/update/delete policies per role, using (select auth.uid()).\n- Keeps privileged logic in security definer functions with search_path set to ''.\n\nAfter the SQL, explain each policy in one sentence and list queries I should run to prove a user cannot read another user's rows.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/model-a-postgres-schema-with-row-level-security-4c536980",
       "raw_url": "https://commandvault.ai/commands/model-a-postgres-schema-with-row-level-security-4c536980/raw",
       "created_at": "2026-09-25T13:40:41.315869+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-11-14T20:30:06.171083+00:00"
     },
     {
       "slug": "add-a-background-job-safely-ffa03721",
@@ -798,12 +798,12 @@
       "install": null,
       "body": "Write integration tests for this endpoint using {{test_framework}}:\n\n{{endpoint_code}}\n\nCover at minimum:\n- Success with valid input (assert body and status).\n- Missing/invalid auth → 401/403.\n- Validation failures for each required field.\n- Not found and conflict cases.\n- Rate limit or duplicate submission behavior if present.\n\nUse factories for test data, clean up after each test, and don't mock the database unless I say so.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/write-integration-tests-for-an-endpoint-95976de5",
       "raw_url": "https://commandvault.ai/commands/write-integration-tests-for-an-endpoint-95976de5/raw",
       "created_at": "2026-09-26T03:40:41.315869+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-11-14T20:30:06.171083+00:00"
     },
     {
       "slug": "database-migration-safety-review-abd8f75a",
@@ -1140,12 +1140,12 @@
       "install": null,
       "body": "Write a production Dockerfile for a {{language}} app whose start command is {{start_command}}.\n\nRequirements:\n- Multi-stage build; final image based on a slim or distroless base.\n- Dependency install layer cached separately from source.\n- Runs as a non-root user.\n- Only production dependencies in the final image.\n- HEALTHCHECK if the app exposes HTTP on {{port}}.\n- A matching .dockerignore.\n\nExplain the expected final image size and how to verify it.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/write-a-minimal-production-dockerfile-39803cfc",
       "raw_url": "https://commandvault.ai/commands/write-a-minimal-production-dockerfile-39803cfc/raw",
       "created_at": "2026-09-28T09:40:41.315869+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-11-14T20:30:06.171083+00:00"
     },
     {
       "slug": "incident-response-first-30-minutes-8f32b3ea",
@@ -3056,12 +3056,12 @@
       "install": null,
       "body": "---\ndescription: Reproduce, fix and test a GitHub issue\nargument-hint: <issue number>\nallowed-tools: Bash(gh issue view:*), Bash({{test_command}}:*)\n---\n\n1. Read the issue: `gh issue view $ARGUMENTS`.\n2. Reproduce it: write a failing test that shows the bug. Run it and confirm it fails.\n3. Find the root cause. Explain it in two sentences before changing code.\n4. Fix it with the smallest reasonable change.\n5. Run `{{test_command}}`; the new test and the full suite must pass.\n6. Summarize: cause, fix, test added, and anything you're unsure about. Don't push or open a PR unless I ask.",
       "score": 0,
-      "uses": 2,
+      "uses": 3,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-slash-command-fix-issue-2de5b0f5",
       "raw_url": "https://commandvault.ai/commands/claude-code-slash-command-fix-issue-2de5b0f5/raw",
       "created_at": "2026-10-06T17:46:34.816808+00:00",
-      "updated_at": "2026-11-08T23:42:56.263727+00:00"
+      "updated_at": "2026-11-14T20:30:06.171083+00:00"
     },
     {
       "slug": "teach-me-with-the-feynman-technique-b8f97557",
@@ -3205,14 +3205,14 @@
         }
       ],
       "install": null,
-      "body": "This is our first session in this repo. Set yourself up properly before any feature work.\n\n1. Explore: read the README, package/build files, CI config and the main folders. Run the test command once to see the current state.\n2. Create `CLAUDE.md` with: project summary, exact commands, where things live, conventions, never-do list, definition of done. Only include what you verified.\n3. Suggest 3 slash commands in `.claude/commands/` that would save time in this repo (e.g. /test-file, /review) and write them.\n4. Suggest `.claude/settings.json` permissions: which commands are safe to always allow ({{safe_commands}}) and which should always ask.\n5. Report: what you created, what you couldn't verify, and the 3 biggest risks you noticed in the codebase.",
+      "body": "This is our first session in this repo. Set yourself up properly before any feature work.\n\n1. Explore: read the README, package/build files, CI config and the main folders. Run the test command once to see the current state.\n2. Create `CLAUDE.md` with: project summary, exact commands, where things live, conventions, never-do list, definition of done. Only include what you verified about this repo; don't copy rules from your own personal or global instructions.\n3. Suggest 3 slash commands in `.claude/commands/` that would save time in this repo (e.g. /test-file, /review) and write them. If you can't write a file, print its full contents in your reply instead.\n4. Propose `.claude/settings.json` permissions (show the JSON; don't write the file unless I say so): which commands are safe to always allow ({{safe_commands}}) and which should always ask.\n5. Report: what you created, what you couldn't verify, and the 3 biggest risks you noticed in the codebase.",
       "score": 0,
-      "uses": 2,
+      "uses": 3,
       "author": "client",
       "url": "https://commandvault.ai/commands/set-up-claude-code-in-an-existing-repo-faaec9e5",
       "raw_url": "https://commandvault.ai/commands/set-up-claude-code-in-an-existing-repo-faaec9e5/raw",
       "created_at": "2026-10-06T19:46:34.816808+00:00",
-      "updated_at": "2026-11-08T23:42:59.755055+00:00"
+      "updated_at": "2026-11-14T20:30:38.980886+00:00"
     },
     {
       "slug": "cursor-rules-for-next-js-app-router-63d6701b",
@@ -3249,12 +3249,12 @@
       "install": null,
       "body": "---\ndescription: Next.js App Router conventions\nglobs: [\"app/**/*.tsx\",\"app/**/*.ts\",\"src/app/**\"]\nalwaysApply: false\n---\n\n# Next.js App Router\n\n- Server Components by default. Add \"use client\" only for state, effects, browser APIs or event handlers, and keep client components small and at the leaves.\n- Fetch data in Server Components or route handlers, never with useEffect for initial data.\n- `params` and `searchParams` are async: `const { slug } = await params`.\n- Use `generateMetadata` for titles/descriptions on every page; set `alternates.canonical`.\n- Mutations: Server Actions or route handlers in `app/api`; validate input with {{validation_library}}.\n- Images via next/image with width/height; fonts via next/font.\n- Use `loading.tsx`, `error.tsx` and `not-found.tsx` instead of ad-hoc spinners and checks.\n- Never import server-only modules (database clients, secrets) into client components.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/cursor-rules-for-next-js-app-router-63d6701b",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-next-js-app-router-63d6701b/raw",
       "created_at": "2026-10-06T21:46:34.816808+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-11-14T20:30:06.171083+00:00"
     },
     {
       "slug": "generate-an-agents-md-from-an-existing-codebase-0a21e41d",
@@ -3292,12 +3292,12 @@
       "install": null,
       "body": "Read this repository and write an AGENTS.md at the root that a new coding agent could follow on day one.\n\nInvestigate before writing:\n1. package.json / pyproject / Makefile / CI files: the real install, dev, test, lint and build commands.\n2. The folder structure: where routes, business logic, data access and tests live.\n3. Existing conventions: naming, error handling, how data is fetched, how styles are written.\n4. Anything dangerous: migrations, generated files, secrets, production scripts.\n\nWrite AGENTS.md with these sections: Overview (3 lines), Commands (exact, copy-pasteable), Where things live, Conventions, Never do, Definition of done.\n\nRules:\n- Only state things you verified in the code; mark guesses with \"(check)\".\n- Keep it under {{max_lines}} lines.\n- Focus on {{focus_area}} if the repo is large.\n\nThen list the 3 things you were least sure about.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/generate-an-agents-md-from-an-existing-codebase-0a21e41d",
       "raw_url": "https://commandvault.ai/commands/generate-an-agents-md-from-an-existing-codebase-0a21e41d/raw",
       "created_at": "2026-10-06T22:18:19.067383+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-11-14T20:30:06.171083+00:00"
     },
     {
       "slug": "cursor-rules-for-vue-3-typescript-d7cba1fa",
@@ -3509,12 +3509,12 @@
       "install": null,
       "body": "---\ndescription: Tailwind CSS conventions\nglobs: [\"**/*.tsx\",\"**/*.jsx\",\"**/*.vue\",\"**/*.svelte\",\"**/*.html\"]\nalwaysApply: false\n---\n\n# Tailwind CSS\n\n- Use theme tokens from `{{tailwind_config_path}}` (colors, spacing, radius); no arbitrary values like `text-[#123456]` unless the design requires it.\n- Mobile first: base classes for phones, then `sm:`, `md:`, `lg:`.\n- Order classes: layout → box → typography → color → state (or rely on the Prettier Tailwind plugin).\n- Extract repeated class groups (3+ uses) into a component, not `@apply`.\n- Every interactive element gets visible `focus-visible:` styles.\n- Dark mode via `{{dark_mode_strategy}}`; check contrast in both themes.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/cursor-rules-for-tailwind-css-7767bbdc",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-tailwind-css-7767bbdc/raw",
       "created_at": "2026-10-07T03:46:34.816808+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-11-14T20:30:06.171083+00:00"
     },
     {
       "slug": "cursor-project-rules-for-react-typescript-1238d8aa",
@@ -3618,12 +3618,12 @@
       "install": null,
       "body": "---\ndescription: Supabase conventions\nglobs: [\"supabase/**\",\"src/**/*.ts\",\"app/**/*.ts\"]\nalwaysApply: false\n---\n\n# Supabase\n\n- Every table: `enable row level security` plus explicit policies in the same migration. Use `(select auth.uid())` in policies.\n- Schema changes only through migrations in `supabase/migrations` (`supabase migration new <name>`); never edit the remote database by hand.\n- The anon key is public; the service-role key is server-only and never logged or sent to the browser.\n- Security definer functions set `search_path = ''` and are revoked from anon/authenticated unless meant to be called.\n- Index every foreign key and every column used in filters or sorting.\n- Generate types with `supabase gen types typescript` after schema changes.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/cursor-rules-for-supabase-d4b5ec46",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-supabase-d4b5ec46/raw",
       "created_at": "2026-10-07T05:46:34.816808+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-11-14T20:30:06.171083+00:00"
     },
     {
       "slug": "github-copilot-custom-instructions-file-5a9bdedb",
@@ -3703,12 +3703,12 @@
       "install": null,
       "body": "# Copilot instructions for {{repo_name}}\n\n## About this repository\n{{repo_description}}. Main language: {{language}}. Framework: {{framework}}.\n\n## How to build and test\n- Install: `{{install_command}}`\n- Test: `{{test_command}}`\n- Lint: `{{lint_command}}`\nAlways run the tests related to files you change.\n\n## Coding standards\n- Follow the existing patterns in the folder you're editing.\n- Small, focused functions; descriptive names; no abbreviations.\n- Handle errors explicitly; never swallow exceptions.\n- Add or update tests with every behavior change.\n\n## Pull requests\n- Title: imperative, under 60 characters.\n- Description: what changed, why, how it was tested, risks.\n\n## Do not\n- Edit generated files in `{{generated_folder}}`.\n- Add dependencies without explaining why in the PR.\n- Change public APIs without updating `{{api_docs_path}}`.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/github-copilot-custom-instructions-file-5a9bdedb",
       "raw_url": "https://commandvault.ai/commands/github-copilot-custom-instructions-file-5a9bdedb/raw",
       "created_at": "2026-10-07T07:18:19.067383+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-11-14T20:30:06.171083+00:00"
     },
     {
       "slug": "cursor-rules-for-prisma-4276d69f",
@@ -3737,14 +3737,14 @@
         }
       ],
       "install": null,
-      "body": "---\ndescription: Prisma conventions\nglobs: [\"prisma/schema.prisma\",\"src/**/*.ts\"]\nalwaysApply: false\n---\n\n# Prisma\n\n- Change the schema in `prisma/schema.prisma`, then `npx prisma migrate dev --name <change>`; commit the migration.\n- Never run `migrate reset` or `db push` against shared or production databases.\n- One PrismaClient instance per process (`src/lib/db.ts`); never create clients per request.\n- Select only the fields you need; use `include` deliberately to avoid N+1 queries.\n- Wrap multi-step writes in `prisma.$transaction`.\n- Map Prisma errors (P2002 unique, P2025 not found) to clear API errors.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
+      "body": "---\ndescription: Prisma conventions\nglobs: [\"prisma/schema.prisma\",\"src/**/*.ts\"]\nalwaysApply: false\n---\n\n# Prisma\n\n- Change the schema in `prisma/schema.prisma`, then `npx prisma migrate dev --name <change>`; keep the generated migration folder with your change (don't run git commit unless asked).\n- Never run `migrate reset` or `db push` against shared or production databases.\n- One PrismaClient instance per process (`src/lib/db.ts`); never create clients per request.\n- Select only the fields you need; use `include` deliberately to avoid N+1 queries.\n- Wrap multi-step writes in `prisma.$transaction`.\n- Map Prisma errors (P2002 unique, P2025 not found) to clear API errors.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
       "score": 0,
-      "uses": 2,
+      "uses": 3,
       "author": "client",
       "url": "https://commandvault.ai/commands/cursor-rules-for-prisma-4276d69f",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-prisma-4276d69f/raw",
       "created_at": "2026-10-07T07:46:34.816808+00:00",
-      "updated_at": "2026-11-08T23:43:01.450723+00:00"
+      "updated_at": "2026-11-14T20:30:38.980886+00:00"
     },
     {
       "slug": "summarize-a-paper-or-long-article-71816494",
@@ -3840,12 +3840,12 @@
       "install": null,
       "body": "---\ndescription: Python conventions\nglobs: [\"**/*.py\"]\nalwaysApply: false\n---\n\n# Python\n\n- Python {{python_version}}; type hints on every function signature; `mypy` clean.\n- Format and lint with ruff (`ruff format`, `ruff check --fix`).\n- Small pure functions; side effects (I/O, network, DB) at the edges.\n- Use dataclasses or Pydantic models instead of loose dicts for structured data.\n- Raise specific exceptions; never use bare `except:`.\n- Tests with pytest in `tests/`, mirroring the package layout; use fixtures, not globals.\n- Dependencies managed with {{dependency_tool}}; don't add packages without saying why.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
       "score": 0,
-      "uses": 2,
+      "uses": 3,
       "author": "client",
       "url": "https://commandvault.ai/commands/cursor-rules-for-python-projects-aae1afcd",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-python-projects-aae1afcd/raw",
       "created_at": "2026-10-07T09:46:34.816808+00:00",
-      "updated_at": "2026-11-08T23:43:10.59524+00:00"
+      "updated_at": "2026-11-14T20:30:06.171083+00:00"
     },
     {
       "slug": "claude-code-custom-slash-command-review-db7a5205",
@@ -3912,12 +3912,12 @@
       "install": null,
       "body": "---\ndescription: Go conventions\nglobs: [\"**/*.go\"]\nalwaysApply: false\n---\n\n# Go\n\n- Errors are values: return them, wrap with `%w`, and handle each one. No panics in library code.\n- `context.Context` first argument for anything doing I/O; respect cancellation.\n- Accept interfaces, return structs; define interfaces where they're used.\n- Keep packages small and named for what they provide (no `utils`).\n- Table-driven tests with `t.Run`; use `t.Helper()` in helpers.\n- Run `go vet` and `golangci-lint run` before finishing.\n\n## When you change code\n- Follow the patterns in the nearest existing file before inventing new ones.\n- Add or update a test for behavior changes; run `{{test_command}}`.\n- Keep diffs small; explain anything surprising in your reply.",
       "score": 0,
-      "uses": 2,
+      "uses": 3,
       "author": "client",
       "url": "https://commandvault.ai/commands/cursor-rules-for-go-0021fab7",
       "raw_url": "https://commandvault.ai/commands/cursor-rules-for-go-0021fab7/raw",
       "created_at": "2026-10-07T11:46:34.816808+00:00",
-      "updated_at": "2026-11-08T23:43:16.272737+00:00"
+      "updated_at": "2026-11-14T20:30:06.171083+00:00"
     },
     {
       "slug": "claude-code-subagent-test-writer-dd7b50c1",
@@ -4117,12 +4117,12 @@
       "install": null,
       "body": "Here is my CLAUDE.md:\n\n{{claude_md}}\n\nProduce equivalent context files for other coding agents, keeping the same facts and rules:\n1. **AGENTS.md** (Codex, Jules, Cursor, many others): plain Markdown, same sections.\n2. **GEMINI.md** (Gemini CLI): same content; mention Gemini-specific commands only if I listed any.\n3. **.cursor/rules/project.mdc** (Cursor): add front matter with description, globs \"{{globs}}\" and alwaysApply: true.\n4. **.github/copilot-instructions.md** (GitHub Copilot).\n\nRules:\n- Don't invent commands or conventions that aren't in my file.\n- Remove Claude-specific wording (like slash commands) where another tool can't use it.\n- Show each file in its own code block with its path as the heading.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/convert-claude-md-into-agents-md-gemini-md-and-cursor-rules-9a820aa4",
       "raw_url": "https://commandvault.ai/commands/convert-claude-md-into-agents-md-gemini-md-and-cursor-rules-9a820aa4/raw",
       "created_at": "2026-10-07T16:18:19.067383+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-11-14T20:30:06.171083+00:00"
     },
     {
       "slug": "claude-code-subagent-database-migration-checker-ff16bd58",
@@ -4158,14 +4158,14 @@
         }
       ],
       "install": null,
-      "body": "---\nname: migration-checker\ndescription: Reviews new database migrations for locking, data loss, compatibility and rollback before they run. Use whenever a migration is added or changed.\ntools: Read, Grep, Glob\n---\n\nYou review migrations in `{{migrations_path}}` for a {{database}} database with large tables.\n\nFor each new migration report:\n1. Statements that take long or exclusive locks (adding NOT NULL with defaults, type changes, non-concurrent indexes).\n2. Anything that drops or rewrites data, and whether it's reversible.\n3. Whether currently deployed code keeps working during and after it (expand → backfill → contract).\n4. Missing indexes for new foreign keys or filters.\n5. The exact rollback steps.\nFinish with GO / NO-GO. Never run migrations yourself.",
+      "body": "---\nname: migration-checker\ndescription: Reviews new database migrations for locking, data loss, compatibility and rollback before they run. Use whenever a migration is added or changed.\ntools: Read, Grep, Glob\n---\n\nYou review migrations in `{{migrations_path}}` for a {{database}} database with large tables.\n\nFor each new migration report:\n1. Statements that take long or exclusive locks (column type changes, non-concurrent indexes, constraints added without NOT VALID, SET NOT NULL on a big table; on PostgreSQL 11+ adding a column with a constant DEFAULT is not a rewrite).\n2. Anything that drops or rewrites data, and whether it's reversible.\n3. Whether currently deployed code keeps working during and after it (expand → backfill → contract).\n4. Missing indexes for new foreign keys or filters.\n5. The exact rollback steps, as SQL statements.\nFinish with GO / NO-GO. Never run migrations yourself.",
       "score": 0,
-      "uses": 0,
+      "uses": 1,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-subagent-database-migration-checker-ff16bd58",
       "raw_url": "https://commandvault.ai/commands/claude-code-subagent-database-migration-checker-ff16bd58/raw",
       "created_at": "2026-10-07T17:46:34.816808+00:00",
-      "updated_at": "2026-10-17T14:41:57.209405+00:00"
+      "updated_at": "2026-11-14T20:30:38.980886+00:00"
     },
     {
       "slug": "definition-of-done-block-for-agent-context-files-41e7512b",

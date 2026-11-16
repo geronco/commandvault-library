@@ -948,9 +948,9 @@ Each package may have its own `AGENTS.md`. When it exists, it wins over this fil
 set-up-claude-code-in-an-existing-repo-faaec9e5,Set up Claude Code in an existing repo,"A first-session prompt that has Claude Code explore your repo and create CLAUDE.md, commands and settings.",prompt,agents,claude-code;onboarding;setup,"This is our first session in this repo. Set yourself up properly before any feature work.
 
 1. Explore: read the README, package/build files, CI config and the main folders. Run the test command once to see the current state.
-2. Create `CLAUDE.md` with: project summary, exact commands, where things live, conventions, never-do list, definition of done. Only include what you verified.
-3. Suggest 3 slash commands in `.claude/commands/` that would save time in this repo (e.g. /test-file, /review) and write them.
-4. Suggest `.claude/settings.json` permissions: which commands are safe to always allow ({{safe_commands}}) and which should always ask.
+2. Create `CLAUDE.md` with: project summary, exact commands, where things live, conventions, never-do list, definition of done. Only include what you verified about this repo; don't copy rules from your own personal or global instructions.
+3. Suggest 3 slash commands in `.claude/commands/` that would save time in this repo (e.g. /test-file, /review) and write them. If you can't write a file, print its full contents in your reply instead.
+4. Propose `.claude/settings.json` permissions (show the JSON; don't write the file unless I say so): which commands are safe to always allow ({{safe_commands}}) and which should always ask.
 5. Report: what you created, what you couldn't verify, and the 3 biggest risks you noticed in the codebase.",https://commandvault.ai/commands/set-up-claude-code-in-an-existing-repo-faaec9e5
 cursor-rules-for-next-js-app-router-63d6701b,Cursor rules for Next.js App Router,"A .cursor/rules/nextjs.mdc file for server components, data fetching, routing and caching done right.",template,frontend,cursor-rules;cursor;nextjs;react,"---
 description: Next.js App Router conventions
@@ -1146,7 +1146,7 @@ alwaysApply: false
 
 # Prisma
 
-- Change the schema in `prisma/schema.prisma`, then `npx prisma migrate dev --name <change>`; commit the migration.
+- Change the schema in `prisma/schema.prisma`, then `npx prisma migrate dev --name <change>`; keep the generated migration folder with your change (don't run git commit unless asked).
 - Never run `migrate reset` or `db push` against shared or production databases.
 - One PrismaClient instance per process (`src/lib/db.ts`); never create clients per request.
 - Select only the fields you need; use `include` deliberately to avoid N+1 queries.
@@ -1301,11 +1301,11 @@ tools: Read, Grep, Glob
 You review migrations in `{{migrations_path}}` for a {{database}} database with large tables.
 
 For each new migration report:
-1. Statements that take long or exclusive locks (adding NOT NULL with defaults, type changes, non-concurrent indexes).
+1. Statements that take long or exclusive locks (column type changes, non-concurrent indexes, constraints added without NOT VALID, SET NOT NULL on a big table; on PostgreSQL 11+ adding a column with a constant DEFAULT is not a rewrite).
 2. Anything that drops or rewrites data, and whether it's reversible.
 3. Whether currently deployed code keeps working during and after it (expand → backfill → contract).
 4. Missing indexes for new foreign keys or filters.
-5. The exact rollback steps.
+5. The exact rollback steps, as SQL statements.
 Finish with GO / NO-GO. Never run migrations yourself.",https://commandvault.ai/commands/claude-code-subagent-database-migration-checker-ff16bd58
 definition-of-done-block-for-agent-context-files-41e7512b,Definition of done block for agent context files,Paste into CLAUDE.md or AGENTS.md so agents stop declaring victory before the work is verified.,snippet,agents,agents-md;claude-md;quality;verification,"## Definition of done
 A task is done only when all of these are true:
