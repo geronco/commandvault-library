@@ -1,0 +1,14 @@
+{
+  "name": "commandvault",
+  "version": "0.1.0",
+  "description": "Install prompts, CLAUDE.md/AGENTS.md files, Cursor rules, slash commands, subagents, Agent Skills and MCP servers from commandvault.ai into Claude Code, Codex, Cursor, Copilot, Gemini CLI, Grok or Windsurf.",
+  "type": "module",
+  "bin": { "commandvault": "bin/commandvault.mjs" },
+  "files": ["bin", "README.md"],
+  "engines": { "node": ">=18" },
+  "keywords": ["claude-code", "codex", "cursor", "copilot", "gemini-cli", "mcp", "agent-skills", "agents-md", "claude-md", "prompts"],
+  "homepage": "https://commandvault.ai",
+  "repository": { "type": "git", "url": "git+https://github.com/geronco/commandvault-library.git", "directory": "cli" },
+  "license": "MIT",
+  "author": "CommandVault (Cacele Digital)"
+}

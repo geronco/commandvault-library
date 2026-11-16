@@ -21,6 +21,13 @@ Setup for Cursor, VS Code, Codex, Claude Desktop and Gemini CLI: [commandvault.a
 /plugin install commandvault@commandvault
 ```
 
+**Command line** (installs any entry into Claude Code, Codex, Cursor, Copilot, Gemini CLI, Grok or Windsurf; source in [`cli/`](cli)):
+
+```bash
+npx commandvault add <slug or page URL>
+npx commandvault search "CLAUDE.md for Django"
+```
+
 ## Layout
 
 | Folder | What's in it |
@@ -29,6 +36,7 @@ Setup for Cursor, VS Code, Codex, Claude Desktop and Gemini CLI: [commandvault.a
 | `skills/<name>/SKILL.md` | Agent Skills, ready to copy into `.claude/skills/` |
 | `mcp-servers/<name>.json` | MCP server configs (`mcpServers` format) |
 | `data/commands.json`, `data/commands.csv` | Everything in one file, for datasets and scripts |
+| `cli/` | Source of the `commandvault` npm package |
 
 ## License
 
