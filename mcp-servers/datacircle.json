@@ -1,0 +1,11 @@
+{
+  "name": "Datacircle MCP server",
+  "description": "Our MCP server is open to anyone, with no key: add api.datacircle.dev/mcp to Claude, ChatGPT or Cursor. Find the best GTM APIs.",
+  "homepage": "https://datacircle.dev",
+  "mcpServers": {
+    "datacircle": {
+      "type": "http",
+      "url": "https://api.datacircle.dev/mcp"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 {
   "license": "CC-BY-4.0",
   "attribution": "CommandVault (https://commandvault.ai)",
-  "count": 240,
+  "count": 288,
   "items": [
     {
       "slug": "scroll-to-top-on-every-navigation-e66fb364",
@@ -38,12 +38,12 @@
       "install": null,
       "body": "Make every navigation in my app start at the top of the new page.\n\nStack: {{stack}}\nExceptions that must keep or restore scroll position: {{goal}}\n\nRequirements:\n1. On each route change, scroll to (0, 0) before or as the new page paints, so there's no visible jump.\n2. Respect the exceptions above. Browser back/forward should restore the previous position unless I said otherwise, and links to #anchors should scroll to the anchor.\n3. Handle scrollable containers too, not just window, if the layout scrolls inside a main element.\n4. Move keyboard focus to the new page's main heading so screen-reader users know the page changed.\n5. Use the framework's built-in mechanism if it has one before writing custom code, and explain why.\n\nTell me how to test it: three navigation scenarios to click through and what should happen in each.",
       "score": 0,
-      "uses": 20,
+      "uses": 21,
       "author": "client",
       "url": "https://commandvault.ai/commands/scroll-to-top-on-every-navigation-e66fb364",
       "raw_url": "https://commandvault.ai/commands/scroll-to-top-on-every-navigation-e66fb364/raw",
       "created_at": "2025-07-01T19:56:16.163751+00:00",
-      "updated_at": "2026-11-08T23:42:47.880577+00:00"
+      "updated_at": "2026-11-16T14:27:21.816508+00:00"
     },
     {
       "slug": "universal-dark-mode-toggle-80b6fd46",
@@ -79,12 +79,12 @@
       "install": null,
       "body": "Add a light/dark theme toggle that remembers each person's choice.\n\nStack: {{stack}}\nDefault for new visitors: {{goal}}\n\nRequirements:\n1. Three options: Light, Dark and System. Apply the default above until someone chooses.\n2. Save the choice in localStorage, and in the user's profile when they're logged in, so it follows them across devices.\n3. Apply the theme before first paint (an inline script or server-rendered class), so there's no flash of the wrong theme.\n4. Drive colors from CSS variables, and check text contrast meets WCAG AA in both themes.\n5. The toggle must be a real button with an accessible name and the current state announced.\n\nList the files you'll change, then give me a test checklist: first visit, switch and reload, log in on a second browser, and system theme changes.",
       "score": 0,
-      "uses": 7,
+      "uses": 8,
       "author": "client",
       "url": "https://commandvault.ai/commands/universal-dark-mode-toggle-80b6fd46",
       "raw_url": "https://commandvault.ai/commands/universal-dark-mode-toggle-80b6fd46/raw",
       "created_at": "2025-07-01T22:20:23.161895+00:00",
-      "updated_at": "2026-11-08T23:42:48.585841+00:00"
+      "updated_at": "2026-11-16T14:27:23.102189+00:00"
     },
     {
       "slug": "instant-email-verification-link-507dce29",
@@ -120,12 +120,12 @@
       "install": null,
       "body": "Add email verification to sign-up.\n\nStack: {{stack}}\nUntil they verify, users may: {{goal}}\n\nRequirements:\n1. On sign-up, send a single-use, signed verification link that expires after 24 hours. Store only a hash of the token.\n2. Enforce the restriction above on the server, not just in the UI.\n3. Let people resend the link (rate-limited) and show a clear message when a link is expired or already used.\n4. Clicking the link marks email_verified = true and logs them in or sends them to log in, depending on how our auth works.\n5. Don't reveal whether an email address has an account on the resend form.\n\nTell me which files change, what the email says, and how to test the whole flow locally, including an expired link.",
       "score": 0,
-      "uses": 6,
+      "uses": 7,
       "author": "client",
       "url": "https://commandvault.ai/commands/instant-email-verification-link-507dce29",
       "raw_url": "https://commandvault.ai/commands/instant-email-verification-link-507dce29/raw",
       "created_at": "2025-07-01T22:21:33.338204+00:00",
-      "updated_at": "2026-11-08T23:42:48.895983+00:00"
+      "updated_at": "2026-11-16T14:27:23.516339+00:00"
     },
     {
       "slug": "one-click-password-reset-182f1360",
@@ -161,12 +161,12 @@
       "install": null,
       "body": "Add a secure \"Forgot password\" flow.\n\nStack: {{stack}}\nAfter a successful reset, send people to: {{goal}}\n\nRequirements:\n1. The request form always shows the same message, whether or not the email has an account.\n2. Send a single-use token that expires in 60 minutes; store only its hash. Rate-limit requests per email and IP.\n3. The reset page checks the token, enforces our password rules, and then invalidates the token and every other active session.\n4. Email the user that their password was changed, with a way to report it wasn't them.\n5. Redirect as described above, with a confirmation message.\n\nList the files you'll change and give me a test plan, including reusing a token, an expired token and two tabs requesting resets.",
       "score": 0,
-      "uses": 4,
+      "uses": 5,
       "author": "client",
       "url": "https://commandvault.ai/commands/one-click-password-reset-182f1360",
       "raw_url": "https://commandvault.ai/commands/one-click-password-reset-182f1360/raw",
       "created_at": "2025-07-01T22:22:17.053804+00:00",
-      "updated_at": "2026-11-08T23:42:51.500601+00:00"
+      "updated_at": "2026-11-16T14:27:26.969617+00:00"
     },
     {
       "slug": "autosave-form-drafts-13cb65f4",
@@ -203,12 +203,12 @@
       "install": null,
       "body": "Autosave drafts so people never lose a long form.\n\nStack: {{stack}}\nForm: {{goal}}\n\nRequirements:\n1. Save changed fields locally (IndexedDB, keyed by form and user) a few seconds after typing stops, not on every keystroke.\n2. When the person comes back before submitting, offer to restore the draft and show when it was saved.\n3. Clear the draft after a successful submit or when they choose \"Discard\".\n4. Never store passwords, card numbers or other sensitive fields; list which fields you excluded.\n5. Show a quiet \"Saved\" indicator, and handle two tabs editing the same form without overwriting each other silently.\n\nList the files you'll change, then give me a test plan: type, reload, close the tab, come back, submit, and the two-tab case.",
       "score": 0,
-      "uses": 5,
+      "uses": 6,
       "author": "client",
       "url": "https://commandvault.ai/commands/autosave-form-drafts-13cb65f4",
       "raw_url": "https://commandvault.ai/commands/autosave-form-drafts-13cb65f4/raw",
       "created_at": "2025-07-01T22:30:32.218863+00:00",
-      "updated_at": "2026-11-08T23:42:49.809013+00:00"
+      "updated_at": "2026-11-16T14:27:24.809658+00:00"
     },
     {
       "slug": "debounced-live-search-a8ec2c2f",
@@ -243,12 +243,12 @@
       "install": null,
       "body": "Add live search that updates as people type without overloading the server.\n\nStack: {{stack}}\nSearch covers: {{goal}}\n\nRequirements:\n1. Debounce input by about 300 ms and send one request with the final query.\n2. Cancel in-flight requests when a newer query starts, so older results never overwrite newer ones.\n3. Skip requests for queries shorter than 2 characters; trim whitespace.\n4. Show loading, empty (\"No results for …\") and error states, and keep the previous results visible while the next ones load.\n5. Make results keyboard-navigable (arrow keys, Enter, Escape) and announce the result count to screen readers.\n6. Reflect the query in the URL so searches can be shared and the back button works.\n\nExplain how to verify it: what the network tab should show while typing quickly, and the edge cases you tested.",
       "score": 0,
-      "uses": 5,
+      "uses": 6,
       "author": "client",
       "url": "https://commandvault.ai/commands/debounced-live-search-a8ec2c2f",
       "raw_url": "https://commandvault.ai/commands/debounced-live-search-a8ec2c2f/raw",
       "created_at": "2025-07-01T22:31:15.606337+00:00",
-      "updated_at": "2026-11-08T23:42:49.501221+00:00"
+      "updated_at": "2026-11-16T14:27:24.383067+00:00"
     },
     {
       "slug": "skeleton-loading-placeholders-95a8cd27",
@@ -286,12 +286,12 @@
       "install": null,
       "body": "Replace blank or spinner states with skeleton placeholders.\n\nStack: {{stack}}\nStart with these screens: {{goal}}\n\nRequirements:\n1. Skeletons match the final layout (same size and position), so nothing shifts when data arrives. Aim for zero layout shift.\n2. Show them only while data is actually loading; if loading takes under ~150 ms, don't flash them.\n3. Use the framework's loading/streaming features where they exist instead of hand-rolled state.\n4. Add a subtle shimmer that is disabled when the user prefers reduced motion.\n5. Mark loading regions with aria-busy and keep the skeletons hidden from screen readers.\n\nShow me one reusable skeleton component, then apply it to the screens above. Tell me how to see it locally (for example by throttling the network in DevTools).",
       "score": 0,
-      "uses": 4,
+      "uses": 5,
       "author": "client",
       "url": "https://commandvault.ai/commands/skeleton-loading-placeholders-95a8cd27",
       "raw_url": "https://commandvault.ai/commands/skeleton-loading-placeholders-95a8cd27/raw",
       "created_at": "2025-07-01T22:32:26.897072+00:00",
-      "updated_at": "2026-11-08T23:42:51.164267+00:00"
+      "updated_at": "2026-11-16T14:27:26.541395+00:00"
     },
     {
       "slug": "graceful-404-fallback-e907f8bc",
@@ -327,12 +327,12 @@
       "install": null,
       "body": "Add a graceful 404 experience to my app.\n\nStack: {{stack}}\nLost visitors should be steered to: {{goal}}\n\nRequirements:\n1. Catch every unmatched route (including nested and dynamic segments) and render a branded 404 page that returns a real HTTP 404 status, not a 200.\n2. Show a short, human message, a primary button that takes people to {{goal}}, and a search box that searches the site.\n3. Log the missing path to our error analytics, but strip query strings, emails, tokens and IDs before sending.\n4. Keep the normal header and navigation so the page doesn't feel like a dead end.\n5. Make it accessible: one h1, focus moves to the heading on load, the button and search work with the keyboard.\n\nBefore changing code, list the files you'll touch. After, give me:\n- the exact steps to test it (a URL that should 404, what I should see, and how to confirm the status code in DevTools or with curl -I)\n- anything you couldn't verify.",
       "score": 0,
-      "uses": 9,
+      "uses": 10,
       "author": "client",
       "url": "https://commandvault.ai/commands/graceful-404-fallback-e907f8bc",
       "raw_url": "https://commandvault.ai/commands/graceful-404-fallback-e907f8bc/raw",
       "created_at": "2025-07-01T22:34:24.807268+00:00",
-      "updated_at": "2026-11-08T23:42:48.246134+00:00"
+      "updated_at": "2026-11-16T14:27:22.636159+00:00"
     },
     {
       "slug": "role-based-access-control-5cccc8f4",
@@ -370,12 +370,12 @@
       "install": null,
       "body": "Add role-based access control.\n\nStack: {{stack}}\nRoles and permissions: {{goal}}\n\nRequirements:\n1. Define the roles and permissions above in one place in code, and check permissions (not role names) at each use.\n2. Enforce access on the server for every protected page, API route and mutation. Hiding buttons in the UI is not enough.\n3. Deny by default: new routes are blocked until they declare the permission they need.\n4. Return 403 (not 404 or 500) for authenticated users without permission, and log the denial.\n5. Keep roles somewhere the client can't edit (server-side session or database), and make role changes take effect on the next request.\n\nList the files you'll change, then give me a test matrix: each role against each protected action, with the expected result.",
       "score": 0,
-      "uses": 4,
+      "uses": 5,
       "author": "client",
       "url": "https://commandvault.ai/commands/role-based-access-control-5cccc8f4",
       "raw_url": "https://commandvault.ai/commands/role-based-access-control-5cccc8f4/raw",
       "created_at": "2025-07-01T22:35:22.799608+00:00",
-      "updated_at": "2026-11-08T23:42:51.820541+00:00"
+      "updated_at": "2026-11-16T14:27:27.376986+00:00"
     },
     {
       "slug": "local-business-directory-system-d4d6d361",
@@ -413,12 +413,12 @@
       "install": null,
       "body": "Plan and build a local business directory for: {{goal}}\n\nStack: {{stack}}\n\nBuild it in this order, and stop after each phase so I can review:\n\nPhase 1: Directory\n1. Searchable listings with name, description, contact details, address, opening hours and photos.\n2. Keyword search plus filters for category and neighborhood.\n3. A \"Contact this business\" form that sends inquiries to the business and records them as leads.\n\nPhase 2: Accounts and reviews\n4. Visitor accounts to save favorites and leave reviews (one per business per person, with moderation).\n5. Business owners can claim and edit their listing after verification.\n\nPhase 3: Admin and revenue\n6. An admin panel to approve, edit and remove listings, moderate reviews and see leads.\n7. Paid placements (featured listings, banners) with clear \"Sponsored\" labels.\n8. A simple analytics dashboard: views, leads and revenue per listing.\n\nThroughout: comply with privacy law for the area above, secure the admin panel, keep pages fast on mobile, and write clear error messages.\n\nStart with Phase 1: propose the data model and pages, list the files you'll create, and wait for my go-ahead.",
       "score": 0,
-      "uses": 5,
+      "uses": 6,
       "author": "client",
       "url": "https://commandvault.ai/commands/local-business-directory-system-d4d6d361",
       "raw_url": "https://commandvault.ai/commands/local-business-directory-system-d4d6d361/raw",
       "created_at": "2025-07-15T18:23:07.80972+00:00",
-      "updated_at": "2026-11-08T23:42:49.204917+00:00"
+      "updated_at": "2026-11-16T14:27:23.958112+00:00"
     },
     {
       "slug": "build-an-accessible-react-component-592a69d5",
@@ -2437,12 +2437,12 @@
       "install": null,
       "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: Python {{python_version}}, Django {{django_version}}, {{database}}.\n\n## Commands\n- Run locally: `python manage.py runserver`\n- Tests: `{{test_command}}`\n- Lint/format: `ruff check . && ruff format --check .`\n\n## Where things live\n- `{{project_package}}/settings/`: base, dev, prod settings\n- `apps/<app>/`: models, views, serializers, urls, tests per app\n- `templates/` and `static/`: shared front end\n\n## Conventions\n- New models need a migration (`python manage.py makemigrations`) committed with the code.\n- Business logic lives in `services.py`, not views or models.\n- Use the ORM; raw SQL only with a comment explaining why.\n- Every view checks permissions explicitly.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
       "score": 0,
-      "uses": 4,
+      "uses": 5,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-django-project-a6598bdb",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-django-project-a6598bdb/raw",
       "created_at": "2026-10-06T03:46:34.816808+00:00",
-      "updated_at": "2026-11-08T23:42:50.123781+00:00"
+      "updated_at": "2026-11-16T14:27:25.213188+00:00"
     },
     {
       "slug": "break-a-big-project-into-a-plan-a686a13c",
@@ -2564,12 +2564,12 @@
       "install": null,
       "body": "# CLAUDE.md\n\n## Project\n{{project_name}}: {{what_it_does}}. Stack: Ruby {{ruby_version}}, Rails {{rails_version}}, {{database}}, {{frontend}}.\n\n## Commands\n- Run locally: `bin/dev`\n- Tests: `{{test_command}}`\n- Lint/format: `bundle exec rubocop`\n\n## Where things live\n- `app/models`, `app/controllers`, `app/views`: standard Rails\n- `app/services`: multi-step business logic\n- `app/jobs`: background work ({{job_backend}})\n- `db/migrate`: one migration per change\n\n## Conventions\n- Fat models are fine; fat controllers are not. Move logic out of controllers.\n- Strong parameters on every create/update.\n- Avoid N+1 queries: use `includes` and check the log.\n- Prefer Rails conventions over custom patterns.\n\n## Never\n- Commit secrets or `.env` files; refer to them by name only.\n- Run migrations or scripts against production.\n- Skip or delete a failing test to make the suite pass.\n\n## Done means\nTests and linters pass, you ran the change for real, and your summary lists what changed and what you didn't verify.",
       "score": 0,
-      "uses": 3,
+      "uses": 4,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-ruby-on-rails-app-dadb0ceb",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-ruby-on-rails-app-dadb0ceb/raw",
       "created_at": "2026-10-06T05:46:34.816808+00:00",
-      "updated_at": "2026-11-08T23:42:52.97488+00:00"
+      "updated_at": "2026-11-16T14:27:28.951176+00:00"
     },
     {
       "slug": "claude-md-template-for-a-go-service-a256d8da",
@@ -2874,12 +2874,12 @@
       "install": null,
       "body": "# CLAUDE.md\n\n## What this is\n{{app_name}} is a {{one_line_description}}. Users: {{who_uses_it}}.\n\n## Commands\n- Install: `{{package_manager}} install`\n- Dev server: `{{package_manager}} run dev` (http://localhost:3000)\n- Lint + types: `{{package_manager}} run lint && npx tsc --noEmit`\n- Tests: `{{test_command}}`\n- Build: `{{package_manager}} run build`\n\n## Stack\n- Next.js (App Router), React, TypeScript, {{styling}}\n- Supabase: Postgres with row-level security on every table, Auth, Storage\n- Hosting: {{hosting}}\n\n## Where things live\n- `src/app`: routes. Server components by default; add \"use client\" only when needed.\n- `src/app/api`: route handlers. Validate input with zod, check auth first.\n- `src/lib/server`: server-only data access (never import into client code).\n- `supabase/migrations`: one SQL file per change, named `YYYYMMDDHHMMSS_what.sql`.\n\n## Rules\n- Every new table: enable RLS and write policies in the same migration.\n- Never expose the service-role key to the browser or log it.\n- Prefer editing existing components over creating near-duplicates.\n- Match the surrounding code style; no new dependencies without asking.\n\n## Done means\nLint, types and build pass; you ran the change in the browser and checked the console; you listed what you changed and anything you skipped.",
       "score": 0,
-      "uses": 3,
+      "uses": 4,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-md-template-for-a-next-js-supabase-app-9261f33c",
       "raw_url": "https://commandvault.ai/commands/claude-md-template-for-a-next-js-supabase-app-9261f33c/raw",
       "created_at": "2026-10-06T13:18:19.067383+00:00",
-      "updated_at": "2026-11-08T23:42:52.114548+00:00"
+      "updated_at": "2026-11-16T14:27:27.793166+00:00"
     },
     {
       "slug": "claude-code-slash-command-commit-584b2474",
@@ -2946,12 +2946,12 @@
       "install": null,
       "body": "---\ndescription: Investigate and write a step-by-step plan before coding\nargument-hint: <what you want to build or fix>\n---\n\nTask: $ARGUMENTS\n\nDo not edit any files yet.\n1. Read the relevant code. List the files and functions involved.\n2. Explain how it works today in 3–5 sentences.\n3. Write a numbered plan (max 7 steps). Each step: what changes, in which file, and how you'll verify it.\n4. List risks, open questions and anything you'd need from me.\nWait for my \"go\" before starting step 1. Project notes: {{project_notes}}",
       "score": 0,
-      "uses": 4,
+      "uses": 5,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-slash-command-plan-3082aeed",
       "raw_url": "https://commandvault.ai/commands/claude-code-slash-command-plan-3082aeed/raw",
       "created_at": "2026-10-06T15:46:34.816808+00:00",
-      "updated_at": "2026-11-08T23:42:50.499364+00:00"
+      "updated_at": "2026-11-16T14:27:25.629691+00:00"
     },
     {
       "slug": "claude-md-template-for-a-python-fastapi-service-6a36a740",
@@ -3056,12 +3056,12 @@
       "install": null,
       "body": "---\ndescription: Reproduce, fix and test a GitHub issue\nargument-hint: <issue number>\nallowed-tools: Bash(gh issue view:*), Bash({{test_command}}:*)\n---\n\n1. Read the issue: `gh issue view $ARGUMENTS`.\n2. Reproduce it: write a failing test that shows the bug. Run it and confirm it fails.\n3. Find the root cause. Explain it in two sentences before changing code.\n4. Fix it with the smallest reasonable change.\n5. Run `{{test_command}}`; the new test and the full suite must pass.\n6. Summarize: cause, fix, test added, and anything you're unsure about. Don't push or open a PR unless I ask.",
       "score": 0,
-      "uses": 3,
+      "uses": 4,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-code-slash-command-fix-issue-2de5b0f5",
       "raw_url": "https://commandvault.ai/commands/claude-code-slash-command-fix-issue-2de5b0f5/raw",
       "created_at": "2026-10-06T17:46:34.816808+00:00",
-      "updated_at": "2026-11-14T20:30:06.171083+00:00"
+      "updated_at": "2026-11-16T14:27:29.302052+00:00"
     },
     {
       "slug": "teach-me-with-the-feynman-technique-b8f97557",
@@ -4038,12 +4038,12 @@
       "install": null,
       "body": "Turn these notes into flashcards:\n\n{{notes}}\n\nRules:\n- One fact or idea per card.\n- Questions test understanding, not just recall (\"Why does X happen?\" over \"What is X?\").\n- Include a few cards that compare or contrast concepts.\n- Answers under 25 words.\n\nOutput as a two-column CSV (front,back) ready to import into Anki.",
       "score": 0,
-      "uses": 4,
+      "uses": 5,
       "author": "client",
       "url": "https://commandvault.ai/commands/make-flashcards-from-my-notes-b50fd58d",
       "raw_url": "https://commandvault.ai/commands/make-flashcards-from-my-notes-b50fd58d/raw",
       "created_at": "2026-10-07T14:40:41.315869+00:00",
-      "updated_at": "2026-11-08T23:42:50.854518+00:00"
+      "updated_at": "2026-11-16T14:27:26.12625+00:00"
     },
     {
       "slug": "claude-code-subagent-debugger-4afa4d06",
@@ -4876,12 +4876,12 @@
       },
       "body": "Gives Claude a current reference for the Claude API so it doesn't rely on stale training data: model IDs, pricing, streaming, tool use, prompt caching, thinking settings, MCP and agent patterns. It triggers whenever code or a question involves Claude or Anthropic, or an LLM task where no other provider is named. Per-language folders cover Python, TypeScript, Go, Java, C#, Ruby, PHP and curl. It is large, and model details reflect the date it was last refreshed.\n\n**Try asking:**\n- \"Add streaming and prompt caching to my Claude chatbot in Python\"\n- \"Which Claude model should I use for a cheap classification job?\"\n- \"Migrate this code from the old completions API to Messages\"\n\n**Source:** [anthropics/skills](https://github.com/anthropics/skills/tree/HEAD/skills/claude-api) · Apache-2.0 · by Anthropic",
       "score": 0,
-      "uses": 3,
+      "uses": 4,
       "author": "client",
       "url": "https://commandvault.ai/commands/claude-api-reference-anthropic-b5ea3e3a",
       "raw_url": "https://commandvault.ai/commands/claude-api-reference-anthropic-b5ea3e3a/raw",
       "created_at": "2026-10-10T01:56:35.954546+00:00",
-      "updated_at": "2026-11-08T23:42:53.545446+00:00"
+      "updated_at": "2026-11-16T14:27:30.086725+00:00"
     },
     {
       "slug": "brainstorming-before-building-superpowers-84194470",
@@ -4916,12 +4916,12 @@
       },
       "body": "Makes Claude stop and clarify before creative or feature work. It asks one question at a time to learn the goal and constraints, plays its understanding back to you, sizes the work, and writes up a short design you agree on before implementation starts. An optional visual companion can show mockups in the browser while you talk. Part of the Superpowers workflow, where it hands off to the planning skill.\n\n**Try asking:**\n- \"I want to add team workspaces to my app\"\n- \"Let's think through a referral program before we build it\"\n- \"Help me plan a redesign of the settings page\"\n\n**Source:** [obra/superpowers](https://github.com/obra/superpowers/tree/HEAD/skills/brainstorming) · MIT · by Jesse Vincent (obra)",
       "score": 0,
-      "uses": 3,
+      "uses": 4,
       "author": "client",
       "url": "https://commandvault.ai/commands/brainstorming-before-building-superpowers-84194470",
       "raw_url": "https://commandvault.ai/commands/brainstorming-before-building-superpowers-84194470/raw",
       "created_at": "2026-10-10T02:33:35.954546+00:00",
-      "updated_at": "2026-11-08T23:42:52.709907+00:00"
+      "updated_at": "2026-11-16T14:27:28.540567+00:00"
     },
     {
       "slug": "writing-implementation-plans-superpowers-3a8e80fa",
@@ -6793,12 +6793,12 @@
       },
       "body": "Signs in with OAuth. Handy for \"why did the last deployment fail?\" with the build log in context.",
       "score": 0,
-      "uses": 3,
+      "uses": 4,
       "author": "client",
       "url": "https://commandvault.ai/commands/vercel-mcp-server-official-remote-889521ed",
       "raw_url": "https://commandvault.ai/commands/vercel-mcp-server-official-remote-889521ed/raw",
       "created_at": "2026-10-11T01:20:20.313707+00:00",
-      "updated_at": "2026-11-08T23:42:53.252049+00:00"
+      "updated_at": "2026-11-16T14:27:29.681696+00:00"
     },
     {
       "slug": "ai-search-optimization-marketing-skills-20cfa95a",
@@ -6991,12 +6991,12 @@
       },
       "body": "Read-only and public. Cloudflare also runs servers for Workers bindings, observability and more (they sign in with OAuth); see the repository for the full list.",
       "score": 0,
-      "uses": 3,
+      "uses": 4,
       "author": "client",
       "url": "https://commandvault.ai/commands/cloudflare-docs-mcp-server-869e8d34",
       "raw_url": "https://commandvault.ai/commands/cloudflare-docs-mcp-server-869e8d34/raw",
       "created_at": "2026-10-11T03:20:20.313707+00:00",
-      "updated_at": "2026-11-08T23:42:52.424022+00:00"
+      "updated_at": "2026-11-16T14:27:28.165806+00:00"
     },
     {
       "slug": "claude-code-hook-development-anthropic-0dac2d77",
@@ -10539,6 +10539,1917 @@
       "raw_url": "https://commandvault.ai/commands/everything-mcp-server-reference-test-server-9bd2c4ea/raw",
       "created_at": "2026-10-12T18:04:35.954546+00:00",
       "updated_at": "2026-10-17T14:42:39.104528+00:00"
+    },
+    {
+      "slug": "chrome-browser-control-obra-9e0e14be",
+      "title": "Chrome browser control (obra)",
+      "summary": "Drives your running Chrome through the DevTools Protocol, with tabs, forms and page capture.",
+      "kind": "skill",
+      "community": "frontend",
+      "tags": [
+        "skill",
+        "browser",
+        "chrome",
+        "automation",
+        "devtools",
+        "mcp"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "browsing",
+        "files": [],
+        "author": "Jesse Vincent (obra)",
+        "license": "MIT",
+        "repository": "https://github.com/obra/superpowers-chrome",
+        "source_url": "https://raw.githubusercontent.com/obra/superpowers-chrome/main/skills/browsing/SKILL.md",
+        "source_path": "skills/browsing",
+        "plugin_install": [
+          "/plugin marketplace add obra/superpowers-marketplace",
+          "/plugin install superpowers-chrome@superpowers-marketplace"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Teaches Claude to control Chrome through a single use_browser MCP tool built on the Chrome DevTools Protocol: navigating, clicking, typing, uploading files, managing tabs and reading console output. Each page action saves a screenshot, Markdown and HTML copy of the page for Claude to check. It is meant for existing or logged-in browser sessions, and includes rules for keeping secrets such as tokens and one-time codes out of the saved captures. Requires the superpowers-chrome plugin, which ships the MCP server.\n\n**Try asking:**\n- \"Open our staging dashboard in Chrome and tell me which widgets fail to load\"\n- \"Fill in the contact form on this page with test data and submit it\"\n- \"Open these three URLs in separate tabs and extract the pricing tables\"\n\n**Source:** [obra/superpowers-chrome](https://github.com/obra/superpowers-chrome/tree/HEAD/skills/browsing) · MIT · by Jesse Vincent (obra)",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/chrome-browser-control-obra-9e0e14be",
+      "raw_url": "https://commandvault.ai/commands/chrome-browser-control-obra-9e0e14be/raw",
+      "created_at": "2026-11-15T16:17:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "search-past-conversations-obra-411cc8c4",
+      "title": "Search past conversations (obra)",
+      "summary": "Makes Claude search its own earlier conversations before guessing or starting from scratch.",
+      "kind": "skill",
+      "community": "agents",
+      "tags": [
+        "skill",
+        "memory",
+        "search",
+        "context",
+        "sessions"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "remembering-conversations",
+        "files": [],
+        "author": "Jesse Vincent (obra)",
+        "license": "MIT",
+        "repository": "https://github.com/obra/episodic-memory",
+        "source_url": "https://raw.githubusercontent.com/obra/episodic-memory/main/skills/remembering-conversations/SKILL.md",
+        "source_path": "skills/remembering-conversations",
+        "plugin_install": [
+          "/plugin marketplace add obra/superpowers-marketplace",
+          "/plugin install episodic-memory@superpowers-marketplace"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Works with the episodic-memory plugin, which indexes past Claude Code (and Codex or opencode) sessions. The skill tells Claude to search that history whenever earlier decisions, fixes or project context might help, read the top few matches, and summarize them with pointers to the original conversations. In Claude Code it hands the search to a dedicated subagent so raw transcripts stay out of the main context.\n\n**Try asking:**\n- \"What did we decide last month about the database migration approach?\"\n- \"Have we hit this webpack error before? Check our past sessions\"\n- \"Remind me how we set up the release script in this repo\"\n\n**Source:** [obra/episodic-memory](https://github.com/obra/episodic-memory/tree/HEAD/skills/remembering-conversations) · MIT · by Jesse Vincent (obra)",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/search-past-conversations-obra-411cc8c4",
+      "raw_url": "https://commandvault.ai/commands/search-past-conversations-obra-411cc8c4/raw",
+      "created_at": "2026-11-15T16:54:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "interactive-cli-via-tmux-obra-92bdddf1",
+      "title": "Interactive CLI via tmux (obra)",
+      "summary": "Lets Claude drive interactive terminal tools like vim, REPLs and git rebase -i through tmux.",
+      "kind": "skill",
+      "community": "devops",
+      "tags": [
+        "skill",
+        "tmux",
+        "terminal",
+        "repl",
+        "cli"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "using-tmux-for-interactive-commands",
+        "files": [],
+        "author": "Jesse Vincent (obra)",
+        "license": "MIT",
+        "repository": "https://github.com/obra/superpowers-lab",
+        "source_url": "https://raw.githubusercontent.com/obra/superpowers-lab/main/skills/using-tmux-for-interactive-commands/SKILL.md",
+        "source_path": "skills/using-tmux-for-interactive-commands",
+        "has_extra_files": true
+      },
+      "body": "Interactive programs hang under a normal shell tool because they expect a real terminal. This skill shows Claude how to start them in a detached tmux session, send keystrokes with send-keys, read the screen with capture-pane, and close the session when done. It covers special keys, working directories and common patterns for Python REPLs, vim and interactive git, and ships a small wrapper script.\n\n**Try asking:**\n- \"Run git rebase -i on the last 4 commits and squash the two fixup commits\"\n- \"Open a Python REPL and check how this library parses the sample date strings\"\n- \"Use vim to edit the config file on the remote box\"\n\n**Source:** [obra/superpowers-lab](https://github.com/obra/superpowers-lab/tree/HEAD/skills/using-tmux-for-interactive-commands) · MIT · by Jesse Vincent (obra)",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/interactive-cli-via-tmux-obra-92bdddf1",
+      "raw_url": "https://commandvault.ai/commands/interactive-cli-via-tmux-obra-92bdddf1/raw",
+      "created_at": "2026-11-15T17:31:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "postgresql-table-design-seth-hobson-dd855549",
+      "title": "PostgreSQL table design (Seth Hobson)",
+      "summary": "Rules and gotchas for designing or reviewing a PostgreSQL schema.",
+      "kind": "skill",
+      "community": "backend",
+      "tags": [
+        "skill",
+        "postgresql",
+        "schema",
+        "database",
+        "indexing",
+        "sql"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "postgresql-table-design",
+        "files": [],
+        "author": "Seth Hobson",
+        "license": "MIT",
+        "repository": "https://github.com/wshobson/agents",
+        "source_url": "https://raw.githubusercontent.com/wshobson/agents/main/plugins/database-design/skills/postgresql-table-design/SKILL.md",
+        "source_path": "plugins/database-design/skills/postgresql-table-design",
+        "plugin_install": [
+          "/plugin marketplace add wshobson/agents",
+          "/plugin install database-design@claude-code-workflows"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Gives Claude PostgreSQL-specific rules for keys, data types, constraints, indexes and partitioning: identity columns, TIMESTAMPTZ, NUMERIC for money, indexing foreign keys by hand, and which types to avoid. It lists Postgres behaviors that catch people out, such as unique constraints allowing multiple NULLs and gaps in sequences. A reference file holds the full type catalog, workload patterns, JSONB indexing and worked DDL examples.\n\n**Try asking:**\n- \"Review this schema for a multi-tenant orders table before we ship it\"\n- \"Design Postgres tables for users, teams and invitations\"\n- \"Should this events table be partitioned, and how?\"\n\n**Source:** [wshobson/agents](https://github.com/wshobson/agents/tree/HEAD/plugins/database-design/skills/postgresql-table-design) · MIT · by Seth Hobson",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/postgresql-table-design-seth-hobson-dd855549",
+      "raw_url": "https://commandvault.ai/commands/postgresql-table-design-seth-hobson-dd855549/raw",
+      "created_at": "2026-11-15T18:08:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "github-actions-templates-seth-hobson-b52d1da7",
+      "title": "GitHub Actions templates (Seth Hobson)",
+      "summary": "Ready-made GitHub Actions workflows for testing, Docker builds, deploys and matrix runs.",
+      "kind": "skill",
+      "community": "devops",
+      "tags": [
+        "skill",
+        "github-actions",
+        "ci-cd",
+        "docker",
+        "workflows"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "github-actions-templates",
+        "files": [],
+        "author": "Seth Hobson",
+        "license": "MIT",
+        "repository": "https://github.com/wshobson/agents",
+        "source_url": "https://raw.githubusercontent.com/wshobson/agents/main/plugins/cicd-automation/skills/github-actions-templates/SKILL.md",
+        "source_path": "plugins/cicd-automation/skills/github-actions-templates",
+        "plugin_install": [
+          "/plugin marketplace add wshobson/agents",
+          "/plugin install cicd-automation@claude-code-workflows"
+        ],
+        "has_extra_files": false
+      },
+      "body": "Provides workflow patterns Claude can adapt: a test workflow, building and pushing a Docker image, deploying to Kubernetes, and matrix builds across versions. It also covers reusable workflows, security scanning and deployments gated by environment approvals, plus a short list of practices such as pinning action versions, caching dependencies and setting minimal permissions.\n\n**Try asking:**\n- \"Set up a GitHub Actions workflow that runs tests on Node 20 and 22 for every PR\"\n- \"Add a workflow that builds our Docker image and pushes it to GHCR on tags\"\n- \"Create a reusable test workflow other repos in the org can call\"\n\n**Source:** [wshobson/agents](https://github.com/wshobson/agents/tree/HEAD/plugins/cicd-automation/skills/github-actions-templates) · MIT · by Seth Hobson",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/github-actions-templates-seth-hobson-b52d1da7",
+      "raw_url": "https://commandvault.ai/commands/github-actions-templates-seth-hobson-b52d1da7/raw",
+      "created_at": "2026-11-15T18:45:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "remove-ai-writing-tells-seth-hobson-d2e1d3a5",
+      "title": "Remove AI writing tells (Seth Hobson)",
+      "summary": "Audits and rewrites prose so it stops reading as machine-generated, without inventing a new voice.",
+      "kind": "skill",
+      "community": "writing",
+      "tags": [
+        "skill",
+        "editing",
+        "prose",
+        "style",
+        "ai-writing"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "avoid-ai-writing",
+        "files": [],
+        "author": "Seth Hobson",
+        "license": "MIT",
+        "repository": "https://github.com/wshobson/agents",
+        "source_url": "https://raw.githubusercontent.com/wshobson/agents/main/plugins/avoid-ai-writing/skills/avoid-ai-writing/SKILL.md",
+        "source_path": "plugins/avoid-ai-writing/skills/avoid-ai-writing",
+        "plugin_install": [
+          "/plugin marketplace add wshobson/agents",
+          "/plugin install avoid-ai-writing@claude-code-workflows"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Scans text for patterns common in model output, using a pattern catalog and tiered word lists, and weighs sentence and paragraph rhythm most heavily. It has three modes: rewrite (default), detect-only, and edit-in-place for prose files, with optional voice and context profiles such as docs, blog or investor email. It forbids adding things the source lacked, like a fake first person or made-up specifics, and states that its flags are writing-quality signals, not proof of authorship.\n\n**Try asking:**\n- \"Clean up the AI tells in this README without changing its meaning\"\n- \"Just flag the machine-sounding parts of this blog draft; don't rewrite it\"\n- \"Edit CHANGELOG.md in place to remove filler and inflated wording\"\n\n**Source:** [wshobson/agents](https://github.com/wshobson/agents/tree/HEAD/plugins/avoid-ai-writing/skills/avoid-ai-writing) · MIT · by Seth Hobson",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/remove-ai-writing-tells-seth-hobson-d2e1d3a5",
+      "raw_url": "https://commandvault.ai/commands/remove-ai-writing-tells-seth-hobson-d2e1d3a5/raw",
+      "created_at": "2026-11-15T19:22:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "cto-advisor-alireza-rezvani-4285f8ff",
+      "title": "CTO advisor (Alireza Rezvani)",
+      "summary": "Frameworks for tech debt, architecture direction, team scaling and technology bets.",
+      "kind": "skill",
+      "community": "productivity",
+      "tags": [
+        "skill",
+        "leadership",
+        "strategy",
+        "tech-debt",
+        "dora",
+        "engineering-management"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "cto-advisor",
+        "files": [],
+        "author": "Alireza Rezvani",
+        "license": "MIT",
+        "repository": "https://github.com/alirezarezvani/claude-skills",
+        "source_url": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/main/c-level-advisor/skills/cto-advisor/SKILL.md",
+        "source_path": "c-level-advisor/skills/cto-advisor",
+        "plugin_install": [
+          "/plugin marketplace add alirezarezvani/claude-skills",
+          "/plugin install c-level-skills@claude-code-skills"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Gives Claude a CTO's playbook for questions such as whether to rewrite, how to grow an engineering team, or which technology to adopt. It covers technology strategy, build-vs-buy, managing technical debt, team structure and DORA metrics. Reference files hold an evaluation framework and engineering metrics, and two Python scripts analyze tech debt and model team scaling.\n\n**Try asking:**\n- \"Should we rewrite our Rails monolith or keep refactoring it? Here is the context\"\n- \"We are 12 engineers and growing to 30 next year. How should the team be structured?\"\n- \"Help me evaluate buying an auth provider versus building our own\"\n\n**Source:** [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/HEAD/c-level-advisor/skills/cto-advisor) · MIT · by Alireza Rezvani",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/cto-advisor-alireza-rezvani-4285f8ff",
+      "raw_url": "https://commandvault.ai/commands/cto-advisor-alireza-rezvani-4285f8ff/raw",
+      "created_at": "2026-11-15T19:59:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "incident-commander-alireza-rezvani-a3a29f24",
+      "title": "Incident commander (Alireza Rezvani)",
+      "summary": "Runs a production outage: severity, timeline and the post-incident review.",
+      "kind": "skill",
+      "community": "devops",
+      "tags": [
+        "skill",
+        "incidents",
+        "sre",
+        "postmortem",
+        "on-call"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "incident-commander",
+        "files": [],
+        "author": "Alireza Rezvani",
+        "license": "MIT",
+        "repository": "https://github.com/alirezarezvani/claude-skills",
+        "source_url": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/main/engineering-team/skills/incident-commander/SKILL.md",
+        "source_path": "engineering-team/skills/incident-commander",
+        "plugin_install": [
+          "/plugin marketplace add alirezarezvani/claude-skills",
+          "/plugin install engineering-skills@claude-code-skills"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Covers availability incidents such as outages, degradations and failed deploys, and points security incidents to a separate skill. Three Python scripts classify severity on a SEV1 to SEV4 scale, rebuild a timeline from timestamped events across sources, and draft a post-incident review using 5 Whys, fishbone or timeline analysis. It also includes communication templates for stakeholder updates and a runbook format.\n\n**Try asking:**\n- \"We have elevated 500s on checkout since 14:05. Help me classify and run this incident\"\n- \"Build a timeline from these log excerpts and Slack messages\"\n- \"Draft the post-incident review for yesterday's database failover\"\n\n**Source:** [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/HEAD/engineering-team/skills/incident-commander) · MIT · by Alireza Rezvani",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/incident-commander-alireza-rezvani-a3a29f24",
+      "raw_url": "https://commandvault.ai/commands/incident-commander-alireza-rezvani-a3a29f24/raw",
+      "created_at": "2026-11-15T20:36:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "gdpr-audit-prep-alireza-rezvani-5e2f5191",
+      "title": "GDPR audit prep (Alireza Rezvani)",
+      "summary": "Six article-cited questions a data protection officer would ask before a GDPR audit.",
+      "kind": "skill",
+      "community": "security",
+      "tags": [
+        "skill",
+        "gdpr",
+        "privacy",
+        "compliance",
+        "audit"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "gdpr-audit-prep",
+        "files": [],
+        "author": "Alireza Rezvani",
+        "license": "MIT",
+        "repository": "https://github.com/alirezarezvani/claude-skills",
+        "source_url": "https://raw.githubusercontent.com/alirezarezvani/claude-skills/main/compliance-os/skills/gdpr-audit-prep/SKILL.md",
+        "source_path": "compliance-os/skills/gdpr-audit-prep",
+        "plugin_install": [
+          "/plugin marketplace add alirezarezvani/claude-skills",
+          "/plugin install compliance-os@claude-code-skills"
+        ],
+        "has_extra_files": false
+      },
+      "body": "Pressure-tests privacy compliance before an internal audit, breach response, regulator inquiry or acquisition due diligence. Claude works through six questions tied to GDPR articles: the Article 30 record of processing, lawful basis under Article 6, DPIAs under Article 35, data subject request handling, transfer impact assessments and the breach log. The output is a structured audit-prep report with gaps per area.\n\n**Try asking:**\n- \"Run the GDPR audit prep for our new analytics pipeline\"\n- \"We had a data breach last week. What do we need to have ready for the regulator?\"\n- \"Check our DSAR process against what an auditor will ask\"\n\n**Source:** [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/HEAD/compliance-os/skills/gdpr-audit-prep) · MIT · by Alireza Rezvani",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/gdpr-audit-prep-alireza-rezvani-5e2f5191",
+      "raw_url": "https://commandvault.ai/commands/gdpr-audit-prep-alireza-rezvani-5e2f5191/raw",
+      "created_at": "2026-11-15T21:13:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "spec-miner-jeffallan-bf5b1df0",
+      "title": "Spec miner (Jeffallan)",
+      "summary": "Extracts a written specification from an undocumented or legacy codebase.",
+      "kind": "skill",
+      "community": "backend",
+      "tags": [
+        "skill",
+        "legacy-code",
+        "reverse-engineering",
+        "documentation",
+        "requirements"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "spec-miner",
+        "files": [],
+        "author": "Jeffallan",
+        "license": "MIT",
+        "repository": "https://github.com/Jeffallan/claude-skills",
+        "source_url": "https://raw.githubusercontent.com/Jeffallan/claude-skills/main/skills/spec-miner/SKILL.md",
+        "source_path": "skills/spec-miner",
+        "plugin_install": [
+          "/plugin marketplace add jeffallan/claude-skills",
+          "/plugin install fullstack-dev-skills@fullstack-dev-skills"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Claude explores a codebase with read-only search tools, follows data flows and request paths, and writes the observed behavior as requirements in EARS format (\"When X, the system shall Y\"). It keeps observed facts separate from inferences and marks areas that need clarification. References cover the analysis process, EARS syntax, a specification template and a checklist.\n\n**Try asking:**\n- \"Reverse engineer the billing module and write down what it actually does\"\n- \"We inherited this API with no docs. Produce a spec of its endpoints and rules\"\n- \"Map the order lifecycle in this codebase as EARS requirements\"\n\n**Source:** [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/HEAD/skills/spec-miner) · MIT · by Jeffallan",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/spec-miner-jeffallan-bf5b1df0",
+      "raw_url": "https://commandvault.ai/commands/spec-miner-jeffallan-bf5b1df0/raw",
+      "created_at": "2026-11-15T21:50:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "the-fool-challenge-my-plan-jeffallan-d0b2c56f",
+      "title": "The Fool: challenge my plan (Jeffallan)",
+      "summary": "Stress-tests an idea or plan with five structured critical-reasoning modes.",
+      "kind": "skill",
+      "community": "productivity",
+      "tags": [
+        "skill",
+        "critical-thinking",
+        "pre-mortem",
+        "red-team",
+        "decisions"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "the-fool",
+        "files": [],
+        "author": "Jeffallan",
+        "license": "MIT",
+        "repository": "https://github.com/Jeffallan/claude-skills",
+        "source_url": "https://raw.githubusercontent.com/Jeffallan/claude-skills/main/skills/the-fool/SKILL.md",
+        "source_path": "skills/the-fool",
+        "plugin_install": [
+          "/plugin marketplace add jeffallan/claude-skills",
+          "/plugin install fullstack-dev-skills@fullstack-dev-skills"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Claude restates your position in its strongest form, lets you pick how to challenge it, and then presents the 3 to 5 strongest objections before building a stronger version of the plan. The five modes are Socratic questioning of assumptions, arguing the other side, a pre-mortem of failure modes, red teaming, and testing whether the evidence supports the conclusion.\n\n**Try asking:**\n- \"Play devil's advocate on our plan to move everything to microservices\"\n- \"Run a pre-mortem on this product launch plan\"\n- \"Red team this authentication design before we build it\"\n\n**Source:** [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/HEAD/skills/the-fool) · MIT · by Jeffallan",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/the-fool-challenge-my-plan-jeffallan-d0b2c56f",
+      "raw_url": "https://commandvault.ai/commands/the-fool-challenge-my-plan-jeffallan-d0b2c56f/raw",
+      "created_at": "2026-11-15T22:27:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "kubernetes-specialist-jeffallan-fad9448b",
+      "title": "Kubernetes specialist (Jeffallan)",
+      "summary": "Writes and debugs Kubernetes manifests, Helm charts, RBAC and network policies.",
+      "kind": "skill",
+      "community": "devops",
+      "tags": [
+        "skill",
+        "kubernetes",
+        "helm",
+        "rbac",
+        "k8s"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "kubernetes-specialist",
+        "files": [],
+        "author": "Jeffallan",
+        "license": "MIT",
+        "repository": "https://github.com/Jeffallan/claude-skills",
+        "source_url": "https://raw.githubusercontent.com/Jeffallan/claude-skills/main/skills/kubernetes-specialist/SKILL.md",
+        "source_path": "skills/kubernetes-specialist",
+        "plugin_install": [
+          "/plugin marketplace add jeffallan/claude-skills",
+          "/plugin install fullstack-dev-skills@fullstack-dev-skills"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Guides Claude through Kubernetes work: deployments, services and ingress, config and secrets, storage, Helm charts and troubleshooting. Its rules require resource requests and limits, health probes, least-privilege RBAC and NetworkPolicies, and it lists kubectl commands for checking rollouts and rolling back. Reference files cover operators, service mesh, GitOps with Argo CD or Flux, cost tuning and multi-cluster setups.\n\n**Try asking:**\n- \"Write a Deployment and Service for this API with probes and resource limits\"\n- \"My pod is in CrashLoopBackOff. Help me debug it\"\n- \"Add a default-deny NetworkPolicy and allow only the frontend to reach the API\"\n\n**Source:** [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/HEAD/skills/kubernetes-specialist) · MIT · by Jeffallan",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/kubernetes-specialist-jeffallan-fad9448b",
+      "raw_url": "https://commandvault.ai/commands/kubernetes-specialist-jeffallan-fad9448b/raw",
+      "created_at": "2026-11-15T23:04:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "planning-with-files-ahmad-othman-ammar-adi-1262ece8",
+      "title": "Planning with files (Ahmad Othman Ammar Adi)",
+      "summary": "Keeps a task plan, findings and progress log on disk so long agent tasks survive context loss.",
+      "kind": "skill",
+      "community": "agents",
+      "tags": [
+        "skill",
+        "planning",
+        "context",
+        "long-running",
+        "memory"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "planning-with-files",
+        "files": [],
+        "author": "Ahmad Othman Ammar Adi",
+        "license": "MIT",
+        "repository": "https://github.com/OthmanAdi/planning-with-files",
+        "source_url": "https://raw.githubusercontent.com/OthmanAdi/planning-with-files/master/skills/planning-with-files/SKILL.md",
+        "source_path": "skills/planning-with-files",
+        "plugin_install": [
+          "/plugin marketplace add OthmanAdi/planning-with-files",
+          "/plugin install planning-with-files@planning-with-files"
+        ],
+        "has_extra_files": true
+      },
+      "body": "For multi-step work, Claude creates task_plan.md, findings.md and progress.md in the project and keeps them updated as it goes, with rules such as writing the plan first, logging every error and not repeating failed attempts. Hooks re-inject the plan into context and help recover after a context reset. Scripts and templates are included, and the skill states it has no network upload path.\n\n**Try asking:**\n- \"Plan and carry out the migration from Jest to Vitest, keeping a plan file as you go\"\n- \"Research our three logging vendors and record findings to disk\"\n- \"Pick up where we left off on the refactor using the plan files\"\n\n**Source:** [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files/tree/HEAD/skills/planning-with-files) · MIT · by Ahmad Othman Ammar Adi",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/planning-with-files-ahmad-othman-ammar-adi-1262ece8",
+      "raw_url": "https://commandvault.ai/commands/planning-with-files-ahmad-othman-ammar-adi-1262ece8/raw",
+      "created_at": "2026-11-15T23:41:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "codebase-knowledge-builder-ahmad-othman-ammar-adi-83cd0d53",
+      "title": "Codebase knowledge builder (Ahmad Othman Ammar Adi)",
+      "summary": "Studies an unfamiliar repository and writes a cited, revision-specific knowledge document.",
+      "kind": "skill",
+      "community": "learning",
+      "tags": [
+        "skill",
+        "onboarding",
+        "architecture",
+        "documentation",
+        "codebase"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "codebase-knowledge-builder",
+        "files": [],
+        "author": "Ahmad Othman Ammar Adi",
+        "license": "MIT",
+        "repository": "https://github.com/OthmanAdi/codebase-knowledge-builder",
+        "source_url": "https://raw.githubusercontent.com/OthmanAdi/codebase-knowledge-builder/main/skills/codebase-knowledge-builder/SKILL.md",
+        "source_path": "skills/codebase-knowledge-builder",
+        "plugin_install": [
+          "/plugin marketplace add OthmanAdi/codebase-knowledge-builder",
+          "/plugin install codebase-knowledge-builder@codebase-knowledge-builder"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Claude works in four phases: reconnaissance of the repo's shape, deep dives into requested topics, writing the knowledge artifact from a template, and validating it before delivery. Every claim is labeled observed, inferred or unknown, and observed claims cite file and line. By default it reads the target without running code, installing dependencies or changing git state, and it skips secret files such as .env.\n\n**Try asking:**\n- \"Study this repo and write an onboarding guide for new engineers\"\n- \"Trace how a request flows through the API layer and document it with citations\"\n- \"Map the architecture of the payments service at the current commit\"\n\n**Source:** [OthmanAdi/codebase-knowledge-builder](https://github.com/OthmanAdi/codebase-knowledge-builder/tree/HEAD/skills/codebase-knowledge-builder) · MIT · by Ahmad Othman Ammar Adi",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/codebase-knowledge-builder-ahmad-othman-ammar-adi-83cd0d53",
+      "raw_url": "https://commandvault.ai/commands/codebase-knowledge-builder-ahmad-othman-ammar-adi-83cd0d53/raw",
+      "created_at": "2026-11-16T00:18:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "specialist-code-review-phil-haack-1fb3c019",
+      "title": "Specialist code review (Phil Haack)",
+      "summary": "Runs security, performance, correctness and other specialist review agents on a diff or PR.",
+      "kind": "skill",
+      "community": "backend",
+      "tags": [
+        "skill",
+        "code-review",
+        "pull-requests",
+        "security",
+        "github"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "review-code",
+        "files": [],
+        "author": "Phil Haack",
+        "license": "MIT",
+        "repository": "https://github.com/haacked/review-code",
+        "source_url": "https://raw.githubusercontent.com/haacked/review-code/main/skills/review-code/SKILL.md",
+        "source_path": "skills/review-code",
+        "has_extra_files": true
+      },
+      "body": "Reviews local changes, a commit, a branch, a git range or a PR URL. A correctness reviewer always runs, and others (security, performance, maintainability, testing, compatibility, infrastructure config, frontend) are added unless ruled out. Options can post a draft GitHub review with inline comments, apply fixes, re-review only what changed, or get a second pass from the Copilot or Codex CLI. A learn mode studies review outcomes to tune later reviews. Uses bundled scripts, and gh for PR features.\n\n**Try asking:**\n- \"/review-code\"\n- \"/review-code security\"\n- \"/review-code https://github.com/org/repo/pull/123 --draft\"\n\n**Source:** [haacked/review-code](https://github.com/haacked/review-code/tree/HEAD/skills/review-code) · MIT · by Phil Haack",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/specialist-code-review-phil-haack-1fb3c019",
+      "raw_url": "https://commandvault.ai/commands/specialist-code-review-phil-haack-1fb3c019/raw",
+      "created_at": "2026-11-16T00:55:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "algo-sensei-dsa-tutor-karan-bansal-52cac2aa",
+      "title": "Algo Sensei DSA tutor (Karan Bansal)",
+      "summary": "A data structures and algorithms mentor for LeetCode practice and interview prep.",
+      "kind": "skill",
+      "community": "learning",
+      "tags": [
+        "skill",
+        "algorithms",
+        "leetcode",
+        "interviews",
+        "tutoring"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "algo-sensei",
+        "files": [],
+        "author": "Karan Bansal",
+        "license": "MIT",
+        "repository": "https://github.com/karanb192/algo-sensei",
+        "source_url": "https://raw.githubusercontent.com/karanb192/algo-sensei/main/SKILL.md",
+        "source_path": "",
+        "has_extra_files": true
+      },
+      "body": "Claude picks a mode from how you ask: tutoring a concept, giving progressive hints without spoiling the answer, reviewing your solution and its complexity, running a mock interview, or mapping a problem to a known pattern. It leans on questions rather than handing over answers, and supports several programming languages. Supporting files include pattern guides, solution templates and reference material.\n\n**Try asking:**\n- \"Give me a hint for Two Sum, but don't tell me the answer\"\n- \"Review my sliding window solution and its time complexity\"\n- \"Run a 30-minute mock interview on graph problems\"\n\n**Source:** [karanb192/algo-sensei](https://github.com/karanb192/algo-sensei) · MIT · by Karan Bansal",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/algo-sensei-dsa-tutor-karan-bansal-52cac2aa",
+      "raw_url": "https://commandvault.ai/commands/algo-sensei-dsa-tutor-karan-bansal-52cac2aa/raw",
+      "created_at": "2026-11-16T01:32:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "slack-message-formatter-karan-bansal-fc7e39b2",
+      "title": "Slack message formatter (Karan Bansal)",
+      "summary": "Writes Slack messages in Markdown and converts them to paste-safe HTML or Slack mrkdwn.",
+      "kind": "skill",
+      "community": "productivity",
+      "tags": [
+        "skill",
+        "slack",
+        "formatting",
+        "messaging",
+        "markdown"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "slack-message-formatter",
+        "files": [],
+        "author": "Karan Bansal",
+        "license": "MIT",
+        "repository": "https://github.com/karanb192/slack-message-formatter",
+        "source_url": "https://raw.githubusercontent.com/karanb192/slack-message-formatter/main/skills/slack-message-formatter/SKILL.md",
+        "source_path": "skills/slack-message-formatter",
+        "has_extra_files": true
+      },
+      "body": "Claude drafts the message in standard Markdown, checks that it will read clearly to someone without context, then converts it with a bundled Node.js script. One output is rich HTML that keeps formatting when pasted into Slack; the other is mrkdwn for bots and webhooks. Tables, task lists and headings are converted to forms Slack can show, and user mentions work only on the webhook path. Requires Node.js 20 or newer.\n\n**Try asking:**\n- \"Write a Slack announcement for the new deploy process\"\n- \"Turn this incident summary into a thread reply I can paste into Slack\"\n- \"Format this release note as mrkdwn for our webhook\"\n\n**Source:** [karanb192/slack-message-formatter](https://github.com/karanb192/slack-message-formatter/tree/HEAD/skills/slack-message-formatter) · MIT · by Karan Bansal",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/slack-message-formatter-karan-bansal-fc7e39b2",
+      "raw_url": "https://commandvault.ai/commands/slack-message-formatter-karan-bansal-fc7e39b2/raw",
+      "created_at": "2026-11-16T02:09:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "claude-council-alex-g-751e4705",
+      "title": "Claude Council (Alex G)",
+      "summary": "Asks several AI models the same question and shows their answers with a synthesis.",
+      "kind": "skill",
+      "community": "agents",
+      "tags": [
+        "skill",
+        "multi-model",
+        "second-opinion",
+        "gemini",
+        "openai"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "council-execution",
+        "files": [],
+        "author": "Alex G",
+        "license": "MIT",
+        "repository": "https://github.com/hex/claude-council",
+        "source_url": "https://raw.githubusercontent.com/hex/claude-council/main/skills/council-execution/SKILL.md",
+        "source_path": "skills/council-execution",
+        "plugin_install": [
+          "/plugin marketplace add hex/claude-marketplace",
+          "/plugin install claude-council"
+        ],
+        "has_extra_files": false
+      },
+      "body": "Part of the claude-council plugin. Claude runs a script that sends one question to the selected providers (Gemini, OpenAI, Grok, Perplexity), shows each answer as returned, and then writes a synthesis of where they agree, where they differ and what it recommends. Results are saved to a cache file in the project. The skill is invoked by the plugin's ask command rather than on its own.\n\n**Try asking:**\n- \"Ask the council whether we should use SQLite or Postgres for this desktop app\"\n- \"Get Gemini's and OpenAI's take on this caching design\"\n- \"Ask the council to review this error-handling approach\"\n\n**Source:** [hex/claude-council](https://github.com/hex/claude-council/tree/HEAD/skills/council-execution) · MIT · by Alex G",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/claude-council-alex-g-751e4705",
+      "raw_url": "https://commandvault.ai/commands/claude-council-alex-g-751e4705/raw",
+      "created_at": "2026-11-16T02:46:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "prose-hygiene-alex-g-74e68bdd",
+      "title": "Prose hygiene (Alex G)",
+      "summary": "A checklist for removing AI writing tells, with a scoring rubric for reviews.",
+      "kind": "skill",
+      "community": "writing",
+      "tags": [
+        "skill",
+        "editing",
+        "prose",
+        "style",
+        "ai-writing"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "prose-hygiene",
+        "files": [],
+        "author": "Alex G",
+        "license": "MIT",
+        "repository": "https://github.com/hex/claude-sessions",
+        "source_url": "https://raw.githubusercontent.com/hex/claude-sessions/main/skills/prose-hygiene/SKILL.md",
+        "source_path": "skills/prose-hygiene",
+        "has_extra_files": false
+      },
+      "body": "Lists phrases and structures to avoid, such as throat-clearing openers, emphasis crutches, business jargon, adverbs, binary contrasts and formulaic setups, with plain replacements. When drafting, Claude avoids them; when reviewing, it quotes each match, names the rule and proposes a rewrite, then scores the text without editing the file. It includes carve-outs for technical writing. The taxonomy is adapted from the MIT-licensed stop-slop project.\n\n**Try asking:**\n- \"Review this blog post for AI writing tells and score it\"\n- \"Draft the summary of today's session without filler phrases\"\n- \"Check this README intro against the prose hygiene rules\"\n\n**Source:** [hex/claude-sessions](https://github.com/hex/claude-sessions/tree/HEAD/skills/prose-hygiene) · MIT · by Alex G",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/prose-hygiene-alex-g-74e68bdd",
+      "raw_url": "https://commandvault.ai/commands/prose-hygiene-alex-g-74e68bdd/raw",
+      "created_at": "2026-11-16T03:23:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "learn-from-corrections-bayram-annakov-bf9dad1a",
+      "title": "Learn from corrections (Bayram Annakov)",
+      "summary": "Captures your corrections during sessions and turns them into CLAUDE.md rules you approve.",
+      "kind": "skill",
+      "community": "agents",
+      "tags": [
+        "skill",
+        "memory",
+        "claude-md",
+        "learning",
+        "hooks"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "claude-reflect",
+        "files": [],
+        "author": "Bayram Annakov",
+        "license": "MIT",
+        "repository": "https://github.com/BayramAnnakov/claude-reflect",
+        "source_url": "https://raw.githubusercontent.com/BayramAnnakov/claude-reflect/main/SKILL.md",
+        "source_path": "",
+        "plugin_install": [
+          "/plugin marketplace add bayramannakov/claude-reflect",
+          "/plugin install claude-reflect@claude-reflect-marketplace"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Hooks watch for corrections such as \"no, use X\" or \"remember:\" and add them to a queue. Running /reflect lets you review the queued items and write the ones you approve into the right place: global or project CLAUDE.md, rules files or memory. Other commands scan past sessions for missed learnings, preview changes, suggest skills from repeated patterns, or clear the queue.\n\n**Try asking:**\n- \"/reflect\"\n- \"/reflect --scan-history\"\n- \"Remember: we use pnpm, not npm, in this repo\"\n\n**Source:** [BayramAnnakov/claude-reflect](https://github.com/BayramAnnakov/claude-reflect) · MIT · by Bayram Annakov",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/learn-from-corrections-bayram-annakov-bf9dad1a",
+      "raw_url": "https://commandvault.ai/commands/learn-from-corrections-bayram-annakov-bf9dad1a/raw",
+      "created_at": "2026-11-16T04:00:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "constraint-finder-bayram-annakov-70d7f968",
+      "title": "Constraint finder (Bayram Annakov)",
+      "summary": "Finds the single bottleneck in a process using Goldratt's Theory of Constraints.",
+      "kind": "skill",
+      "community": "productivity",
+      "tags": [
+        "skill",
+        "theory-of-constraints",
+        "bottlenecks",
+        "operations",
+        "systems-thinking"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "constraint-finder",
+        "files": [],
+        "author": "Bayram Annakov",
+        "license": "MIT",
+        "repository": "https://github.com/BayramAnnakov/systems-thinking-skills",
+        "source_url": "https://raw.githubusercontent.com/BayramAnnakov/systems-thinking-skills/main/skills/constraint-finder/SKILL.md",
+        "source_path": "skills/constraint-finder",
+        "plugin_install": [
+          "/plugin marketplace add BayramAnnakov/systems-thinking-skills",
+          "/plugin install constraint-finder@systems-thinking-skills"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Given a process and the goal it serves, Claude identifies the one binding constraint, says whether it is a resource or (more often) a policy, and lays out the five focusing steps as concrete actions in order, with the free moves before spending money. It first insists on a clear throughput goal, checks whether a stable constraint exists at all, and warns against optimizing steps that are not the constraint. It responds in the user's language.\n\n**Try asking:**\n- \"Here is our hiring pipeline and goal. Find the constraint\"\n- \"Our support team is always behind. Interview me to find the bottleneck\"\n- \"Apply the 5 focusing steps to our release process\"\n\n**Source:** [BayramAnnakov/systems-thinking-skills](https://github.com/BayramAnnakov/systems-thinking-skills/tree/HEAD/skills/constraint-finder) · MIT · by Bayram Annakov",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/constraint-finder-bayram-annakov-70d7f968",
+      "raw_url": "https://commandvault.ai/commands/constraint-finder-bayram-annakov-70d7f968/raw",
+      "created_at": "2026-11-16T04:37:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "philosophy-of-software-design-rules-maciej-ciemborowicz-d0a0c70d",
+      "title": "Philosophy of Software Design rules (Maciej Ciemborowicz)",
+      "summary": "Design rules inspired by John Ousterhout's book for module boundaries and APIs.",
+      "kind": "skill",
+      "community": "backend",
+      "tags": [
+        "skill",
+        "software-design",
+        "architecture",
+        "api-design",
+        "refactoring"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "a-philosophy-of-software-design",
+        "files": [],
+        "author": "Maciej Ciemborowicz",
+        "license": "MIT",
+        "repository": "https://github.com/ciembor/agent-rules-books",
+        "source_url": "https://raw.githubusercontent.com/ciembor/agent-rules-books/main/a-philosophy-of-software-design/SKILL.md",
+        "source_path": "a-philosophy-of-software-design",
+        "has_extra_files": true
+      },
+      "body": "When a task involves module or API design, Claude reads and applies a condensed rule set inspired by A Philosophy of Software Design: deep modules, information hiding, lower cognitive load and fewer shallow interfaces. A longer version of the rules is included for harder tradeoffs. The rules are the author's summary of the book's ideas, not the book's text.\n\n**Try asking:**\n- \"Review this module's API for shallow interfaces and leaked details\"\n- \"Redesign this service class to hide more complexity\"\n- \"Apply Ousterhout's principles to this refactor plan\"\n\n**Source:** [ciembor/agent-rules-books](https://github.com/ciembor/agent-rules-books/tree/HEAD/a-philosophy-of-software-design) · MIT · by Maciej Ciemborowicz",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/philosophy-of-software-design-rules-maciej-ciemborowicz-d0a0c70d",
+      "raw_url": "https://commandvault.ai/commands/philosophy-of-software-design-rules-maciej-ciemborowicz-d0a0c70d/raw",
+      "created_at": "2026-11-16T05:14:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "legacy-code-rules-maciej-ciemborowicz-804a3d1b",
+      "title": "Legacy code rules (Maciej Ciemborowicz)",
+      "summary": "Rules inspired by Michael Feathers for changing hard-to-test code safely.",
+      "kind": "skill",
+      "community": "backend",
+      "tags": [
+        "skill",
+        "legacy-code",
+        "testing",
+        "refactoring",
+        "seams"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "working-effectively-with-legacy-code",
+        "files": [],
+        "author": "Maciej Ciemborowicz",
+        "license": "MIT",
+        "repository": "https://github.com/ciembor/agent-rules-books",
+        "source_url": "https://raw.githubusercontent.com/ciembor/agent-rules-books/main/working-effectively-with-legacy-code/SKILL.md",
+        "source_path": "working-effectively-with-legacy-code",
+        "has_extra_files": true
+      },
+      "body": "Claude follows a condensed rule set inspired by Working Effectively with Legacy Code: state what must keep working, add characterization tests, find or create a seam, break only the dependency that blocks testing, then change behavior and refactor in separate steps. It covers sprout and wrap techniques and review rules for risky edits. A longer reference version is included.\n\n**Try asking:**\n- \"Add a feature to this untested class without breaking it\"\n- \"Write characterization tests for this legacy function before we change it\"\n- \"Find a seam so we can test this code that calls the database directly\"\n\n**Source:** [ciembor/agent-rules-books](https://github.com/ciembor/agent-rules-books/tree/HEAD/working-effectively-with-legacy-code) · MIT · by Maciej Ciemborowicz",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/legacy-code-rules-maciej-ciemborowicz-804a3d1b",
+      "raw_url": "https://commandvault.ai/commands/legacy-code-rules-maciej-ciemborowicz-804a3d1b/raw",
+      "created_at": "2026-11-16T05:51:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "three-js-fundamentals-cloudai-x-69c4b4fa",
+      "title": "Three.js fundamentals (CloudAI-X)",
+      "summary": "Scene, camera, renderer and object setup for three.js, on WebGL or WebGPU.",
+      "kind": "skill",
+      "community": "frontend",
+      "tags": [
+        "skill",
+        "threejs",
+        "webgl",
+        "webgpu",
+        "3d"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "threejs-fundamentals",
+        "files": [],
+        "author": "CloudAI-X",
+        "license": "MIT",
+        "repository": "https://github.com/CloudAI-X/threejs-skills",
+        "source_url": "https://raw.githubusercontent.com/CloudAI-X/threejs-skills/main/skills/threejs-fundamentals/SKILL.md",
+        "source_path": "skills/threejs-fundamentals",
+        "has_extra_files": false
+      },
+      "body": "A reference for starting three.js work, targeting r186: import maps without a bundler, scenes and fog, the camera types, renderer and tone mapping, the animation loop, object hierarchies, the coordinate system and math helpers. It also covers resizing, cleanup of GPU resources, performance tips, the WebGPU renderer with TSL, and common mistakes. Other skills in the same repo cover materials, lighting, shaders and more.\n\n**Try asking:**\n- \"Set up a three.js scene with a perspective camera, orbit controls and resize handling\"\n- \"Port this WebGL scene to the WebGPU renderer\"\n- \"Why is my three.js scene leaking memory when I switch views?\"\n\n**Source:** [CloudAI-X/threejs-skills](https://github.com/CloudAI-X/threejs-skills/tree/HEAD/skills/threejs-fundamentals) · MIT · by CloudAI-X",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/three-js-fundamentals-cloudai-x-69c4b4fa",
+      "raw_url": "https://commandvault.ai/commands/three-js-fundamentals-cloudai-x-69c4b4fa/raw",
+      "created_at": "2026-11-16T06:28:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "security-patterns-cloudai-x-e8c41d36",
+      "title": "Security patterns (CloudAI-X)",
+      "summary": "Patterns for auth, authorization, secrets, encryption, CORS and rate limiting.",
+      "kind": "skill",
+      "community": "security",
+      "tags": [
+        "skill",
+        "auth",
+        "jwt",
+        "secrets",
+        "owasp"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "security-patterns",
+        "files": [],
+        "author": "CloudAI-X",
+        "license": "MIT",
+        "repository": "https://github.com/CloudAI-X/claude-workflow-v2",
+        "source_url": "https://raw.githubusercontent.com/CloudAI-X/claude-workflow-v2/main/skills/security-patterns/SKILL.md",
+        "source_path": "skills/security-patterns",
+        "plugin_install": [
+          "/plugin marketplace add CloudAI-X/claude-workflow-v2",
+          "/plugin install project-starter@claude-workflow"
+        ],
+        "has_extra_files": false
+      },
+      "body": "Gives Claude implementation patterns for common security work: JWT and session auth, OAuth and OIDC, API keys, role-based and resource-level authorization, password hashing, secrets management and rotation, encryption in transit and at rest, CORS, rate limiting, security headers and input validation. It starts with a checklist to track and ends with a summary of common anti-patterns.\n\n**Try asking:**\n- \"Add JWT auth with refresh tokens to this Express API\"\n- \"Review how we store secrets and suggest a safer setup\"\n- \"Set up rate limiting and security headers for our public endpoints\"\n\n**Source:** [CloudAI-X/claude-workflow-v2](https://github.com/CloudAI-X/claude-workflow-v2/tree/HEAD/skills/security-patterns) · MIT · by CloudAI-X",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/security-patterns-cloudai-x-e8c41d36",
+      "raw_url": "https://commandvault.ai/commands/security-patterns-cloudai-x-e8c41d36/raw",
+      "created_at": "2026-11-16T07:05:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "second-opinion-from-codex-peterkrueck-aa45925b",
+      "title": "Second opinion from Codex (peterkrueck)",
+      "summary": "Asks OpenAI's Codex CLI to independently check a plan, bug or design.",
+      "kind": "skill",
+      "community": "agents",
+      "tags": [
+        "skill",
+        "codex",
+        "second-opinion",
+        "review",
+        "multi-model"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "second-opinion",
+        "files": [],
+        "author": "peterkrueck",
+        "license": "MIT",
+        "repository": "https://github.com/peterkrueck/Claude-Code-Development-Kit",
+        "source_url": "https://raw.githubusercontent.com/peterkrueck/Claude-Code-Development-Kit/main/skills/second-opinion/SKILL.md",
+        "source_path": "skills/second-opinion",
+        "has_extra_files": false
+      },
+      "body": "Claude writes a focused question with its current thinking, runs the Codex CLI locally in non-interactive mode, and presents Codex's answer, optionally going back and forth for a few turns. Codex can read the project files itself. The skill is meant for architecture tradeoffs, stuck debugging and tricky review cases, not routine tasks, since each call takes time and uses ChatGPT plan quota. Requires the Codex CLI.\n\n**Try asking:**\n- \"Get a second opinion from Codex on this migration plan\"\n- \"We've been stuck on this race condition for an hour. Ask Codex\"\n- \"Cross-check my reasoning on this caching tradeoff\"\n\n**Source:** [peterkrueck/Claude-Code-Development-Kit](https://github.com/peterkrueck/Claude-Code-Development-Kit/tree/HEAD/skills/second-opinion) · MIT · by peterkrueck",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/second-opinion-from-codex-peterkrueck-aa45925b",
+      "raw_url": "https://commandvault.ai/commands/second-opinion-from-codex-peterkrueck-aa45925b/raw",
+      "created_at": "2026-11-16T07:42:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "update-ai-context-docs-peterkrueck-f92af14c",
+      "title": "Update AI context docs (peterkrueck)",
+      "summary": "Keeps a project's AI-facing docs and CLAUDE.md in sync after architectural changes.",
+      "kind": "skill",
+      "community": "writing",
+      "tags": [
+        "skill",
+        "documentation",
+        "claude-md",
+        "context",
+        "maintenance"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "update-docs",
+        "files": [],
+        "author": "peterkrueck",
+        "license": "MIT",
+        "repository": "https://github.com/peterkrueck/Claude-Code-Development-Kit",
+        "source_url": "https://raw.githubusercontent.com/peterkrueck/Claude-Code-Development-Kit/main/skills/update-docs/SKILL.md",
+        "source_path": "skills/update-docs",
+        "has_extra_files": false
+      },
+      "body": "After a change that adds new architecture, Claude updates four docs under docs/ai-context (spec, project structure, progress, deployment) and CLAUDE.md, or creates them if missing. The rules favor deleting lines, describe only the current state, and skip anything an agent can learn from the code or git history. It also says when not to run, such as after bug fixes, small refactors or styling changes.\n\n**Try asking:**\n- \"Update the docs for the new queue worker we just added\"\n- \"/update-docs\"\n- \"Set up the ai-context docs for this project\"\n\n**Source:** [peterkrueck/Claude-Code-Development-Kit](https://github.com/peterkrueck/Claude-Code-Development-Kit/tree/HEAD/skills/update-docs) · MIT · by peterkrueck",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/update-ai-context-docs-peterkrueck-f92af14c",
+      "raw_url": "https://commandvault.ai/commands/update-ai-context-docs-peterkrueck-f92af14c/raw",
+      "created_at": "2026-11-16T08:19:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "diagnose-with-verified-evidence-shinpr-ad6ab6ec",
+      "title": "Diagnose with verified evidence (shinpr)",
+      "summary": "Runs an investigate, verify and solve loop with separate subagents to find a root cause.",
+      "kind": "skill",
+      "community": "agents",
+      "tags": [
+        "skill",
+        "debugging",
+        "root-cause",
+        "subagents",
+        "workflow"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "recipe-diagnose",
+        "files": [],
+        "author": "shinpr",
+        "license": "MIT",
+        "repository": "https://github.com/shinpr/claude-code-workflows",
+        "source_url": "https://raw.githubusercontent.com/shinpr/claude-code-workflows/main/skills/recipe-diagnose/SKILL.md",
+        "source_path": "skills/recipe-diagnose",
+        "plugin_install": [
+          "/plugin marketplace add shinpr/claude-code-workflows",
+          "/plugin install dev-workflows@claude-code-workflows"
+        ],
+        "has_extra_files": false
+      },
+      "body": "Claude acts as an orchestrator: it first records the reported symptom and scope, then has an investigator agent gather evidence, a verifier agent check it, and a solver agent propose fixes. The final report lists the failure points, how they were verified, a recommended fix with steps, alternatives and remaining risks, or says which evidence is missing. Manual use only; it depends on agents shipped in the dev-workflows plugin.\n\n**Try asking:**\n- \"/recipe-diagnose login sometimes returns 500 after deploys\"\n- \"/recipe-diagnose the nightly export job produces duplicate rows\"\n- \"/recipe-diagnose memory keeps growing in the worker process\"\n\n**Source:** [shinpr/claude-code-workflows](https://github.com/shinpr/claude-code-workflows/tree/HEAD/skills/recipe-diagnose) · MIT · by shinpr",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/diagnose-with-verified-evidence-shinpr-ad6ab6ec",
+      "raw_url": "https://commandvault.ai/commands/diagnose-with-verified-evidence-shinpr-ad6ab6ec/raw",
+      "created_at": "2026-11-16T08:56:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "docs-from-existing-code-shinpr-657d0bb4",
+      "title": "Docs from existing code (shinpr)",
+      "summary": "Generates PRDs and design docs from an existing codebase, with verification and review steps.",
+      "kind": "skill",
+      "community": "agents",
+      "tags": [
+        "skill",
+        "documentation",
+        "prd",
+        "reverse-engineering",
+        "subagents"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "recipe-reverse-engineer",
+        "files": [],
+        "author": "shinpr",
+        "license": "MIT",
+        "repository": "https://github.com/shinpr/claude-code-workflows",
+        "source_url": "https://raw.githubusercontent.com/shinpr/claude-code-workflows/main/skills/recipe-reverse-engineer/SKILL.md",
+        "source_path": "skills/recipe-reverse-engineer",
+        "plugin_install": [
+          "/plugin marketplace add shinpr/claude-code-workflows",
+          "/plugin install dev-workflows@claude-code-workflows"
+        ],
+        "has_extra_files": false
+      },
+      "body": "Claude confirms the target path, depth and reference architecture, then works unit by unit: discovering scope, having agents write a PRD, verifying it against the code and reviewing it, and optionally doing the same for backend and frontend design docs. Review findings are resolved before moving on. Manual use only; it relies on agents from the dev-workflows plugin.\n\n**Try asking:**\n- \"/recipe-reverse-engineer src/billing\"\n- \"/recipe-reverse-engineer the whole repo, PRD only\"\n- \"/recipe-reverse-engineer src/api with design docs and human review\"\n\n**Source:** [shinpr/claude-code-workflows](https://github.com/shinpr/claude-code-workflows/tree/HEAD/skills/recipe-reverse-engineer) · MIT · by shinpr",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/docs-from-existing-code-shinpr-657d0bb4",
+      "raw_url": "https://commandvault.ai/commands/docs-from-existing-code-shinpr-657d0bb4/raw",
+      "created_at": "2026-11-16T09:33:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "phoenix-liveview-patterns-oliver-kriska-8042b4f7",
+      "title": "Phoenix LiveView patterns (Oliver Kriska)",
+      "summary": "Rules and patterns for building Phoenix LiveView pages correctly.",
+      "kind": "skill",
+      "community": "backend",
+      "tags": [
+        "skill",
+        "elixir",
+        "phoenix",
+        "liveview"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "liveview-patterns",
+        "files": [],
+        "author": "Oliver Kriska",
+        "license": "MIT",
+        "repository": "https://github.com/oliver-kriska/claude-elixir-phoenix",
+        "source_url": "https://raw.githubusercontent.com/oliver-kriska/claude-elixir-phoenix/main/plugins/elixir-phoenix/skills/liveview-patterns/SKILL.md",
+        "source_path": "plugins/elixir-phoenix/skills/liveview-patterns",
+        "plugin_install": [
+          "/plugin marketplace add oliver-kriska/claude-elixir-phoenix",
+          "/plugin install elixir-phoenix@oliver-kriska"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Loads automatically for LiveView, component and channel files. It sets ten rules, such as no unconditional database queries in mount, streams for lists, checking connected? before subscribing, and matching changeset errors explicitly. It also covers async assigns, rendering cached HTML for SEO routes, navigation and component decision trees, and common anti-patterns, with reference files for deeper topics.\n\n**Try asking:**\n- \"Build a LiveView page that lists orders with live updates via PubSub\"\n- \"Why does my LiveView form not show validation errors?\"\n- \"Refactor this LiveView to use streams instead of assigns for the list\"\n\n**Source:** [oliver-kriska/claude-elixir-phoenix](https://github.com/oliver-kriska/claude-elixir-phoenix/tree/HEAD/plugins/elixir-phoenix/skills/liveview-patterns) · MIT · by Oliver Kriska",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/phoenix-liveview-patterns-oliver-kriska-8042b4f7",
+      "raw_url": "https://commandvault.ai/commands/phoenix-liveview-patterns-oliver-kriska-8042b4f7/raw",
+      "created_at": "2026-11-16T10:10:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "ecto-patterns-oliver-kriska-2e40f0ab",
+      "title": "Ecto patterns (Oliver Kriska)",
+      "summary": "Rules for Ecto schemas, changesets, queries, preloads and migrations.",
+      "kind": "skill",
+      "community": "backend",
+      "tags": [
+        "skill",
+        "elixir",
+        "ecto",
+        "database",
+        "phoenix"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "ecto-patterns",
+        "files": [],
+        "author": "Oliver Kriska",
+        "license": "MIT",
+        "repository": "https://github.com/oliver-kriska/claude-elixir-phoenix",
+        "source_url": "https://raw.githubusercontent.com/oliver-kriska/claude-elixir-phoenix/main/plugins/elixir-phoenix/skills/ecto-patterns/SKILL.md",
+        "source_path": "plugins/elixir-phoenix/skills/ecto-patterns",
+        "plugin_install": [
+          "/plugin marketplace add oliver-kriska/claude-elixir-phoenix",
+          "/plugin install elixir-phoenix@oliver-kriska"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Loads for Ecto work in Elixir projects. Its rules include using cast only for external input, never using floats for money, avoiding polymorphic associations, pinning values in queries, preloading collections instead of looping, and relying on database constraints for race conditions. It includes a schema template, quick decision tables for changeset functions and preload strategy, and common anti-patterns.\n\n**Try asking:**\n- \"Write an Ecto schema and changeset for invoices with a money field\"\n- \"Fix the N+1 queries in this context module\"\n- \"Add a unique constraint and handle the race condition on signup\"\n\n**Source:** [oliver-kriska/claude-elixir-phoenix](https://github.com/oliver-kriska/claude-elixir-phoenix/tree/HEAD/plugins/elixir-phoenix/skills/ecto-patterns) · MIT · by Oliver Kriska",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/ecto-patterns-oliver-kriska-2e40f0ab",
+      "raw_url": "https://commandvault.ai/commands/ecto-patterns-oliver-kriska-2e40f0ab/raw",
+      "created_at": "2026-11-16T10:47:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "smart-ralph-spec-workflow-zach-1a124f9f",
+      "title": "Smart Ralph spec workflow (Zach)",
+      "summary": "Guides spec-driven development from research to task-by-task implementation.",
+      "kind": "skill",
+      "community": "agents",
+      "tags": [
+        "skill",
+        "spec-driven",
+        "planning",
+        "workflow",
+        "autonomous"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "spec-workflow",
+        "files": [],
+        "author": "Zach",
+        "license": "MIT",
+        "repository": "https://github.com/tzachbon/smart-ralph",
+        "source_url": "https://raw.githubusercontent.com/tzachbon/smart-ralph/main/plugins/ralph-specum/skills/spec-workflow/SKILL.md",
+        "source_path": "plugins/ralph-specum/skills/spec-workflow",
+        "plugin_install": [
+          "/plugin marketplace add tzachbon/smart-ralph",
+          "/plugin install ralph-specum@smart-ralph"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Explains the Smart Ralph flow: research, requirements, design and task phases each produce a Markdown file, and an executor agent then implements the tasks one by one with commits. Normal mode pauses for approval between phases, quick mode runs them all. Large features can be split into an epic of dependent specs. It points to the plugin's commands, such as /ralph-specum:start and /ralph-specum:triage.\n\n**Try asking:**\n- \"Start a spec for adding OAuth login\"\n- \"Triage this large billing rewrite into smaller specs\"\n- \"What phase is my current spec in, and what is next?\"\n\n**Source:** [tzachbon/smart-ralph](https://github.com/tzachbon/smart-ralph/tree/HEAD/plugins/ralph-specum/skills/spec-workflow) · MIT · by Zach",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/smart-ralph-spec-workflow-zach-1a124f9f",
+      "raw_url": "https://commandvault.ai/commands/smart-ralph-spec-workflow-zach-1a124f9f/raw",
+      "created_at": "2026-11-16T11:24:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "specify-a-feature-rudolf-s-4f3c8f1d",
+      "title": "Specify a feature (Rudolf S.)",
+      "summary": "Turns a short brief into requirements, a solution design and an implementation plan.",
+      "kind": "skill",
+      "community": "productivity",
+      "tags": [
+        "skill",
+        "specification",
+        "requirements",
+        "planning",
+        "design"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "specify",
+        "files": [],
+        "author": "Rudolf S.",
+        "license": "MIT",
+        "repository": "https://github.com/rsmdt/the-startup",
+        "source_url": "https://raw.githubusercontent.com/rsmdt/the-startup/main/plugins/start/skills/specify/SKILL.md",
+        "source_path": "plugins/start/skills/specify",
+        "plugin_install": [
+          "/plugin marketplace add rsmdt/the-startup",
+          "/plugin install start@the-startup"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Claude starts by listing what it needs to know and the assumptions it would otherwise make, and asks you to confirm or correct them. It then researches the codebase and writes three documents: requirements, a target solution design and an implementation plan broken into slices for the companion /implement skill. Assumptions stay marked in the documents until confirmed.\n\n**Try asking:**\n- \"/specify add team billing with per-seat pricing\"\n- \"/specify a CSV import for contacts\"\n- \"/specify rate limiting for the public API\"\n\n**Source:** [rsmdt/the-startup](https://github.com/rsmdt/the-startup/tree/HEAD/plugins/start/skills/specify) · MIT · by Rudolf S.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/specify-a-feature-rudolf-s-4f3c8f1d",
+      "raw_url": "https://commandvault.ai/commands/specify-a-feature-rudolf-s-4f3c8f1d/raw",
+      "created_at": "2026-11-16T12:01:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "security-assessment-rudolf-s-d4d3ab03",
+      "title": "Security assessment (Rudolf S.)",
+      "summary": "Threat models and reviews code and infrastructure for vulnerabilities.",
+      "kind": "skill",
+      "community": "security",
+      "tags": [
+        "skill",
+        "threat-modeling",
+        "stride",
+        "owasp",
+        "code-review"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "security-assessment",
+        "files": [],
+        "author": "Rudolf S.",
+        "license": "MIT",
+        "repository": "https://github.com/rsmdt/the-startup",
+        "source_url": "https://raw.githubusercontent.com/rsmdt/the-startup/main/plugins/team/skills/quality/security-assessment/SKILL.md",
+        "source_path": "plugins/team/skills/quality/security-assessment",
+        "plugin_install": [
+          "/plugin marketplace add rsmdt/the-startup",
+          "/plugin install team@the-startup"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Claude gathers context on the target, models threats with STRIDE, reviews code against OWASP patterns, assesses infrastructure, and reports findings by severity with location, impact and a fix. Focus areas include authentication, authorization, input handling and secrets. Checklists and reference material ship with the skill.\n\n**Try asking:**\n- \"Run a security assessment on our auth module\"\n- \"Threat model this new file upload feature\"\n- \"Review the API gateway config for security issues\"\n\n**Source:** [rsmdt/the-startup](https://github.com/rsmdt/the-startup/tree/HEAD/plugins/team/skills/quality/security-assessment) · MIT · by Rudolf S.",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/security-assessment-rudolf-s-d4d3ab03",
+      "raw_url": "https://commandvault.ai/commands/security-assessment-rudolf-s-d4d3ab03/raw",
+      "created_at": "2026-11-16T12:38:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "avoid-feature-creep-wayne-sutton-ee327ad9",
+      "title": "Avoid feature creep (Wayne Sutton)",
+      "summary": "Keeps a change scoped to what was asked and lists extras as suggestions instead.",
+      "kind": "skill",
+      "community": "productivity",
+      "tags": [
+        "skill",
+        "scope",
+        "focus",
+        "prd",
+        "code-review"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "avoid-feature-creep",
+        "files": [],
+        "author": "Wayne Sutton",
+        "license": "Apache-2.0",
+        "repository": "https://github.com/waynesutton/builder-skills",
+        "source_url": "https://raw.githubusercontent.com/waynesutton/builder-skills/main/skills/avoid-feature-creep/SKILL.md",
+        "source_path": "skills/avoid-feature-creep",
+        "has_extra_files": true
+      },
+      "body": "Every line of a diff should trace back to the request. The skill lists signs that scope is growing, such as \"while we're here\" edits, unrequested options, adjacent refactors or extra error handling, and tells Claude to finish the smallest complete change, collect other ideas under a Suggestions heading, and let the user choose. It applies the same rule to PRDs, which get an Out of scope section.\n\n**Try asking:**\n- \"Just fix the date bug, nothing else\"\n- \"Keep this PRD to the problem statement and move the extras out\"\n- \"Review this diff for changes I didn't ask for\"\n\n**Source:** [waynesutton/builder-skills](https://github.com/waynesutton/builder-skills/tree/HEAD/skills/avoid-feature-creep) · Apache-2.0 · by Wayne Sutton",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/avoid-feature-creep-wayne-sutton-ee327ad9",
+      "raw_url": "https://commandvault.ai/commands/avoid-feature-creep-wayne-sutton-ee327ad9/raw",
+      "created_at": "2026-11-16T13:15:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "git-safety-wayne-sutton-951d574b",
+      "title": "Git safety (Wayne Sutton)",
+      "summary": "Stops an agent from destroying uncommitted work with git.",
+      "kind": "skill",
+      "community": "devops",
+      "tags": [
+        "skill",
+        "git",
+        "safety",
+        "version-control"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "git-safety",
+        "files": [],
+        "author": "Wayne Sutton",
+        "license": "Apache-2.0",
+        "repository": "https://github.com/waynesutton/builder-skills",
+        "source_url": "https://raw.githubusercontent.com/waynesutton/builder-skills/main/skills/git-safety/SKILL.md",
+        "source_path": "skills/git-safety",
+        "has_extra_files": true
+      },
+      "body": "Before any git command Claude checks git status and stops if there are uncommitted or untracked files. Commands such as reset --hard, checkout or restore of files, clean, stash drop, force push and branch -D need explicit approval of the exact command. Requests to \"revert\" or \"undo\" are handled as manual edits of the specific lines, and committed changes are undone with git revert.\n\n**Try asking:**\n- \"Undo my last change to the header component\"\n- \"Clean up this branch before I open a PR\"\n- \"Revert the commit that broke the build\"\n\n**Source:** [waynesutton/builder-skills](https://github.com/waynesutton/builder-skills/tree/HEAD/skills/git-safety) · Apache-2.0 · by Wayne Sutton",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/git-safety-wayne-sutton-951d574b",
+      "raw_url": "https://commandvault.ai/commands/git-safety-wayne-sutton-951d574b/raw",
+      "created_at": "2026-11-16T13:52:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "prd-writer-mohit-aggarwal-2c12464b",
+      "title": "PRD writer (Mohit Aggarwal)",
+      "summary": "Writes a full product requirements document from a feature idea.",
+      "kind": "skill",
+      "community": "productivity",
+      "tags": [
+        "skill",
+        "prd",
+        "product-management",
+        "requirements",
+        "specs"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "prd-template",
+        "files": [],
+        "author": "Mohit Aggarwal",
+        "license": "MIT",
+        "repository": "https://github.com/mohitagw15856/pm-claude-skills",
+        "source_url": "https://raw.githubusercontent.com/mohitagw15856/pm-claude-skills/main/skills/prd-template/SKILL.md",
+        "source_path": "skills/prd-template",
+        "plugin_install": [
+          "/plugin marketplace add mohitagw15856/pm-claude-skills",
+          "/plugin install pm-essentials@pm-claude-skills"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Produces a PRD with overview, context, user stories, functional requirements, design notes, technical considerations, an implementation plan and open questions. It includes writing guidelines, a 40-point scoring rubric, quality checks and anti-patterns, and can draw on a shared project knowledge folder if one exists. Templates and reference material are bundled.\n\n**Try asking:**\n- \"Write a PRD for a customer support dashboard that merges email and chat\"\n- \"Turn these meeting notes into a PRD\"\n- \"Score this existing PRD against the rubric and suggest fixes\"\n\n**Source:** [mohitagw15856/pm-claude-skills](https://github.com/mohitagw15856/pm-claude-skills/tree/HEAD/skills/prd-template) · MIT · by Mohit Aggarwal",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/prd-writer-mohit-aggarwal-2c12464b",
+      "raw_url": "https://commandvault.ai/commands/prd-writer-mohit-aggarwal-2c12464b/raw",
+      "created_at": "2026-11-16T14:29:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "rice-prioritisation-mohit-aggarwal-b8beff04",
+      "title": "RICE prioritisation (Mohit Aggarwal)",
+      "summary": "Scores and ranks backlog items with the RICE framework.",
+      "kind": "skill",
+      "community": "productivity",
+      "tags": [
+        "skill",
+        "prioritization",
+        "rice",
+        "product-management",
+        "roadmap"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "rice-prioritisation",
+        "files": [],
+        "author": "Mohit Aggarwal",
+        "license": "MIT",
+        "repository": "https://github.com/mohitagw15856/pm-claude-skills",
+        "source_url": "https://raw.githubusercontent.com/mohitagw15856/pm-claude-skills/main/skills/rice-prioritisation/SKILL.md",
+        "source_path": "skills/rice-prioritisation",
+        "plugin_install": [
+          "/plugin marketplace add mohitagw15856/pm-claude-skills",
+          "/plugin install pm-planning@pm-claude-skills"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Claude scores each initiative on reach, impact, confidence and effort, then returns a ranked table with quick wins and moonshots flagged, dependency notes and a suggested order. A bundled script can calculate scores from JSON or CSV input. It includes definitions to adapt, a scoring rubric, quality checks and anti-patterns.\n\n**Try asking:**\n- \"Prioritise these 12 backlog items with RICE\"\n- \"Score our Q3 initiatives and suggest a sequence\"\n- \"Here's a CSV of features with estimates. Rank them by RICE\"\n\n**Source:** [mohitagw15856/pm-claude-skills](https://github.com/mohitagw15856/pm-claude-skills/tree/HEAD/skills/rice-prioritisation) · MIT · by Mohit Aggarwal",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/rice-prioritisation-mohit-aggarwal-b8beff04",
+      "raw_url": "https://commandvault.ai/commands/rice-prioritisation-mohit-aggarwal-b8beff04/raw",
+      "created_at": "2026-11-16T15:06:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "prompt-master-nidhin-joseph-nelson-e6cb241f",
+      "title": "Prompt master (Nidhin Joseph Nelson)",
+      "summary": "Writes or fixes a prompt tuned for a specific AI tool.",
+      "kind": "skill",
+      "community": "agents",
+      "tags": [
+        "skill",
+        "prompt-engineering",
+        "prompts",
+        "llm"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "prompt-master",
+        "files": [],
+        "author": "Nidhin Joseph Nelson",
+        "license": "MIT",
+        "repository": "https://github.com/nidhinjs/prompt-master",
+        "source_url": "https://raw.githubusercontent.com/nidhinjs/prompt-master/main/SKILL.md",
+        "source_path": "",
+        "has_extra_files": true
+      },
+      "body": "Activates only when you ask for a prompt. Claude confirms the target tool (a chat model, Cursor, a coding agent, an image or video model), extracts the intent with at most three clarifying questions, and returns one ready-to-paste prompt with a one-line note on what it optimized. It prefers simple techniques such as roles, examples and verification criteria over complex reasoning frameworks, and reference files cover tool-specific guidance.\n\n**Try asking:**\n- \"Write a Midjourney prompt for a product shot of a ceramic mug on a wooden table\"\n- \"Fix this Cursor prompt so it stops rewriting unrelated files\"\n- \"Turn my rough idea into a system prompt for a support chatbot\"\n\n**Source:** [nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master) · MIT · by Nidhin Joseph Nelson",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/prompt-master-nidhin-joseph-nelson-e6cb241f",
+      "raw_url": "https://commandvault.ai/commands/prompt-master-nidhin-joseph-nelson-e6cb241f/raw",
+      "created_at": "2026-11-16T15:43:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "agent-readiness-audit-john-renaldi-33472665",
+      "title": "Agent readiness audit (John Renaldi)",
+      "summary": "Scores how ready a codebase is for AI coding agents and what to improve.",
+      "kind": "skill",
+      "community": "devops",
+      "tags": [
+        "skill",
+        "audit",
+        "agents",
+        "tooling",
+        "developer-experience"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "readiness",
+        "files": [],
+        "author": "John Renaldi",
+        "license": "MIT",
+        "repository": "https://github.com/jrenaldi79/harness-engineering",
+        "source_url": "https://raw.githubusercontent.com/jrenaldi79/harness-engineering/main/skills/readiness/SKILL.md",
+        "source_path": "skills/readiness",
+        "plugin_install": [
+          "/plugin marketplace add jrenaldi79/harness-engineering",
+          "/plugin install harness-engineering@harness-engineering"
+        ],
+        "has_extra_files": false
+      },
+      "body": "Claude detects the stack and any monorepo layout, then runs three subagents in parallel to check eight areas: style and validation, testing, git hooks, documentation, agent configuration, code quality, dev environment and agentic workflow. It assigns a readiness level from 1 (Bare) upward and saves a readiness-report.md, comparing against a previous report when one exists. Requires the harness-engineering plugin's setup skill as reference material.\n\n**Try asking:**\n- \"How ready is this repo for AI agents?\"\n- \"Run a readiness report and tell me the top three fixes\"\n- \"Re-run the readiness audit and compare it with last month's report\"\n\n**Source:** [jrenaldi79/harness-engineering](https://github.com/jrenaldi79/harness-engineering/tree/HEAD/skills/readiness) · MIT · by John Renaldi",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/agent-readiness-audit-john-renaldi-33472665",
+      "raw_url": "https://commandvault.ai/commands/agent-readiness-audit-john-renaldi-33472665/raw",
+      "created_at": "2026-11-16T16:20:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "git-guardrails-hook-matt-pocock-c88922a2",
+      "title": "Git guardrails hook (Matt Pocock)",
+      "summary": "Installs a hook that blocks dangerous git commands before Claude runs them.",
+      "kind": "skill",
+      "community": "devops",
+      "tags": [
+        "skill",
+        "git",
+        "hooks",
+        "safety",
+        "claude-code"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "git-guardrails-claude-code",
+        "files": [],
+        "author": "Matt Pocock",
+        "license": "MIT",
+        "repository": "https://github.com/mattpocock/skills",
+        "source_url": "https://raw.githubusercontent.com/mattpocock/skills/main/skills/misc/git-guardrails-claude-code/SKILL.md",
+        "source_path": "skills/misc/git-guardrails-claude-code",
+        "plugin_install": [
+          "/plugin marketplace add mattpocock/skills",
+          "/plugin install mattpocock-skills@mattpocock"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Sets up a PreToolUse hook in Claude Code that blocks git push, reset --hard, clean -f, branch -D and checkout or restore of the whole tree. Claude asks whether to install it for the project or globally, copies the bundled script, merges it into settings.json without overwriting other hooks, offers to adjust the blocked list, and tests that it works.\n\n**Try asking:**\n- \"Set up git guardrails for this project\"\n- \"Block git push and reset --hard for Claude in all my projects\"\n- \"Add git safety hooks but allow git push\"\n\n**Source:** [mattpocock/skills](https://github.com/mattpocock/skills/tree/HEAD/skills/misc/git-guardrails-claude-code) · MIT · by Matt Pocock",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/git-guardrails-hook-matt-pocock-c88922a2",
+      "raw_url": "https://commandvault.ai/commands/git-guardrails-hook-matt-pocock-c88922a2/raw",
+      "created_at": "2026-11-16T16:57:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "domain-modeling-matt-pocock-49487364",
+      "title": "Domain modeling (Matt Pocock)",
+      "summary": "Sharpens a project's domain language and records it in a glossary and ADRs.",
+      "kind": "skill",
+      "community": "backend",
+      "tags": [
+        "skill",
+        "domain-driven-design",
+        "glossary",
+        "adr",
+        "design"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "domain-modeling",
+        "files": [],
+        "author": "Matt Pocock",
+        "license": "MIT",
+        "repository": "https://github.com/mattpocock/skills",
+        "source_url": "https://raw.githubusercontent.com/mattpocock/skills/main/skills/engineering/domain-modeling/SKILL.md",
+        "source_path": "skills/engineering/domain-modeling",
+        "plugin_install": [
+          "/plugin marketplace add mattpocock/skills",
+          "/plugin install mattpocock-skills@mattpocock"
+        ],
+        "has_extra_files": true
+      },
+      "body": "While you design, Claude challenges terms that conflict with GLOSSARY.md, proposes precise names for vague ones, tests relationships with edge-case scenarios, and checks claims against the code. Resolved terms go into the glossary right away, kept free of implementation details. It offers an ADR only when a decision is hard to reverse, surprising without context and the result of a real tradeoff. Format guides for both files are included.\n\n**Try asking:**\n- \"Help me pin down what 'account' means in this codebase\"\n- \"We're designing subscriptions. Challenge my terms as we go\"\n- \"Record an ADR for why we chose event sourcing for orders\"\n\n**Source:** [mattpocock/skills](https://github.com/mattpocock/skills/tree/HEAD/skills/engineering/domain-modeling) · MIT · by Matt Pocock",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/domain-modeling-matt-pocock-49487364",
+      "raw_url": "https://commandvault.ai/commands/domain-modeling-matt-pocock-49487364/raw",
+      "created_at": "2026-11-16T17:34:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "pricing-strategy-corey-haines-0abd00dc",
+      "title": "Pricing strategy (Corey Haines)",
+      "summary": "Helps set SaaS pricing, packaging, tiers and price increases.",
+      "kind": "skill",
+      "community": "marketing",
+      "tags": [
+        "skill",
+        "pricing",
+        "saas",
+        "packaging",
+        "monetization"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "pricing",
+        "files": [],
+        "author": "Corey Haines",
+        "license": "MIT",
+        "repository": "https://github.com/coreyhaines31/marketingskills",
+        "source_url": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/main/skills/pricing/SKILL.md",
+        "source_path": "skills/pricing",
+        "plugin_install": [
+          "/plugin marketplace add coreyhaines31/marketingskills",
+          "/plugin install marketing-skills@marketingskills"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Claude first gathers business context, competition, current performance and goals, then works through value metrics, good-better-best tiers, per-seat versus usage pricing, freemium and trials, and research methods such as Van Westendorp and MaxDiff. It also covers when and how to raise prices and pricing page design. Reference files and evals ship with the skill.\n\n**Try asking:**\n- \"What should we charge for our analytics tool? Here's our context\"\n- \"Design three pricing tiers for a B2B scheduling app\"\n- \"Is it time to raise prices, and how do we handle existing customers?\"\n\n**Source:** [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/HEAD/skills/pricing) · MIT · by Corey Haines",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/pricing-strategy-corey-haines-0abd00dc",
+      "raw_url": "https://commandvault.ai/commands/pricing-strategy-corey-haines-0abd00dc/raw",
+      "created_at": "2026-11-16T18:11:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "cold-email-corey-haines-811a8dd9",
+      "title": "Cold email (Corey Haines)",
+      "summary": "Writes B2B cold outreach and follow-ups, and covers deliverability.",
+      "kind": "skill",
+      "community": "marketing",
+      "tags": [
+        "skill",
+        "cold-email",
+        "outbound",
+        "sales",
+        "deliverability"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "cold-email",
+        "files": [],
+        "author": "Corey Haines",
+        "license": "MIT",
+        "repository": "https://github.com/coreyhaines31/marketingskills",
+        "source_url": "https://raw.githubusercontent.com/coreyhaines31/marketingskills/main/skills/cold-email/SKILL.md",
+        "source_path": "skills/cold-email",
+        "plugin_install": [
+          "/plugin marketplace add coreyhaines31/marketingskills",
+          "/plugin install marketing-skills@marketingskills"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Claude writes cold emails that read like a peer rather than a vendor: personalization tied to the prospect's problem, one low-friction ask, subject lines and follow-up sequences. It also covers sending from secondary domains, verifying lists, turning off open tracking, coordinating with LinkedIn and handling replies. It lists phrasing to avoid, including common AI tells.\n\n**Try asking:**\n- \"Write a 3-email cold sequence to heads of RevOps at Series B SaaS companies\"\n- \"Why is nobody replying to this cold email? Here it is\"\n- \"Set up our sending domains and cadence for a new outbound campaign\"\n\n**Source:** [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/HEAD/skills/cold-email) · MIT · by Corey Haines",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/cold-email-corey-haines-811a8dd9",
+      "raw_url": "https://commandvault.ai/commands/cold-email-corey-haines-811a8dd9/raw",
+      "created_at": "2026-11-16T18:48:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "context-engineering-addy-osmani-b3b5784d",
+      "title": "Context engineering (Addy Osmani)",
+      "summary": "Sets up what an agent sees so its output stays accurate and focused.",
+      "kind": "skill",
+      "community": "agents",
+      "tags": [
+        "skill",
+        "context",
+        "claude-md",
+        "rules-files",
+        "agents"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "context-engineering",
+        "files": [],
+        "author": "Addy Osmani",
+        "license": "MIT",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "source_url": "https://raw.githubusercontent.com/addyosmani/agent-skills/main/skills/context-engineering/SKILL.md",
+        "source_path": "skills/context-engineering",
+        "plugin_install": [
+          "/plugin marketplace add addyosmani/agent-skills",
+          "/plugin install agent-skills@addy-agent-skills"
+        ],
+        "has_extra_files": false
+      },
+      "body": "Describes a context hierarchy: rules files, specs and architecture notes, relevant source files, error output and conversation management. It gives a rules-file template and packing strategies such as a brain dump, a selective include and a hierarchical project map, plus advice on managing the context budget and when to restart a session. Use it at the start of a project, when switching tasks or when output quality drops.\n\n**Try asking:**\n- \"Write a CLAUDE.md for this repo following the context hierarchy\"\n- \"The agent keeps losing track in this long session. Help me restructure context\"\n- \"Build a project map so the agent can find the right files\"\n\n**Source:** [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills/tree/HEAD/skills/context-engineering) · MIT · by Addy Osmani",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/context-engineering-addy-osmani-b3b5784d",
+      "raw_url": "https://commandvault.ai/commands/context-engineering-addy-osmani-b3b5784d/raw",
+      "created_at": "2026-11-16T19:25:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "spec-driven-development-addy-osmani-140be344",
+      "title": "Spec-driven development (Addy Osmani)",
+      "summary": "Writes a structured spec before any code, then plans, splits into tasks and implements.",
+      "kind": "skill",
+      "community": "productivity",
+      "tags": [
+        "skill",
+        "specification",
+        "planning",
+        "prd",
+        "requirements"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "spec-driven-development",
+        "files": [],
+        "author": "Addy Osmani",
+        "license": "MIT",
+        "repository": "https://github.com/addyosmani/agent-skills",
+        "source_url": "https://raw.githubusercontent.com/addyosmani/agent-skills/main/skills/spec-driven-development/SKILL.md",
+        "source_path": "skills/spec-driven-development",
+        "plugin_install": [
+          "/plugin marketplace add addyosmani/agent-skills",
+          "/plugin install agent-skills@addy-agent-skills"
+        ],
+        "has_extra_files": false
+      },
+      "body": "Runs a gated workflow: a scope check that may split work into a capability map, then a spec with objective, tech stack, commands, structure, code style, testing, boundaries, success criteria and out-of-scope items, then a plan, tasks and implementation. It also explains how to keep the spec current, scope a V1, defer ideas to a V2 backlog, and write delta specs for later changes.\n\n**Try asking:**\n- \"Write a spec for a habit-tracking app before we start coding\"\n- \"Our requirements are vague. Help me turn them into a spec\"\n- \"Write a delta spec for adding team accounts to the existing app\"\n\n**Source:** [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills/tree/HEAD/skills/spec-driven-development) · MIT · by Addy Osmani",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/spec-driven-development-addy-osmani-140be344",
+      "raw_url": "https://commandvault.ai/commands/spec-driven-development-addy-osmani-140be344/raw",
+      "created_at": "2026-11-16T20:02:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "core-web-vitals-addy-osmani-af95e4c1",
+      "title": "Core Web Vitals (Addy Osmani)",
+      "summary": "Diagnoses and fixes LCP, INP and CLS problems using field and lab data.",
+      "kind": "skill",
+      "community": "frontend",
+      "tags": [
+        "skill",
+        "performance",
+        "core-web-vitals",
+        "lcp",
+        "cls",
+        "inp"
+      ],
+      "tools": [
+        "Claude Code",
+        "Claude"
+      ],
+      "variables": [],
+      "install": {
+        "name": "core-web-vitals",
+        "files": [],
+        "author": "Addy Osmani",
+        "license": "MIT",
+        "repository": "https://github.com/addyosmani/web-quality-skills",
+        "source_url": "https://raw.githubusercontent.com/addyosmani/web-quality-skills/main/skills/core-web-vitals/SKILL.md",
+        "source_path": "skills/core-web-vitals",
+        "plugin_install": [
+          "/plugin marketplace add addyosmani/web-quality-skills",
+          "/plugin install web-quality-skills@addy-web-quality-skills"
+        ],
+        "has_extra_files": true
+      },
+      "body": "Claude starts by measuring, using field data to see user impact and browser traces to find causes, then works through each metric: common Largest Contentful Paint issues and a checklist, Interaction to Next Paint, and Cumulative Layout Shift. It includes quick fixes for Next.js, React and Vue or Nuxt, and reference material.\n\n**Try asking:**\n- \"Our LCP is 4.2s on mobile. Find out why and fix it\"\n- \"Reduce layout shift on the product page\"\n- \"Improve INP on this React dashboard\"\n\n**Source:** [addyosmani/web-quality-skills](https://github.com/addyosmani/web-quality-skills/tree/HEAD/skills/core-web-vitals) · MIT · by Addy Osmani",
+      "score": 0,
+      "uses": 0,
+      "author": "client",
+      "url": "https://commandvault.ai/commands/core-web-vitals-addy-osmani-af95e4c1",
+      "raw_url": "https://commandvault.ai/commands/core-web-vitals-addy-osmani-af95e4c1/raw",
+      "created_at": "2026-11-16T20:39:57.389196+00:00",
+      "updated_at": "2026-11-16T21:17:46.130013+00:00"
+    },
+    {
+      "slug": "datacircle-mcp-server-mwjxd68b",
+      "title": "Datacircle MCP server",
+      "summary": "Our MCP server is open to anyone, with no key: add api.datacircle.dev/mcp to Claude, ChatGPT or Cursor. Find the best GTM APIs.",
+      "kind": "mcp_server",
+      "community": "agents",
+      "tags": [],
+      "tools": [
+        "ChatGPT",
+        "Claude",
+        "Gemini",
+        "Cursor",
+        "Codex"
+      ],
+      "variables": [],
+      "install": {
+        "env": [],
+        "url": "https://api.datacircle.dev/mcp",
+        "args": [],
+        "name": "datacircle",
+        "command": "",
+        "headers": [],
+        "homepage": "https://datacircle.dev",
+        "transport": "http",
+        "repository": ""
+      },
+      "body": "Our MCP server is open to anyone, with no key: add api.datacircle.dev/mcp to Claude, ChatGPT or Cursor. Find the best GTM APIs.",
+      "score": 0,
+      "uses": 1,
+      "author": "wayne",
+      "url": "https://commandvault.ai/commands/datacircle-mcp-server-mwjxd68b",
+      "raw_url": "https://commandvault.ai/commands/datacircle-mcp-server-mwjxd68b/raw",
+      "created_at": "2026-11-16T23:59:04.175371+00:00",
+      "updated_at": "2026-11-17T02:03:17.231144+00:00"
     }
   ]
 }

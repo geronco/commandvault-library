@@ -2519,3 +2519,380 @@ everything-mcp-server-reference-test-server-9bd2c4ea,Everything MCP server (refe
 - ""Test sampling by running the sampleLLM tool.""
 
 **Sign-in:** none needed.",https://commandvault.ai/commands/everything-mcp-server-reference-test-server-9bd2c4ea
+chrome-browser-control-obra-9e0e14be,Chrome browser control (obra),"Drives your running Chrome through the DevTools Protocol, with tabs, forms and page capture.",skill,frontend,skill;browser;chrome;automation;devtools;mcp,"Teaches Claude to control Chrome through a single use_browser MCP tool built on the Chrome DevTools Protocol: navigating, clicking, typing, uploading files, managing tabs and reading console output. Each page action saves a screenshot, Markdown and HTML copy of the page for Claude to check. It is meant for existing or logged-in browser sessions, and includes rules for keeping secrets such as tokens and one-time codes out of the saved captures. Requires the superpowers-chrome plugin, which ships the MCP server.
+
+**Try asking:**
+- ""Open our staging dashboard in Chrome and tell me which widgets fail to load""
+- ""Fill in the contact form on this page with test data and submit it""
+- ""Open these three URLs in separate tabs and extract the pricing tables""
+
+**Source:** [obra/superpowers-chrome](https://github.com/obra/superpowers-chrome/tree/HEAD/skills/browsing) · MIT · by Jesse Vincent (obra)",https://commandvault.ai/commands/chrome-browser-control-obra-9e0e14be
+search-past-conversations-obra-411cc8c4,Search past conversations (obra),Makes Claude search its own earlier conversations before guessing or starting from scratch.,skill,agents,skill;memory;search;context;sessions,"Works with the episodic-memory plugin, which indexes past Claude Code (and Codex or opencode) sessions. The skill tells Claude to search that history whenever earlier decisions, fixes or project context might help, read the top few matches, and summarize them with pointers to the original conversations. In Claude Code it hands the search to a dedicated subagent so raw transcripts stay out of the main context.
+
+**Try asking:**
+- ""What did we decide last month about the database migration approach?""
+- ""Have we hit this webpack error before? Check our past sessions""
+- ""Remind me how we set up the release script in this repo""
+
+**Source:** [obra/episodic-memory](https://github.com/obra/episodic-memory/tree/HEAD/skills/remembering-conversations) · MIT · by Jesse Vincent (obra)",https://commandvault.ai/commands/search-past-conversations-obra-411cc8c4
+interactive-cli-via-tmux-obra-92bdddf1,Interactive CLI via tmux (obra),"Lets Claude drive interactive terminal tools like vim, REPLs and git rebase -i through tmux.",skill,devops,skill;tmux;terminal;repl;cli,"Interactive programs hang under a normal shell tool because they expect a real terminal. This skill shows Claude how to start them in a detached tmux session, send keystrokes with send-keys, read the screen with capture-pane, and close the session when done. It covers special keys, working directories and common patterns for Python REPLs, vim and interactive git, and ships a small wrapper script.
+
+**Try asking:**
+- ""Run git rebase -i on the last 4 commits and squash the two fixup commits""
+- ""Open a Python REPL and check how this library parses the sample date strings""
+- ""Use vim to edit the config file on the remote box""
+
+**Source:** [obra/superpowers-lab](https://github.com/obra/superpowers-lab/tree/HEAD/skills/using-tmux-for-interactive-commands) · MIT · by Jesse Vincent (obra)",https://commandvault.ai/commands/interactive-cli-via-tmux-obra-92bdddf1
+postgresql-table-design-seth-hobson-dd855549,PostgreSQL table design (Seth Hobson),Rules and gotchas for designing or reviewing a PostgreSQL schema.,skill,backend,skill;postgresql;schema;database;indexing;sql,"Gives Claude PostgreSQL-specific rules for keys, data types, constraints, indexes and partitioning: identity columns, TIMESTAMPTZ, NUMERIC for money, indexing foreign keys by hand, and which types to avoid. It lists Postgres behaviors that catch people out, such as unique constraints allowing multiple NULLs and gaps in sequences. A reference file holds the full type catalog, workload patterns, JSONB indexing and worked DDL examples.
+
+**Try asking:**
+- ""Review this schema for a multi-tenant orders table before we ship it""
+- ""Design Postgres tables for users, teams and invitations""
+- ""Should this events table be partitioned, and how?""
+
+**Source:** [wshobson/agents](https://github.com/wshobson/agents/tree/HEAD/plugins/database-design/skills/postgresql-table-design) · MIT · by Seth Hobson",https://commandvault.ai/commands/postgresql-table-design-seth-hobson-dd855549
+github-actions-templates-seth-hobson-b52d1da7,GitHub Actions templates (Seth Hobson),"Ready-made GitHub Actions workflows for testing, Docker builds, deploys and matrix runs.",skill,devops,skill;github-actions;ci-cd;docker;workflows,"Provides workflow patterns Claude can adapt: a test workflow, building and pushing a Docker image, deploying to Kubernetes, and matrix builds across versions. It also covers reusable workflows, security scanning and deployments gated by environment approvals, plus a short list of practices such as pinning action versions, caching dependencies and setting minimal permissions.
+
+**Try asking:**
+- ""Set up a GitHub Actions workflow that runs tests on Node 20 and 22 for every PR""
+- ""Add a workflow that builds our Docker image and pushes it to GHCR on tags""
+- ""Create a reusable test workflow other repos in the org can call""
+
+**Source:** [wshobson/agents](https://github.com/wshobson/agents/tree/HEAD/plugins/cicd-automation/skills/github-actions-templates) · MIT · by Seth Hobson",https://commandvault.ai/commands/github-actions-templates-seth-hobson-b52d1da7
+remove-ai-writing-tells-seth-hobson-d2e1d3a5,Remove AI writing tells (Seth Hobson),"Audits and rewrites prose so it stops reading as machine-generated, without inventing a new voice.",skill,writing,skill;editing;prose;style;ai-writing,"Scans text for patterns common in model output, using a pattern catalog and tiered word lists, and weighs sentence and paragraph rhythm most heavily. It has three modes: rewrite (default), detect-only, and edit-in-place for prose files, with optional voice and context profiles such as docs, blog or investor email. It forbids adding things the source lacked, like a fake first person or made-up specifics, and states that its flags are writing-quality signals, not proof of authorship.
+
+**Try asking:**
+- ""Clean up the AI tells in this README without changing its meaning""
+- ""Just flag the machine-sounding parts of this blog draft; don't rewrite it""
+- ""Edit CHANGELOG.md in place to remove filler and inflated wording""
+
+**Source:** [wshobson/agents](https://github.com/wshobson/agents/tree/HEAD/plugins/avoid-ai-writing/skills/avoid-ai-writing) · MIT · by Seth Hobson",https://commandvault.ai/commands/remove-ai-writing-tells-seth-hobson-d2e1d3a5
+cto-advisor-alireza-rezvani-4285f8ff,CTO advisor (Alireza Rezvani),"Frameworks for tech debt, architecture direction, team scaling and technology bets.",skill,productivity,skill;leadership;strategy;tech-debt;dora;engineering-management,"Gives Claude a CTO's playbook for questions such as whether to rewrite, how to grow an engineering team, or which technology to adopt. It covers technology strategy, build-vs-buy, managing technical debt, team structure and DORA metrics. Reference files hold an evaluation framework and engineering metrics, and two Python scripts analyze tech debt and model team scaling.
+
+**Try asking:**
+- ""Should we rewrite our Rails monolith or keep refactoring it? Here is the context""
+- ""We are 12 engineers and growing to 30 next year. How should the team be structured?""
+- ""Help me evaluate buying an auth provider versus building our own""
+
+**Source:** [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/HEAD/c-level-advisor/skills/cto-advisor) · MIT · by Alireza Rezvani",https://commandvault.ai/commands/cto-advisor-alireza-rezvani-4285f8ff
+incident-commander-alireza-rezvani-a3a29f24,Incident commander (Alireza Rezvani),"Runs a production outage: severity, timeline and the post-incident review.",skill,devops,skill;incidents;sre;postmortem;on-call,"Covers availability incidents such as outages, degradations and failed deploys, and points security incidents to a separate skill. Three Python scripts classify severity on a SEV1 to SEV4 scale, rebuild a timeline from timestamped events across sources, and draft a post-incident review using 5 Whys, fishbone or timeline analysis. It also includes communication templates for stakeholder updates and a runbook format.
+
+**Try asking:**
+- ""We have elevated 500s on checkout since 14:05. Help me classify and run this incident""
+- ""Build a timeline from these log excerpts and Slack messages""
+- ""Draft the post-incident review for yesterday's database failover""
+
+**Source:** [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/HEAD/engineering-team/skills/incident-commander) · MIT · by Alireza Rezvani",https://commandvault.ai/commands/incident-commander-alireza-rezvani-a3a29f24
+gdpr-audit-prep-alireza-rezvani-5e2f5191,GDPR audit prep (Alireza Rezvani),Six article-cited questions a data protection officer would ask before a GDPR audit.,skill,security,skill;gdpr;privacy;compliance;audit,"Pressure-tests privacy compliance before an internal audit, breach response, regulator inquiry or acquisition due diligence. Claude works through six questions tied to GDPR articles: the Article 30 record of processing, lawful basis under Article 6, DPIAs under Article 35, data subject request handling, transfer impact assessments and the breach log. The output is a structured audit-prep report with gaps per area.
+
+**Try asking:**
+- ""Run the GDPR audit prep for our new analytics pipeline""
+- ""We had a data breach last week. What do we need to have ready for the regulator?""
+- ""Check our DSAR process against what an auditor will ask""
+
+**Source:** [alirezarezvani/claude-skills](https://github.com/alirezarezvani/claude-skills/tree/HEAD/compliance-os/skills/gdpr-audit-prep) · MIT · by Alireza Rezvani",https://commandvault.ai/commands/gdpr-audit-prep-alireza-rezvani-5e2f5191
+spec-miner-jeffallan-bf5b1df0,Spec miner (Jeffallan),Extracts a written specification from an undocumented or legacy codebase.,skill,backend,skill;legacy-code;reverse-engineering;documentation;requirements,"Claude explores a codebase with read-only search tools, follows data flows and request paths, and writes the observed behavior as requirements in EARS format (""When X, the system shall Y""). It keeps observed facts separate from inferences and marks areas that need clarification. References cover the analysis process, EARS syntax, a specification template and a checklist.
+
+**Try asking:**
+- ""Reverse engineer the billing module and write down what it actually does""
+- ""We inherited this API with no docs. Produce a spec of its endpoints and rules""
+- ""Map the order lifecycle in this codebase as EARS requirements""
+
+**Source:** [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/HEAD/skills/spec-miner) · MIT · by Jeffallan",https://commandvault.ai/commands/spec-miner-jeffallan-bf5b1df0
+the-fool-challenge-my-plan-jeffallan-d0b2c56f,The Fool: challenge my plan (Jeffallan),Stress-tests an idea or plan with five structured critical-reasoning modes.,skill,productivity,skill;critical-thinking;pre-mortem;red-team;decisions,"Claude restates your position in its strongest form, lets you pick how to challenge it, and then presents the 3 to 5 strongest objections before building a stronger version of the plan. The five modes are Socratic questioning of assumptions, arguing the other side, a pre-mortem of failure modes, red teaming, and testing whether the evidence supports the conclusion.
+
+**Try asking:**
+- ""Play devil's advocate on our plan to move everything to microservices""
+- ""Run a pre-mortem on this product launch plan""
+- ""Red team this authentication design before we build it""
+
+**Source:** [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/HEAD/skills/the-fool) · MIT · by Jeffallan",https://commandvault.ai/commands/the-fool-challenge-my-plan-jeffallan-d0b2c56f
+kubernetes-specialist-jeffallan-fad9448b,Kubernetes specialist (Jeffallan),"Writes and debugs Kubernetes manifests, Helm charts, RBAC and network policies.",skill,devops,skill;kubernetes;helm;rbac;k8s,"Guides Claude through Kubernetes work: deployments, services and ingress, config and secrets, storage, Helm charts and troubleshooting. Its rules require resource requests and limits, health probes, least-privilege RBAC and NetworkPolicies, and it lists kubectl commands for checking rollouts and rolling back. Reference files cover operators, service mesh, GitOps with Argo CD or Flux, cost tuning and multi-cluster setups.
+
+**Try asking:**
+- ""Write a Deployment and Service for this API with probes and resource limits""
+- ""My pod is in CrashLoopBackOff. Help me debug it""
+- ""Add a default-deny NetworkPolicy and allow only the frontend to reach the API""
+
+**Source:** [Jeffallan/claude-skills](https://github.com/Jeffallan/claude-skills/tree/HEAD/skills/kubernetes-specialist) · MIT · by Jeffallan",https://commandvault.ai/commands/kubernetes-specialist-jeffallan-fad9448b
+planning-with-files-ahmad-othman-ammar-adi-1262ece8,Planning with files (Ahmad Othman Ammar Adi),"Keeps a task plan, findings and progress log on disk so long agent tasks survive context loss.",skill,agents,skill;planning;context;long-running;memory,"For multi-step work, Claude creates task_plan.md, findings.md and progress.md in the project and keeps them updated as it goes, with rules such as writing the plan first, logging every error and not repeating failed attempts. Hooks re-inject the plan into context and help recover after a context reset. Scripts and templates are included, and the skill states it has no network upload path.
+
+**Try asking:**
+- ""Plan and carry out the migration from Jest to Vitest, keeping a plan file as you go""
+- ""Research our three logging vendors and record findings to disk""
+- ""Pick up where we left off on the refactor using the plan files""
+
+**Source:** [OthmanAdi/planning-with-files](https://github.com/OthmanAdi/planning-with-files/tree/HEAD/skills/planning-with-files) · MIT · by Ahmad Othman Ammar Adi",https://commandvault.ai/commands/planning-with-files-ahmad-othman-ammar-adi-1262ece8
+codebase-knowledge-builder-ahmad-othman-ammar-adi-83cd0d53,Codebase knowledge builder (Ahmad Othman Ammar Adi),"Studies an unfamiliar repository and writes a cited, revision-specific knowledge document.",skill,learning,skill;onboarding;architecture;documentation;codebase,"Claude works in four phases: reconnaissance of the repo's shape, deep dives into requested topics, writing the knowledge artifact from a template, and validating it before delivery. Every claim is labeled observed, inferred or unknown, and observed claims cite file and line. By default it reads the target without running code, installing dependencies or changing git state, and it skips secret files such as .env.
+
+**Try asking:**
+- ""Study this repo and write an onboarding guide for new engineers""
+- ""Trace how a request flows through the API layer and document it with citations""
+- ""Map the architecture of the payments service at the current commit""
+
+**Source:** [OthmanAdi/codebase-knowledge-builder](https://github.com/OthmanAdi/codebase-knowledge-builder/tree/HEAD/skills/codebase-knowledge-builder) · MIT · by Ahmad Othman Ammar Adi",https://commandvault.ai/commands/codebase-knowledge-builder-ahmad-othman-ammar-adi-83cd0d53
+specialist-code-review-phil-haack-1fb3c019,Specialist code review (Phil Haack),"Runs security, performance, correctness and other specialist review agents on a diff or PR.",skill,backend,skill;code-review;pull-requests;security;github,"Reviews local changes, a commit, a branch, a git range or a PR URL. A correctness reviewer always runs, and others (security, performance, maintainability, testing, compatibility, infrastructure config, frontend) are added unless ruled out. Options can post a draft GitHub review with inline comments, apply fixes, re-review only what changed, or get a second pass from the Copilot or Codex CLI. A learn mode studies review outcomes to tune later reviews. Uses bundled scripts, and gh for PR features.
+
+**Try asking:**
+- ""/review-code""
+- ""/review-code security""
+- ""/review-code https://github.com/org/repo/pull/123 --draft""
+
+**Source:** [haacked/review-code](https://github.com/haacked/review-code/tree/HEAD/skills/review-code) · MIT · by Phil Haack",https://commandvault.ai/commands/specialist-code-review-phil-haack-1fb3c019
+algo-sensei-dsa-tutor-karan-bansal-52cac2aa,Algo Sensei DSA tutor (Karan Bansal),A data structures and algorithms mentor for LeetCode practice and interview prep.,skill,learning,skill;algorithms;leetcode;interviews;tutoring,"Claude picks a mode from how you ask: tutoring a concept, giving progressive hints without spoiling the answer, reviewing your solution and its complexity, running a mock interview, or mapping a problem to a known pattern. It leans on questions rather than handing over answers, and supports several programming languages. Supporting files include pattern guides, solution templates and reference material.
+
+**Try asking:**
+- ""Give me a hint for Two Sum, but don't tell me the answer""
+- ""Review my sliding window solution and its time complexity""
+- ""Run a 30-minute mock interview on graph problems""
+
+**Source:** [karanb192/algo-sensei](https://github.com/karanb192/algo-sensei) · MIT · by Karan Bansal",https://commandvault.ai/commands/algo-sensei-dsa-tutor-karan-bansal-52cac2aa
+slack-message-formatter-karan-bansal-fc7e39b2,Slack message formatter (Karan Bansal),Writes Slack messages in Markdown and converts them to paste-safe HTML or Slack mrkdwn.,skill,productivity,skill;slack;formatting;messaging;markdown,"Claude drafts the message in standard Markdown, checks that it will read clearly to someone without context, then converts it with a bundled Node.js script. One output is rich HTML that keeps formatting when pasted into Slack; the other is mrkdwn for bots and webhooks. Tables, task lists and headings are converted to forms Slack can show, and user mentions work only on the webhook path. Requires Node.js 20 or newer.
+
+**Try asking:**
+- ""Write a Slack announcement for the new deploy process""
+- ""Turn this incident summary into a thread reply I can paste into Slack""
+- ""Format this release note as mrkdwn for our webhook""
+
+**Source:** [karanb192/slack-message-formatter](https://github.com/karanb192/slack-message-formatter/tree/HEAD/skills/slack-message-formatter) · MIT · by Karan Bansal",https://commandvault.ai/commands/slack-message-formatter-karan-bansal-fc7e39b2
+claude-council-alex-g-751e4705,Claude Council (Alex G),Asks several AI models the same question and shows their answers with a synthesis.,skill,agents,skill;multi-model;second-opinion;gemini;openai,"Part of the claude-council plugin. Claude runs a script that sends one question to the selected providers (Gemini, OpenAI, Grok, Perplexity), shows each answer as returned, and then writes a synthesis of where they agree, where they differ and what it recommends. Results are saved to a cache file in the project. The skill is invoked by the plugin's ask command rather than on its own.
+
+**Try asking:**
+- ""Ask the council whether we should use SQLite or Postgres for this desktop app""
+- ""Get Gemini's and OpenAI's take on this caching design""
+- ""Ask the council to review this error-handling approach""
+
+**Source:** [hex/claude-council](https://github.com/hex/claude-council/tree/HEAD/skills/council-execution) · MIT · by Alex G",https://commandvault.ai/commands/claude-council-alex-g-751e4705
+prose-hygiene-alex-g-74e68bdd,Prose hygiene (Alex G),"A checklist for removing AI writing tells, with a scoring rubric for reviews.",skill,writing,skill;editing;prose;style;ai-writing,"Lists phrases and structures to avoid, such as throat-clearing openers, emphasis crutches, business jargon, adverbs, binary contrasts and formulaic setups, with plain replacements. When drafting, Claude avoids them; when reviewing, it quotes each match, names the rule and proposes a rewrite, then scores the text without editing the file. It includes carve-outs for technical writing. The taxonomy is adapted from the MIT-licensed stop-slop project.
+
+**Try asking:**
+- ""Review this blog post for AI writing tells and score it""
+- ""Draft the summary of today's session without filler phrases""
+- ""Check this README intro against the prose hygiene rules""
+
+**Source:** [hex/claude-sessions](https://github.com/hex/claude-sessions/tree/HEAD/skills/prose-hygiene) · MIT · by Alex G",https://commandvault.ai/commands/prose-hygiene-alex-g-74e68bdd
+learn-from-corrections-bayram-annakov-bf9dad1a,Learn from corrections (Bayram Annakov),Captures your corrections during sessions and turns them into CLAUDE.md rules you approve.,skill,agents,skill;memory;claude-md;learning;hooks,"Hooks watch for corrections such as ""no, use X"" or ""remember:"" and add them to a queue. Running /reflect lets you review the queued items and write the ones you approve into the right place: global or project CLAUDE.md, rules files or memory. Other commands scan past sessions for missed learnings, preview changes, suggest skills from repeated patterns, or clear the queue.
+
+**Try asking:**
+- ""/reflect""
+- ""/reflect --scan-history""
+- ""Remember: we use pnpm, not npm, in this repo""
+
+**Source:** [BayramAnnakov/claude-reflect](https://github.com/BayramAnnakov/claude-reflect) · MIT · by Bayram Annakov",https://commandvault.ai/commands/learn-from-corrections-bayram-annakov-bf9dad1a
+constraint-finder-bayram-annakov-70d7f968,Constraint finder (Bayram Annakov),Finds the single bottleneck in a process using Goldratt's Theory of Constraints.,skill,productivity,skill;theory-of-constraints;bottlenecks;operations;systems-thinking,"Given a process and the goal it serves, Claude identifies the one binding constraint, says whether it is a resource or (more often) a policy, and lays out the five focusing steps as concrete actions in order, with the free moves before spending money. It first insists on a clear throughput goal, checks whether a stable constraint exists at all, and warns against optimizing steps that are not the constraint. It responds in the user's language.
+
+**Try asking:**
+- ""Here is our hiring pipeline and goal. Find the constraint""
+- ""Our support team is always behind. Interview me to find the bottleneck""
+- ""Apply the 5 focusing steps to our release process""
+
+**Source:** [BayramAnnakov/systems-thinking-skills](https://github.com/BayramAnnakov/systems-thinking-skills/tree/HEAD/skills/constraint-finder) · MIT · by Bayram Annakov",https://commandvault.ai/commands/constraint-finder-bayram-annakov-70d7f968
+philosophy-of-software-design-rules-maciej-ciemborowicz-d0a0c70d,Philosophy of Software Design rules (Maciej Ciemborowicz),Design rules inspired by John Ousterhout's book for module boundaries and APIs.,skill,backend,skill;software-design;architecture;api-design;refactoring,"When a task involves module or API design, Claude reads and applies a condensed rule set inspired by A Philosophy of Software Design: deep modules, information hiding, lower cognitive load and fewer shallow interfaces. A longer version of the rules is included for harder tradeoffs. The rules are the author's summary of the book's ideas, not the book's text.
+
+**Try asking:**
+- ""Review this module's API for shallow interfaces and leaked details""
+- ""Redesign this service class to hide more complexity""
+- ""Apply Ousterhout's principles to this refactor plan""
+
+**Source:** [ciembor/agent-rules-books](https://github.com/ciembor/agent-rules-books/tree/HEAD/a-philosophy-of-software-design) · MIT · by Maciej Ciemborowicz",https://commandvault.ai/commands/philosophy-of-software-design-rules-maciej-ciemborowicz-d0a0c70d
+legacy-code-rules-maciej-ciemborowicz-804a3d1b,Legacy code rules (Maciej Ciemborowicz),Rules inspired by Michael Feathers for changing hard-to-test code safely.,skill,backend,skill;legacy-code;testing;refactoring;seams,"Claude follows a condensed rule set inspired by Working Effectively with Legacy Code: state what must keep working, add characterization tests, find or create a seam, break only the dependency that blocks testing, then change behavior and refactor in separate steps. It covers sprout and wrap techniques and review rules for risky edits. A longer reference version is included.
+
+**Try asking:**
+- ""Add a feature to this untested class without breaking it""
+- ""Write characterization tests for this legacy function before we change it""
+- ""Find a seam so we can test this code that calls the database directly""
+
+**Source:** [ciembor/agent-rules-books](https://github.com/ciembor/agent-rules-books/tree/HEAD/working-effectively-with-legacy-code) · MIT · by Maciej Ciemborowicz",https://commandvault.ai/commands/legacy-code-rules-maciej-ciemborowicz-804a3d1b
+three-js-fundamentals-cloudai-x-69c4b4fa,Three.js fundamentals (CloudAI-X),"Scene, camera, renderer and object setup for three.js, on WebGL or WebGPU.",skill,frontend,skill;threejs;webgl;webgpu;3d,"A reference for starting three.js work, targeting r186: import maps without a bundler, scenes and fog, the camera types, renderer and tone mapping, the animation loop, object hierarchies, the coordinate system and math helpers. It also covers resizing, cleanup of GPU resources, performance tips, the WebGPU renderer with TSL, and common mistakes. Other skills in the same repo cover materials, lighting, shaders and more.
+
+**Try asking:**
+- ""Set up a three.js scene with a perspective camera, orbit controls and resize handling""
+- ""Port this WebGL scene to the WebGPU renderer""
+- ""Why is my three.js scene leaking memory when I switch views?""
+
+**Source:** [CloudAI-X/threejs-skills](https://github.com/CloudAI-X/threejs-skills/tree/HEAD/skills/threejs-fundamentals) · MIT · by CloudAI-X",https://commandvault.ai/commands/three-js-fundamentals-cloudai-x-69c4b4fa
+security-patterns-cloudai-x-e8c41d36,Security patterns (CloudAI-X),"Patterns for auth, authorization, secrets, encryption, CORS and rate limiting.",skill,security,skill;auth;jwt;secrets;owasp,"Gives Claude implementation patterns for common security work: JWT and session auth, OAuth and OIDC, API keys, role-based and resource-level authorization, password hashing, secrets management and rotation, encryption in transit and at rest, CORS, rate limiting, security headers and input validation. It starts with a checklist to track and ends with a summary of common anti-patterns.
+
+**Try asking:**
+- ""Add JWT auth with refresh tokens to this Express API""
+- ""Review how we store secrets and suggest a safer setup""
+- ""Set up rate limiting and security headers for our public endpoints""
+
+**Source:** [CloudAI-X/claude-workflow-v2](https://github.com/CloudAI-X/claude-workflow-v2/tree/HEAD/skills/security-patterns) · MIT · by CloudAI-X",https://commandvault.ai/commands/security-patterns-cloudai-x-e8c41d36
+second-opinion-from-codex-peterkrueck-aa45925b,Second opinion from Codex (peterkrueck),"Asks OpenAI's Codex CLI to independently check a plan, bug or design.",skill,agents,skill;codex;second-opinion;review;multi-model,"Claude writes a focused question with its current thinking, runs the Codex CLI locally in non-interactive mode, and presents Codex's answer, optionally going back and forth for a few turns. Codex can read the project files itself. The skill is meant for architecture tradeoffs, stuck debugging and tricky review cases, not routine tasks, since each call takes time and uses ChatGPT plan quota. Requires the Codex CLI.
+
+**Try asking:**
+- ""Get a second opinion from Codex on this migration plan""
+- ""We've been stuck on this race condition for an hour. Ask Codex""
+- ""Cross-check my reasoning on this caching tradeoff""
+
+**Source:** [peterkrueck/Claude-Code-Development-Kit](https://github.com/peterkrueck/Claude-Code-Development-Kit/tree/HEAD/skills/second-opinion) · MIT · by peterkrueck",https://commandvault.ai/commands/second-opinion-from-codex-peterkrueck-aa45925b
+update-ai-context-docs-peterkrueck-f92af14c,Update AI context docs (peterkrueck),Keeps a project's AI-facing docs and CLAUDE.md in sync after architectural changes.,skill,writing,skill;documentation;claude-md;context;maintenance,"After a change that adds new architecture, Claude updates four docs under docs/ai-context (spec, project structure, progress, deployment) and CLAUDE.md, or creates them if missing. The rules favor deleting lines, describe only the current state, and skip anything an agent can learn from the code or git history. It also says when not to run, such as after bug fixes, small refactors or styling changes.
+
+**Try asking:**
+- ""Update the docs for the new queue worker we just added""
+- ""/update-docs""
+- ""Set up the ai-context docs for this project""
+
+**Source:** [peterkrueck/Claude-Code-Development-Kit](https://github.com/peterkrueck/Claude-Code-Development-Kit/tree/HEAD/skills/update-docs) · MIT · by peterkrueck",https://commandvault.ai/commands/update-ai-context-docs-peterkrueck-f92af14c
+diagnose-with-verified-evidence-shinpr-ad6ab6ec,Diagnose with verified evidence (shinpr),"Runs an investigate, verify and solve loop with separate subagents to find a root cause.",skill,agents,skill;debugging;root-cause;subagents;workflow,"Claude acts as an orchestrator: it first records the reported symptom and scope, then has an investigator agent gather evidence, a verifier agent check it, and a solver agent propose fixes. The final report lists the failure points, how they were verified, a recommended fix with steps, alternatives and remaining risks, or says which evidence is missing. Manual use only; it depends on agents shipped in the dev-workflows plugin.
+
+**Try asking:**
+- ""/recipe-diagnose login sometimes returns 500 after deploys""
+- ""/recipe-diagnose the nightly export job produces duplicate rows""
+- ""/recipe-diagnose memory keeps growing in the worker process""
+
+**Source:** [shinpr/claude-code-workflows](https://github.com/shinpr/claude-code-workflows/tree/HEAD/skills/recipe-diagnose) · MIT · by shinpr",https://commandvault.ai/commands/diagnose-with-verified-evidence-shinpr-ad6ab6ec
+docs-from-existing-code-shinpr-657d0bb4,Docs from existing code (shinpr),"Generates PRDs and design docs from an existing codebase, with verification and review steps.",skill,agents,skill;documentation;prd;reverse-engineering;subagents,"Claude confirms the target path, depth and reference architecture, then works unit by unit: discovering scope, having agents write a PRD, verifying it against the code and reviewing it, and optionally doing the same for backend and frontend design docs. Review findings are resolved before moving on. Manual use only; it relies on agents from the dev-workflows plugin.
+
+**Try asking:**
+- ""/recipe-reverse-engineer src/billing""
+- ""/recipe-reverse-engineer the whole repo, PRD only""
+- ""/recipe-reverse-engineer src/api with design docs and human review""
+
+**Source:** [shinpr/claude-code-workflows](https://github.com/shinpr/claude-code-workflows/tree/HEAD/skills/recipe-reverse-engineer) · MIT · by shinpr",https://commandvault.ai/commands/docs-from-existing-code-shinpr-657d0bb4
+phoenix-liveview-patterns-oliver-kriska-8042b4f7,Phoenix LiveView patterns (Oliver Kriska),Rules and patterns for building Phoenix LiveView pages correctly.,skill,backend,skill;elixir;phoenix;liveview,"Loads automatically for LiveView, component and channel files. It sets ten rules, such as no unconditional database queries in mount, streams for lists, checking connected? before subscribing, and matching changeset errors explicitly. It also covers async assigns, rendering cached HTML for SEO routes, navigation and component decision trees, and common anti-patterns, with reference files for deeper topics.
+
+**Try asking:**
+- ""Build a LiveView page that lists orders with live updates via PubSub""
+- ""Why does my LiveView form not show validation errors?""
+- ""Refactor this LiveView to use streams instead of assigns for the list""
+
+**Source:** [oliver-kriska/claude-elixir-phoenix](https://github.com/oliver-kriska/claude-elixir-phoenix/tree/HEAD/plugins/elixir-phoenix/skills/liveview-patterns) · MIT · by Oliver Kriska",https://commandvault.ai/commands/phoenix-liveview-patterns-oliver-kriska-8042b4f7
+ecto-patterns-oliver-kriska-2e40f0ab,Ecto patterns (Oliver Kriska),"Rules for Ecto schemas, changesets, queries, preloads and migrations.",skill,backend,skill;elixir;ecto;database;phoenix,"Loads for Ecto work in Elixir projects. Its rules include using cast only for external input, never using floats for money, avoiding polymorphic associations, pinning values in queries, preloading collections instead of looping, and relying on database constraints for race conditions. It includes a schema template, quick decision tables for changeset functions and preload strategy, and common anti-patterns.
+
+**Try asking:**
+- ""Write an Ecto schema and changeset for invoices with a money field""
+- ""Fix the N+1 queries in this context module""
+- ""Add a unique constraint and handle the race condition on signup""
+
+**Source:** [oliver-kriska/claude-elixir-phoenix](https://github.com/oliver-kriska/claude-elixir-phoenix/tree/HEAD/plugins/elixir-phoenix/skills/ecto-patterns) · MIT · by Oliver Kriska",https://commandvault.ai/commands/ecto-patterns-oliver-kriska-2e40f0ab
+smart-ralph-spec-workflow-zach-1a124f9f,Smart Ralph spec workflow (Zach),Guides spec-driven development from research to task-by-task implementation.,skill,agents,skill;spec-driven;planning;workflow;autonomous,"Explains the Smart Ralph flow: research, requirements, design and task phases each produce a Markdown file, and an executor agent then implements the tasks one by one with commits. Normal mode pauses for approval between phases, quick mode runs them all. Large features can be split into an epic of dependent specs. It points to the plugin's commands, such as /ralph-specum:start and /ralph-specum:triage.
+
+**Try asking:**
+- ""Start a spec for adding OAuth login""
+- ""Triage this large billing rewrite into smaller specs""
+- ""What phase is my current spec in, and what is next?""
+
+**Source:** [tzachbon/smart-ralph](https://github.com/tzachbon/smart-ralph/tree/HEAD/plugins/ralph-specum/skills/spec-workflow) · MIT · by Zach",https://commandvault.ai/commands/smart-ralph-spec-workflow-zach-1a124f9f
+specify-a-feature-rudolf-s-4f3c8f1d,Specify a feature (Rudolf S.),"Turns a short brief into requirements, a solution design and an implementation plan.",skill,productivity,skill;specification;requirements;planning;design,"Claude starts by listing what it needs to know and the assumptions it would otherwise make, and asks you to confirm or correct them. It then researches the codebase and writes three documents: requirements, a target solution design and an implementation plan broken into slices for the companion /implement skill. Assumptions stay marked in the documents until confirmed.
+
+**Try asking:**
+- ""/specify add team billing with per-seat pricing""
+- ""/specify a CSV import for contacts""
+- ""/specify rate limiting for the public API""
+
+**Source:** [rsmdt/the-startup](https://github.com/rsmdt/the-startup/tree/HEAD/plugins/start/skills/specify) · MIT · by Rudolf S.",https://commandvault.ai/commands/specify-a-feature-rudolf-s-4f3c8f1d
+security-assessment-rudolf-s-d4d3ab03,Security assessment (Rudolf S.),Threat models and reviews code and infrastructure for vulnerabilities.,skill,security,skill;threat-modeling;stride;owasp;code-review,"Claude gathers context on the target, models threats with STRIDE, reviews code against OWASP patterns, assesses infrastructure, and reports findings by severity with location, impact and a fix. Focus areas include authentication, authorization, input handling and secrets. Checklists and reference material ship with the skill.
+
+**Try asking:**
+- ""Run a security assessment on our auth module""
+- ""Threat model this new file upload feature""
+- ""Review the API gateway config for security issues""
+
+**Source:** [rsmdt/the-startup](https://github.com/rsmdt/the-startup/tree/HEAD/plugins/team/skills/quality/security-assessment) · MIT · by Rudolf S.",https://commandvault.ai/commands/security-assessment-rudolf-s-d4d3ab03
+avoid-feature-creep-wayne-sutton-ee327ad9,Avoid feature creep (Wayne Sutton),Keeps a change scoped to what was asked and lists extras as suggestions instead.,skill,productivity,skill;scope;focus;prd;code-review,"Every line of a diff should trace back to the request. The skill lists signs that scope is growing, such as ""while we're here"" edits, unrequested options, adjacent refactors or extra error handling, and tells Claude to finish the smallest complete change, collect other ideas under a Suggestions heading, and let the user choose. It applies the same rule to PRDs, which get an Out of scope section.
+
+**Try asking:**
+- ""Just fix the date bug, nothing else""
+- ""Keep this PRD to the problem statement and move the extras out""
+- ""Review this diff for changes I didn't ask for""
+
+**Source:** [waynesutton/builder-skills](https://github.com/waynesutton/builder-skills/tree/HEAD/skills/avoid-feature-creep) · Apache-2.0 · by Wayne Sutton",https://commandvault.ai/commands/avoid-feature-creep-wayne-sutton-ee327ad9
+git-safety-wayne-sutton-951d574b,Git safety (Wayne Sutton),Stops an agent from destroying uncommitted work with git.,skill,devops,skill;git;safety;version-control,"Before any git command Claude checks git status and stops if there are uncommitted or untracked files. Commands such as reset --hard, checkout or restore of files, clean, stash drop, force push and branch -D need explicit approval of the exact command. Requests to ""revert"" or ""undo"" are handled as manual edits of the specific lines, and committed changes are undone with git revert.
+
+**Try asking:**
+- ""Undo my last change to the header component""
+- ""Clean up this branch before I open a PR""
+- ""Revert the commit that broke the build""
+
+**Source:** [waynesutton/builder-skills](https://github.com/waynesutton/builder-skills/tree/HEAD/skills/git-safety) · Apache-2.0 · by Wayne Sutton",https://commandvault.ai/commands/git-safety-wayne-sutton-951d574b
+prd-writer-mohit-aggarwal-2c12464b,PRD writer (Mohit Aggarwal),Writes a full product requirements document from a feature idea.,skill,productivity,skill;prd;product-management;requirements;specs,"Produces a PRD with overview, context, user stories, functional requirements, design notes, technical considerations, an implementation plan and open questions. It includes writing guidelines, a 40-point scoring rubric, quality checks and anti-patterns, and can draw on a shared project knowledge folder if one exists. Templates and reference material are bundled.
+
+**Try asking:**
+- ""Write a PRD for a customer support dashboard that merges email and chat""
+- ""Turn these meeting notes into a PRD""
+- ""Score this existing PRD against the rubric and suggest fixes""
+
+**Source:** [mohitagw15856/pm-claude-skills](https://github.com/mohitagw15856/pm-claude-skills/tree/HEAD/skills/prd-template) · MIT · by Mohit Aggarwal",https://commandvault.ai/commands/prd-writer-mohit-aggarwal-2c12464b
+rice-prioritisation-mohit-aggarwal-b8beff04,RICE prioritisation (Mohit Aggarwal),Scores and ranks backlog items with the RICE framework.,skill,productivity,skill;prioritization;rice;product-management;roadmap,"Claude scores each initiative on reach, impact, confidence and effort, then returns a ranked table with quick wins and moonshots flagged, dependency notes and a suggested order. A bundled script can calculate scores from JSON or CSV input. It includes definitions to adapt, a scoring rubric, quality checks and anti-patterns.
+
+**Try asking:**
+- ""Prioritise these 12 backlog items with RICE""
+- ""Score our Q3 initiatives and suggest a sequence""
+- ""Here's a CSV of features with estimates. Rank them by RICE""
+
+**Source:** [mohitagw15856/pm-claude-skills](https://github.com/mohitagw15856/pm-claude-skills/tree/HEAD/skills/rice-prioritisation) · MIT · by Mohit Aggarwal",https://commandvault.ai/commands/rice-prioritisation-mohit-aggarwal-b8beff04
+prompt-master-nidhin-joseph-nelson-e6cb241f,Prompt master (Nidhin Joseph Nelson),Writes or fixes a prompt tuned for a specific AI tool.,skill,agents,skill;prompt-engineering;prompts;llm,"Activates only when you ask for a prompt. Claude confirms the target tool (a chat model, Cursor, a coding agent, an image or video model), extracts the intent with at most three clarifying questions, and returns one ready-to-paste prompt with a one-line note on what it optimized. It prefers simple techniques such as roles, examples and verification criteria over complex reasoning frameworks, and reference files cover tool-specific guidance.
+
+**Try asking:**
+- ""Write a Midjourney prompt for a product shot of a ceramic mug on a wooden table""
+- ""Fix this Cursor prompt so it stops rewriting unrelated files""
+- ""Turn my rough idea into a system prompt for a support chatbot""
+
+**Source:** [nidhinjs/prompt-master](https://github.com/nidhinjs/prompt-master) · MIT · by Nidhin Joseph Nelson",https://commandvault.ai/commands/prompt-master-nidhin-joseph-nelson-e6cb241f
+agent-readiness-audit-john-renaldi-33472665,Agent readiness audit (John Renaldi),Scores how ready a codebase is for AI coding agents and what to improve.,skill,devops,skill;audit;agents;tooling;developer-experience,"Claude detects the stack and any monorepo layout, then runs three subagents in parallel to check eight areas: style and validation, testing, git hooks, documentation, agent configuration, code quality, dev environment and agentic workflow. It assigns a readiness level from 1 (Bare) upward and saves a readiness-report.md, comparing against a previous report when one exists. Requires the harness-engineering plugin's setup skill as reference material.
+
+**Try asking:**
+- ""How ready is this repo for AI agents?""
+- ""Run a readiness report and tell me the top three fixes""
+- ""Re-run the readiness audit and compare it with last month's report""
+
+**Source:** [jrenaldi79/harness-engineering](https://github.com/jrenaldi79/harness-engineering/tree/HEAD/skills/readiness) · MIT · by John Renaldi",https://commandvault.ai/commands/agent-readiness-audit-john-renaldi-33472665
+git-guardrails-hook-matt-pocock-c88922a2,Git guardrails hook (Matt Pocock),Installs a hook that blocks dangerous git commands before Claude runs them.,skill,devops,skill;git;hooks;safety;claude-code,"Sets up a PreToolUse hook in Claude Code that blocks git push, reset --hard, clean -f, branch -D and checkout or restore of the whole tree. Claude asks whether to install it for the project or globally, copies the bundled script, merges it into settings.json without overwriting other hooks, offers to adjust the blocked list, and tests that it works.
+
+**Try asking:**
+- ""Set up git guardrails for this project""
+- ""Block git push and reset --hard for Claude in all my projects""
+- ""Add git safety hooks but allow git push""
+
+**Source:** [mattpocock/skills](https://github.com/mattpocock/skills/tree/HEAD/skills/misc/git-guardrails-claude-code) · MIT · by Matt Pocock",https://commandvault.ai/commands/git-guardrails-hook-matt-pocock-c88922a2
+domain-modeling-matt-pocock-49487364,Domain modeling (Matt Pocock),Sharpens a project's domain language and records it in a glossary and ADRs.,skill,backend,skill;domain-driven-design;glossary;adr;design,"While you design, Claude challenges terms that conflict with GLOSSARY.md, proposes precise names for vague ones, tests relationships with edge-case scenarios, and checks claims against the code. Resolved terms go into the glossary right away, kept free of implementation details. It offers an ADR only when a decision is hard to reverse, surprising without context and the result of a real tradeoff. Format guides for both files are included.
+
+**Try asking:**
+- ""Help me pin down what 'account' means in this codebase""
+- ""We're designing subscriptions. Challenge my terms as we go""
+- ""Record an ADR for why we chose event sourcing for orders""
+
+**Source:** [mattpocock/skills](https://github.com/mattpocock/skills/tree/HEAD/skills/engineering/domain-modeling) · MIT · by Matt Pocock",https://commandvault.ai/commands/domain-modeling-matt-pocock-49487364
+pricing-strategy-corey-haines-0abd00dc,Pricing strategy (Corey Haines),"Helps set SaaS pricing, packaging, tiers and price increases.",skill,marketing,skill;pricing;saas;packaging;monetization,"Claude first gathers business context, competition, current performance and goals, then works through value metrics, good-better-best tiers, per-seat versus usage pricing, freemium and trials, and research methods such as Van Westendorp and MaxDiff. It also covers when and how to raise prices and pricing page design. Reference files and evals ship with the skill.
+
+**Try asking:**
+- ""What should we charge for our analytics tool? Here's our context""
+- ""Design three pricing tiers for a B2B scheduling app""
+- ""Is it time to raise prices, and how do we handle existing customers?""
+
+**Source:** [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/HEAD/skills/pricing) · MIT · by Corey Haines",https://commandvault.ai/commands/pricing-strategy-corey-haines-0abd00dc
+cold-email-corey-haines-811a8dd9,Cold email (Corey Haines),"Writes B2B cold outreach and follow-ups, and covers deliverability.",skill,marketing,skill;cold-email;outbound;sales;deliverability,"Claude writes cold emails that read like a peer rather than a vendor: personalization tied to the prospect's problem, one low-friction ask, subject lines and follow-up sequences. It also covers sending from secondary domains, verifying lists, turning off open tracking, coordinating with LinkedIn and handling replies. It lists phrasing to avoid, including common AI tells.
+
+**Try asking:**
+- ""Write a 3-email cold sequence to heads of RevOps at Series B SaaS companies""
+- ""Why is nobody replying to this cold email? Here it is""
+- ""Set up our sending domains and cadence for a new outbound campaign""
+
+**Source:** [coreyhaines31/marketingskills](https://github.com/coreyhaines31/marketingskills/tree/HEAD/skills/cold-email) · MIT · by Corey Haines",https://commandvault.ai/commands/cold-email-corey-haines-811a8dd9
+context-engineering-addy-osmani-b3b5784d,Context engineering (Addy Osmani),Sets up what an agent sees so its output stays accurate and focused.,skill,agents,skill;context;claude-md;rules-files;agents,"Describes a context hierarchy: rules files, specs and architecture notes, relevant source files, error output and conversation management. It gives a rules-file template and packing strategies such as a brain dump, a selective include and a hierarchical project map, plus advice on managing the context budget and when to restart a session. Use it at the start of a project, when switching tasks or when output quality drops.
+
+**Try asking:**
+- ""Write a CLAUDE.md for this repo following the context hierarchy""
+- ""The agent keeps losing track in this long session. Help me restructure context""
+- ""Build a project map so the agent can find the right files""
+
+**Source:** [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills/tree/HEAD/skills/context-engineering) · MIT · by Addy Osmani",https://commandvault.ai/commands/context-engineering-addy-osmani-b3b5784d
+spec-driven-development-addy-osmani-140be344,Spec-driven development (Addy Osmani),"Writes a structured spec before any code, then plans, splits into tasks and implements.",skill,productivity,skill;specification;planning;prd;requirements,"Runs a gated workflow: a scope check that may split work into a capability map, then a spec with objective, tech stack, commands, structure, code style, testing, boundaries, success criteria and out-of-scope items, then a plan, tasks and implementation. It also explains how to keep the spec current, scope a V1, defer ideas to a V2 backlog, and write delta specs for later changes.
+
+**Try asking:**
+- ""Write a spec for a habit-tracking app before we start coding""
+- ""Our requirements are vague. Help me turn them into a spec""
+- ""Write a delta spec for adding team accounts to the existing app""
+
+**Source:** [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills/tree/HEAD/skills/spec-driven-development) · MIT · by Addy Osmani",https://commandvault.ai/commands/spec-driven-development-addy-osmani-140be344
+core-web-vitals-addy-osmani-af95e4c1,Core Web Vitals (Addy Osmani),"Diagnoses and fixes LCP, INP and CLS problems using field and lab data.",skill,frontend,skill;performance;core-web-vitals;lcp;cls;inp,"Claude starts by measuring, using field data to see user impact and browser traces to find causes, then works through each metric: common Largest Contentful Paint issues and a checklist, Interaction to Next Paint, and Cumulative Layout Shift. It includes quick fixes for Next.js, React and Vue or Nuxt, and reference material.
+
+**Try asking:**
+- ""Our LCP is 4.2s on mobile. Find out why and fix it""
+- ""Reduce layout shift on the product page""
+- ""Improve INP on this React dashboard""
+
+**Source:** [addyosmani/web-quality-skills](https://github.com/addyosmani/web-quality-skills/tree/HEAD/skills/core-web-vitals) · MIT · by Addy Osmani",https://commandvault.ai/commands/core-web-vitals-addy-osmani-af95e4c1
+datacircle-mcp-server-mwjxd68b,Datacircle MCP server,"Our MCP server is open to anyone, with no key: add api.datacircle.dev/mcp to Claude, ChatGPT or Cursor. Find the best GTM APIs.",mcp_server,agents,,"Our MCP server is open to anyone, with no key: add api.datacircle.dev/mcp to Claude, ChatGPT or Cursor. Find the best GTM APIs.",https://commandvault.ai/commands/datacircle-mcp-server-mwjxd68b
